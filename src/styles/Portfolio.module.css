@@ -1,0 +1,34 @@
+/* CSS Modules for component-specific styling */
+.portfolioContainer {
+  height: 100vh;
+  background: white;
+  overflow: hidden;
+}
+
+.sidebar {
+  width: 320px;
+  padding-left: 32px;
+  padding-right: 24px;
+}
+
+.projectItem {
+  transition: all 0.3s ease;
+}
+
+.projectItem:hover .projectText {
+  filter: blur(8px);
+}
+
+.projectItem.selected .projectText {
+  filter: none;
+}
+
+.highlightColor {
+  background-color: #81FF03;
+}
+
+.dashedSeparator {
+  border-bottom: 0.5px dashed #d1d5db;
+  margin: 4px 0;
+  margin-left: 20px;
+}
