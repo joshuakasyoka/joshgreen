@@ -232,7 +232,7 @@ const Portfolio = () => {
   const closeModal = () => setModalImage(null);
 
   return (
-    <div className="h-screen bg-white overflow-hidden">
+    <div className="h-screen bg-white">
       {/* Header */}
       <div className="flex justify-between items-start px-8 py-6">
         <h1 
