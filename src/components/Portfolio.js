@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import Modal from './Modal';
 
@@ -172,34 +172,35 @@ const Portfolio = () => {
       }
     ],
     'Design Writing': [
-      { 
-        id: 11, 
-        name: 'On Graphic Narrative', 
-        date: 'May 2025', 
-        description: 'Website for collecting citizen voices on the subject of Artificial Intelligence', 
-        website: 'https://aivoicesmap.vercel.app/',
-        images: [
-          { src: '/images/01.01.png', caption: 'Main interface' },
-          { src: '/images/01.02.png', caption: 'Submission form' },
-          { src: '/images/01.03.png', caption: 'Main interface' }
-        ]
-      },
-      { 
-        id: 12, 
-        name: 'Climate Truth Crisis', 
-        date: 'May 2025', 
-        description: 'Website for collecting citizen voices on the subject of Artificial Intelligence', 
-        website: 'https://aivoicesmap.vercel.app/',
-        images: [
-          { src: '/images/012.01.png', caption: 'Main interface' },
-          { src: '/images/012.02.png', caption: 'Submission form' },
-          { src: '/images/012.03.png', caption: 'Main interface' }
-        ]
-      }
+      // { 
+      //   id: 11, 
+      //   name: 'On Graphic Narrative', 
+      //   date: 'May 2025', 
+      //   description: 'Website for collecting citizen voices on the subject of Artificial Intelligence', 
+      //   website: 'https://aivoicesmap.vercel.app/',
+      //   images: [
+      //     { src: '/images/01.01.png', caption: 'Main interface' },
+      //     { src: '/images/01.02.png', caption: 'Submission form' },
+      //     { src: '/images/01.03.png', caption: 'Main interface' }
+      //   ]
+      // },
+      // { 
+      //   id: 12, 
+      //   name: 'Climate Truth Crisis', 
+      //   date: 'May 2025', 
+      //   description: 'Website for collecting citizen voices on the subject of Artificial Intelligence', 
+      //   website: 'https://aivoicesmap.vercel.app/',
+      //   images: [
+      //     { src: '/images/012.01.png', caption: 'Main interface' },
+      //     { src: '/images/012.02.png', caption: 'Submission form' },
+      //     { src: '/images/012.03.png', caption: 'Main interface' }
+      //   ]
+      // }
     ]
   });
 
   const [selectedProject, setSelectedProject] = useState(projects['Web Development'][0]);
+  const mainContentRef = useRef(null);
   const [isHeaderHovered, setIsHeaderHovered] = useState(false);
   const [isAboutHovered, setIsAboutHovered] = useState(false);
   const [modalImage, setModalImage] = useState(null);
@@ -232,6 +233,10 @@ const Portfolio = () => {
 
   const handleProjectClick = (project) => {
     setSelectedProject(project);
+    // On mobile, scroll main content to top
+    if (window.innerWidth < 768 && mainContentRef.current) {
+      mainContentRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   };
 
   const openModal = (image) => setModalImage(image);
@@ -326,7 +331,7 @@ const Portfolio = () => {
                                   src={src}
                                   alt={project.name + ' image ' + (idx + 1)}
                                   onClick={() => openModal({ src, alt: project.name + ' image ' + (idx + 1) })}
-                                  className={`object-cover shadow-lg custom-clickable ${idx % 2 === 0 ? '' : 'ml-auto'}`}
+                                  className={`object-cover shadow-lg custom-clickable rounded-md ${idx % 2 === 0 ? '' : 'ml-auto'}`}
                                   style={{ maxWidth: '100%', width: '100%', display: 'block' }}
                                 />
                                 <div className="flex items-center gap-2 mt-4 justify-start">
@@ -351,7 +356,7 @@ const Portfolio = () => {
         </div>
 
         {/* Main Content */}
-        <div className="md:flex-1 md:relative">
+        <div className="md:flex-1 md:relative" ref={mainContentRef}>
           {selectedProject && (
             <div className="md:absolute md:inset-0">
               {selectedProject.website && (
@@ -381,7 +386,7 @@ const Portfolio = () => {
                           src={src}
                           alt={selectedProject.name + ' image ' + (idx + 1)}
                           onClick={() => openModal({ src, alt: selectedProject.name + ' image ' + (idx + 1) })}
-                          className="object-cover shadow-lg custom-clickable"
+                          className="object-cover shadow-lg custom-clickable rounded-md"
                           style={{ maxWidth: '700px', width: '100%', height: '100%', display: 'block' }}
                           onError={(e) => {
                             e.target.style.display = 'none';
