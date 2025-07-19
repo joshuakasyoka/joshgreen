@@ -201,6 +201,7 @@ const Portfolio = () => {
 
   const [selectedProject, setSelectedProject] = useState(projects['Web Development'][0]);
   const mainContentRef = useRef(null);
+  const headerRef = useRef(null);
   const [isHeaderHovered, setIsHeaderHovered] = useState(false);
   const [isAboutHovered, setIsAboutHovered] = useState(false);
   const [modalImage, setModalImage] = useState(null);
@@ -233,9 +234,9 @@ const Portfolio = () => {
 
   const handleProjectClick = (project) => {
     setSelectedProject(project);
-    // On mobile, scroll main content to top
-    if (window.innerWidth < 768 && mainContentRef.current) {
-      mainContentRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // On mobile, scroll header (project title) to top
+    if (window.innerWidth < 768 && headerRef.current) {
+      headerRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
 
@@ -245,7 +246,7 @@ const Portfolio = () => {
   return (
     <div className="h-screen bg-white">
       {/* Header */}
-      <div className="flex justify-between items-start px-8 py-6">
+      <div className="flex justify-between items-start px-8 py-6" ref={headerRef}>
         <h1 
           className={`text-xl font-normal text-gray-800 transition-all duration-300 cursor-pointer custom-clickable ${
             isHeaderHovered ? 'filter-none' : 'blur-sm'
