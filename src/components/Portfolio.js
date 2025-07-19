@@ -12,10 +12,10 @@ const Portfolio = () => {
         description: 'Website for collecting citizen voices on the subject of Artificial Intelligence', 
         website: 'https://aivoicesmap.vercel.app/',
         images: [
-          { src: '/images/01.01.png', caption: 'Main interface' },
-          { src: '/images/01.02.png', caption: 'Submission form' },
-          { src: '/images/01.03.png', caption: 'Main interface' },
-          { src: '/images/01.04.png', caption: 'Main interface' },
+          { src: '/images/01.01.png', caption: 'London AI Voices Img 1' },
+          { src: '/images/01.02.png', caption: 'London AI Voices Img 2' },
+          { src: '/images/01.03.png', caption: 'London AI Voices Img 3' },
+          { src: '/images/01.04.png', caption: 'London AI Voices Img 4' },
           // { src: '/images/01.05.png', caption: 'Main interface' }
         ]
       },
@@ -26,10 +26,10 @@ const Portfolio = () => {
         description: 'Tate Modern exhibit exploring the water consumption of generative AI', 
         website: 'https://digital-water-database.vercel.app/',
         images: [
-          { src: '/images/02.01.png', caption: 'Main interface' },
-          { src: '/images/02.02.png', caption: 'Submission form' },
-          { src: '/images/02.03.png', caption: 'Main interface' },
-          { src: '/images/02.04.png', caption: 'Main interface' }
+          { src: '/images/02.01.png', caption: 'Tate Modern Exhbit Img 1' },
+          { src: '/images/02.02.png', caption: 'Tate Modern Exhbit Img 2' },
+          { src: '/images/02.03.png', caption: 'Tate Modern Exhbit Img 3' },
+          { src: '/images/02.04.png', caption: 'Tate Modern Exhbit Img 4' }
         ]
       },
       { 
@@ -40,11 +40,11 @@ const Portfolio = () => {
         description: 'Platform built for UAL graduate course, Global Collaborative Design Practice, to display thesis projects', 
         images: [
           // { src: '/images/03.05.png', caption: 'Main interface' },
-          { src: '/images/03.06.png', caption: 'Main interface' },
-          { src: '/images/03.01.png', caption: 'Main interface' },
-          { src: '/images/03.02.png', caption: 'Submission form' },
-          { src: '/images/03.03.png', caption: 'Submission form' },
-          { src: '/images/03.04.png', caption: 'Submission form' }
+          { src: '/images/03.06.png', caption: 'Materials Archive Img 1' },
+          { src: '/images/03.01.png', caption: 'Materials Archive Img 2' },
+          { src: '/images/03.02.png', caption: 'Materials Archive Img 3' },
+          { src: '/images/03.03.png', caption: 'Materials Archive Img 4' },
+          { src: '/images/03.04.png', caption: 'Materials Archive Img 5' }
         ]
       },
       { 
@@ -54,12 +54,12 @@ const Portfolio = () => {
         description: 'Selection of digital tools to enhance community literacy on Algorithm Development', 
         website: 'https://ai-voices-archive-gb91gago5-josh-greens-projects.vercel.app/',
         images: [
-          { src: '/images/04.06.png', caption: 'Main interface' },
-          { src: '/images/04.01.png', caption: 'Main interface' },
-          { src: '/images/04.02.png', caption: 'Submission form' },
-          { src: '/images/04.03.png', caption: 'Submission form' },
-          { src: '/images/04.04.png', caption: 'Submission form' },
-          { src: '/images/04.05.png', caption: 'Submission form' },
+          { src: '/images/04.06.png', caption: 'Community AI Tools Img 1' },
+          { src: '/images/04.01.png', caption: 'Community AI Tools Img 2' },
+          { src: '/images/04.02.png', caption: 'Community AI Tools Img 3' },
+          { src: '/images/04.03.png', caption: 'Community AI Tools Img 4' },
+          { src: '/images/04.04.png', caption: 'Community AI Tools Img 5' },
+          { src: '/images/04.05.png', caption: 'Community AI Tools Img 6 },
         ]
       },
 
@@ -73,10 +73,10 @@ const Portfolio = () => {
         description: 'Leading the implementation of collaborative tools for Moata’s geospatial data platform', 
         website: 'https://www.mottmac.com/en/digital-solutions/',
         images: [
-          { src: '/images/05.04.png', caption: 'Main interface' },
-          { src: '/images/05.01.png', caption: 'Main interface' },
-          { src: '/images/05.02.png', caption: 'Submission form' },
-          { src: '/images/05.03.png', caption: 'Main interface' }
+          { src: '/images/05.04.png', caption: 'Moata Geospatial Img 1' },
+          { src: '/images/05.01.png', caption: 'Moata Geospatial Img 2' },
+          { src: '/images/05.02.png', caption: 'Moata Geospatial Img 3' },
+          { src: '/images/05.03.png', caption: 'Moata Geospatial Img 4' }
         ]
       },
       { 
@@ -86,10 +86,10 @@ const Portfolio = () => {
         description: 'A website for ClearBank, a fintech company that provides powerful banking APIs', 
         website: 'https://clear.bank/explore-our-api',
         images: [
-          { src: '/images/06.01.png', caption: 'Main interface' },
-          { src: '/images/06.02.png', caption: 'Submission form' },
+          { src: '/images/06.01.png', caption: 'ClearBank Img 1' },
+          { src: '/images/06.02.png', caption: 'ClearBank Img 2 },
           // { src: '/images/06.03.png', caption: 'Main interface' },
-          { src: '/images/06.04.png', caption: 'Main interface' }
+          { src: '/images/06.04.png', caption: 'ClearBank Img 3' }
         ]
       },
       { 
@@ -99,9 +99,9 @@ const Portfolio = () => {
         description: 'A digital product to support r c-section parents created in collaboration with Danone', 
         website: 'https://www.danone.com/',
         images: [
-          { src: '/images/07.01.png', caption: 'Main interface' },
-          { src: '/images/07.02.png', caption: 'Submission form' },
-          { src: '/images/07.03.png', caption: 'Main interface' },
+          { src: '/images/07.01.png', caption: 'AptaBiome Img 1' },
+          { src: '/images/07.02.png', caption: 'AptaBiome Img 2' },
+          { src: '/images/07.03.png', caption: 'AptaBiome Img 3' },
 
         ]
       },
@@ -112,9 +112,9 @@ const Portfolio = () => {
         description: 'A new check-out experience for Phillips Auction House', 
         website: 'https://exhibitions.phillips.com/',
         images: [
-          { src: '/images/08.01.png', caption: 'Main interface' },
+          { src: '/images/08.01.png', caption: 'Phillips Auction House Img 1' },
           // { src: '/images/08.02.png', caption: 'Submission form' },
-          { src: '/images/08.02.png', caption: 'Main interface' }
+          { src: '/images/08.02.png', caption: 'Phillips Auction House Img 2' }
         ]
       },
       { 
@@ -124,9 +124,9 @@ const Portfolio = () => {
         description: 'Designing a number of educational tools and features for Turinglab, an ed-tech start-up', 
         website: 'https://amazon.turinglab.co.uk/',
         images: [
-          { src: '/images/09.04.png', caption: 'Main interface' },
-          { src: '/images/09.01.png', caption: 'Main interface' },
-          { src: '/images/09.02.png', caption: 'Submission form' },
+          { src: '/images/09.04.png', caption: 'Turinglab Img 1' },
+          { src: '/images/09.01.png', caption: 'Turinglab Img 2' },
+          { src: '/images/09.02.png', caption: 'Turinglab Img 3' },
           // { src: '/images/09.03.png', caption: 'Main interface' }
         ]
       },
@@ -151,10 +151,10 @@ const Portfolio = () => {
         description: 'A framework for local government to creatively engage citizen voices in conversations about generative AI', 
         website: 'https://aivoicesmap.vercel.app/',
         images: [
-          { src: '/images/11.01.png', caption: 'Main interface' },
-          { src: '/images/11.02.png', caption: 'Submission form' },
-          { src: '/images/11.03.png', caption: 'Main interface' },
-          { src: '/images/11.04.png', caption: 'Main interface' }
+          { src: '/images/11.01.png', caption: 'AI Literacy Framework Img 1' },
+          { src: '/images/11.02.png', caption: 'AI Literacy Framework Img 2' },
+          { src: '/images/11.03.png', caption: 'AI Literacy Framework Img 3' },
+          { src: '/images/11.04.png', caption: 'AI Literacy Framework Img 4' }
         ]
       },
       { 
@@ -164,9 +164,9 @@ const Portfolio = () => {
         description: 'A workshop held in Estonia in collaboration with EU Arts universities to combat climate truth', 
         website: 'https://deathofnero.vercel.app/',
         images: [
-          { src: '/images/12.01.png', caption: 'Main interface' },
-          { src: '/images/12.02.png', caption: 'Submission form' },
-          { src: '/images/12.03.png', caption: 'Main interface' },
+          { src: '/images/12.01.png', caption: 'Climate Truth Crisis Img 1' },
+          { src: '/images/12.02.png', caption: 'Climate Truth Crisis Img 2' },
+          { src: '/images/12.03.png', caption: 'Climate Truth Crisis Img 3' },
           // { src: '/images/12.04.png', caption: 'Main interface' }
         ]
       }
