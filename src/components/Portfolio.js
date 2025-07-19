@@ -59,7 +59,7 @@ const Portfolio = () => {
           { src: '/images/04.02.png', caption: 'Community AI Tools Img 3' },
           { src: '/images/04.03.png', caption: 'Community AI Tools Img 4' },
           { src: '/images/04.04.png', caption: 'Community AI Tools Img 5' },
-          { src: '/images/04.05.png', caption: 'Community AI Tools Img 6 },
+          { src: '/images/04.05.png', caption: 'Community AI Tools Img 6' },
         ]
       },
 
@@ -87,7 +87,7 @@ const Portfolio = () => {
         website: 'https://clear.bank/explore-our-api',
         images: [
           { src: '/images/06.01.png', caption: 'ClearBank Img 1' },
-          { src: '/images/06.02.png', caption: 'ClearBank Img 2 },
+          { src: '/images/06.02.png', caption: 'ClearBank Img 2' },
           // { src: '/images/06.03.png', caption: 'Main interface' },
           { src: '/images/06.04.png', caption: 'ClearBank Img 3' }
         ]
@@ -329,6 +329,7 @@ const Portfolio = () => {
                                 className="flex flex-col mb-10 last:mb-0 items-start"
                               >
                                 <img
+                                  loading="lazy"
                                   src={src}
                                   alt={project.name + ' image ' + (idx + 1)}
                                   onClick={() => openModal({ src, alt: project.name + ' image ' + (idx + 1) })}
@@ -384,6 +385,7 @@ const Portfolio = () => {
                         className={`flex flex-col mb-16 last:mb-0 px-12 ${idx % 2 === 0 ? 'items-start' : 'items-end'}`}
                       >
                         <img
+                          loading="lazy"
                           src={src}
                           alt={selectedProject.name + ' image ' + (idx + 1)}
                           onClick={() => openModal({ src, alt: selectedProject.name + ' image ' + (idx + 1) })}
