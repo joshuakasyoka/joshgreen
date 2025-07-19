@@ -148,7 +148,7 @@ const Portfolio = () => {
         id: 11, 
         name: 'AI Literacy Framework', 
         date: 'May 2025', 
-        description: 'Website for collecting citizen voices on the subject of Artificial Intelligence', 
+        description: 'A framework for local government to creatively engage citizen voices in conversations about generative AI', 
         website: 'https://aivoicesmap.vercel.app/',
         images: [
           { src: '/images/11.01.png', caption: 'Main interface' },
@@ -161,7 +161,7 @@ const Portfolio = () => {
         id: 12, 
         name: 'Climate Truth Crisis', 
         date: 'May 2025', 
-        description: 'Website for collecting citizen voices on the subject of Artificial Intelligence', 
+        description: 'A workshop held in Estonia in collaboration with EU Arts universities to combat climate truth', 
         website: 'https://deathofnero.vercel.app/',
         images: [
           { src: '/images/12.01.png', caption: 'Main interface' },
