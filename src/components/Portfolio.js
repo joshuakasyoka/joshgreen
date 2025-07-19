@@ -305,7 +305,7 @@ const Portfolio = () => {
                           >
                             <div
                               className="font-normal text-gray-900 text-sm leading-relaxed"
-                              style={{ scrollMarginTop: '2.5rem' }} // ~40px breathing room
+                              style={{ scrollMarginTop: '1.5rem' }} // ~40px breathing room
                               ref={el => projectTitleRefs.current[project.id] = el}
                             >
                               {project.name}
