@@ -200,18 +200,7 @@ const Portfolio = () => {
   });
 
   const [selectedProject, setSelectedProject] = useState(projects['Web Development'][0]);
-  // Collapsed state for categories
-  const [expandedCategories, setExpandedCategories] = useState(() => {
-    // On mobile, start all collapsed; on desktop, all expanded
-    if (typeof window !== 'undefined' && window.innerWidth < 768) {
-      return {};
-    } else {
-      // All expanded by default on desktop
-      const all = {};
-      Object.keys(projects).forEach(cat => { all[cat] = true; });
-      return all;
-    }
-  });
+  // On mobile, all project lists are expanded by default
   const mainContentRef = useRef(null);
   const headerRef = useRef(null);
   const [isHeaderHovered, setIsHeaderHovered] = useState(false);
@@ -287,17 +276,11 @@ const Portfolio = () => {
             {Object.entries(projects).map(([category, categoryProjects]) => (
               <div key={category} className="mb-12">
                 <h2
-                  className="text-base font-normal text-gray-900 mb-6 cursor-pointer select-none"
-                  onClick={() =>
-                    setExpandedCategories(prev => ({
-                      ...prev,
-                      [category]: !prev[category]
-                    }))
-                  }
+                  className="text-base font-normal text-gray-900 mb-6 select-none"
                 >
                   {category}
                 </h2>
-                <div style={{ display: expandedCategories[category] ? 'block' : 'none' }}>
+                <div>
                   {categoryProjects.map((project, projectIndex) => (
                     <React.Fragment key={project.id}>
                       <div
@@ -339,6 +322,7 @@ const Portfolio = () => {
                         />
                       )}
 
+                      {/* Only show images for selected project on mobile */}
                       {project.images && project.images.length > 0 && project.id === selectedProject?.id && (
                         <div className="block md:hidden mt-3">
                           {project.images.map((imgObj, idx) => {
