@@ -206,6 +206,8 @@ const Portfolio = () => {
   const [isHeaderHovered, setIsHeaderHovered] = useState(false);
   const [isAboutHovered, setIsAboutHovered] = useState(false);
   const [modalImage, setModalImage] = useState(null);
+  // Refs for each project title
+  const projectTitleRefs = useRef({});
 
   const allProjects = useMemo(() => Object.values(projects).flat(), [projects]);
 
@@ -235,10 +237,12 @@ const Portfolio = () => {
 
   const handleProjectClick = (project) => {
     setSelectedProject(project);
-    // On mobile, scroll header (project title) to top
-    if (window.innerWidth < 768 && headerRef.current) {
-      headerRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    // On mobile, scroll the clicked project title to the top
+    setTimeout(() => {
+      if (window.innerWidth < 768 && projectTitleRefs.current[project.id]) {
+        projectTitleRefs.current[project.id].scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 0);
   };
 
   const openModal = (image) => setModalImage(image);
@@ -299,7 +303,10 @@ const Portfolio = () => {
                               selectedProject?.id === project.id ? 'filter-none' : 'group-hover:blur-sm'
                             }`}
                           >
-                            <div className="font-normal text-gray-900 text-sm leading-relaxed">
+                            <div
+                              className="font-normal text-gray-900 text-sm leading-relaxed"
+                              ref={el => projectTitleRefs.current[project.id] = el}
+                            >
                               {project.name}
                             </div>
                             {project.date && (
