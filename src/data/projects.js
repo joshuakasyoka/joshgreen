@@ -1,12 +1,12 @@
 // Sample project data - replace with your actual projects
 export const projectsData = {
-  'Web Design': [
+  'Web Development': [
     { 
       id: 1, 
       name: 'London AI Voices Archive', 
       date: 'May 2025', 
       description: 'A website for collecting citizen voices on the subject of Artificial Intelligence',
-      category: 'Web Design',
+      category: 'Web Development',
       materials: ['React', 'Node.js', 'MongoDB'],
       themes: ['AI', 'Democracy', 'Data Collection'],
       techniques: ['User Research', 'Interface Design', 'Database Design'],

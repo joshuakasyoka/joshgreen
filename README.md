@@ -64,7 +64,7 @@ Edit `src/data/projects.js` or modify the state in `src/components/Portfolio.js`
   name: 'Project Name',
   date: 'Month Year',
   description: 'Brief project description',
-  category: 'Web Design',
+  category: 'Web Development',
   materials: ['React', 'Node.js'],
   themes: ['AI', 'Democracy'],
   techniques: ['User Research', 'Interface Design'],

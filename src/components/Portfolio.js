@@ -4,7 +4,7 @@ import Modal from './Modal';
 
 const Portfolio = () => {
   const [projects] = useState({
-    'Web Design': [
+    'Web Development': [
       { 
         id: 1, 
         name: 'London AI Voices Archive', 
@@ -16,7 +16,7 @@ const Portfolio = () => {
           { src: '/images/01.02.png', caption: 'Submission form' },
           { src: '/images/01.03.png', caption: 'Main interface' },
           { src: '/images/01.04.png', caption: 'Main interface' },
-          { src: '/images/01.05.png', caption: 'Main interface' }
+          // { src: '/images/01.05.png', caption: 'Main interface' }
         ]
       },
       { 
@@ -39,6 +39,8 @@ const Portfolio = () => {
         website: 'https://gcdp-2025.vercel.app/',
         description: 'Platform built for UAL graduate course, Global Collaborative Design Practice, to display thesis projects', 
         images: [
+          // { src: '/images/03.05.png', caption: 'Main interface' },
+          { src: '/images/03.06.png', caption: 'Main interface' },
           { src: '/images/03.01.png', caption: 'Main interface' },
           { src: '/images/03.02.png', caption: 'Submission form' },
           { src: '/images/03.03.png', caption: 'Submission form' },
@@ -48,10 +50,11 @@ const Portfolio = () => {
       { 
         id: 4, 
         name: 'Community AI Tools', 
-        date: 'April 2025', 
+        date: 'Jan 2025', 
         description: 'Selection of digital tools to enhance community literacy on Algorithm Development', 
         website: 'https://ai-voices-archive-gb91gago5-josh-greens-projects.vercel.app/',
         images: [
+          { src: '/images/04.06.png', caption: 'Main interface' },
           { src: '/images/04.01.png', caption: 'Main interface' },
           { src: '/images/04.02.png', caption: 'Submission form' },
           { src: '/images/04.03.png', caption: 'Submission form' },
@@ -66,10 +69,11 @@ const Portfolio = () => {
       { 
         id: 5, 
         name: 'Moata Geospatial', 
-        date: 'May 2025', 
-        description: 'Website for collecting citizen voices on the subject of Artificial Intelligence', 
-        website: 'https://aivoicesmap.vercel.app/',
+        date: 'May 2024', 
+        description: 'Leading the implementation of collaborative tools for Moata’s geospatial data platform', 
+        website: 'https://www.mottmac.com/en/digital-solutions/',
         images: [
+          { src: '/images/05.04.png', caption: 'Main interface' },
           { src: '/images/05.01.png', caption: 'Main interface' },
           { src: '/images/05.02.png', caption: 'Submission form' },
           { src: '/images/05.03.png', caption: 'Main interface' }
@@ -78,34 +82,35 @@ const Portfolio = () => {
       { 
         id: 6, 
         name: 'ClearBank', 
-        date: 'May 2025', 
-        description: 'Website for collecting citizen voices on the subject of Artificial Intelligence', 
+        date: 'May 2024', 
+        description: 'A website for ClearBank, a fintech company that provides powerful banking APIs', 
         website: 'https://clear.bank/explore-our-api',
         images: [
           { src: '/images/06.01.png', caption: 'Main interface' },
           { src: '/images/06.02.png', caption: 'Submission form' },
-          { src: '/images/06.03.png', caption: 'Main interface' },
+          // { src: '/images/06.03.png', caption: 'Main interface' },
           { src: '/images/06.04.png', caption: 'Main interface' }
         ]
       },
       { 
         id: 7, 
-        name: 'Moata People & Planet', 
-        date: 'May 2025', 
-        description: 'Website for collecting citizen voices on the subject of Artificial Intelligence', 
-        website: 'https://aivoicesmap.vercel.app/',
+        name: 'AptaBiome', 
+        date: 'Jan 2023', 
+        description: 'A digital product to support r c-section parents created in collaboration with Danone', 
+        website: 'https://www.danone.com/',
         images: [
-          { src: '/images/01.01.png', caption: 'Main interface' },
-          { src: '/images/01.02.png', caption: 'Submission form' },
-          { src: '/images/01.03.png', caption: 'Main interface' }
+          { src: '/images/07.01.png', caption: 'Main interface' },
+          { src: '/images/07.02.png', caption: 'Submission form' },
+          { src: '/images/07.03.png', caption: 'Main interface' },
+
         ]
       },
       { 
         id: 8, 
         name: 'Phillips Auction House', 
-        date: 'May 2025', 
-        description: 'Website for collecting citizen voices on the subject of Artificial Intelligence', 
-        website: 'https://aivoicesmap.vercel.app/',
+        date: 'May 2023', 
+        description: 'A new check-out experience for Phillips Auction House', 
+        website: 'https://exhibitions.phillips.com/',
         images: [
           { src: '/images/08.01.png', caption: 'Main interface' },
           // { src: '/images/08.02.png', caption: 'Submission form' },
@@ -115,27 +120,28 @@ const Portfolio = () => {
       { 
         id: 9, 
         name: 'Turinglab', 
-        date: 'May 2025', 
-        description: 'Website for collecting citizen voices on the subject of Artificial Intelligence', 
-        website: 'https://aivoicesmap.vercel.app/',
+        date: 'Apr 2022', 
+        description: 'Designing a number of educational tools and features for Turinglab, an ed-tech start-up', 
+        website: 'https://amazon.turinglab.co.uk/',
         images: [
-          { src: '/images/01.01.png', caption: 'Main interface' },
-          { src: '/images/01.02.png', caption: 'Submission form' },
-          { src: '/images/01.03.png', caption: 'Main interface' }
+          { src: '/images/09.04.png', caption: 'Main interface' },
+          { src: '/images/09.01.png', caption: 'Main interface' },
+          { src: '/images/09.02.png', caption: 'Submission form' },
+          // { src: '/images/09.03.png', caption: 'Main interface' }
         ]
       },
-      { 
-        id: 10, 
-        name: 'Moata Net Zero', 
-        date: 'May 2025', 
-        description: 'Website for collecting citizen voices on the subject of Artificial Intelligence', 
-        website: 'https://aivoicesmap.vercel.app/',
-        images: [
-          { src: '/images/01.01.png', caption: 'Main interface' },
-          { src: '/images/01.02.png', caption: 'Submission form' },
-          { src: '/images/01.03.png', caption: 'Main interface' }
-        ]
-      }
+      // { 
+      //   id: 10, 
+      //   name: 'Moata Net Zero', 
+      //   date: 'May 2025', 
+      //   description: 'Website for collecting citizen voices on the subject of Artificial Intelligence', 
+      //   website: 'https://www.mottmac.com/en/digital-solutions/',
+      //   images: [
+      //     { src: '/images/01.01.png', caption: 'Main interface' },
+      //     { src: '/images/01.02.png', caption: 'Submission form' },
+      //     { src: '/images/01.03.png', caption: 'Main interface' }
+      //   ]
+      // }
     ],
     'Participatory Design': [
       { 
@@ -193,7 +199,7 @@ const Portfolio = () => {
     ]
   });
 
-  const [selectedProject, setSelectedProject] = useState(projects['Web Design'][0]);
+  const [selectedProject, setSelectedProject] = useState(projects['Web Development'][0]);
   const [isHeaderHovered, setIsHeaderHovered] = useState(false);
   const [isAboutHovered, setIsAboutHovered] = useState(false);
   const [modalImage, setModalImage] = useState(null);
