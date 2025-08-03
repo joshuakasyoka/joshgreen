@@ -9,7 +9,7 @@ module.exports = {
         'inter': ['Inter', 'sans-serif'],
       },
       colors: {
-        'highlight': '#FF0000',
+        'highlight': '#2563eb',
       },
     },
   },
