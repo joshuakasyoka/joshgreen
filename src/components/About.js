@@ -23,16 +23,16 @@ const About = () => {
           ></div>
           <h2 className="font-normal">I'm Josh</h2>
           <p>
-            I'm a freelance designer based in London with an interest in exploring how AI can genuinely improve the way we build digital products.
+            I am an interdisciplinary designer based in London, and I'm exploring the societal challenges posed by generative AI. My work challenges the unfulfilled promises of a technological utopia by investigating how technology has often exacerbated inequality and led to social fragmentation.
           </p>
           <p>
-            My approach is hands-on and collaborative, I work closely with teams to understand their specific challenges and then figure out where AI technologies can actually add value.
+            I am particularly focused on how the proliferation of AI-generated visual content, often called "AI slop," is undermining our relationship with images and truth.
           </p>
           <p>
-            Whether it's streamlining design workflows, enhancing user experiences, or prototyping new product concepts, I'm interested in the strategic side of implementation rather than just using AI as a novelty.
+            Through my research, I aim to imagine more inclusive technological futures by using participatory design methods and public-facing probes that encourage critical and speculative thinking. My goal is to develop a new social contract with images, fostering critical literacy and epistemic resilience in the face of AI technologies that seek to make us passive recipients of their impacts.
           </p>
           <p>
-            I work on everything from websites to complex digital products, always with an eye toward building sustainable, strategic approaches to AI integration. I'm particularly interested in the human side of this technology shift – how teams adapt, learn, and ultimately create better products together.
+            My creative lab invites people to actively make, think, and critique, helping them reclaim their human agency. To understand how these methods work in different contexts, I am conducting a comparative study in London and Tokyo, which have different technological and cultural landscapes.
           </p>
         </div>
       </div>
