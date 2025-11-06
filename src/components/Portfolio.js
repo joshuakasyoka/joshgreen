@@ -9,7 +9,8 @@ const Portfolio = () => {
         id: 1, 
         name: 'London AI Voices Archive', 
         date: 'May 2025', 
-        description: 'Website for collecting citizen voices on the subject of Artificial Intelligence', 
+        description: 'Website for collecting citizen voices on the subject of Artificial Intelligence',
+        fullDescription: 'An interactive website and digital platform designed to collect and visualize citizen voices and perspectives on the subject of Artificial Intelligence, enabling Londoners to share their experiences and concerns about AI development in their communities.', 
         website: 'https://aivoicesmap.vercel.app/',
         startingPoint: 'Need for a platform to collect and visualize citizen perspectives on AI development in London.',
         outcome: 'Interactive map-based archive allowing Londoners to share and explore AI-related experiences and concerns.',
@@ -26,7 +27,8 @@ const Portfolio = () => {
         id: 2, 
         name: 'Tate Modern Exhibit', 
         date: 'April 2025', 
-        description: 'Tate Modern exhibit exploring the water consumption of generative AI', 
+        description: 'Tate Modern exhibit exploring the water consumption of generative AI',
+        fullDescription: 'An interactive digital exhibit commissioned by Tate Modern that explores and visualizes the significant water consumption and environmental impact of generative AI technologies, revealing the hidden resource costs behind AI training and generation processes.', 
         website: 'https://digital-water-database.vercel.app/',
         startingPoint: 'Tate Modern commission to create an interactive exhibit about AI\'s environmental impact.',
         outcome: 'Educational installation revealing the hidden water costs of AI training and generation.',
@@ -43,7 +45,8 @@ const Portfolio = () => {
         name: 'UAL Materials Archive', 
         date: 'April 2025', 
         website: 'https://gcdp-2025.vercel.app/',
-        description: 'Platform built for UAL graduate course, Global Collaborative Design Practice, to display thesis projects', 
+        description: 'Platform built for UAL graduate course, Global Collaborative Design Practice, to display thesis projects',
+        fullDescription: 'A collaborative digital platform built for the UAL graduate course Global Collaborative Design Practice, designed to display and archive thesis projects from design students across multiple disciplines, facilitating research sharing and discovery.', 
         startingPoint: 'UAL graduate course requirement for a collaborative platform to showcase thesis projects.',
         outcome: 'Centralized archive for design students to share and discover research across disciplines.',
         techStack: 'React, Node.js, MongoDB, Vercel, Material-UI',
@@ -60,7 +63,8 @@ const Portfolio = () => {
         id: 4, 
         name: 'Community AI Tools', 
         date: 'Jan 2025', 
-        description: 'Selection of digital tools to enhance community literacy on Algorithm Development', 
+        description: 'Selection of digital tools to enhance community literacy on Algorithm Development',
+        fullDescription: 'A curated selection of accessible digital tools and educational resources designed to enhance community literacy and understanding of algorithm development, empowering local communities to participate more effectively in AI governance discussions and decision-making processes.', 
         website: 'https://ai-voices-archive-gb91gago5-josh-greens-projects.vercel.app/',
         startingPoint: 'Community need for accessible tools to understand and engage with AI development.',
         outcome: 'Suite of educational tools helping communities participate in AI governance discussions.',
@@ -77,105 +81,13 @@ const Portfolio = () => {
 
   
     ],
-    'Product Design': [
-      { 
-        id: 5, 
-        name: 'Moata Geospatial', 
-        date: 'May 2024', 
-        description: 'Leading the implementation of collaborative tools for Moata’s geospatial data platform', 
-        website: 'https://www.mottmac.com/en/digital-solutions/',
-        startingPoint: 'Mott MacDonald\'s need for geospatial data visualization and analysis tools.',
-        outcome: 'Interactive mapping platform for infrastructure planning and environmental assessment.',
-        techStack: 'React, Leaflet, D3.js, PostgreSQL, AWS',
-        images: [
-          { src: '/images/05.04.png', caption: 'Moata Geospatial Img 1' },
-          { src: '/images/05.01.png', caption: 'Moata Geospatial Img 2' },
-          { src: '/images/05.02.png', caption: 'Moata Geospatial Img 3' },
-          { src: '/images/05.03.png', caption: 'Moata Geospatial Img 4' }
-        ]
-      },
-      { 
-        id: 6, 
-        name: 'ClearBank', 
-        date: 'May 2024', 
-        description: 'A website for ClearBank, a fintech company that provides powerful banking APIs', 
-        website: 'https://clear.bank/explore-our-api',
-        startingPoint: 'ClearBank\'s requirement for developer-friendly API documentation and testing tools.',
-        outcome: 'Comprehensive API portal enabling seamless integration with ClearBank\'s services.',
-        techStack: 'React, TypeScript, OpenAPI, Swagger, Vercel',
-        images: [
-          { src: '/images/06.01.png', caption: 'ClearBank Img 1' },
-          { src: '/images/06.02.png', caption: 'ClearBank Img 2' },
-          // { src: '/images/06.03.png', caption: 'Main interface' },
-          { src: '/images/06.04.png', caption: 'ClearBank Img 3' }
-        ]
-      },
-      { 
-        id: 7, 
-        name: 'AptaBiome', 
-        date: 'May 2023', 
-        description: 'A digital product to support r c-section parents created in collaboration with Danone', 
-        website: 'https://aivoicesmap.vercel.app/',
-        startingPoint: 'Danone\'s need to support parents who have had C-sections with digital tools and resources.',
-        outcome: 'Digital platform providing personalized support and guidance for C-section recovery and parenting.',
-        techStack: 'React Native, Node.js, MongoDB, AWS, Push Notifications',
-        images: [
-          { src: '/images/07.01.png', caption: 'AptaBiome Img 1' },
-          { src: '/images/07.02.png', caption: 'AptaBiome Img 2' },
-          { src: '/images/07.03.png', caption: 'AptaBiome Img 3' },
-
-        ]
-      },
-      { 
-        id: 8, 
-        name: 'Phillips Auction House', 
-        date: 'May 2023', 
-        description: 'A new check-out experience for Phillips Auction House', 
-        website: 'https://exhibitions.phillips.com/',
-        startingPoint: 'Phillips\' need for digital exhibition platform to showcase auction items.',
-        outcome: 'Virtual gallery experience allowing global access to Phillips\' curated collections.',
-        techStack: 'React, Three.js, WebGL, Contentful, Vercel',
-        images: [
-          { src: '/images/08.01.png', caption: 'Phillips Auction House Img 1' },
-          // { src: '/images/08.02.png', caption: 'Submission form' },
-          { src: '/images/08.02.png', caption: 'Phillips Auction House Img 2' }
-        ]
-      },
-      { 
-        id: 9, 
-        name: 'Turinglab', 
-        date: 'May 2023', 
-        description: 'Designing a number of educational tools and features for Turinglab, an ed-tech start-up',
-        website: 'https://amazon.turinglab.co.uk/',
-        startingPoint: 'Turinglab ed-tech startup\'s need for educational tools to teach coding and AI concepts.',
-        outcome: 'Suite of interactive educational features and tools for teaching programming and AI fundamentals.',
-        techStack: 'React, TypeScript, Python, TensorFlow, Vercel',
-        images: [
-          { src: '/images/09.04.png', caption: 'Turinglab Img 1' },
-          { src: '/images/09.01.png', caption: 'Turinglab Img 2' },
-          { src: '/images/09.02.png', caption: 'Turinglab Img 3' },
-          // { src: '/images/09.03.png', caption: 'Main interface' }
-        ]
-      },
-      // { 
-      //   id: 10, 
-      //   name: 'Moata Net Zero', 
-      //   date: 'May 2025', 
-      //   description: 'Website for collecting citizen voices on the subject of Artificial Intelligence', 
-      //   website: 'https://www.mottmac.com/en/digital-solutions/',
-      //   images: [
-      //     { src: '/images/01.01.png', caption: 'Main interface' },
-      //     { src: '/images/01.02.png', caption: 'Submission form' },
-      //     { src: '/images/01.03.png', caption: 'Main interface' }
-      //   ]
-      // }
-    ],
     'Participatory Design': [
       { 
         id: 11, 
         name: 'AI Literacy Framework', 
         date: 'May 2025', 
-        description: 'Website for collecting citizen voices on the subject of Artificial Intelligence', 
+        description: 'A framework booklet for local government to better understand AI literacy',
+        fullDescription: 'A comprehensive framework booklet and assessment tool designed specifically for local government officials to better understand, evaluate, and improve AI literacy within their communities, providing practical guidance and educational resources for policy development.', 
         website: 'https://aivoicesmap.vercel.app/',
         startingPoint: 'Need for standardized framework to assess and improve AI literacy across communities.',
         outcome: 'Comprehensive assessment tool and educational resources for AI literacy development.',
@@ -191,7 +103,8 @@ const Portfolio = () => {
         id: 12, 
         name: 'Climate Truth Crisis', 
         date: 'May 2025', 
-        description: 'Website for collecting citizen voices on the subject of Artificial Intelligence', 
+        description: 'Website for collecting citizen voices on the subject of Artificial Intelligence',
+        fullDescription: 'An interactive narrative experience and research project that explores the intersection of climate change and information systems, examining how climate misinformation spreads through digital platforms and questioning the nature of truth in the age of environmental crisis.', 
         website: 'https://deathofnero.vercel.app/',
         startingPoint: 'Research project exploring the intersection of climate change and information systems.',
         outcome: 'Interactive narrative experience examining climate misinformation and digital truth.',
@@ -201,6 +114,23 @@ const Portfolio = () => {
           { src: '/images/12.02.png', caption: 'Climate Truth Crisis Img 2' },
           { src: '/images/12.03.png', caption: 'Climate Truth Crisis Img 3' },
           // { src: '/images/12.04.png', caption: 'Main interface' }
+        ]
+      },
+      { 
+        id: 13, 
+        name: 'Street Installations', 
+        date: 'Apr 2025', 
+        description: 'Four interactive street installations in South London engaging the public with ethical questions in emerging AI technologies.',
+        fullDescription: 'A series of four interactive street installations built in South London designed to engage members of the public with critical ethical questions surrounding emerging AI technologies through hands-on participation and thoughtful dialogue in public spaces.', 
+        website: '',
+        startingPoint: '',
+        outcome: '',
+        techStack: '',
+        images: [
+          { src: '/images/13.03.png', caption: 'Street Installations Img 1' },
+          { src: '/images/13.04.png', caption: 'Street Installations Img 2' },
+          { src: '/images/13.05.png', caption: 'Street Installations Img 3' },
+          { src: '/images/13.06.png', caption: 'Street Installations Img 4' }
         ]
       }
     ],
@@ -236,6 +166,8 @@ const Portfolio = () => {
   // On mobile, all project lists are expanded by default
   const mainContentRef = useRef(null);
   const headerRef = useRef(null);
+  const mainContentScrollRef = useRef(null);
+  const sidebarScrollRef = useRef(null);
   const [isHeaderHovered, setIsHeaderHovered] = useState(false);
   const [isAboutHovered, setIsAboutHovered] = useState(false);
   const [modalImage, setModalImage] = useState(null);
@@ -249,6 +181,17 @@ const Portfolio = () => {
   });
 
   const allProjects = useMemo(() => Object.values(projects).flat(), [projects]);
+
+  // Scroll to top when project changes
+  useEffect(() => {
+    if (mainContentScrollRef.current) {
+      mainContentScrollRef.current.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    // On mobile, also scroll sidebar to top
+    if (sidebarScrollRef.current && window.innerWidth < 768) {
+      sidebarScrollRef.current.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [selectedProject]);
 
   useEffect(() => {
     const handleKeyDown = (event) => {
@@ -278,12 +221,7 @@ const Portfolio = () => {
     setSelectedProject(project);
     // Auto-close info panel when switching projects
     setShowInfoPanel(false);
-    // On mobile, scroll the clicked project title to the top
-    setTimeout(() => {
-      if (window.innerWidth < 768 && projectTitleRefs.current[project.id]) {
-        projectTitleRefs.current[project.id].scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }, 0);
+    // Scroll to top is handled by useEffect when selectedProject changes
   };
 
   const openModal = (image) => setModalImage(image);
@@ -328,7 +266,7 @@ const Portfolio = () => {
       <div className="flex h-full flex-col md:flex-row">
         {/* Sidebar */}
         <div className="w-full md:w-80 flex flex-col" style={{ paddingLeft: '32px', paddingRight: '24px' }}>
-          <div className="overflow-y-auto flex-1 pb-20">
+          <div ref={sidebarScrollRef} className="overflow-y-auto flex-1 pb-20">
             {Object.entries(projects).map(([category, categoryProjects]) => (
               <div key={category} className="mb-12">
                 <h2
@@ -385,6 +323,22 @@ const Portfolio = () => {
                       {/* Only show images for selected project on mobile */}
                       {project.images && project.images.length > 0 && project.id === selectedProject?.id && (
                         <div className="block md:hidden mt-3">
+                          {/* Project Title and Description for Mobile */}
+                          <div className="mb-6">
+                            <h2 className="text-xl font-normal text-gray-900 mb-2">
+                              {project.name}
+                            </h2>
+                            {project.date && (
+                              <p className="text-xs text-gray-500 mb-3">
+                                {project.date}
+                              </p>
+                            )}
+                            {(project.fullDescription || project.description) && (
+                              <p className="text-sm text-gray-600 leading-relaxed max-w-md">
+                                {project.fullDescription || project.description}
+                              </p>
+                            )}
+                          </div>
                           {project.images.map((imgObj, idx) => {
                             const src = typeof imgObj === 'string' ? imgObj : imgObj.src;
                             const caption = typeof imgObj === 'string' ? null : imgObj.caption;
@@ -466,7 +420,23 @@ const Portfolio = () => {
                   )}
                 </div>
                 {selectedProject.images.length > 0 ? (
-                  <div className="w-full h-full overflow-y-auto hidden md:block pb-48">
+                  <div ref={mainContentScrollRef} className="w-full h-full overflow-y-auto hidden md:block pb-48">
+                    {/* Project Title and Description */}
+                    <div className="px-12 pt-8 pb-12">
+                      <h2 className="text-2xl font-normal text-gray-900 mb-2">
+                        {selectedProject.name}
+                      </h2>
+                      {selectedProject.date && (
+                        <p className="text-sm text-gray-500 mb-4">
+                          {selectedProject.date}
+                        </p>
+                      )}
+                      {(selectedProject.fullDescription || selectedProject.description) && (
+                        <p className="text-sm text-gray-600 leading-relaxed max-w-2xl">
+                          {selectedProject.fullDescription || selectedProject.description}
+                        </p>
+                      )}
+                    </div>
                     {selectedProject.images.map((imgObj, idx) => {
                       const src = typeof imgObj === 'string' ? imgObj : imgObj.src;
                       const caption = typeof imgObj === 'string' ? null : imgObj.caption;
