@@ -81,6 +81,104 @@ const Portfolio = () => {
 
   
     ],
+    'Product Design': [
+      { 
+        id: 5, 
+        name: 'Moata Geospatial', 
+        date: 'May 2024', 
+        description: 'Leading the implementation of collaborative tools for Moata\'s geospatial data platform',
+        fullDescription: 'Leading the design and implementation of collaborative tools for Moata\'s geospatial data platform, creating an interactive mapping solution for Mott MacDonald that enables infrastructure planning, environmental assessment, and data visualization across complex geospatial datasets.', 
+        website: 'https://www.mottmac.com/en/digital-solutions/',
+        startingPoint: 'Mott MacDonald\'s need for geospatial data visualization and analysis tools.',
+        outcome: 'Interactive mapping platform for infrastructure planning and environmental assessment.',
+        techStack: 'React, Leaflet, D3.js, PostgreSQL, AWS',
+        images: [
+          { src: '/images/05.04.png', caption: 'Moata Geospatial Img 1' },
+          { src: '/images/05.01.png', caption: 'Moata Geospatial Img 2' },
+          { src: '/images/05.02.png', caption: 'Moata Geospatial Img 3' },
+          { src: '/images/05.03.png', caption: 'Moata Geospatial Img 4' }
+        ]
+      },
+      { 
+        id: 6, 
+        name: 'ClearBank', 
+        date: 'May 2024', 
+        description: 'A website for ClearBank, a fintech company that provides powerful banking APIs',
+        fullDescription: 'A comprehensive website and developer portal for ClearBank, a fintech company that provides powerful banking APIs, featuring developer-friendly documentation, API testing tools, and seamless integration resources for financial technology developers.', 
+        website: 'https://clear.bank/explore-our-api',
+        startingPoint: 'ClearBank\'s requirement for developer-friendly API documentation and testing tools.',
+        outcome: 'Comprehensive API portal enabling seamless integration with ClearBank\'s services.',
+        techStack: 'React, TypeScript, OpenAPI, Swagger, Vercel',
+        images: [
+          { src: '/images/06.01.png', caption: 'ClearBank Img 1' },
+          { src: '/images/06.02.png', caption: 'ClearBank Img 2' },
+          // { src: '/images/06.03.png', caption: 'Main interface' },
+          { src: '/images/06.04.png', caption: 'ClearBank Img 3' }
+        ]
+      },
+      { 
+        id: 7, 
+        name: 'AptaBiome', 
+        date: 'May 2023', 
+        description: 'A digital product to support r c-section parents created in collaboration with Danone',
+        fullDescription: 'A comprehensive digital product and mobile application created in collaboration with Danone to support parents who have had C-sections, providing personalized guidance, recovery resources, and parenting support through an intuitive and empathetic user experience.', 
+        website: 'https://aivoicesmap.vercel.app/',
+        startingPoint: 'Danone\'s need to support parents who have had C-sections with digital tools and resources.',
+        outcome: 'Digital platform providing personalized support and guidance for C-section recovery and parenting.',
+        techStack: 'React Native, Node.js, MongoDB, AWS, Push Notifications',
+        images: [
+          { src: '/images/07.01.png', caption: 'AptaBiome Img 1' },
+          { src: '/images/07.02.png', caption: 'AptaBiome Img 2' },
+          { src: '/images/07.03.png', caption: 'AptaBiome Img 3' },
+
+        ]
+      },
+      { 
+        id: 8, 
+        name: 'Phillips Auction House', 
+        date: 'May 2023', 
+        description: 'A new check-out experience for Phillips Auction House',
+        fullDescription: 'A new digital exhibition and checkout experience for Phillips Auction House, creating a virtual gallery platform that allows global access to Phillips\' curated collections and auction items through an immersive web-based interface.', 
+        website: 'https://exhibitions.phillips.com/',
+        startingPoint: 'Phillips\' need for digital exhibition platform to showcase auction items.',
+        outcome: 'Virtual gallery experience allowing global access to Phillips\' curated collections.',
+        techStack: 'React, Three.js, WebGL, Contentful, Vercel',
+        images: [
+          { src: '/images/08.01.png', caption: 'Phillips Auction House Img 1' },
+          // { src: '/images/08.02.png', caption: 'Submission form' },
+          { src: '/images/08.02.png', caption: 'Phillips Auction House Img 2' }
+        ]
+      },
+      { 
+        id: 9, 
+        name: 'Turinglab', 
+        date: 'May 2023', 
+        description: 'Designing a number of educational tools and features for Turinglab, an ed-tech start-up',
+        fullDescription: 'Designing and developing a comprehensive suite of educational tools and interactive features for Turinglab, an ed-tech startup focused on teaching coding and AI concepts to students through engaging digital learning experiences and hands-on programming activities.',
+        website: 'https://amazon.turinglab.co.uk/',
+        startingPoint: 'Turinglab ed-tech startup\'s need for educational tools to teach coding and AI concepts.',
+        outcome: 'Suite of interactive educational features and tools for teaching programming and AI fundamentals.',
+        techStack: 'React, TypeScript, Python, TensorFlow, Vercel',
+        images: [
+          { src: '/images/09.04.png', caption: 'Turinglab Img 1' },
+          { src: '/images/09.01.png', caption: 'Turinglab Img 2' },
+          { src: '/images/09.02.png', caption: 'Turinglab Img 3' },
+          // { src: '/images/09.03.png', caption: 'Main interface' }
+        ]
+      },
+      // { 
+      //   id: 10, 
+      //   name: 'Moata Net Zero', 
+      //   date: 'May 2025', 
+      //   description: 'Website for collecting citizen voices on the subject of Artificial Intelligence', 
+      //   website: 'https://www.mottmac.com/en/digital-solutions/',
+      //   images: [
+      //     { src: '/images/01.01.png', caption: 'Main interface' },
+      //     { src: '/images/01.02.png', caption: 'Submission form' },
+      //     { src: '/images/01.03.png', caption: 'Main interface' }
+      //   ]
+      // }
+    ],
     'Participatory Design': [
       { 
         id: 11, 
