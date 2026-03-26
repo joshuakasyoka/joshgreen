@@ -4,21 +4,21 @@ import { Link } from 'react-router-dom';
 const About = ({ isDarkMode, toggleDarkMode }) => {
   // Screenshot photos (latest first)
   const recentPhotos = [
-    '/images/Screenshot 2026-03-25 at 23.34.45.png',
-    '/images/Screenshot 2026-03-25 at 23.32.23.png',
-    '/images/Screenshot 2026-03-25 at 23.31.49.png',
-    '/images/Screenshot 2026-03-25 at 23.31.39.png',
-    '/images/Screenshot 2026-03-25 at 23.31.23.png',
-    '/images/Screenshot 2026-03-25 at 23.30.56.png',
-    '/images/Screenshot 2026-03-25 at 23.30.42.png',
-    '/images/Screenshot 2026-03-25 at 23.30.27.png',
-    '/images/Screenshot 2026-03-25 at 23.30.12.png',
-    '/images/Screenshot 2026-03-25 at 23.30.02.png',
-    '/images/Screenshot 2026-03-25 at 23.29.51.png',
-    '/images/Screenshot 2026-03-25 at 23.29.40.png',
-    '/images/Screenshot 2026-03-25 at 23.26.54.png',
-    '/images/Screenshot 2026-03-25 at 23.26.23.png',
-    '/images/Screenshot 2026-03-25 at 23.26.04.png'
+    '/images/about/Screenshot 2026-03-25 at 23.34.45.png',
+    '/images/about/Screenshot 2026-03-25 at 23.32.23.png',
+    '/images/about/Screenshot 2026-03-25 at 23.31.49.png',
+    '/images/about/Screenshot 2026-03-25 at 23.31.39.png',
+    '/images/about/Screenshot 2026-03-25 at 23.31.23.png',
+    '/images/about/Screenshot 2026-03-25 at 23.30.56.png',
+    '/images/about/Screenshot 2026-03-25 at 23.30.42.png',
+    '/images/about/Screenshot 2026-03-25 at 23.30.27.png',
+    '/images/about/Screenshot 2026-03-25 at 23.30.12.png',
+    '/images/about/Screenshot 2026-03-25 at 23.30.02.png',
+    '/images/about/Screenshot 2026-03-25 at 23.29.51.png',
+    '/images/about/Screenshot 2026-03-25 at 23.29.40.png',
+    '/images/about/Screenshot 2026-03-25 at 23.26.54.png',
+    '/images/about/Screenshot 2026-03-25 at 23.26.23.png',
+    '/images/about/Screenshot 2026-03-25 at 23.26.04.png'
   ];
 
   const stackRef = useRef(null);
@@ -87,6 +87,11 @@ const About = ({ isDarkMode, toggleDarkMode }) => {
               }}
             />
           </button>
+          {isDarkMode && (
+            <span className="text-xs md:text-sm text-gray-500 select-none">
+              {'//'} hold mouse to annoate in dark mode {'//'}
+            </span>
+          )}
           <Link to="/" className="text-base font-normal text-gray-800 filter blur-[1px] hover:filter-none transition-all">
             Back
           </Link>
@@ -113,6 +118,24 @@ const About = ({ isDarkMode, toggleDarkMode }) => {
           <p>
             My creative lab invites people to actively make, think, and critique, helping them reclaim their human agency. To understand how these methods work in different contexts, I am conducting a comparative study in London and Tokyo, which have different technological and cultural landscapes.
           </p>
+
+          <div className="pt-6">
+            <h3 className="text-sm font-normal text-gray-900 mb-3">Education</h3>
+            <div className="space-y-3">
+              <div>
+                <div>PhD, Critical Design Theory</div>
+                <div className="text-xs text-gray-500">University of the Arts London (2025—2030)</div>
+              </div>
+              <div>
+                <div>MSc &amp; MA, Collaborative Design</div>
+                <div className="text-xs text-gray-500">UAL &amp; Kyoto Institute of Technology (Distinction)</div>
+              </div>
+              <div>
+                <div>MA (Hons), English</div>
+                <div className="text-xs text-gray-500">University of Edinburgh (1st Class)</div>
+              </div>
+            </div>
+          </div>
           </div>
           {/* Right: Stacking cards animation */}
           <div ref={stackRef} className="relative mt-2 mb-24 md:mb-0" style={{ height: '76vh' }}>

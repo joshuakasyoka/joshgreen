@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import About from './components/About';
 import Portfolio from './components/Portfolio';
+import ClickTrail from './components/ClickTrail';
 import './index.css';
 import './CustomCursor.css';
 
@@ -22,6 +23,7 @@ function App() {
 
   return (
     <Router>
+      <ClickTrail enabled={isDarkMode} />
       <Routes>
         <Route path="/" element={<Portfolio isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />} />
         <Route path="/about" element={<About isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />} />

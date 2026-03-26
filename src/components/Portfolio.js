@@ -16,8 +16,8 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
         outcome: 'Interactive map-based archive allowing Londoners to share and explore AI-related experiences and concerns.',
         techStack: 'React, Next.js, Mapbox, Vercel, Tailwind CSS',
         images: [
-          { src: '/images/01.01.png', caption: 'London AI Voices Img 1' },
-          { src: '/images/01.02.png', caption: 'London AI Voices Img 2' },
+          { src: '/images/web-development/london-ai-voices/01.01.png', caption: 'London AI Voices Img 1' },
+          { src: '/images/web-development/london-ai-voices/01.02.png', caption: 'London AI Voices Img 2' },
           // { src: '/images/01.03.png', caption: 'London AI Voices Img 3' },
           // { src: '/images/01.04.png', caption: 'London AI Voices Img 4' },
           // { src: '/images/01.05.png', caption: 'Main interface' }
@@ -34,10 +34,10 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
         outcome: 'Educational installation revealing the hidden water costs of AI training and generation.',
         techStack: 'React, Three.js, WebGL, Vercel, CSS3',
         images: [
-          { src: '/images/02.01.png', caption: 'Tate Modern Exhbit Img 1' },
-          { src: '/images/02.02.png', caption: 'Tate Modern Exhbit Img 2' },
-          { src: '/images/02.03.png', caption: 'Tate Modern Exhbit Img 3' },
-          { src: '/images/02.04.png', caption: 'Tate Modern Exhbit Img 4' }
+          { src: '/images/web-development/tate-modern/02.01.png', caption: 'Tate Modern Exhbit Img 1' },
+          { src: '/images/web-development/tate-modern/02.02.png', caption: 'Tate Modern Exhbit Img 2' },
+          { src: '/images/web-development/tate-modern/02.03.png', caption: 'Tate Modern Exhbit Img 3' },
+          { src: '/images/web-development/tate-modern/02.04.png', caption: 'Tate Modern Exhbit Img 4' }
         ]
       },
       { 
@@ -52,11 +52,11 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
         techStack: 'React, Node.js, MongoDB, Vercel, Material-UI',
         images: [
           // { src: '/images/03.05.png', caption: 'Main interface' },
-          { src: '/images/03.06.png', caption: 'Materials Archive Img 1' },
-          { src: '/images/03.01.png', caption: 'Materials Archive Img 2' },
-          { src: '/images/03.02.png', caption: 'Materials Archive Img 3' },
-          { src: '/images/03.03.png', caption: 'Materials Archive Img 4' },
-          { src: '/images/03.04.png', caption: 'Materials Archive Img 5' }
+          { src: '/images/web-development/ual-materials-archive/03.06.png', caption: 'Materials Archive Img 1' },
+          { src: '/images/web-development/ual-materials-archive/03.01.png', caption: 'Materials Archive Img 2' },
+          { src: '/images/web-development/ual-materials-archive/03.02.png', caption: 'Materials Archive Img 3' },
+          { src: '/images/web-development/ual-materials-archive/03.03.png', caption: 'Materials Archive Img 4' },
+          { src: '/images/web-development/ual-materials-archive/03.04.png', caption: 'Materials Archive Img 5' }
         ]
       },
       { 
@@ -70,12 +70,12 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
         outcome: 'Suite of educational tools helping communities participate in AI governance discussions.',
         techStack: 'React, Python, TensorFlow, Vercel, Chart.js',
         images: [
-          { src: '/images/04.06.png', caption: 'Community AI Tools Img 1' },
-          { src: '/images/04.01.png', caption: 'Community AI Tools Img 2' },
-          { src: '/images/04.02.png', caption: 'Community AI Tools Img 3' },
-          { src: '/images/04.03.png', caption: 'Community AI Tools Img 4' },
-          { src: '/images/04.04.png', caption: 'Community AI Tools Img 5' },
-          { src: '/images/04.05.png', caption: 'Community AI Tools Img 6' },
+          { src: '/images/web-development/community-ai-tools/04.06.png', caption: 'Community AI Tools Img 1' },
+          { src: '/images/web-development/community-ai-tools/04.01.png', caption: 'Community AI Tools Img 2' },
+          { src: '/images/web-development/community-ai-tools/04.02.png', caption: 'Community AI Tools Img 3' },
+          { src: '/images/web-development/community-ai-tools/04.03.png', caption: 'Community AI Tools Img 4' },
+          { src: '/images/web-development/community-ai-tools/04.04.png', caption: 'Community AI Tools Img 5' },
+          { src: '/images/web-development/community-ai-tools/04.05.png', caption: 'Community AI Tools Img 6' },
         ]
       },
 
@@ -93,12 +93,12 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
         outcome: '',
         techStack: '',
         images: [
-          { src: '/images/EMMA_BLOBCRF28.mp4', caption: 'EMMA Blob' },
-          { src: '/images/EMMA_AskCRF28.mp4', caption: 'EMMA Ask' },
-          { src: '/images/EMMA_HeroCRF28.mp4', caption: 'EMMA Hero' },
-          { src: '/images/EMMA_LOGOCRF28.mp4', caption: 'EMMA Logo' },
-          { src: '/images/EMMA_IconsCRF28.mp4', caption: 'EMMA Icons' },
-          { src: '/images/EMMA_MobileCRF28.mp4', caption: 'EMMA Mobile' }
+          { src: '/images/emma/EMMA_BLOBCRF28.mp4', caption: 'EMMA Blob' },
+          { src: '/images/emma/EMMA_AskCRF28.mp4', caption: 'EMMA Ask' },
+          { src: '/images/emma/EMMA_HeroCRF28.mp4', caption: 'EMMA Hero' },
+          { src: '/images/emma/EMMA_LOGOCRF28.mp4', caption: 'EMMA Logo' },
+          { src: '/images/emma/EMMA_IconsCRF28.mp4', caption: 'EMMA Icons' },
+          { src: '/images/emma/EMMA_MobileCRF28.mp4', caption: 'EMMA Mobile' }
         ]
       },
       { 
@@ -112,10 +112,11 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
         outcome: 'Interactive mapping platform for infrastructure planning and environmental assessment.',
         techStack: 'React, Leaflet, D3.js, PostgreSQL, AWS',
         images: [
-          { src: '/images/MCP_videoDownsize_carbon_medCRF28.mp4', caption: 'Moata Geospatial Img 1' },
-          { src: '/images/CarbonPortal02.webp', caption: 'Moata Geospatial Img 2' },
-          { src: '/images/MCP_videoCrop_womaniPad_med.mp4', caption: 'Moata Geospatial Img 3' },
-          { src: '/images/CarbonPortal03.webp', caption: 'Moata Geospatial Img 4' }
+          { src: '/images/moata/MCP_videoDownsize_carbon_medCRF28.mp4', caption: 'Moata Geospatial Img 1' },
+          { src: '/images/moata/CarbonPortal02.webp', caption: 'Moata Geospatial Img 2' },
+          { src: '/images/moata/MCP_videoCrop_womaniPad_med.mp4', caption: 'Moata Geospatial Img 3' },
+          { src: '/images/moata/CarbonPortal03.webp', caption: 'Moata Geospatial Img 4' },
+          { src: '/images/moata/TRIM2.mov', caption: 'Moata Geospatial Video' }
         ]
       },
       { 
@@ -129,10 +130,10 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
         outcome: 'Comprehensive API portal enabling seamless integration with ClearBank\'s services.',
         techStack: 'React, TypeScript, OpenAPI, Swagger, Vercel',
         images: [
-          { src: '/images/5f388e40.mp4', caption: 'ClearBank Video 1' },
-          { src: '/images/7f9eb849.mp4', caption: 'ClearBank Video 2' },
-          { src: '/images/16-Accounts.jpg', caption: 'ClearBank Image' },
-          { src: '/images/53c30df9.mp4', caption: 'ClearBank Video 3' }
+          { src: '/images/clearbank/5f388e40.mp4', caption: 'ClearBank Video 1' },
+          { src: '/images/clearbank/7f9eb849.mp4', caption: 'ClearBank Video 2' },
+          { src: '/images/clearbank/16-Accounts.jpg', caption: 'ClearBank Image' },
+          { src: '/images/clearbank/53c30df9.mp4', caption: 'ClearBank Video 3' }
         ]
       },
       { 
@@ -163,11 +164,11 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
         outcome: 'Virtual gallery experience allowing global access to Phillips\' curated collections.',
         techStack: 'React, Three.js, WebGL, Contentful, Vercel',
         images: [
-          { src: '/images/Phillips_new_aquisitions_crf28.mp4', caption: 'Phillips Auction House Video 1' },
-          { src: '/images/Phillips03.webp', caption: 'Phillips Auction House Img 1' },
-          { src: '/images/Phillips02.webp', caption: 'Phillips Auction House Img 2' },
-          { src: '/images/Phillips_Button_Square-Loop.mp4', caption: 'Phillips Auction House Video 2' },
-          { src: '/images/Phillips04.webp', caption: 'Phillips Auction House Img 3' }
+          { src: '/images/phillips/Phillips_new_aquisitions_crf28.mp4', caption: 'Phillips Auction House Video 1' },
+          { src: '/images/phillips/Phillips03.webp', caption: 'Phillips Auction House Img 1' },
+          { src: '/images/phillips/Phillips02.webp', caption: 'Phillips Auction House Img 2' },
+          { src: '/images/phillips/Phillips_Button_Square-Loop.mp4', caption: 'Phillips Auction House Video 2' },
+          { src: '/images/phillips/Phillips04.webp', caption: 'Phillips Auction House Img 3' }
         ]
       },
       { 
@@ -212,10 +213,10 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
         outcome: 'Comprehensive assessment tool and educational resources for AI literacy development.',
         techStack: 'React, Node.js, MongoDB, Vercel, D3.js',
         images: [
-          { src: '/images/11.01.png', caption: 'AI Literacy Framework Img 1' },
-          { src: '/images/11.02.png', caption: 'AI Literacy Framework Img 2' },
-          { src: '/images/11.03.png', caption: 'AI Literacy Framework Img 3' },
-          { src: '/images/11.04.png', caption: 'AI Literacy Framework Img 4' }
+          { src: '/images/participatory/ai-literacy-framework/11.01.png', caption: 'AI Literacy Framework Img 1' },
+          { src: '/images/participatory/ai-literacy-framework/11.02.png', caption: 'AI Literacy Framework Img 2' },
+          { src: '/images/participatory/ai-literacy-framework/11.03.png', caption: 'AI Literacy Framework Img 3' },
+          { src: '/images/participatory/ai-literacy-framework/11.04.png', caption: 'AI Literacy Framework Img 4' }
         ]
       },
       { 
@@ -229,9 +230,9 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
         outcome: 'Interactive narrative experience examining climate misinformation and digital truth.',
         techStack: 'React, Three.js, WebGL, Vercel, GSAP',
         images: [
-          { src: '/images/12.01.png', caption: 'Climate Truth Crisis Img 1' },
-          { src: '/images/12.02.png', caption: 'Climate Truth Crisis Img 2' },
-          { src: '/images/12.03.png', caption: 'Climate Truth Crisis Img 3' },
+          { src: '/images/participatory/climate-truth-crisis/12.01.png', caption: 'Climate Truth Crisis Img 1' },
+          { src: '/images/participatory/climate-truth-crisis/12.02.png', caption: 'Climate Truth Crisis Img 2' },
+          { src: '/images/participatory/climate-truth-crisis/12.03.png', caption: 'Climate Truth Crisis Img 3' },
           // { src: '/images/12.04.png', caption: 'Main interface' }
         ]
       },
@@ -246,14 +247,34 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
         outcome: '',
         techStack: '',
         images: [
-          { src: '/images/13.03.png', caption: 'Street Installations Img 1' },
-          { src: '/images/13.04.png', caption: 'Street Installations Img 2' },
-          { src: '/images/13.05.png', caption: 'Street Installations Img 3' },
-          { src: '/images/13.06.png', caption: 'Street Installations Img 4' }
+          { src: '/images/participatory/street-installations/13.03.png', caption: 'Street Installations Img 1' },
+          { src: '/images/participatory/street-installations/13.04.png', caption: 'Street Installations Img 2' },
+          { src: '/images/participatory/street-installations/13.05.png', caption: 'Street Installations Img 3' },
+          { src: '/images/participatory/street-installations/13.06.png', caption: 'Street Installations Img 4' }
         ]
       }
     ],
     'Design Writing': [
+      {
+        id: 14,
+        name: 'Illustrations',
+        date: 'Mar 2026',
+        description: 'A brief collection of illustrations across time.',
+        fullDescription: 'A brief collection of illustrations across time, bringing together experiments, studies, and finished pieces developed across different projects and moments.',
+        mediaMaxWidth: 520,
+        mediaMaxWidthMobile: 340,
+        website: '',
+        startingPoint: '',
+        outcome: '',
+        techStack: '',
+        images: [
+          { src: '/images/illustrations/Screenshot 2026-03-26 at 14.11.56.png', caption: 'Illustration 1' },
+          { src: '/images/illustrations/Screenshot 2026-03-26 at 14.12.05.png', caption: 'Illustration 2' },
+          { src: '/images/illustrations/Screenshot 2026-03-26 at 14.12.13.png', caption: 'Illustration 3' },
+          { src: '/images/illustrations/Screenshot 2026-03-26 at 14.12.28.png', caption: 'Illustration 4' },
+          { src: '/images/illustrations/image.png', caption: 'Illustration 5' }
+        ]
+      }
       // { 
       //   id: 11, 
       //   name: 'On Graphic Narrative', 
@@ -300,7 +321,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
     techStack: false
   });
 
-  const isVideoMedia = (src) => /\.(mp4)$/i.test(src || '');
+  const isVideoMedia = (src) => /\.(mp4|mov)$/i.test(src || '');
 
   // Temporarily hidden projects by id
   const hiddenProjectIds = useMemo(() => new Set([7, 9]), []);
@@ -334,6 +355,11 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
       sidebarScrollRef.current.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }, [selectedProject]);
+
+  // Clear annotation trail when switching case studies
+  useEffect(() => {
+    window.dispatchEvent(new Event('case-study-change'));
+  }, [selectedProject?.id]);
 
   useEffect(() => {
     const handleKeyDown = (event) => {
@@ -451,6 +477,11 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
           Josh Green
         </h1>
         <div className="flex items-center gap-4">
+          {isDarkMode && (
+            <span className="text-xs md:text-sm text-gray-500 select-none">
+              {'//'} hold mouse to annoate in dark mode {'//'}
+            </span>
+          )}
           <button
             onClick={toggleDarkMode}
             aria-label="Toggle dark mode"
@@ -560,6 +591,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
                             const src = typeof imgObj === 'string' ? imgObj : imgObj.src;
                             const caption = typeof imgObj === 'string' ? null : imgObj.caption;
                             const isVideo = isVideoMedia(src);
+                            const mobileMaxWidth = project.mediaMaxWidthMobile ? `${project.mediaMaxWidthMobile}px` : '100%';
                             return (
                               <div
                                 key={idx}
@@ -573,8 +605,8 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
                                     loop
                                     playsInline
                                     preload="metadata"
-                                    className={`object-cover shadow-lg rounded-md ${idx % 2 === 0 ? '' : 'ml-auto'}`}
-                                    style={{ maxWidth: '100%', width: '100%', display: 'block' }}
+                                    className={`object-cover shadow-md rounded-md ${idx % 2 === 0 ? '' : 'ml-auto'}`}
+                                    style={{ maxWidth: mobileMaxWidth, width: '100%', display: 'block' }}
                                   />
                                 ) : (
                                   <img
@@ -582,8 +614,8 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
                                     src={src}
                                     alt={project.name + ' image ' + (idx + 1)}
                                     onClick={() => openModal({ src, alt: project.name + ' image ' + (idx + 1) })}
-                                    className={`object-cover shadow-lg custom-clickable rounded-md ${idx % 2 === 0 ? '' : 'ml-auto'}`}
-                                    style={{ maxWidth: '100%', width: '100%', display: 'block' }}
+                                    className={`object-cover shadow-md custom-clickable rounded-md ${idx % 2 === 0 ? '' : 'ml-auto'}`}
+                                    style={{ maxWidth: mobileMaxWidth, width: '100%', display: 'block' }}
                                   />
                                 )}
                                 <div className="flex items-center gap-2 mt-4 justify-start">
@@ -672,6 +704,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
                       const src = typeof imgObj === 'string' ? imgObj : imgObj.src;
                       const caption = typeof imgObj === 'string' ? null : imgObj.caption;
                       const isVideo = isVideoMedia(src);
+                      const desktopMaxWidth = selectedProject.mediaMaxWidth ? `${selectedProject.mediaMaxWidth}px` : '700px';
                       return (
                         <div
                           key={idx}
@@ -685,8 +718,8 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
                               loop
                               playsInline
                               preload="metadata"
-                              className="object-cover shadow-lg rounded-md"
-                              style={{ maxWidth: '700px', width: '100%', height: '100%', display: 'block' }}
+                              className="object-cover shadow-md rounded-md"
+                              style={{ maxWidth: desktopMaxWidth, width: '100%', height: '100%', display: 'block' }}
                             />
                           ) : (
                             <img
@@ -694,8 +727,8 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
                               src={src}
                               alt={selectedProject.name + ' image ' + (idx + 1)}
                               onClick={() => openModal({ src, alt: selectedProject.name + ' image ' + (idx + 1) })}
-                              className="object-cover shadow-lg custom-clickable rounded-md"
-                              style={{ maxWidth: '700px', width: '100%', height: '100%', display: 'block' }}
+                              className="object-cover shadow-md custom-clickable rounded-md"
+                              style={{ maxWidth: desktopMaxWidth, width: '100%', height: '100%', display: 'block' }}
                               onError={(e) => {
                                 e.target.style.display = 'none';
                                 e.target.nextElementSibling.style.display = 'flex';
