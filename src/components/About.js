@@ -160,7 +160,7 @@ const About = ({ isDarkMode, toggleDarkMode }) => {
                   <div className="rounded-lg overflow-hidden" style={{ height: '76vh' }}>
                     <img
                       src={src}
-                      alt={`About photo ${idx + 1}`}
+                      alt={`About ${idx + 1}`}
                       className="block w-full h-full object-contain"
                       loading={idx < 2 ? 'eager' : 'lazy'}
                     />

@@ -341,7 +341,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
       category,
       categoryProjects.filter((p) => !hiddenProjectIds.has(p.id)),
     ]);
-  }, [projects]);
+  }, [projects, hiddenProjectIds]);
 
   const allProjects = useMemo(() => orderedCategories.flatMap(([, categoryProjects]) => categoryProjects), [orderedCategories]);
 
