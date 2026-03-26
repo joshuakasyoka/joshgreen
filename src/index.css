@@ -20,6 +20,48 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body.theme-light {
+  background: #ffffff;
+  color: #111827;
+}
+
+body.theme-dark {
+  background: #1c1f26;
+  color: #e5e7eb;
+}
+
+/* Dark theme overrides for existing Tailwind utility classes used in the app */
+body.theme-dark .bg-white {
+  background-color: #1c1f26 !important;
+}
+
+body.theme-dark .text-gray-900 {
+  color: #f3f4f6 !important;
+}
+
+body.theme-dark .text-gray-800 {
+  color: #e5e7eb !important;
+}
+
+body.theme-dark .text-gray-700,
+body.theme-dark .text-gray-600 {
+  color: #d1d5db !important;
+}
+
+body.theme-dark .text-gray-500,
+body.theme-dark .text-gray-400,
+body.theme-dark .text-gray-300 {
+  color: #9ca3af !important;
+}
+
+body.theme-dark .border-gray-300 {
+  border-color: #374151 !important;
+}
+
+body.theme-dark .bg-opacity-80 {
+  background-color: rgba(31, 41, 55, 0.82) !important;
+}
+
 /* Custom blur effects */
 .blur-sm {
   filter: blur(4px);
@@ -45,6 +87,14 @@ body {
 
 .overflow-y-auto::-webkit-scrollbar-thumb:hover {
   background: #d1d5db;
+}
+
+body.theme-dark .overflow-y-auto::-webkit-scrollbar-thumb {
+  background: #4b5563;
+}
+
+body.theme-dark .overflow-y-auto::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
 }
 
 /* Smooth transitions */

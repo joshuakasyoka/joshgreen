@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import Modal from './Modal';
 
-const Portfolio = () => {
+const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
   const [projects] = useState({
     'Web Development': [
       { 
@@ -83,6 +83,25 @@ const Portfolio = () => {
     ],
     'Product Design': [
       { 
+        id: 10, 
+        name: 'EMMA', 
+        date: '2025', 
+        description: 'An internal AI assistant designed to improve how knowledge is discovered, trusted, and shared across Mott MacDonald.',
+        fullDescription: 'EMMA is an internal AI assistant designed with Mott MacDonald to improve how knowledge is discovered, trusted, and shared across a global workforce of over 20,000 employees. The project focused on identifying a high-impact, realistic entry point for AI adoption and delivering a secure, governed product aligned with how engineers actually work.',
+        website: '',
+        startingPoint: '',
+        outcome: '',
+        techStack: '',
+        images: [
+          { src: '/images/EMMA_BLOBCRF28.mp4', caption: 'EMMA Blob' },
+          { src: '/images/EMMA_AskCRF28.mp4', caption: 'EMMA Ask' },
+          { src: '/images/EMMA_HeroCRF28.mp4', caption: 'EMMA Hero' },
+          { src: '/images/EMMA_LOGOCRF28.mp4', caption: 'EMMA Logo' },
+          { src: '/images/EMMA_IconsCRF28.mp4', caption: 'EMMA Icons' },
+          { src: '/images/EMMA_MobileCRF28.mp4', caption: 'EMMA Mobile' }
+        ]
+      },
+      { 
         id: 5, 
         name: 'Moata Geospatial', 
         date: 'May 2024', 
@@ -93,10 +112,10 @@ const Portfolio = () => {
         outcome: 'Interactive mapping platform for infrastructure planning and environmental assessment.',
         techStack: 'React, Leaflet, D3.js, PostgreSQL, AWS',
         images: [
-          { src: '/images/05.04.png', caption: 'Moata Geospatial Img 1' },
-          { src: '/images/05.01.png', caption: 'Moata Geospatial Img 2' },
-          { src: '/images/05.02.png', caption: 'Moata Geospatial Img 3' },
-          { src: '/images/05.03.png', caption: 'Moata Geospatial Img 4' }
+          { src: '/images/MCP_videoDownsize_carbon_medCRF28.mp4', caption: 'Moata Geospatial Img 1' },
+          { src: '/images/CarbonPortal02.webp', caption: 'Moata Geospatial Img 2' },
+          { src: '/images/MCP_videoCrop_womaniPad_med.mp4', caption: 'Moata Geospatial Img 3' },
+          { src: '/images/CarbonPortal03.webp', caption: 'Moata Geospatial Img 4' }
         ]
       },
       { 
@@ -110,10 +129,10 @@ const Portfolio = () => {
         outcome: 'Comprehensive API portal enabling seamless integration with ClearBank\'s services.',
         techStack: 'React, TypeScript, OpenAPI, Swagger, Vercel',
         images: [
-          { src: '/images/06.01.png', caption: 'ClearBank Img 1' },
-          { src: '/images/06.02.png', caption: 'ClearBank Img 2' },
-          // { src: '/images/06.03.png', caption: 'Main interface' },
-          { src: '/images/06.04.png', caption: 'ClearBank Img 3' }
+          { src: '/images/5f388e40.mp4', caption: 'ClearBank Video 1' },
+          { src: '/images/7f9eb849.mp4', caption: 'ClearBank Video 2' },
+          { src: '/images/16-Accounts.jpg', caption: 'ClearBank Image' },
+          { src: '/images/53c30df9.mp4', caption: 'ClearBank Video 3' }
         ]
       },
       { 
@@ -144,9 +163,11 @@ const Portfolio = () => {
         outcome: 'Virtual gallery experience allowing global access to Phillips\' curated collections.',
         techStack: 'React, Three.js, WebGL, Contentful, Vercel',
         images: [
-          { src: '/images/08.01.png', caption: 'Phillips Auction House Img 1' },
-          // { src: '/images/08.02.png', caption: 'Submission form' },
-          { src: '/images/08.02.png', caption: 'Phillips Auction House Img 2' }
+          { src: '/images/Phillips_new_aquisitions_crf28.mp4', caption: 'Phillips Auction House Video 1' },
+          { src: '/images/Phillips03.webp', caption: 'Phillips Auction House Img 1' },
+          { src: '/images/Phillips02.webp', caption: 'Phillips Auction House Img 2' },
+          { src: '/images/Phillips_Button_Square-Loop.mp4', caption: 'Phillips Auction House Video 2' },
+          { src: '/images/Phillips04.webp', caption: 'Phillips Auction House Img 3' }
         ]
       },
       { 
@@ -260,12 +281,13 @@ const Portfolio = () => {
     ]
   });
 
-  const [selectedProject, setSelectedProject] = useState(projects['Web Development'][0]);
+  const [selectedProject, setSelectedProject] = useState(projects['Product Design'][0]);
   // On mobile, all project lists are expanded by default
   const mainContentRef = useRef(null);
   const headerRef = useRef(null);
   const mainContentScrollRef = useRef(null);
   const sidebarScrollRef = useRef(null);
+  const preloadedImagesRef = useRef(new Set());
   const [isHeaderHovered, setIsHeaderHovered] = useState(false);
   const [isAboutHovered, setIsAboutHovered] = useState(false);
   const [modalImage, setModalImage] = useState(null);
@@ -278,7 +300,29 @@ const Portfolio = () => {
     techStack: false
   });
 
-  const allProjects = useMemo(() => Object.values(projects).flat(), [projects]);
+  const isVideoMedia = (src) => /\.(mp4)$/i.test(src || '');
+
+  // Temporarily hidden projects by id
+  const hiddenProjectIds = useMemo(() => new Set([7, 9]), []);
+
+  const orderedCategories = useMemo(() => {
+    const entries = Object.entries(projects);
+    const priority = ['Product Design', 'Web Development', 'Participatory Design', 'Design Writing'];
+    const sorted = entries.sort((a, b) => {
+      const aIndex = priority.indexOf(a[0]);
+      const bIndex = priority.indexOf(b[0]);
+      const safeA = aIndex === -1 ? Number.MAX_SAFE_INTEGER : aIndex;
+      const safeB = bIndex === -1 ? Number.MAX_SAFE_INTEGER : bIndex;
+      return safeA - safeB;
+    });
+    // Filter out hidden projects
+    return sorted.map(([category, categoryProjects]) => [
+      category,
+      categoryProjects.filter((p) => !hiddenProjectIds.has(p.id)),
+    ]);
+  }, [projects]);
+
+  const allProjects = useMemo(() => orderedCategories.flatMap(([, categoryProjects]) => categoryProjects), [orderedCategories]);
 
   // Scroll to top when project changes
   useEffect(() => {
@@ -315,6 +359,63 @@ const Portfolio = () => {
     };
   }, [selectedProject, allProjects]);
 
+  useEffect(() => {
+    if (!selectedProject) return;
+
+    const currentIndex = allProjects.findIndex((project) => project.id === selectedProject.id);
+    if (currentIndex === -1) return;
+
+    const projectsToPreload = [
+      selectedProject,
+      allProjects[(currentIndex + 1) % allProjects.length],
+      allProjects[(currentIndex - 1 + allProjects.length) % allProjects.length],
+    ];
+
+    projectsToPreload.forEach((project) => {
+      if (!project?.images) return;
+
+      project.images.forEach((imgObj) => {
+        const src = typeof imgObj === 'string' ? imgObj : imgObj.src;
+        if (!src || preloadedImagesRef.current.has(src)) return;
+        if (isVideoMedia(src)) {
+          const video = document.createElement('video');
+          video.preload = 'metadata';
+          video.src = src;
+        } else {
+          const img = new Image();
+          img.src = src;
+        }
+        preloadedImagesRef.current.add(src);
+      });
+    });
+  }, [selectedProject, allProjects]);
+
+  useEffect(() => {
+    const videos = Array.from(document.querySelectorAll('[data-auto-play-video="true"]'));
+    if (!videos.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const video = entry.target;
+          if (entry.isIntersecting) {
+            video.play().catch(() => {});
+          } else {
+            video.pause();
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    videos.forEach((video) => observer.observe(video));
+
+    return () => {
+      observer.disconnect();
+      videos.forEach((video) => video.pause());
+    };
+  }, [selectedProject]);
+
   const handleProjectClick = (project) => {
     setSelectedProject(project);
     // Auto-close info panel when switching projects
@@ -349,23 +450,41 @@ const Portfolio = () => {
         >
           Josh Green
         </h1>
-        <Link 
-          to="/about" 
-          className={`text-gray-800 font-normal text-base mt-1 transition-all duration-300 ${
-            isAboutHovered ? 'blur-[1px]' : 'filter-none'
-          }`}
-          onMouseEnter={() => setIsAboutHovered(true)}
-          onMouseLeave={() => setIsAboutHovered(false)}
-        >
-          (About)
-        </Link>
+        <div className="flex items-center gap-4">
+          <button
+            onClick={toggleDarkMode}
+            aria-label="Toggle dark mode"
+            className="w-9 h-5 custom-clickable relative rounded-full"
+            style={{ border: '0.5px solid #81FF03' }}
+          >
+            <span
+              className="absolute w-4 h-4 rounded-full transition-transform duration-200"
+              style={{
+                left: '2px',
+                top: '50%',
+                transform: isDarkMode ? 'translate(16px, -50%)' : 'translate(0, -50%)',
+                backgroundColor: '#81FF03'
+              }}
+            />
+          </button>
+          <Link 
+            to="/about" 
+            className={`text-gray-800 font-normal text-base transition-all duration-300 ${
+              isAboutHovered ? 'blur-[1px]' : 'filter-none'
+            }`}
+            onMouseEnter={() => setIsAboutHovered(true)}
+            onMouseLeave={() => setIsAboutHovered(false)}
+          >
+            (About)
+          </Link>
+        </div>
       </div>
 
       <div className="flex h-full flex-col md:flex-row">
         {/* Sidebar */}
         <div className="w-full md:w-80 flex flex-col" style={{ paddingLeft: '32px', paddingRight: '24px' }}>
           <div ref={sidebarScrollRef} className="overflow-y-auto flex-1 pb-20">
-            {Object.entries(projects).map(([category, categoryProjects]) => (
+            {orderedCategories.map(([category, categoryProjects]) => (
               <div key={category} className="mb-12">
                 <h2
                   className="text-base font-normal text-gray-900 mb-6 select-none"
@@ -440,19 +559,33 @@ const Portfolio = () => {
                           {project.images.map((imgObj, idx) => {
                             const src = typeof imgObj === 'string' ? imgObj : imgObj.src;
                             const caption = typeof imgObj === 'string' ? null : imgObj.caption;
+                            const isVideo = isVideoMedia(src);
                             return (
                               <div
                                 key={idx}
                                 className="flex flex-col mb-10 last:mb-0 items-start"
                               >
-                                <img
-                                  loading="lazy"
-                                  src={src}
-                                  alt={project.name + ' image ' + (idx + 1)}
-                                  onClick={() => openModal({ src, alt: project.name + ' image ' + (idx + 1) })}
-                                  className={`object-cover shadow-lg custom-clickable rounded-md ${idx % 2 === 0 ? '' : 'ml-auto'}`}
-                                  style={{ maxWidth: '100%', width: '100%', display: 'block' }}
-                                />
+                                {isVideo ? (
+                                  <video
+                                    src={src}
+                                    data-auto-play-video="true"
+                                    muted
+                                    loop
+                                    playsInline
+                                    preload="metadata"
+                                    className={`object-cover shadow-lg rounded-md ${idx % 2 === 0 ? '' : 'ml-auto'}`}
+                                    style={{ maxWidth: '100%', width: '100%', display: 'block' }}
+                                  />
+                                ) : (
+                                  <img
+                                    loading={idx < 2 ? 'eager' : 'lazy'}
+                                    src={src}
+                                    alt={project.name + ' image ' + (idx + 1)}
+                                    onClick={() => openModal({ src, alt: project.name + ' image ' + (idx + 1) })}
+                                    className={`object-cover shadow-lg custom-clickable rounded-md ${idx % 2 === 0 ? '' : 'ml-auto'}`}
+                                    style={{ maxWidth: '100%', width: '100%', display: 'block' }}
+                                  />
+                                )}
                                 <div className="flex items-center gap-2 mt-4 justify-start">
                                   <span className="w-5 h-5 flex items-center justify-center rounded-full border border-gray-300 text-gray-300 text-xs font-medium">
                                     {idx + 1}
@@ -538,23 +671,37 @@ const Portfolio = () => {
                     {selectedProject.images.map((imgObj, idx) => {
                       const src = typeof imgObj === 'string' ? imgObj : imgObj.src;
                       const caption = typeof imgObj === 'string' ? null : imgObj.caption;
+                      const isVideo = isVideoMedia(src);
                       return (
                         <div
                           key={idx}
                           className={`flex flex-col mb-16 last:mb-0 px-12 ${idx % 2 === 0 ? 'items-start' : 'items-end'}`}
                         >
-                          <img
-                            loading="lazy"
-                            src={src}
-                            alt={selectedProject.name + ' image ' + (idx + 1)}
-                            onClick={() => openModal({ src, alt: selectedProject.name + ' image ' + (idx + 1) })}
-                            className="object-cover shadow-lg custom-clickable rounded-md"
-                            style={{ maxWidth: '700px', width: '100%', height: '100%', display: 'block' }}
-                            onError={(e) => {
-                              e.target.style.display = 'none';
-                              e.target.nextElementSibling.style.display = 'flex';
-                            }}
-                          />
+                          {isVideo ? (
+                            <video
+                              src={src}
+                              data-auto-play-video="true"
+                              muted
+                              loop
+                              playsInline
+                              preload="metadata"
+                              className="object-cover shadow-lg rounded-md"
+                              style={{ maxWidth: '700px', width: '100%', height: '100%', display: 'block' }}
+                            />
+                          ) : (
+                            <img
+                              loading={idx < 2 ? 'eager' : 'lazy'}
+                              src={src}
+                              alt={selectedProject.name + ' image ' + (idx + 1)}
+                              onClick={() => openModal({ src, alt: selectedProject.name + ' image ' + (idx + 1) })}
+                              className="object-cover shadow-lg custom-clickable rounded-md"
+                              style={{ maxWidth: '700px', width: '100%', height: '100%', display: 'block' }}
+                              onError={(e) => {
+                                e.target.style.display = 'none';
+                                e.target.nextElementSibling.style.display = 'flex';
+                              }}
+                            />
+                          )}
                           <div className="flex items-center gap-2 mt-4">
                             <span className="w-5 h-5 flex items-center justify-center rounded-full border border-gray-300 text-gray-500 text-xs font-medium">
                               {idx + 1}
