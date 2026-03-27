@@ -9,7 +9,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
         id: 1, 
         name: 'London AI Voices Archive', 
         date: 'May 2025', 
-        description: 'Website for collecting citizen voices on the subject of Artificial Intelligence',
+        description: 'Website for collecting citizen voices on the subject of Artificial Intelligence', 
         fullDescription: 'An interactive website and digital platform designed to collect and visualize citizen voices and perspectives on the subject of Artificial Intelligence, enabling Londoners to share their experiences and concerns about AI development in their communities.', 
         website: 'https://aivoicesmap.vercel.app/',
         startingPoint: 'Need for a platform to collect and visualize citizen perspectives on AI development in London.',
@@ -17,7 +17,8 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
         techStack: 'React, Next.js, Mapbox, Vercel, Tailwind CSS',
         images: [
           { src: '/images/web-development/london-ai-voices/01.01.png', caption: 'London AI Voices Img 1' },
-          { src: '/images/web-development/london-ai-voices/01.02.png', caption: 'London AI Voices Img 2' },
+          { src: '/images/web-development/london-ai-voices/AI_Graph.mov', caption: 'London AI Voices Video 1' },
+          { src: '/images/web-development/london-ai-voices/AI_NEW.mov', caption: 'London AI Voices Video 2' },
           // { src: '/images/01.03.png', caption: 'London AI Voices Img 3' },
           // { src: '/images/01.04.png', caption: 'London AI Voices Img 4' },
           // { src: '/images/01.05.png', caption: 'Main interface' }
@@ -27,7 +28,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
         id: 2, 
         name: 'Tate Modern Exhibit', 
         date: 'April 2025', 
-        description: 'Tate Modern exhibit exploring the water consumption of generative AI',
+        description: 'Tate Modern exhibit exploring the water consumption of generative AI', 
         fullDescription: 'An interactive digital exhibit commissioned by Tate Modern that explores and visualizes the significant water consumption and environmental impact of generative AI technologies, revealing the hidden resource costs behind AI training and generation processes.', 
         website: 'https://digital-water-database.vercel.app/',
         startingPoint: 'Tate Modern commission to create an interactive exhibit about AI\'s environmental impact.',
@@ -35,9 +36,8 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
         techStack: 'React, Three.js, WebGL, Vercel, CSS3',
         images: [
           { src: '/images/web-development/tate-modern/02.01.png', caption: 'Tate Modern Exhbit Img 1' },
-          { src: '/images/web-development/tate-modern/02.02.png', caption: 'Tate Modern Exhbit Img 2' },
-          { src: '/images/web-development/tate-modern/02.03.png', caption: 'Tate Modern Exhbit Img 3' },
-          { src: '/images/web-development/tate-modern/02.04.png', caption: 'Tate Modern Exhbit Img 4' }
+          { src: '/images/web-development/tate-modern/DB_01.mov', caption: 'Tate Modern Video 1' },
+          { src: '/images/web-development/tate-modern/DB_02.mov', caption: 'Tate Modern Video 2' }
         ]
       },
       { 
@@ -45,7 +45,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
         name: 'UAL Materials Archive', 
         date: 'April 2025', 
         website: 'https://gcdp-2025.vercel.app/',
-        description: 'Platform built for UAL graduate course, Global Collaborative Design Practice, to display thesis projects',
+        description: 'Platform built for UAL graduate course, Global Collaborative Design Practice, to display thesis projects', 
         fullDescription: 'A collaborative digital platform built for the UAL graduate course Global Collaborative Design Practice, designed to display and archive thesis projects from design students across multiple disciplines, facilitating research sharing and discovery.', 
         startingPoint: 'UAL graduate course requirement for a collaborative platform to showcase thesis projects.',
         outcome: 'Centralized archive for design students to share and discover research across disciplines.',
@@ -53,17 +53,14 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
         images: [
           // { src: '/images/03.05.png', caption: 'Main interface' },
           { src: '/images/web-development/ual-materials-archive/03.06.png', caption: 'Materials Archive Img 1' },
-          { src: '/images/web-development/ual-materials-archive/03.01.png', caption: 'Materials Archive Img 2' },
-          { src: '/images/web-development/ual-materials-archive/03.02.png', caption: 'Materials Archive Img 3' },
-          { src: '/images/web-development/ual-materials-archive/03.03.png', caption: 'Materials Archive Img 4' },
-          { src: '/images/web-development/ual-materials-archive/03.04.png', caption: 'Materials Archive Img 5' }
+          { src: '/images/web-development/ual-materials-archive/edit archive.mov', caption: 'Materials Archive Video 1' }
         ]
       },
       { 
         id: 4, 
         name: 'Community AI Tools', 
         date: 'Jan 2025', 
-        description: 'Selection of digital tools to enhance community literacy on Algorithm Development',
+        description: 'Selection of digital tools to enhance community literacy on Algorithm Development', 
         fullDescription: 'A curated selection of accessible digital tools and educational resources designed to enhance community literacy and understanding of algorithm development, empowering local communities to participate more effectively in AI governance discussions and decision-making processes.', 
         website: 'https://ai-voices-archive-gb91gago5-josh-greens-projects.vercel.app/',
         startingPoint: 'Community need for accessible tools to understand and engage with AI development.',
@@ -112,18 +109,19 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
         outcome: 'Interactive mapping platform for infrastructure planning and environmental assessment.',
         techStack: 'React, Leaflet, D3.js, PostgreSQL, AWS',
         images: [
-          { src: '/images/moata/MCP_videoDownsize_carbon_medCRF28.mp4', caption: 'Moata Geospatial Img 1' },
-          { src: '/images/moata/CarbonPortal02.webp', caption: 'Moata Geospatial Img 2' },
-          { src: '/images/moata/MCP_videoCrop_womaniPad_med.mp4', caption: 'Moata Geospatial Img 3' },
-          { src: '/images/moata/CarbonPortal03.webp', caption: 'Moata Geospatial Img 4' },
-          { src: '/images/moata/TRIM2.mov', caption: 'Moata Geospatial Video' }
+          { src: '/images/moata/MCP_videoDownsize_carbon_medCRF28.mp4', caption: 'Moata Geospatial Video 1' },
+          { src: '/images/moata/CarbonPortal02.webp', caption: 'Moata Geospatial Img 1' },
+          { src: '/images/moata/MGO_FINAL 2.mov', caption: 'Moata Geospatial Video 2' },
+          { src: '/images/moata/CarbonPortal03.webp', caption: 'Moata Geospatial Img 2' },
+          { src: '/images/moata/MGO_FINAL.mov', caption: 'Moata Geospatial Video 3' },
+          { src: '/images/moata/MGO FINL .mov', caption: 'Moata Geospatial Video 4' }
         ]
       },
       { 
         id: 6, 
         name: 'ClearBank', 
         date: 'May 2024', 
-        description: 'A website for ClearBank, a fintech company that provides powerful banking APIs',
+        description: 'A website for ClearBank, a fintech company that provides powerful banking APIs', 
         fullDescription: 'A comprehensive website and developer portal for ClearBank, a fintech company that provides powerful banking APIs, featuring developer-friendly documentation, API testing tools, and seamless integration resources for financial technology developers.', 
         website: 'https://clear.bank/explore-our-api',
         startingPoint: 'ClearBank\'s requirement for developer-friendly API documentation and testing tools.',
@@ -140,7 +138,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
         id: 7, 
         name: 'AptaBiome', 
         date: 'May 2023', 
-        description: 'A digital product to support r c-section parents created in collaboration with Danone',
+        description: 'A digital product to support r c-section parents created in collaboration with Danone', 
         fullDescription: 'A comprehensive digital product and mobile application created in collaboration with Danone to support parents who have had C-sections, providing personalized guidance, recovery resources, and parenting support through an intuitive and empathetic user experience.', 
         website: 'https://aivoicesmap.vercel.app/',
         startingPoint: 'Danone\'s need to support parents who have had C-sections with digital tools and resources.',
@@ -157,7 +155,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
         id: 8, 
         name: 'Phillips Auction House', 
         date: 'May 2023', 
-        description: 'A new check-out experience for Phillips Auction House',
+        description: 'A new check-out experience for Phillips Auction House', 
         fullDescription: 'A new digital exhibition and checkout experience for Phillips Auction House, creating a virtual gallery platform that allows global access to Phillips\' curated collections and auction items through an immersive web-based interface.', 
         website: 'https://exhibitions.phillips.com/',
         startingPoint: 'Phillips\' need for digital exhibition platform to showcase auction items.',
@@ -223,7 +221,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
         id: 12, 
         name: 'Climate Truth Crisis', 
         date: 'May 2025', 
-        description: 'Website for collecting citizen voices on the subject of Artificial Intelligence',
+        description: 'Website for collecting citizen voices on the subject of Artificial Intelligence', 
         fullDescription: 'An interactive narrative experience and research project that explores the intersection of climate change and information systems, examining how climate misinformation spreads through digital platforms and questioning the nature of truth in the age of environmental crisis.', 
         website: 'https://deathofnero.vercel.app/',
         startingPoint: 'Research project exploring the intersection of climate change and information systems.',
@@ -322,6 +320,13 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
   });
 
   const isVideoMedia = (src) => /\.(mp4|mov)$/i.test(src || '');
+  const defaultRoleHighlights = ['Research', 'UX/UI Design', 'Prototyping'];
+  const getRoleHighlights = (project) => {
+    if (project?.roleHighlights?.length) {
+      return project.roleHighlights.slice(0, 3);
+    }
+    return defaultRoleHighlights;
+  };
 
   // Temporarily hidden projects by id
   const hiddenProjectIds = useMemo(() => new Set([7, 9]), []);
@@ -498,16 +503,16 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
               }}
             />
           </button>
-          <Link 
-            to="/about" 
+        <Link 
+          to="/about" 
             className={`text-gray-800 font-normal text-base transition-all duration-300 ${
-              isAboutHovered ? 'blur-[1px]' : 'filter-none'
-            }`}
-            onMouseEnter={() => setIsAboutHovered(true)}
-            onMouseLeave={() => setIsAboutHovered(false)}
-          >
-            (About)
-          </Link>
+            isAboutHovered ? 'blur-[1px]' : 'filter-none'
+          }`}
+          onMouseEnter={() => setIsAboutHovered(true)}
+          onMouseLeave={() => setIsAboutHovered(false)}
+        >
+          (About)
+        </Link>
         </div>
       </div>
 
@@ -581,6 +586,17 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
                                 {project.date}
                               </p>
                             )}
+                            <div className="flex flex-wrap gap-2 mb-3">
+                              {getRoleHighlights(project).map((item, idx) => (
+                                <span
+                                  key={`${project.id}-chip-${idx}`}
+                                  className="inline-flex items-center gap-1.5 px-2.5 py-1 border border-gray-300 text-gray-600 text-xs rounded-full"
+                                >
+                                  <span aria-hidden="true">+</span>
+                                  <span>{item}</span>
+                                </span>
+                              ))}
+                            </div>
                             {(project.fullDescription || project.description) && (
                               <p className="text-sm text-gray-600 leading-relaxed max-w-md">
                                 {project.fullDescription || project.description}
@@ -591,7 +607,6 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
                             const src = typeof imgObj === 'string' ? imgObj : imgObj.src;
                             const caption = typeof imgObj === 'string' ? null : imgObj.caption;
                             const isVideo = isVideoMedia(src);
-                            const mobileMaxWidth = project.mediaMaxWidthMobile ? `${project.mediaMaxWidthMobile}px` : '100%';
                             return (
                               <div
                                 key={idx}
@@ -605,18 +620,18 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
                                     loop
                                     playsInline
                                     preload="metadata"
-                                    className={`object-cover shadow-md rounded-md ${idx % 2 === 0 ? '' : 'ml-auto'}`}
-                                    style={{ maxWidth: mobileMaxWidth, width: '100%', display: 'block' }}
+                                    className="object-cover"
+                                    style={{ maxWidth: '92%', width: '100%', display: 'block' }}
                                   />
                                 ) : (
                                   <img
                                     loading={idx < 2 ? 'eager' : 'lazy'}
-                                    src={src}
-                                    alt={project.name + ' image ' + (idx + 1)}
-                                    onClick={() => openModal({ src, alt: project.name + ' image ' + (idx + 1) })}
-                                    className={`object-cover shadow-md custom-clickable rounded-md ${idx % 2 === 0 ? '' : 'ml-auto'}`}
-                                    style={{ maxWidth: mobileMaxWidth, width: '100%', display: 'block' }}
-                                  />
+                                  src={src}
+                                  alt={project.name + ' image ' + (idx + 1)}
+                                  onClick={() => openModal({ src, alt: project.name + ' image ' + (idx + 1) })}
+                                    className="object-cover custom-clickable"
+                                    style={{ maxWidth: '92%', width: '100%', display: 'block' }}
+                                />
                                 )}
                                 <div className="flex items-center gap-2 mt-4 justify-start">
                                   <span className="w-5 h-5 flex items-center justify-center rounded-full border border-gray-300 text-gray-300 text-xs font-medium">
@@ -645,14 +660,14 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
           <div className="flex-1">
             {selectedProject && (
               <div className="md:absolute md:inset-0">
-                <div className="px-8 text-right space-y-2">
+                <div className="px-8 flex flex-col items-end gap-2 mb-4">
                   {selectedProject.website && !showInfoPanel && (
                     <a
                       href={selectedProject.website}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="block no-underline text-xs md:text-sm transition-all duration-300 custom-clickable hover:blur-sm"
-                      style={{ color: '#bdbdbd' }}
+                      className="inline-flex items-center px-2.5 py-1 border text-xs md:text-sm transition-all duration-300 custom-clickable hover:blur-sm no-underline rounded-full"
+                      style={{ color: '#81FF03', borderColor: '#81FF03' }}
                     >
                       Project Site
                     </a>
@@ -660,8 +675,8 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
                   {!showInfoPanel ? (
                     <button
                       onClick={toggleInfoPanel}
-                      className="text-xs md:text-sm transition-all duration-300 custom-clickable hover:blur-sm"
-                      style={{ color: '#bdbdbd' }}
+                      className="inline-flex items-center px-2.5 py-1 border rounded-full text-xs md:text-sm transition-all duration-300 custom-clickable hover:blur-sm"
+                      style={{ color: '#9ca3af', borderColor: '#9ca3af' }}
                     >
                       More details
                     </button>
@@ -675,8 +690,8 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
                           techStack: false
                         });
                       }}
-                      className="text-xs md:text-sm transition-all duration-300 custom-clickable hover:blur-sm"
-                      style={{ color: '#bdbdbd' }}
+                      className="inline-flex items-center px-2.5 py-1 border rounded-full text-xs md:text-sm transition-all duration-300 custom-clickable hover:blur-sm"
+                      style={{ color: '#9ca3af', borderColor: '#9ca3af' }}
                     >
                       Close
                     </button>
@@ -694,6 +709,17 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
                           {selectedProject.date}
                         </p>
                       )}
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {getRoleHighlights(selectedProject).map((item, idx) => (
+                          <span
+                            key={`${selectedProject.id}-chip-desktop-${idx}`}
+                            className="inline-flex items-center gap-1.5 px-2.5 py-1 border border-gray-300 text-gray-600 text-xs rounded-full"
+                          >
+                            <span aria-hidden="true">+</span>
+                            <span>{item}</span>
+                          </span>
+                        ))}
+                      </div>
                       {(selectedProject.fullDescription || selectedProject.description) && (
                         <p className="text-sm text-gray-600 leading-relaxed max-w-2xl">
                           {selectedProject.fullDescription || selectedProject.description}
@@ -704,11 +730,10 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
                       const src = typeof imgObj === 'string' ? imgObj : imgObj.src;
                       const caption = typeof imgObj === 'string' ? null : imgObj.caption;
                       const isVideo = isVideoMedia(src);
-                      const desktopMaxWidth = selectedProject.mediaMaxWidth ? `${selectedProject.mediaMaxWidth}px` : '700px';
                       return (
                         <div
                           key={idx}
-                          className={`flex flex-col mb-16 last:mb-0 px-12 ${idx % 2 === 0 ? 'items-start' : 'items-end'}`}
+                          className="flex flex-col mb-16 last:mb-0 px-12 items-start"
                         >
                           {isVideo ? (
                             <video
@@ -718,22 +743,22 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
                               loop
                               playsInline
                               preload="metadata"
-                              className="object-cover shadow-md rounded-md"
-                              style={{ maxWidth: desktopMaxWidth, width: '100%', height: '100%', display: 'block' }}
+                              className="object-cover"
+                              style={{ maxWidth: '920px', width: '100%', height: '100%', display: 'block' }}
                             />
                           ) : (
                             <img
                               loading={idx < 2 ? 'eager' : 'lazy'}
-                              src={src}
-                              alt={selectedProject.name + ' image ' + (idx + 1)}
-                              onClick={() => openModal({ src, alt: selectedProject.name + ' image ' + (idx + 1) })}
-                              className="object-cover shadow-md custom-clickable rounded-md"
-                              style={{ maxWidth: desktopMaxWidth, width: '100%', height: '100%', display: 'block' }}
-                              onError={(e) => {
-                                e.target.style.display = 'none';
-                                e.target.nextElementSibling.style.display = 'flex';
-                              }}
-                            />
+                            src={src}
+                            alt={selectedProject.name + ' image ' + (idx + 1)}
+                            onClick={() => openModal({ src, alt: selectedProject.name + ' image ' + (idx + 1) })}
+                              className="object-cover custom-clickable"
+                              style={{ maxWidth: '920px', width: '100%', height: '100%', display: 'block' }}
+                            onError={(e) => {
+                              e.target.style.display = 'none';
+                              e.target.nextElementSibling.style.display = 'flex';
+                            }}
+                          />
                           )}
                           <div className="flex items-center gap-2 mt-4">
                             <span className="w-5 h-5 flex items-center justify-center rounded-full border border-gray-300 text-gray-500 text-xs font-medium">
@@ -762,7 +787,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
           {/* Collapsible Info Section */}
           {selectedProject && showInfoPanel && (
             <div className="hidden md:block w-80 transition-all duration-300">
-              <div className="p-6 space-y-4">
+              <div className="p-6 pt-10 space-y-4">
                 
                 {/* Starting Point */}
                 <div className="backdrop-blur-sm bg-white bg-opacity-80 rounded-lg">
