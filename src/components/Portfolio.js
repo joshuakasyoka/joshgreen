@@ -484,7 +484,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
         <div className="flex items-center gap-4">
           {isDarkMode && (
             <span className="text-xs md:text-sm text-gray-500 select-none">
-              {'//'} hold mouse to annoate in dark mode {'//'}
+              hold mouse to annoate in dark mode
             </span>
           )}
           <button
@@ -620,8 +620,8 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
                                     loop
                                     playsInline
                                     preload="metadata"
-                                    className="object-cover"
-                                    style={{ maxWidth: '92%', width: '100%', display: 'block' }}
+                                    className="object-contain object-left self-start"
+                                    style={{ maxWidth: '92%', width: 'auto', maxHeight: '65vh', display: 'block' }}
                                   />
                                 ) : (
                                   <img
@@ -629,8 +629,8 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
                                   src={src}
                                   alt={project.name + ' image ' + (idx + 1)}
                                   onClick={() => openModal({ src, alt: project.name + ' image ' + (idx + 1) })}
-                                    className="object-cover custom-clickable"
-                                    style={{ maxWidth: '92%', width: '100%', display: 'block' }}
+                                    className="object-contain object-left custom-clickable self-start"
+                                    style={{ maxWidth: '92%', width: 'auto', maxHeight: '65vh', display: 'block' }}
                                 />
                                 )}
                                 <div className="flex items-center gap-2 mt-4 justify-start">
@@ -743,8 +743,8 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
                               loop
                               playsInline
                               preload="metadata"
-                              className="object-cover"
-                              style={{ maxWidth: '920px', width: '100%', height: '100%', display: 'block' }}
+                              className="object-contain object-left self-start"
+                              style={{ maxWidth: '920px', width: 'auto', maxHeight: '78vh', display: 'block' }}
                             />
                           ) : (
                             <img
@@ -752,8 +752,8 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
                             src={src}
                             alt={selectedProject.name + ' image ' + (idx + 1)}
                             onClick={() => openModal({ src, alt: selectedProject.name + ' image ' + (idx + 1) })}
-                              className="object-cover custom-clickable"
-                              style={{ maxWidth: '920px', width: '100%', height: '100%', display: 'block' }}
+                              className="object-contain object-left custom-clickable self-start"
+                              style={{ maxWidth: '920px', width: 'auto', maxHeight: '78vh', display: 'block' }}
                             onError={(e) => {
                               e.target.style.display = 'none';
                               e.target.nextElementSibling.style.display = 'flex';

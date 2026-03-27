@@ -89,18 +89,18 @@ const About = ({ isDarkMode, toggleDarkMode }) => {
           </button>
           {isDarkMode && (
             <span className="text-xs md:text-sm text-gray-500 select-none">
-              {'//'} hold mouse to annoate in dark mode {'//'}
+              hold mouse to annoate in dark mode
             </span>
           )}
           <Link to="/" className="text-base font-normal text-gray-800 filter blur-[1px] hover:filter-none transition-all">
-            Back
-          </Link>
+          Back
+        </Link>
         </div>
       </div>
       <div className="px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
           {/* Left: Text */}
-          <div className="max-w-md space-y-6 text-sm text-gray-800 leading-normal">
+        <div className="max-w-md space-y-6 text-sm text-gray-800 leading-normal">
           <div 
             className="w-2 h-2 rounded-full" 
             style={{ backgroundColor: 'rgb(129, 255, 3)' }}
