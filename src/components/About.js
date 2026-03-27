@@ -105,21 +105,7 @@ const About = ({ isDarkMode, toggleDarkMode }) => {
             className="w-2 h-2 rounded-full" 
             style={{ backgroundColor: 'rgb(129, 255, 3)' }}
           ></div>
-          <h2 className="font-normal">I'm Josh</h2>
-          <p>
-            I am an interdisciplinary designer based in London, and I'm exploring the societal challenges posed by generative AI. My work challenges the unfulfilled promises of a technological utopia by investigating how technology has often exacerbated inequality and led to social fragmentation.
-          </p>
-          <p>
-            I am particularly focused on how the proliferation of AI-generated visual content, often called "AI slop," is undermining our relationship with images and truth.
-          </p>
-          <p>
-            Through my research, I aim to imagine more inclusive technological futures by using participatory design methods and public-facing probes that encourage critical and speculative thinking. My goal is to develop a new social contract with images, fostering critical literacy and epistemic resilience in the face of AI technologies that seek to make us passive recipients of their impacts.
-          </p>
-          <p>
-            My creative lab invites people to actively make, think, and critique, helping them reclaim their human agency. To understand how these methods work in different contexts, I am conducting a comparative study in London and Tokyo, which have different technological and cultural landscapes.
-          </p>
-
-          <div className="pt-6">
+          <div className="pt-2">
             <h3 className="text-sm font-normal text-gray-900 mb-3">Education</h3>
             <div className="space-y-3">
               <div>
@@ -136,6 +122,20 @@ const About = ({ isDarkMode, toggleDarkMode }) => {
               </div>
             </div>
           </div>
+          <h2 className="font-normal">I'm Josh</h2>
+          <p>
+            I am an interdisciplinary designer based in London, and I'm exploring the societal challenges posed by generative AI. My work challenges the unfulfilled promises of a technological utopia by investigating how technology has often exacerbated inequality and led to social fragmentation.
+          </p>
+          <p>
+            I am particularly focused on how the proliferation of AI-generated visual content, often called "AI slop," is undermining our relationship with images and truth.
+          </p>
+          <p>
+            Through my research, I aim to imagine more inclusive technological futures by using participatory design methods and public-facing probes that encourage critical and speculative thinking. My goal is to develop a new social contract with images, fostering critical literacy and epistemic resilience in the face of AI technologies that seek to make us passive recipients of their impacts.
+          </p>
+          <p>
+            My creative lab invites people to actively make, think, and critique, helping them reclaim their human agency. To understand how these methods work in different contexts, I am conducting a comparative study in London and Tokyo, which have different technological and cultural landscapes.
+          </p>
+
           </div>
           {/* Right: Stacking cards animation */}
           <div ref={stackRef} className="relative mt-2 mb-24 md:mb-0" style={{ height: '76vh' }}>

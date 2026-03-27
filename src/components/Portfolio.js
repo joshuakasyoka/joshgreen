@@ -795,7 +795,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
                     onClick={() => toggleInfo('startingPoint')}
                     className="w-full pl-4 pr-2 py-3 text-left flex justify-between items-center transition-all duration-300 hover:blur-[1px] custom-clickable"
                   >
-                    <span className="font-normal text-gray-900">Starting point</span>
+                    <span className="font-normal text-gray-900">Starting</span>
                     <div className={`w-6 h-6 rounded-full flex items-center justify-center transition-transform duration-300 ${
                       expandedInfo.startingPoint ? 'rotate-45' : ''
                     }`}>
@@ -839,7 +839,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
                     onClick={() => toggleInfo('techStack')}
                     className="w-full pl-4 py-3 pr-2 text-left flex justify-between items-center transition-all duration-300 hover:blur-[1px] custom-clickable"
                   >
-                    <span className="font-normal text-gray-900">Tech stack</span>
+                    <span className="font-normal text-gray-900">Technical</span>
                     <div className={`w-6 h-6 rounded-full flex items-center justify-center transition-transform duration-300 ${
                       expandedInfo.techStack ? 'rotate-45' : ''
                     }`}>
