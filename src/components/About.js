@@ -98,7 +98,7 @@ const About = ({ isDarkMode, toggleDarkMode }) => {
         </div>
       </div>
       <div className="px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start md:items-center">
           {/* Left: Text */}
         <div className="max-w-md space-y-6 text-sm text-gray-800 leading-normal">
           <div 
@@ -138,7 +138,7 @@ const About = ({ isDarkMode, toggleDarkMode }) => {
 
           </div>
           {/* Right: Stacking cards animation */}
-          <div ref={stackRef} className="relative mt-2 mb-24 md:mb-0" style={{ height: '76vh' }}>
+          <div ref={stackRef} className="relative mt-8 md:mt-0 mb-24 md:mb-0" style={{ height: '76vh' }}>
             {recentPhotos.map((src, idx) => {
               const isVisible = idx < visibleCount;
               // Stack directly on top (no vertical offset)
@@ -147,11 +147,10 @@ const About = ({ isDarkMode, toggleDarkMode }) => {
               return (
                 <div
                   key={src}
-                  className="absolute left-1/2 -translate-x-1/2 transition-all duration-900 ease-out will-change-transform"
+                  className="absolute left-1/2 -translate-x-1/2 md:-ml-24 transition-all duration-900 ease-out will-change-transform"
                   style={{
                     top: `${y}px`,
                     transform: `translateX(-50%) ${isVisible ? 'translateY(0) rotate(0deg)' : `translateY(24px) rotate(${rot}deg)`}`,
-                    marginLeft: '-96px',
                     opacity: isVisible ? 1 : 0,
                     zIndex: 10 + idx,
                     width: 'min(88vw, 600px)'

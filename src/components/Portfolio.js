@@ -327,6 +327,18 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
     }
     return defaultRoleHighlights;
   };
+  const renderWovenDescription = (project, className) => {
+    const baseDescription = project.fullDescription || project.description;
+    if (!baseDescription) return null;
+    return (
+      <p className={className}>
+        {baseDescription}{' '}
+        <span className="underline">As lead product designer</span>, I focused on{' '}
+        <span className="underline">designing new features</span> and{' '}
+        <span className="underline">testing with users</span> to refine the overall experience.
+      </p>
+    );
+  };
 
   // Temporarily hidden projects by id
   const hiddenProjectIds = useMemo(() => new Set([7, 9]), []);
@@ -597,11 +609,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
                                 </span>
                               ))}
                             </div>
-                            {(project.fullDescription || project.description) && (
-                              <p className="text-sm text-gray-600 leading-relaxed max-w-md">
-                                {project.fullDescription || project.description}
-                              </p>
-                            )}
+                            {renderWovenDescription(project, 'text-sm text-gray-600 leading-relaxed max-w-md')}
                           </div>
                           {project.images.map((imgObj, idx) => {
                             const src = typeof imgObj === 'string' ? imgObj : imgObj.src;
@@ -659,8 +667,9 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
           {/* Project Images */}
           <div className="flex-1">
             {selectedProject && (
-              <div className="md:absolute md:inset-0">
-                <div className="px-8 flex flex-col items-end gap-2 mb-4">
+              <div className="h-full flex flex-col relative">
+                {/* Top actions row (sits above case study content) */}
+                <div className="w-full px-8 py-0 flex flex-col items-end gap-2 absolute top-0 left-0 z-10">
                   {selectedProject.website && !showInfoPanel && (
                     <a
                       href={selectedProject.website}
@@ -698,9 +707,9 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
                   )}
                 </div>
                 {selectedProject.images.length > 0 ? (
-                  <div ref={mainContentScrollRef} className="w-full h-full overflow-y-auto hidden md:block pb-48">
+                  <div ref={mainContentScrollRef} className="w-full flex-1 overflow-y-auto hidden md:block pb-48">
                     {/* Project Title and Description */}
-                    <div className="px-12 pt-8 pb-12">
+                    <div className="px-12 pt-0 pb-12">
                       <h2 className="text-2xl font-normal text-gray-900 mb-2">
                         {selectedProject.name}
                       </h2>
@@ -720,11 +729,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
                           </span>
                         ))}
                       </div>
-                      {(selectedProject.fullDescription || selectedProject.description) && (
-                        <p className="text-sm text-gray-600 leading-relaxed max-w-2xl">
-                          {selectedProject.fullDescription || selectedProject.description}
-                        </p>
-                      )}
+                      {renderWovenDescription(selectedProject, 'text-sm text-gray-600 leading-relaxed max-w-2xl')}
                     </div>
                     {selectedProject.images.map((imgObj, idx) => {
                       const src = typeof imgObj === 'string' ? imgObj : imgObj.src;
@@ -786,7 +791,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
           
           {/* Collapsible Info Section */}
           {selectedProject && showInfoPanel && (
-            <div className="hidden md:block w-80 transition-all duration-300">
+            <div className="hidden md:block absolute top-6 right-0 z-20 w-80 transition-all duration-300">
               <div className="p-6 pt-10 space-y-4">
                 
                 {/* Starting Point */}
