@@ -68,11 +68,9 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
         techStack: 'React, Python, TensorFlow, Vercel, Chart.js',
         images: [
           { src: '/images/web-development/community-ai-tools/04.06.png', caption: 'Community AI Tools Img 1' },
-          { src: '/images/web-development/community-ai-tools/04.01.png', caption: 'Community AI Tools Img 2' },
-          { src: '/images/web-development/community-ai-tools/04.02.png', caption: 'Community AI Tools Img 3' },
-          { src: '/images/web-development/community-ai-tools/04.03.png', caption: 'Community AI Tools Img 4' },
-          { src: '/images/web-development/community-ai-tools/04.04.png', caption: 'Community AI Tools Img 5' },
-          { src: '/images/web-development/community-ai-tools/04.05.png', caption: 'Community AI Tools Img 6' },
+          { src: '/images/web-development/community-ai-tools/123.mov', caption: 'Community AI Tools Video 1' },
+          { src: '/images/web-development/community-ai-tools/Screen Recording 2026-03-29 at 00.12.35.mov', caption: 'Community AI Tools Video 2' },
+          { src: '/images/web-development/community-ai-tools/Screen Recording 2026-03-29 at 00.16.17.mov', caption: 'Community AI Tools Video 3' },
         ]
       },
 
