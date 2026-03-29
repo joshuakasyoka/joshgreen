@@ -360,15 +360,24 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
 
   const allProjects = useMemo(() => orderedCategories.flatMap(([, categoryProjects]) => categoryProjects), [orderedCategories]);
 
-  // Scroll to top when project changes
+  // Desktop: scroll main pane to top. Mobile: scroll the list so the project title lines up at the top of the scroll area.
   useEffect(() => {
     if (mainContentScrollRef.current) {
       mainContentScrollRef.current.scrollTo({ top: 0, behavior: 'smooth' });
     }
-    // On mobile, also scroll sidebar to top
-    if (sidebarScrollRef.current && window.innerWidth < 768) {
-      sidebarScrollRef.current.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    if (typeof window === 'undefined') return;
+    if (!window.matchMedia('(max-width: 767px)').matches) return;
+    const id = selectedProject?.id;
+    if (id == null) return;
+    const scrollTitle = () => {
+      const el = projectTitleRefs.current[id];
+      if (el && sidebarScrollRef.current?.contains(el)) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    };
+    requestAnimationFrame(() => {
+      requestAnimationFrame(scrollTitle);
+    });
   }, [selectedProject]);
 
   // Clear annotation trail when switching case studies
@@ -493,8 +502,8 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
         </h1>
         <div className="flex items-center gap-4">
           {isDarkMode && (
-            <span className="text-xs md:text-sm text-gray-500 select-none">
-              hold mouse to annoate in dark mode
+            <span className="text-xs md:text-sm text-gray-500 select-none whitespace-nowrap">
+              hold to annotate
             </span>
           )}
           <button
@@ -585,7 +594,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
 
                       {/* Only show images for selected project on mobile */}
                       {project.images && project.images.length > 0 && project.id === selectedProject?.id && (
-                        <div className="block md:hidden mt-3">
+                        <div className="block md:hidden mt-3 mb-5">
                           {/* Project Title and Description for Mobile */}
                           <div className="mb-6">
                             <h2 className="text-xl font-normal text-gray-900 mb-2">
@@ -650,6 +659,11 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
                               </div>
                             );
                           })}
+                          <div
+                            className="border-b border-dashed border-gray-300 my-2 ml-5"
+                            style={{ borderWidth: '0.5px' }}
+                            aria-hidden="true"
+                          />
                         </div>
                       )}
                     </React.Fragment>

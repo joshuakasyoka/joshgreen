@@ -71,6 +71,11 @@ const About = ({ isDarkMode, toggleDarkMode }) => {
 
         {/* Right side content */}
         <div className="flex items-center gap-4">
+          {isDarkMode && (
+            <span className="text-xs md:text-sm text-gray-500 select-none whitespace-nowrap">
+              hold to annotate
+            </span>
+          )}
           <button
             onClick={toggleDarkMode}
             aria-label="Toggle dark mode"
@@ -87,11 +92,6 @@ const About = ({ isDarkMode, toggleDarkMode }) => {
               }}
             />
           </button>
-          {isDarkMode && (
-            <span className="text-xs md:text-sm text-gray-500 select-none">
-              hold mouse to annoate in dark mode
-            </span>
-          )}
           <Link to="/" className="text-base font-normal text-gray-800 filter blur-[1px] hover:filter-none transition-all">
           Back
         </Link>
