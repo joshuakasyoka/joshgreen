@@ -637,7 +637,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
                                     loop
                                     playsInline
                                     preload="metadata"
-                                    className="object-contain object-left self-start rounded-md"
+                                    className="object-contain object-left self-start rounded-lg"
                                     style={{ maxWidth: '92%', width: 'auto', maxHeight: '65vh', display: 'block' }}
                                   />
                                 ) : (
@@ -646,7 +646,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
                                   src={src}
                                   alt={project.name + ' image ' + (idx + 1)}
                                   onClick={() => openModal({ src, alt: project.name + ' image ' + (idx + 1) })}
-                                    className="object-contain object-left custom-clickable self-start rounded-md"
+                                    className="object-contain object-left custom-clickable self-start rounded-lg"
                                     style={{ maxWidth: '92%', width: 'auto', maxHeight: '65vh', display: 'block' }}
                                 />
                                 )}
@@ -762,7 +762,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
                               loop
                               playsInline
                               preload="metadata"
-                              className="object-contain object-left self-start rounded-md"
+                              className="object-contain object-left self-start rounded-lg"
                               style={{ maxWidth: '920px', width: 'auto', maxHeight: '78vh', display: 'block' }}
                             />
                           ) : (
@@ -771,7 +771,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
                             src={src}
                             alt={selectedProject.name + ' image ' + (idx + 1)}
                             onClick={() => openModal({ src, alt: selectedProject.name + ' image ' + (idx + 1) })}
-                              className="object-contain object-left custom-clickable self-start rounded-md"
+                              className="object-contain object-left custom-clickable self-start rounded-lg"
                               style={{ maxWidth: '920px', width: 'auto', maxHeight: '78vh', display: 'block' }}
                             onError={(e) => {
                               e.target.style.display = 'none';
