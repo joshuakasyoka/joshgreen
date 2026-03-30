@@ -84,9 +84,9 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
         description: 'An internal AI assistant designed to improve how knowledge is discovered, trusted, and shared across Mott MacDonald.',
         fullDescription: 'EMMA is an internal AI assistant designed with Mott MacDonald to improve how knowledge is discovered, trusted, and shared across a global workforce of over 20,000 employees. The project focused on identifying a high-impact, realistic entry point for AI adoption and delivering a secure, governed product aligned with how engineers actually work.',
         website: '',
-        startingPoint: '',
-        outcome: '',
-        techStack: '',
+        startingPoint: 'Grounded EMMA in engineers’ real rituals—search, citations, and hand-offs—rather than a standalone chat nobody could audit on a megaproject.',
+        outcome: 'Every assistive answer ships with retrievable sources so adoption grew from verification muscle, not from blind trust in model fluency.',
+        techStack: 'Stack: secure enterprise cloud, retrieval over internal corpora, shared component library. AI note: RAG-first answers with mandatory citations; generation was bounded so governance could reason about blast radius at 20k+ employees.',
         images: [
           { src: '/images/emma/EMMA_BLOBCRF28.mp4', caption: 'EMMA Blob' },
           { src: '/images/emma/EMMA_AskCRF28.mp4', caption: 'EMMA Ask' },
@@ -239,9 +239,9 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
         description: 'Four interactive street installations in South London engaging the public with ethical questions in emerging AI technologies.',
         fullDescription: 'A series of four interactive street installations built in South London designed to engage members of the public with critical ethical questions surrounding emerging AI technologies through hands-on participation and thoughtful dialogue in public spaces.', 
         website: '',
-        startingPoint: '',
-        outcome: '',
-        techStack: '',
+        startingPoint: 'Sized each plinth for pause-and-chat in wind and traffic noise—throughput metrics would have been the wrong brief.',
+        outcome: 'South London produced a stack of public arguments we could transcribe into policy notes without laundering them through a single digital funnel.',
+        techStack: 'Stack: Arduino / touch triggers, large-format print, QR fallbacks, Notion field notes. AI note: kept the sidewalk layer analogue-first; speech-to-text, if used, stayed in archival transcripts—not live kiosks—so strangers trusted the interaction.',
         images: [
           { src: '/images/participatory/street-installations/13.03.png', caption: 'Street Installations Img 1' },
           { src: '/images/participatory/street-installations/13.04.png', caption: 'Street Installations Img 2' },
@@ -260,9 +260,9 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
         mediaMaxWidth: 520,
         mediaMaxWidthMobile: 340,
         website: '',
-        startingPoint: '',
-        outcome: '',
-        techStack: '',
+        startingPoint: 'Let the sequence read as a time axis—clashing styles stay on purpose to show argument in the line, not forced brand unity.',
+        outcome: 'Rough passes sit beside finals so viewers see how marks were negotiated into finished images.',
+        techStack: 'Stack: Procreate, Photoshop, ink, occasional risograph. AI note: avoided generative fills; every texture remains accountable to a deliberate hand so the drawing stays evidence of thinking.',
         images: [
           { src: '/images/illustrations/Screenshot 2026-03-26 at 14.11.56.png', caption: 'Illustration 1' },
           { src: '/images/illustrations/Screenshot 2026-03-26 at 14.12.05.png', caption: 'Illustration 2' },
@@ -495,10 +495,12 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
           className={`text-xl font-normal text-gray-800 transition-all duration-300 cursor-pointer custom-clickable ${
             isHeaderHovered ? 'filter-none' : 'blur-sm'
           }`}
+          aria-label="Josh Green"
           onMouseEnter={() => setIsHeaderHovered(true)}
           onMouseLeave={() => setIsHeaderHovered(false)}
         >
-          Josh Green
+          <span className="md:hidden" aria-hidden="true">JG</span>
+          <span className="hidden md:inline">Josh Green</span>
         </h1>
         <div className="flex items-center gap-4">
           {isDarkMode && (
@@ -635,7 +637,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
                                     loop
                                     playsInline
                                     preload="metadata"
-                                    className="object-contain object-left self-start"
+                                    className="object-contain object-left self-start rounded-md"
                                     style={{ maxWidth: '92%', width: 'auto', maxHeight: '65vh', display: 'block' }}
                                   />
                                 ) : (
@@ -644,7 +646,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
                                   src={src}
                                   alt={project.name + ' image ' + (idx + 1)}
                                   onClick={() => openModal({ src, alt: project.name + ' image ' + (idx + 1) })}
-                                    className="object-contain object-left custom-clickable self-start"
+                                    className="object-contain object-left custom-clickable self-start rounded-md"
                                     style={{ maxWidth: '92%', width: 'auto', maxHeight: '65vh', display: 'block' }}
                                 />
                                 )}
@@ -760,7 +762,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
                               loop
                               playsInline
                               preload="metadata"
-                              className="object-contain object-left self-start"
+                              className="object-contain object-left self-start rounded-md"
                               style={{ maxWidth: '920px', width: 'auto', maxHeight: '78vh', display: 'block' }}
                             />
                           ) : (
@@ -769,7 +771,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
                             src={src}
                             alt={selectedProject.name + ' image ' + (idx + 1)}
                             onClick={() => openModal({ src, alt: selectedProject.name + ' image ' + (idx + 1) })}
-                              className="object-contain object-left custom-clickable self-start"
+                              className="object-contain object-left custom-clickable self-start rounded-md"
                               style={{ maxWidth: '920px', width: 'auto', maxHeight: '78vh', display: 'block' }}
                             onError={(e) => {
                               e.target.style.display = 'none';
@@ -804,7 +806,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
           {/* Collapsible Info Section */}
           {selectedProject && showInfoPanel && (
             <div className="hidden md:block absolute top-6 right-0 z-20 w-80 transition-all duration-300">
-              <div className="p-6 pt-10 space-y-4">
+              <div className="p-6 pt-10 space-y-3">
                 
                 {/* Starting Point */}
                 <div className="backdrop-blur-sm bg-white bg-opacity-80 rounded-lg">
