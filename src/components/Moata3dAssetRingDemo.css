@@ -1,0 +1,142 @@
+.moata-3d-panel--asset-ring .moata-3d-panel__stage {
+  height: 560px;
+  min-height: 560px;
+}
+
+.moata-3d-panel--asset-ring .moata-3d-panel__isolated-slot {
+  width: 320px;
+  height: 480px;
+}
+
+.moata-3d-asset-ring-demo__panel {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.moata-3d-asset-ring-demo__tabs {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-bottom: 1px solid #e5e7eb;
+  flex-shrink: 0;
+}
+
+.moata-3d-asset-ring-demo__tab-collapse,
+.moata-3d-asset-ring-demo__tab-add {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  color: #6b7280;
+  flex-shrink: 0;
+}
+
+.moata-3d-asset-ring-demo__tab-add {
+  margin-left: auto;
+}
+
+.moata-3d-asset-ring-demo__tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 24px;
+  padding: 0 8px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.moata-3d-asset-ring-demo__tab.is-active {
+  font-weight: 600;
+  color: #111827;
+  background: #f3f4f6;
+  border-color: #d1d5db;
+}
+
+.moata-3d-asset-ring-demo__header {
+  padding: 8px 12px 10px;
+  border-bottom: 1px solid #e5e7eb;
+  flex-shrink: 0;
+}
+
+.moata-3d-asset-ring-demo__header h4 {
+  margin: 0 0 2px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.moata-3d-asset-ring-demo__header p {
+  margin: 0;
+  font-size: 0.72rem;
+  color: #6b7280;
+}
+
+.moata-3d-asset-ring-demo__toolbar {
+  display: flex;
+  gap: 2px;
+  margin-top: 6px;
+}
+
+.moata-3d-asset-ring-demo__icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  color: #6b7280;
+}
+
+.moata-3d-asset-ring-demo__icon-btn.is-active {
+  color: #7939f7;
+  background: rgba(121, 57, 247, 0.1);
+}
+
+.moata-3d-asset-ring-demo__viewer {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.moata-3d-asset-ring-demo__viewer .moata-3d-panel__isolated {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.moata-3d-asset-ring-demo__viewer .moata-3d-panel__isolated-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.moata-3d-asset-ring-demo__viewer .moata-3d-panel__viewport {
+  flex: 1;
+  height: auto;
+  min-height: 220px;
+}
+
+@media (max-width: 767px) {
+  .moata-3d-panel--asset-ring .moata-3d-panel__stage {
+    height: auto;
+    min-height: 560px;
+  }
+
+  .moata-3d-panel--asset-ring .moata-3d-panel__isolated-slot {
+    width: min(320px, 100%);
+    height: 480px;
+  }
+}

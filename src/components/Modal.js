@@ -1,4 +1,5 @@
 import React from 'react';
+import OptimizedImage from './OptimizedImage';
 
 const Modal = ({ src, alt, onClose }) => {
   if (!src) {
@@ -11,7 +12,7 @@ const Modal = ({ src, alt, onClose }) => {
       onClick={onClose}
     >
       <div className="relative w-[80vw] h-[80vh]" onClick={(e) => e.stopPropagation()}>
-        <img src={src} alt={alt} className="absolute inset-0 w-full h-full object-contain rounded-md" />
+        <OptimizedImage src={src} alt={alt} className="absolute inset-0 w-full h-full object-contain rounded-md" />
       </div>
     </div>
   );

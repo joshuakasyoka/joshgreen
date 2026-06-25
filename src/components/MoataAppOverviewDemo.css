@@ -1,0 +1,379 @@
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+.moata-app-overview-demo .material-symbols-rounded {
+  font-family: 'Material Symbols Rounded';
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-flex;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+}
+
+.moata-app-overview-demo {
+  width: 100%;
+  max-width: 920px;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+.moata-app-overview-demo__window {
+  position: relative;
+  border: 1px solid #e6e6e6;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+}
+
+.moata-app-overview-demo__browser-bar {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 14px;
+  background: #f7f7f7;
+  border-bottom: 1px solid #ececec;
+}
+
+.moata-app-overview-demo__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.moata-app-overview-demo__dot--red { background: #ff5f57; }
+.moata-app-overview-demo__dot--yellow { background: #febc2e; }
+.moata-app-overview-demo__dot--green { background: #28c840; }
+
+.moata-app-overview-demo__url {
+  margin-left: 8px;
+  font: 12px/1.4 Inter, system-ui, sans-serif;
+  color: #8a8a8a;
+}
+
+.moata-app-overview-demo__workspace {
+  display: flex;
+  min-height: 520px;
+  overflow: hidden;
+}
+
+/* ── EMMA side rail ── */
+.moata-app-overview-demo__emma-rail {
+  width: 40px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px 0 10px;
+  background: #fff;
+  border-right: 1px solid #e5e7eb;
+}
+
+.moata-app-overview-demo__emma-rail-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  color: #666;
+  border-radius: 8px;
+}
+
+.moata-app-overview-demo__emma-rail-spacer {
+  flex: 1;
+}
+
+.moata-app-overview-demo__emma-rail-badge {
+  display: inline-flex;
+  padding: 4px;
+}
+
+/* ── EMMA chat panel ── */
+.moata-app-overview-demo__emma-panel {
+  width: 0;
+  flex-shrink: 0;
+  overflow: hidden;
+  transition: width 0.34s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.moata-app-overview-demo__emma-panel.is-open {
+  width: 248px;
+}
+
+.moata-app-overview-demo__emma-panel-inner {
+  width: 248px;
+  height: 100%;
+  min-height: 520px;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-right: 1px solid #e5e7eb;
+  transform: translateX(-100%);
+  opacity: 0;
+  transition:
+    transform 0.34s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.28s ease;
+}
+
+.moata-app-overview-demo__emma-panel.is-open .moata-app-overview-demo__emma-panel-inner {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.moata-app-overview-demo__emma-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px 12px;
+  flex-shrink: 0;
+}
+
+.moata-app-overview-demo__emma-title {
+  flex: 1;
+  min-width: 0;
+  font: 600 0.8rem/1.3 Inter, system-ui, sans-serif;
+  color: #111827;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.moata-app-overview-demo__emma-thread {
+  flex: 1;
+  overflow: hidden;
+  padding: 8px 14px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.moata-app-overview-demo__emma-bubble--user {
+  align-self: flex-end;
+  max-width: 88%;
+  padding: 10px 12px;
+  background: #f3f4f8;
+  border-radius: 12px;
+  font-size: 0.76rem;
+  line-height: 1.5;
+  color: #111827;
+}
+
+.moata-app-overview-demo__emma-reply p {
+  margin: 0;
+  font-size: 0.76rem;
+  line-height: 1.55;
+  color: #111827;
+}
+
+.moata-app-overview-demo__emma-actions {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin-top: 8px;
+}
+
+.moata-app-overview-demo__emma-input-wrap {
+  padding: 10px 14px 12px;
+  flex-shrink: 0;
+}
+
+.moata-app-overview-demo__emma-input {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding: 0 44px 0 14px;
+  border: 1.5px solid #000;
+  border-radius: 100px;
+  background: #fff;
+}
+
+.moata-app-overview-demo__emma-placeholder {
+  font-size: 0.72rem;
+  color: #5b5d6b;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.moata-app-overview-demo__emma-send {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(16, 18, 35, 0.18);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.moata-app-overview-demo__emma-disclaimer {
+  margin: 8px 0 0;
+  font-size: 0.62rem;
+  line-height: 1.4;
+  text-align: center;
+  color: #9ca3af;
+}
+
+/* ── Map shell (layers strip + map) ── */
+.moata-app-overview-demo__map-shell {
+  flex: 1;
+  min-width: 0;
+  min-height: 520px;
+}
+
+.moata-app-overview-demo__content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 520px;
+  overflow: hidden;
+  background: #2d3a2e;
+}
+
+.moata-app-overview-demo__map {
+  position: absolute;
+  inset: -12%;
+  width: 124%;
+  height: 124%;
+  background-size: cover;
+  background-position: center;
+  transition: transform 2s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.moata-app-overview-demo__map.is-pan-0 { transform: translate(0, 0) scale(1.06); }
+.moata-app-overview-demo__map.is-pan-1 { transform: translate(-4%, -3%) scale(1.09); }
+.moata-app-overview-demo__map.is-pan-2 { transform: translate(3%, -4%) scale(1.1); }
+
+.moata-app-overview-demo__pin {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #6b7280;
+  color: #fff;
+  font: 700 10px/1 Inter, system-ui, sans-serif;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(255, 255, 255, 0.75);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.moata-app-overview-demo__pin--a { left: 56%; top: 44%; }
+.moata-app-overview-demo__pin--b { left: 42%; top: 58%; }
+
+/* ── Floating right panel chip (collapsed only) ── */
+.moata-app-overview-demo__float-right {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 5;
+}
+
+.moata-app-overview-demo__float-right-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+}
+
+/* ── Bottom map bar — toolbar + controls on one line ── */
+.moata-app-overview-demo__map-bar {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.moata-app-overview-demo__map-controls {
+  position: absolute;
+  right: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+}
+
+.moata-app-overview-demo__map-control-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  color: #666;
+}
+
+.moata-app-overview-demo__toolbar {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+}
+
+.moata-app-overview-demo__tool {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  color: #6b7280;
+}
+
+.moata-app-overview-demo__tool.is-active {
+  background: rgba(0, 0, 0, 0.06);
+  color: #111827;
+}
+
+@media (max-width: 767px) {
+  .moata-app-overview-demo__workspace,
+  .moata-app-overview-demo__emma-panel-inner {
+    min-height: 460px;
+  }
+
+  .moata-app-overview-demo__emma-panel.is-open {
+    width: 210px;
+  }
+
+  .moata-app-overview-demo__emma-panel-inner {
+    width: 210px;
+  }
+
+  .moata-app-overview-demo__map-bar {
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+  }
+}

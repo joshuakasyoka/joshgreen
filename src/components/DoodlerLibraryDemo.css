@@ -1,0 +1,241 @@
+.doodler-library-demo {
+  width: 100%;
+  max-width: 920px;
+}
+
+.doodler-library-demo__window {
+  position: relative;
+  width: 100%;
+  border: 1px solid #ececec;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.06);
+}
+
+.doodler-library-demo__browser-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
+  background: #f7f7f7;
+  border-bottom: 1px solid #ececec;
+}
+
+.doodler-library-demo__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.doodler-library-demo__dot--red { background: #ff5f57; }
+.doodler-library-demo__dot--yellow { background: #febc2e; }
+.doodler-library-demo__dot--green { background: #28c840; }
+
+.doodler-library-demo__url {
+  margin-left: 8px;
+  font: 400 11px/1 Inter, system-ui, sans-serif;
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.doodler-library-demo__content {
+  height: 580px;
+  background:
+    radial-gradient(ellipse 900px 420px at 70% 85%, rgba(255, 246, 204, 0.85) 0%, rgba(238, 219, 204, 0.2) 100%),
+    #fff;
+  padding: 12px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.doodler-library-demo__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+  flex-shrink: 0;
+}
+
+.doodler-library-demo__logo {
+  font: 500 18px/1 'Bricolage Grotesque', system-ui, sans-serif;
+  color: #1d2021;
+  letter-spacing: -0.02em;
+}
+
+.doodler-library-demo__header-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.doodler-library-demo__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font: 500 10px/1 Inter, system-ui, sans-serif;
+  border: 1px solid transparent;
+  transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+
+.doodler-library-demo__btn--outline {
+  background: #fff;
+  border-color: #1d2021;
+  color: #1d2021;
+}
+
+.doodler-library-demo__btn--outline.is-active {
+  background: rgba(29, 32, 33, 0.04);
+}
+
+.doodler-library-demo__btn--primary {
+  background: #1d2021;
+  color: #fff;
+}
+
+.doodler-library-demo__btn.is-highlighted {
+  box-shadow: 0 0 0 2px rgba(29, 32, 33, 0.12);
+  transform: translateY(-1px);
+}
+
+.doodler-library-demo__screen {
+  flex: 1;
+  min-height: 0;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  padding: 14px;
+}
+
+.doodler-library-demo__sessions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+  overflow: hidden;
+}
+
+.doodler-library-demo__session-card {
+  border: 1px solid #e9e9e9;
+  border-radius: 12px;
+  padding: 12px;
+  background: #fff;
+  flex-shrink: 0;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.doodler-library-demo__session-card.is-highlighted {
+  border-color: #c8c8c8;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04);
+}
+
+.doodler-library-demo__session-card:last-child {
+  opacity: 0.92;
+}
+
+.doodler-library-demo__session-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.doodler-library-demo__session-meta h2 {
+  margin: 0 0 3px;
+  font: 500 14px/1.2 'Bricolage Grotesque', system-ui, sans-serif;
+  color: #303030;
+}
+
+.doodler-library-demo__session-meta p {
+  margin: 0;
+  font: 400 10px/1.3 Inter, system-ui, sans-serif;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.doodler-library-demo__open-btn {
+  flex-shrink: 0;
+}
+
+.doodler-library-demo__preview-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.doodler-library-demo__section {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+  transition: opacity 0.2s ease;
+}
+
+.doodler-library-demo__section.is-highlighted .doodler-library-demo__section-panel {
+  border-color: #c8c8c8;
+}
+
+.doodler-library-demo__section-chip {
+  display: inline-flex;
+  align-self: flex-start;
+  font: 500 9px/1 Inter, system-ui, sans-serif;
+  color: #303030;
+  background: #f4f4f4;
+  border: 1px solid #e9e9e9;
+  border-radius: 999px;
+  padding: 3px 7px;
+}
+
+.doodler-library-demo__section-panel {
+  background: #fff;
+  border: 1px solid #ececec;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+}
+
+.doodler-library-demo__section-caption {
+  padding: 6px 8px;
+  border-bottom: 1px solid #ececec;
+  font: 400 9px/1.2 'Bricolage Grotesque', system-ui, sans-serif;
+  color: #303030;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.doodler-library-demo__section-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: #f4f4f4;
+  padding: 1px;
+}
+
+.doodler-library-demo__section-grid span {
+  aspect-ratio: 1;
+  background: #fafafa;
+}
+
+.doodler-library-demo__cursor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 30;
+  opacity: 0;
+  transition: transform 0.76s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s ease;
+}
+
+.doodler-library-demo__cursor.is-visible {
+  opacity: 1;
+}
+
+@media (max-width: 767px) {
+  .doodler-library-demo__preview-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

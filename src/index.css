@@ -62,6 +62,27 @@ body.theme-dark .bg-opacity-80 {
   background-color: rgba(31, 41, 55, 0.82) !important;
 }
 
+.case-study-inline-term {
+  margin: 0 0.125rem;
+  border-radius: 0.25rem;
+  padding: 0.125rem 0.375rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 1.4;
+  background: #f3f4f6;
+  color: #1f2937;
+}
+
+body.theme-dark .case-study-inline-term {
+  background: #374151;
+  color: #f3f4f6;
+}
+
+body.theme-dark .case-study-section .bg-gray-200 {
+  background-color: #374151 !important;
+}
+
 /* Custom blur effects */
 .blur-sm {
   filter: blur(4px);
@@ -71,30 +92,97 @@ body.theme-dark .bg-opacity-80 {
   filter: none;
 }
 
-/* Custom scrollbar for sidebar */
+/* Hide scrollbars — clip wrapper pushes scrollbar outside visible area */
+.scroll-clip {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.scroll-clip__inner {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  box-sizing: content-box;
+  width: calc(100% + 20px);
+  padding-right: 20px;
+  margin-right: -20px;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+  scrollbar-color: transparent transparent !important;
+}
+
+/* Standalone scroll pane (no .scroll-clip wrapper) */
+.scroll-clip__inner.is-root-scroll {
+  height: auto;
+  flex: 1 1 0%;
+  min-height: 0;
+}
+
+.scroll-clip__inner::-webkit-scrollbar {
+  width: 0 !important;
+  height: 0 !important;
+  display: none !important;
+  background: transparent !important;
+}
+
+.scroll-clip__inner::-webkit-scrollbar-thumb,
+.scroll-clip__inner::-webkit-scrollbar-track,
+.scroll-clip__inner::-webkit-scrollbar-corner {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+}
+
+/* Fallback for elements without clip wrapper */
+.scrollbar-none,
+.overflow-y-auto {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+  scrollbar-color: transparent transparent !important;
+}
+
+.scrollbar-none::-webkit-scrollbar,
 .overflow-y-auto::-webkit-scrollbar {
-  width: 4px;
+  width: 0 !important;
+  height: 0 !important;
+  display: none !important;
+  background: transparent !important;
 }
 
-.overflow-y-auto::-webkit-scrollbar-track {
-  background: transparent;
+.scrollbar-none::-webkit-scrollbar-thumb,
+.scrollbar-none::-webkit-scrollbar-track,
+.scrollbar-none::-webkit-scrollbar-corner,
+.overflow-y-auto::-webkit-scrollbar-thumb,
+.overflow-y-auto::-webkit-scrollbar-track,
+.overflow-y-auto::-webkit-scrollbar-corner {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
 }
 
-.overflow-y-auto::-webkit-scrollbar-thumb {
-  background: #e5e7eb;
-  border-radius: 2px;
+.moata-comments-panel-demo__list,
+.moata-comments-panel-demo__detail-scroll {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+  scrollbar-color: transparent transparent !important;
 }
 
-.overflow-y-auto::-webkit-scrollbar-thumb:hover {
-  background: #d1d5db;
+.moata-comments-panel-demo__list::-webkit-scrollbar,
+.moata-comments-panel-demo__detail-scroll::-webkit-scrollbar {
+  width: 0 !important;
+  height: 0 !important;
+  display: none !important;
+  background: transparent !important;
 }
 
-body.theme-dark .overflow-y-auto::-webkit-scrollbar-thumb {
-  background: #4b5563;
-}
-
-body.theme-dark .overflow-y-auto::-webkit-scrollbar-thumb:hover {
-  background: #6b7280;
+.moata-comments-panel-demo__list::-webkit-scrollbar-thumb,
+.moata-comments-panel-demo__list::-webkit-scrollbar-track,
+.moata-comments-panel-demo__detail-scroll::-webkit-scrollbar-thumb,
+.moata-comments-panel-demo__detail-scroll::-webkit-scrollbar-track {
+  display: none !important;
+  background: transparent !important;
 }
 
 /* Smooth transitions */
@@ -137,4 +225,118 @@ body.theme-dark .overflow-y-auto::-webkit-scrollbar-thumb:hover {
     opacity: 0;
     transform: translate(-50%, -50%) scale(0.6);
   }
+}
+
+.portfolio-sidebar-scroll.scroll-clip__inner {
+  box-sizing: border-box;
+  width: calc(100% + 12px);
+  margin-left: -12px;
+  margin-right: 0;
+  padding-left: 12px;
+  padding-right: 0;
+}
+
+.portfolio-sidebar {
+  flex-shrink: 0;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .portfolio-sidebar,
+  .portfolio-sidebar__content {
+    width: max-content;
+  }
+
+  .portfolio-sidebar__category,
+  .portfolio-sidebar__project-name {
+    white-space: nowrap;
+  }
+}
+
+.portfolio-sidebar__project-name {
+  font-size: 0.875rem;
+  line-height: 1.35;
+}
+
+.portfolio-sidebar__project-date {
+  margin-top: 2px;
+}
+
+.portfolio-sidebar__project-row {
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+.portfolio-sidebar__project-separator {
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+@media (min-width: 768px) {
+  .portfolio-main-column {
+    flex: 1;
+    min-width: 0;
+    min-height: 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .portfolio-main-column > .portfolio-main-scroll.is-root-scroll {
+    flex: 1 1 0%;
+    width: 100%;
+    max-width: 920px;
+    min-width: 0;
+    min-height: 0;
+    align-self: stretch;
+    box-sizing: border-box;
+    margin-right: 0;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Portfolio UI demos — no internal vertical scrolling */
+[class$="-demo"] {
+  overscroll-behavior: none;
+}
+
+/* Touch devices: pass gestures through demos so page scroll always wins */
+@media (hover: none) and (pointer: coarse) {
+  .portfolio-sidebar-scroll,
+  .portfolio-main-scroll {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  [class$="-demo"],
+  [class$="-demo"] * {
+    pointer-events: none !important;
+    touch-action: pan-y;
+  }
+
+  .project-embed {
+    pointer-events: none;
+    touch-action: pan-y;
+  }
+}
+
+[class$="-demo"] [class$="__stage"],
+[class$="-demo"] [class$="__window"],
+[class$="-demo"] [class$="__workspace"] {
+  overflow: hidden;
+}
+
+[class$="-demo"] [class*="__scroll-inner"],
+[class$="-demo"] [class*="__list-scroll"],
+[class$="-demo"] [class*="__detail-scroll"],
+[class$="-demo"] [class*="__layer-list"],
+[class$="-demo"] .dwd-archive__grid,
+[class$="-demo"] .dwd-simulation__sidebar,
+[class$="-demo"] .ual-archive-demo__body > .ual-archive-demo__grid,
+[class$="-demo"] .ual-archive-demo__body > .ual-archive-demo__graph-stage,
+[class$="-demo"] .ual-archive-demo__collab-list,
+[class$="-demo"] .ual-archive-demo__glossary-main,
+[class$="-demo"] .ual-archive-demo__glossary-panel,
+[class$="-demo"] .moata-3d-panel__isolated-section.is-grow .moata-3d-panel__isolated-body {
+  overflow-y: hidden !important;
+  overflow-x: hidden;
 }

@@ -3,7 +3,7 @@ export const projectsData = {
   'Web Development': [
     { 
       id: 1, 
-      name: 'London AI Voices Archive', 
+      name: 'London AI Voices', 
       date: 'May 2025', 
       description: 'A website for collecting citizen voices on the subject of Artificial Intelligence',
       category: 'Web Development',

@@ -6,7 +6,7 @@
 }
 
 .sidebar {
-  width: 320px;
+  width: max-content;
   padding-left: 32px;
   padding-right: 24px;
 }

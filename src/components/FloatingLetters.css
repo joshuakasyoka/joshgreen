@@ -1,0 +1,49 @@
+.floating-letters {
+  display: inline-flex;
+}
+
+.floating-letters__char {
+  display: inline-block;
+  transform: translateY(0);
+  will-change: transform;
+}
+
+@keyframes floating-letter-wave {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  45% {
+    transform: translateY(calc(var(--float) * -1px));
+  }
+
+  75% {
+    transform: translateY(calc(var(--float) * -0.2px));
+  }
+}
+
+.floating-letters-header:hover .floating-letters__char,
+.floating-letters-header:focus-visible .floating-letters__char {
+  animation: floating-letter-wave 0.75s cubic-bezier(0.33, 1, 0.68, 1) both;
+  animation-delay: calc(var(--i) * 32ms);
+}
+
+.floating-letters-header:not(:hover):not(:focus-visible) .floating-letters__char {
+  animation: none;
+  transform: translateY(0);
+  transition: transform 0.35s cubic-bezier(0.33, 1, 0.68, 1);
+  transition-delay: calc(var(--i) * 24ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .floating-letters-header:hover .floating-letters__char,
+  .floating-letters-header:focus-visible .floating-letters__char {
+    animation: none;
+    transform: none;
+  }
+
+  .floating-letters-header:not(:hover):not(:focus-visible) .floating-letters__char {
+    transition: none;
+  }
+}

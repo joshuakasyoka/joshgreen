@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import About from './components/About';
 import Portfolio from './components/Portfolio';
 import ClickTrail from './components/ClickTrail';
+import IntroAnimation from './components/IntroAnimation';
 import './index.css';
 import './CustomCursor.css';
 
@@ -11,6 +12,15 @@ function App() {
     const saved = localStorage.getItem('theme');
     if (saved) return saved === 'dark';
     return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  });
+  const [showIntro, setShowIntro] = useState(() => {
+    try {
+      const forceIntro = new URLSearchParams(window.location.search).get('intro') === '1';
+      if (forceIntro) return true;
+      return sessionStorage.getItem('intro-seen') !== 'true';
+    } catch {
+      return true;
+    }
   });
 
   useEffect(() => {
@@ -21,8 +31,18 @@ function App() {
 
   const toggleDarkMode = () => setIsDarkMode((prev) => !prev);
 
+  const handleIntroComplete = () => {
+    try {
+      sessionStorage.setItem('intro-seen', 'true');
+    } catch {
+      /* ignore */
+    }
+    setShowIntro(false);
+  };
+
   return (
     <Router>
+      {showIntro && <IntroAnimation onComplete={handleIntroComplete} />}
       <ClickTrail enabled={isDarkMode} />
       <Routes>
         <Route path="/" element={<Portfolio isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />} />

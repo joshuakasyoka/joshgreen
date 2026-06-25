@@ -1,0 +1,64 @@
+.emma-research-quote-demo__body {
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+}
+
+.emma-research-quote-demo__viewport {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #000 10%,
+    #000 88%,
+    transparent 100%
+  );
+}
+
+.emma-research-quote-demo__transcript {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 12px 4px 28px;
+  transition: transform 0.85s cubic-bezier(0.33, 1, 0.68, 1);
+  will-change: transform;
+}
+
+.emma-research-quote-demo__line {
+  padding: 0 0 0 12px;
+  border-left: 3px solid transparent;
+}
+
+.emma-research-quote-demo__speaker {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #9ca3af;
+}
+
+.emma-research-quote-demo__text {
+  margin: 0;
+  font-size: 0.94rem;
+  line-height: 1.55;
+  font-weight: 400;
+  color: #374151;
+  letter-spacing: -0.01em;
+}
+
+.emma-research-quote-demo__insight {
+  text-decoration: underline;
+  text-decoration-color: rgba(129, 255, 3, 0.55);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 2px;
+}
+
+@media (max-width: 767px) {
+  .emma-research-quote-demo__viewport {
+    height: 200px;
+  }
+}

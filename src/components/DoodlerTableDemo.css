@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500&family=Inter:wght@400;500&display=swap');
+
+.doodler-table-demo {
+  width: 100%;
+  max-width: 920px;
+}
+
+.doodler-table-demo__window {
+  position: relative;
+  border: 1px solid #e6e6e6;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+}
+
+.doodler-table-demo__browser-bar {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 14px;
+  background: #f7f7f7;
+  border-bottom: 1px solid #ececec;
+}
+
+.doodler-table-demo__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.doodler-table-demo__dot--red { background: #ff5f57; }
+.doodler-table-demo__dot--yellow { background: #febc2e; }
+.doodler-table-demo__dot--green { background: #28c840; }
+
+.doodler-table-demo__url {
+  margin-left: 8px;
+  font: 12px/1.4 Inter, system-ui, sans-serif;
+  color: #8a8a8a;
+}
+
+.doodler-table-demo__content {
+  position: relative;
+  padding: 24px 28px 28px;
+  background:
+    radial-gradient(ellipse 900px 420px at 70% 85%, rgba(255, 246, 204, 0.85) 0%, rgba(238, 219, 204, 0.2) 100%),
+    #fff;
+  min-height: 520px;
+}
+
+.doodler-table-demo__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.doodler-table-demo__logo {
+  font: 500 22px/1 'Bricolage Grotesque', system-ui, sans-serif;
+  color: #1d2021;
+  letter-spacing: -0.02em;
+}
+
+.doodler-table-demo__cta {
+  font: 500 12px/1 Inter, system-ui, sans-serif;
+  color: #fff;
+  background: #1d2021;
+  border-radius: 8px;
+  padding: 8px 12px;
+}
+
+.doodler-table-demo__title-block {
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+.doodler-table-demo__title {
+  margin: 0 0 8px;
+  font: 400 28px/1.1 'Bricolage Grotesque', system-ui, sans-serif;
+  color: #303030;
+}
+
+.doodler-table-demo__subtitle {
+  margin: 0;
+  font: 400 14px/1.4 Inter, system-ui, sans-serif;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.doodler-table-demo__table-wrap {
+  border: 1px solid #f4f4f4;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.doodler-table-demo__table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.doodler-table-demo__table th {
+  background: rgba(244, 244, 244, 0.5);
+  border-bottom: 1px solid #f4f4f4;
+  padding: 14px 12px;
+  text-align: center;
+  font: 500 14px/1.4 Inter, system-ui, sans-serif;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.doodler-table-demo__table th:first-child {
+  width: 34%;
+  text-align: left;
+  padding-left: 20px;
+}
+
+.doodler-table-demo__chip {
+  display: inline-block;
+  border: 1px solid #e9e9e9;
+  border-radius: 8px;
+  padding: 4px 12px;
+  font: 500 14px/1.4 'Bricolage Grotesque', system-ui, sans-serif;
+  color: #303030;
+  background: #fff;
+}
+
+.doodler-table-demo__row {
+  border-bottom: 1px solid #f4f4f4;
+  transition: background-color 0.25s ease;
+}
+
+.doodler-table-demo__row.is-hovered {
+  background: #f4f4f4;
+}
+
+.doodler-table-demo__row--inactive .doodler-table-demo__activity-name--muted {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.doodler-table-demo__table td {
+  border-left: 1px solid #f4f4f4;
+  padding: 14px 12px;
+  text-align: center;
+  vertical-align: middle;
+  height: 56px;
+}
+
+.doodler-table-demo__table td:first-child {
+  border-left: none;
+  text-align: left;
+  padding-left: 20px;
+}
+
+.doodler-table-demo__activity-inner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 28px;
+}
+
+.doodler-table-demo__activity-cell {
+  font: 400 15px/1.4 'Bricolage Grotesque', system-ui, sans-serif;
+  color: #303030;
+}
+
+.doodler-table-demo__open-btn {
+  margin-left: auto;
+  font: 500 12px/1 Inter, system-ui, sans-serif;
+  color: #fff;
+  background: #1d2021;
+  border-radius: 8px;
+  padding: 6px 12px;
+  animation: doodlerOpenIn 0.2s ease;
+}
+
+.doodler-table-demo__inactive-plus {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(0, 0, 0, 0.3);
+  flex-shrink: 0;
+}
+
+.doodler-table-demo__cell-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 1px solid #303030;
+  color: #303030;
+  transition: all 0.2s ease;
+}
+
+.doodler-table-demo__cell-btn--checked {
+  background: #1d2021;
+  border-color: #171717;
+  color: #fff;
+}
+
+.doodler-table-demo__cell-btn--checked.is-hovered {
+  background: #2a2e2f;
+  border-color: #2a2e2f;
+}
+
+.doodler-table-demo__cell-btn--empty {
+  border-style: dashed;
+  opacity: 0;
+}
+
+.doodler-table-demo__cell-btn--empty.is-hovered {
+  opacity: 0.24;
+}
+
+.doodler-table-demo__inactive-dot {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  border: 1px dashed rgba(0, 0, 0, 0.18);
+  border-radius: 50%;
+  opacity: 0.6;
+}
+
+.doodler-table-demo__cursor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 20;
+  opacity: 0;
+  transition: transform 0.76s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s ease;
+}
+
+.doodler-table-demo__cursor.is-visible {
+  opacity: 1;
+}
+
+@keyframes doodlerOpenIn {
+  from {
+    opacity: 0;
+    transform: translateX(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 767px) {
+  .doodler-table-demo__content {
+    padding: 16px;
+    min-height: 460px;
+  }
+
+  .doodler-table-demo__table-wrap {
+    overflow-x: auto;
+  }
+
+  .doodler-table-demo__table {
+    min-width: 620px;
+  }
+}

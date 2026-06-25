@@ -11,6 +11,12 @@
 # production
 /build
 
+# image optimization backups (originals before compress)
+/public/.image-backups
+
+# video optimization backups (originals before compress)
+/public/.video-backups
+
 # misc
 .DS_Store
 .env.local

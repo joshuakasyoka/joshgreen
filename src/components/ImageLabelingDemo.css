@@ -1,0 +1,329 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&display=swap');
+
+.ilabel-demo {
+  width: 100%;
+  max-width: 920px;
+  --il-mono: 'IBM Plex Mono', ui-monospace, monospace;
+  --il-accent: #1a1a1a;
+  --il-border: var(--il-accent);
+  --il-bg: #fff;
+  --il-text: var(--il-accent);
+  --il-selected: #f3f3f3;
+}
+
+.ilabel-demo__window {
+  position: relative;
+  border: 1px solid #e6e6e6;
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--il-bg);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+}
+
+.ilabel-demo__browser-bar {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 14px;
+  background: #f7f7f7;
+  border-bottom: 1px solid #ececec;
+}
+
+.ilabel-demo__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.ilabel-demo__dot--red { background: #ff5f57; }
+.ilabel-demo__dot--yellow { background: #febc2e; }
+.ilabel-demo__dot--green { background: #28c840; }
+
+.ilabel-demo__url {
+  margin-left: 8px;
+  font: 12px/1.4 var(--il-mono);
+  color: #8a8a8a;
+}
+
+.ilabel-demo__content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 520px;
+  overflow: hidden;
+  padding: 14px 18px 16px;
+  background: var(--il-bg);
+  color: var(--il-text);
+  font-family: var(--il-mono);
+}
+
+.ilabel-demo__header {
+  flex-shrink: 0;
+  margin-bottom: 10px;
+}
+
+.ilabel-demo__title {
+  margin: 0;
+  font: 400 13px/1.2 var(--il-mono);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.ilabel-demo__subtitle {
+  margin: 3px 0 0;
+  font: 300 9px/1.35 var(--il-mono);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #444;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.ilabel-demo__stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+  padding: 8px 12px;
+  border: 1px solid var(--il-border);
+  margin-bottom: 8px;
+  font: 400 10px/1 var(--il-mono);
+}
+
+.ilabel-demo__stat {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ilabel-demo__stat-icon {
+  color: #888;
+  display: inline-flex;
+}
+
+.ilabel-demo__progress {
+  width: 100%;
+  height: 6px;
+  border: 1px solid var(--il-border);
+  overflow: hidden;
+  margin-bottom: 10px;
+  flex-shrink: 0;
+}
+
+.ilabel-demo__progress-fill {
+  height: 100%;
+  background: var(--il-accent);
+  transition: width 0.4s ease;
+}
+
+.ilabel-demo__stage {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.ilabel-demo__start-wrap {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ilabel-demo__labeling {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.ilabel-demo__start-btn {
+  padding: 10px 28px;
+  border: 1px solid var(--il-border);
+  background: #fff;
+  font: 400 11px/1 var(--il-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.ilabel-demo__start-btn.is-hovered {
+  background: var(--il-accent);
+  color: #fff;
+  box-shadow: 0 0 0 2px rgba(26, 26, 26, 0.18);
+}
+
+.ilabel-demo__video {
+  border: 1px solid var(--il-border);
+  flex: 1;
+  min-height: 0;
+  margin-bottom: 8px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.ilabel-demo__video-frame {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  background:
+    linear-gradient(145deg, #d8d0c4 0%, #9a8f82 45%, #6e645a 100%);
+  overflow: hidden;
+}
+
+.ilabel-demo__video-frame.is-playing::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.ilabel-demo__play-btn {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  cursor: default;
+}
+
+.ilabel-demo__play-btn.is-hovered .ilabel-demo__play-icon {
+  background: var(--il-accent);
+  color: #fff;
+}
+
+.ilabel-demo__play-icon {
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--il-border);
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, color 0.2s;
+}
+
+.ilabel-demo__video-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-top: 1px solid var(--il-border);
+  padding: 6px 8px;
+  background: #fff;
+  z-index: 1;
+}
+
+.ilabel-demo__controls {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.ilabel-demo__hint {
+  margin: 0 0 6px;
+  text-align: center;
+  font: 300 9px/1 var(--il-mono);
+  flex-shrink: 0;
+}
+
+.ilabel-demo__video-title {
+  margin: 0;
+  font: 400 10px/1.3 var(--il-mono);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ilabel-demo__video-meta {
+  margin: 1px 0 0;
+  font: 300 8px/1.25 var(--il-mono);
+  color: #666;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ilabel-demo__tags {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 5px;
+  margin-bottom: 8px;
+  flex-shrink: 0;
+}
+
+.ilabel-demo__tag {
+  padding: 6px 4px;
+  border: 1px solid var(--il-border);
+  background: #fff;
+  font: 400 8px/1 var(--il-mono);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-align: center;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.ilabel-demo__tag.is-selected {
+  background: var(--il-selected);
+}
+
+.ilabel-demo__tag.is-hovered {
+  box-shadow: 0 0 0 2px rgba(26, 26, 26, 0.18);
+}
+
+.ilabel-demo__submit {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--il-border);
+  font: 400 9px/1 var(--il-mono);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  flex-shrink: 0;
+}
+
+.ilabel-demo__submit.is-enabled {
+  background: #fff;
+  color: var(--il-accent);
+  cursor: default;
+}
+
+.ilabel-demo__submit.is-disabled {
+  background: #f5f5f5;
+  color: #888;
+}
+
+.ilabel-demo__submit.is-hovered {
+  background: var(--il-accent);
+  color: #fff;
+  box-shadow: 0 0 0 2px rgba(26, 26, 26, 0.18);
+}
+
+.ilabel-demo__cursor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.ilabel-demo__cursor.is-visible {
+  opacity: 1;
+}
+
+@media (max-width: 720px) {
+  .ilabel-demo__tags {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

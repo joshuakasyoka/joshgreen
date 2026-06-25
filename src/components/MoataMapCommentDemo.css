@@ -1,0 +1,286 @@
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+.moata-map-comment-demo .material-symbols-rounded {
+  font-family: 'Material Symbols Rounded';
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-flex;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+}
+
+.moata-map-comment-demo {
+  width: 100%;
+  max-width: 920px;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+.moata-map-comment-demo__stage {
+  position: relative;
+  min-height: 440px;
+  padding: 56px 48px 80px;
+  border: 1px solid #ececec;
+  border-radius: 14px;
+  background: #fafafa;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+
+.moata-map-comment-demo__stage.is-comment-mode {
+  cursor: crosshair;
+}
+
+.moata-map-comment-demo__click-target {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  transform: translate(-16px, -50%);
+  z-index: 2;
+}
+
+.moata-map-comment-demo__pin-wrap {
+  position: absolute;
+  transform: translate(-16px, -50%);
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  z-index: 4;
+  animation: moataPinIn 0.35s ease;
+}
+
+.moata-map-comment-demo__pin-wrap.is-placed {
+  z-index: 3;
+  animation: moataPinIn 0.35s ease;
+}
+
+@keyframes moataPinIn {
+  from { opacity: 0; transform: translate(-16px, -50%) scale(0.85); }
+  to { opacity: 1; transform: translate(-16px, -50%) scale(1); }
+}
+
+.moata-map-comment-demo__compose-bubble {
+  animation: moataBubbleIn 0.3s ease;
+}
+
+@keyframes moataBubbleIn {
+  from { opacity: 0; transform: translateX(-6px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.moata-map-comment-demo__pin-wrap.is-placed .moata-map-comment-demo__compose-bubble {
+  display: none;
+}
+
+.moata-map-comment-demo__pin {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #6b7280;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.68rem;
+  font-weight: 700;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  flex-shrink: 0;
+  margin-top: 0;
+}
+
+.moata-map-comment-demo__create {
+  width: 250px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.moata-map-comment-demo__create-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+}
+
+.moata-map-comment-demo__create-row.is-expanded {
+  align-items: flex-start;
+  padding: 8px;
+}
+
+.moata-map-comment-demo__create-input {
+  flex: 1;
+  min-height: 26px;
+  display: flex;
+  align-items: center;
+  font-size: 0.875rem;
+  line-height: 1.45;
+  color: #111827;
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+
+.moata-map-comment-demo__create-row.is-expanded .moata-map-comment-demo__create-input {
+  display: block;
+  min-height: 0;
+  padding: 0;
+  width: 100%;
+  white-space: normal;
+}
+
+.moata-map-comment-demo__caret {
+  display: inline-block;
+  width: 1px;
+  height: 1em;
+  margin-left: 1px;
+  vertical-align: text-bottom;
+  background: #111827;
+  animation: moataCaretBlink 1s step-end infinite;
+}
+
+@keyframes moataCaretBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.moata-map-comment-demo__create-input.is-placeholder {
+  color: #9ca3af;
+}
+
+.moata-map-comment-demo__create-divider {
+  height: 1px;
+  background: #e5e7eb;
+}
+
+.moata-map-comment-demo__create-footer {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 6px 10px;
+}
+
+.moata-map-comment-demo__create-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+}
+
+.moata-map-comment-demo__create-coords {
+  margin-left: 4px;
+  padding: 3px 8px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 0.7rem;
+  color: #6b7280;
+  white-space: nowrap;
+}
+
+.moata-map-comment-demo__create-footer-spacer {
+  flex: 1;
+}
+
+.moata-map-comment-demo__create-send {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.moata-map-comment-demo__create-send--lg {
+  width: 28px;
+  height: 28px;
+}
+
+.moata-map-comment-demo__create-send.is-active {
+  background: #7939f7;
+}
+
+.moata-map-comment-demo__create-send.is-hovered.is-active {
+  background: #6528d9;
+}
+
+.moata-map-comment-demo__toolbar {
+  position: absolute;
+  left: 50%;
+  bottom: 48px;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+}
+
+.moata-map-comment-demo__tool {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  height: 36px;
+  padding: 0 8px 0 10px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: #374151;
+  cursor: default;
+}
+
+.moata-map-comment-demo__tool.is-active {
+  background: rgba(0, 188, 212, 0.14);
+  color: #00bcd4;
+}
+
+.moata-map-comment-demo__tool.is-active .moata-map-comment-demo__tool-caret {
+  opacity: 0.7;
+}
+
+.moata-map-comment-demo__tool-caret {
+  margin-left: -2px;
+  opacity: 0.7;
+}
+
+.moata-map-comment-demo__cursor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 30;
+  opacity: 0;
+  transition: transform 0.76s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s ease;
+}
+
+.moata-map-comment-demo__cursor.is-visible {
+  opacity: 1;
+}
+
+@media (max-width: 767px) {
+  .moata-map-comment-demo__stage {
+    min-height: 360px;
+    padding: 40px 20px 72px;
+  }
+
+  .moata-map-comment-demo__toolbar {
+    max-width: calc(100% - 24px);
+    overflow-x: auto;
+  }
+
+  .moata-map-comment-demo__create {
+    width: min(250px, 58vw);
+  }
+}

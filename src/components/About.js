@@ -1,5 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import OptimizedImage from './OptimizedImage';
+import FloatingLetters from './FloatingLetters';
+import './About.css';
+
+const TEAM_PHOTO_SRC = '/images/intro/team.png';
 
 const About = ({ isDarkMode, toggleDarkMode }) => {
   // Screenshot photos (latest first)
@@ -18,11 +23,13 @@ const About = ({ isDarkMode, toggleDarkMode }) => {
     '/images/about/Screenshot 2026-03-25 at 23.29.40.png',
     '/images/about/Screenshot 2026-03-25 at 23.26.54.png',
     '/images/about/Screenshot 2026-03-25 at 23.26.23.png',
-    '/images/about/Screenshot 2026-03-25 at 23.26.04.png'
+    '/images/about/Screenshot 2026-03-25 at 23.26.04.png',
+    TEAM_PHOTO_SRC,
   ];
 
   const stackRef = useRef(null);
   const [visibleCount, setVisibleCount] = useState(0);
+  const [isHeaderHovered, setIsHeaderHovered] = useState(false);
 
   useEffect(() => {
     if (!stackRef.current) return;
@@ -64,10 +71,22 @@ const About = ({ isDarkMode, toggleDarkMode }) => {
   return (
     <div className="bg-white min-h-screen">
       <div className="flex justify-between items-start px-8 py-6">
-        <div className="max-w-md space-y-6 text-sm text-gray-800 leading-normal invisible">
-          {/* This is a spacer to push the back button to the right */}
-          <h2 className="font-normal">I'm Josh</h2>
-        </div>
+        <Link
+          to="/"
+          className={`floating-letters-header text-xl font-normal text-gray-800 transition-all duration-300 custom-clickable no-underline ${
+            isHeaderHovered ? 'filter-none' : 'blur-sm'
+          }`}
+          aria-label="Josh Green"
+          onMouseEnter={() => setIsHeaderHovered(true)}
+          onMouseLeave={() => setIsHeaderHovered(false)}
+        >
+          <span className="md:hidden">
+            <FloatingLetters text="JG" />
+          </span>
+          <span className="hidden md:inline">
+            <FloatingLetters text="Josh Green" />
+          </span>
+        </Link>
 
         {/* Right side content */}
         <div className="flex items-center gap-4">
@@ -138,9 +157,10 @@ const About = ({ isDarkMode, toggleDarkMode }) => {
 
           </div>
           {/* Right: Stacking cards animation */}
-          <div ref={stackRef} className="relative mt-8 md:mt-0 mb-24 md:mb-0" style={{ height: '76vh' }}>
+          <div ref={stackRef} className="relative mt-8 md:mt-0 mb-32 md:mb-8" style={{ height: '76vh' }}>
             {recentPhotos.map((src, idx) => {
               const isVisible = idx < visibleCount;
+              const isTeamPhoto = src === TEAM_PHOTO_SRC;
               // Stack directly on top (no vertical offset)
               const y = 0;
               const rot = (idx % 2 === 0 ? -1 : 1) * (2 + (idx % 3));
@@ -156,13 +176,23 @@ const About = ({ isDarkMode, toggleDarkMode }) => {
                     width: 'min(88vw, 600px)'
                   }}
                 >
-                  <div className="rounded-lg overflow-hidden" style={{ height: '76vh' }}>
-                    <img
+                  <div
+                    className={`about-photo-frame rounded-lg ${isTeamPhoto ? 'about-photo-frame--team' : 'overflow-hidden'}`}
+                  >
+                    <OptimizedImage
                       src={src}
-                      alt={`About ${idx + 1}`}
+                      alt={isTeamPhoto ? 'Mettle Design Studio team' : `About ${idx + 1}`}
                       className="block w-full h-full object-contain"
                       loading={idx < 2 ? 'eager' : 'lazy'}
                     />
+                    {isTeamPhoto && isVisible && (
+                      <div className="about-photo-callout" aria-hidden="true">
+                        <svg className="about-photo-callout__arrow" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+                          <path d="M5 8 V3 M5 3 L2.5 5.5 M5 3 L7.5 5.5" />
+                        </svg>
+                        <span className="about-photo-callout__text">Me :)</span>
+                      </div>
+                    )}
                   </div>
                 </div>
               );
