@@ -295,21 +295,45 @@ body.theme-dark .case-study-section .bg-gray-200 {
   }
 }
 
-/* Portfolio UI demos — no internal vertical scrolling */
-[class$="-demo"] {
+/* Mobile: drop the fixed-height/internal-scroll layout in favour of native page scroll.
+   100vh + nested flex/min-h-0 scroll regions is fragile on mobile browsers
+   (dynamic toolbar height changes, momentum-scroll capture by canvases, etc). */
+@media (max-width: 767px) {
+  .portfolio-app-root {
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
+  }
+
+  .portfolio-sidebar-scroll.scroll-clip__inner {
+    height: auto;
+    overflow: visible;
+  }
+}
+
+/* Portfolio UI demos — decorative, auto-playing, no user interaction needed.
+   Nested overflow:hidden boxes inside them can otherwise swallow the mouse-wheel
+   scroll gesture (Chrome treats the hit overflow:hidden box as the scroll target
+   and doesn't chain it up to the page). Removing them from hit-testing fixes that
+   on both desktop and touch. */
+[class*="-demo"] {
   overscroll-behavior: none;
 }
 
-/* Touch devices: pass gestures through demos so page scroll always wins */
+[class*="-demo"],
+[class*="-demo"] * {
+  pointer-events: none !important;
+}
+
+/* Touch devices: also let the page-scroll gesture pass through cleanly */
 @media (hover: none) and (pointer: coarse) {
   .portfolio-sidebar-scroll,
   .portfolio-main-scroll {
     -webkit-overflow-scrolling: touch;
   }
 
-  [class$="-demo"],
-  [class$="-demo"] * {
-    pointer-events: none !important;
+  [class*="-demo"],
+  [class*="-demo"] * {
     touch-action: pan-y;
   }
 
@@ -319,24 +343,24 @@ body.theme-dark .case-study-section .bg-gray-200 {
   }
 }
 
-[class$="-demo"] [class$="__stage"],
-[class$="-demo"] [class$="__window"],
-[class$="-demo"] [class$="__workspace"] {
+[class*="-demo"] [class$="__stage"],
+[class*="-demo"] [class$="__window"],
+[class*="-demo"] [class$="__workspace"] {
   overflow: hidden;
 }
 
-[class$="-demo"] [class*="__scroll-inner"],
-[class$="-demo"] [class*="__list-scroll"],
-[class$="-demo"] [class*="__detail-scroll"],
-[class$="-demo"] [class*="__layer-list"],
-[class$="-demo"] .dwd-archive__grid,
-[class$="-demo"] .dwd-simulation__sidebar,
-[class$="-demo"] .ual-archive-demo__body > .ual-archive-demo__grid,
-[class$="-demo"] .ual-archive-demo__body > .ual-archive-demo__graph-stage,
-[class$="-demo"] .ual-archive-demo__collab-list,
-[class$="-demo"] .ual-archive-demo__glossary-main,
-[class$="-demo"] .ual-archive-demo__glossary-panel,
-[class$="-demo"] .moata-3d-panel__isolated-section.is-grow .moata-3d-panel__isolated-body {
+[class*="-demo"] [class*="__scroll-inner"],
+[class*="-demo"] [class*="__list-scroll"],
+[class*="-demo"] [class*="__detail-scroll"],
+[class*="-demo"] [class*="__layer-list"],
+[class*="-demo"] .dwd-archive__grid,
+[class*="-demo"] .dwd-simulation__sidebar,
+[class*="-demo"] .ual-archive-demo__body > .ual-archive-demo__grid,
+[class*="-demo"] .ual-archive-demo__body > .ual-archive-demo__graph-stage,
+[class*="-demo"] .ual-archive-demo__collab-list,
+[class*="-demo"] .ual-archive-demo__glossary-main,
+[class*="-demo"] .ual-archive-demo__glossary-panel,
+[class*="-demo"] .moata-3d-panel__isolated-section.is-grow .moata-3d-panel__isolated-body {
   overflow-y: hidden !important;
   overflow-x: hidden;
 }

@@ -81,7 +81,7 @@ function CylinderAsset({ model, hovered, ringActive, viewMode = 'combined' }) {
   );
 }
 
-function CameraRig({ focusId }) {
+function CameraRig({ focusId, defaultPosition = [3.5, 2.5, 3.5] }) {
   const { camera } = useThree();
 
   useEffect(() => {
@@ -93,10 +93,10 @@ function CameraRig({ focusId }) {
         focusModel.position[2] + 2.1
       );
     } else {
-      camera.position.set(3.5, 2.5, 3.5);
+      camera.position.set(...defaultPosition);
     }
     camera.updateProjectionMatrix();
-  }, [focusId, camera]);
+  }, [focusId, camera, defaultPosition]);
 
   return null;
 }
@@ -108,6 +108,8 @@ function AccScene({
   rotating,
   focusId,
   viewMode = 'combined',
+  cameraPosition,
+  interactive = false,
 }) {
   const visible = SCENE_MODELS.filter((model) => visibleIds.includes(model.id));
   const focusModel = focusId ? SCENE_MODELS.find((model) => model.id === focusId) : null;
@@ -143,13 +145,15 @@ function AccScene({
         infiniteGrid
       />
       <Environment preset="city" />
-      <CameraRig focusId={focusId} />
+      <CameraRig focusId={focusId} defaultPosition={cameraPosition} />
       <OrbitControls
         makeDefault
         target={controlsTarget}
         minPolarAngle={0}
         maxPolarAngle={Math.PI / 2.2}
         enablePan={false}
+        enableRotate={interactive}
+        enableZoom={interactive}
         autoRotate={rotating}
         autoRotateSpeed={0.6}
       />
@@ -168,6 +172,9 @@ const AccModelViewport = ({
   className = 'moata-3d-panel__viewport',
   anchorClassName = 'moata-3d-panel__column-anchor',
   overlay = null,
+  cameraPosition = [3.5, 2.5, 3.5],
+  fov = 45,
+  interactive = false,
 }) => {
   const anchors = useMemo(
     () => SCENE_MODELS.filter((model) => visible.includes(model.id)),
@@ -177,7 +184,7 @@ const AccModelViewport = ({
   return (
     <div ref={setTargetRef('viewport')} className={className}>
       <Canvas
-        camera={{ position: [3.5, 2.5, 3.5], fov: 45 }}
+        camera={{ position: cameraPosition, fov }}
         shadows
         style={{ width: '100%', height: '100%' }}
         gl={{ antialias: true }}
@@ -190,6 +197,8 @@ const AccModelViewport = ({
             rotating={rotating}
             focusId={focusId}
             viewMode={viewMode}
+            cameraPosition={cameraPosition}
+            interactive={interactive}
           />
         </Suspense>
       </Canvas>

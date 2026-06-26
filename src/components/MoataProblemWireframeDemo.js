@@ -1,18 +1,96 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { WIREFRAME_SPACES, WIREFRAME_TEAMS } from './moataResearchDemoData';
+import {
+  WIREFRAME_SHARED_CONNECTIONS,
+  WIREFRAME_SHARED_MESSAGES,
+  WIREFRAME_SPACES,
+  WIREFRAME_TEAMS,
+} from './moataResearchDemoData';
 import './MoataProcessDemoShared.css';
 import './MoataProblemWireframeDemo.css';
 
 const STEPS = [
-  { phase: 'shared', activeTeam: null, showConflict: false, split: false, showComms: false, duration: 900 },
-  { phase: 'shared', activeTeam: 'ecology', showConflict: false, split: false, showComms: false, duration: 1100 },
-  { phase: 'shared', activeTeam: 'structures', showConflict: true, split: false, showComms: false, duration: 1200 },
-  { phase: 'shared', activeTeam: 'utilities', showConflict: true, split: false, showComms: false, duration: 1200 },
-  { phase: 'shared', activeTeam: 'utilities', showConflict: true, split: false, showComms: false, duration: 900 },
-  { phase: 'split', activeTeam: null, showConflict: false, split: true, showComms: false, duration: 1600 },
-  { phase: 'split', activeTeam: null, showConflict: false, split: true, showComms: true, duration: 3200 },
-  { phase: 'idle', activeTeam: null, showConflict: false, split: true, showComms: true, duration: 3600 },
+  { phase: 'shared', activeTeam: null, showConflict: false, split: false, showComms: false, showSharedExchange: false, duration: 900 },
+  { phase: 'shared', activeTeam: 'ecology', showConflict: false, split: false, showComms: false, showSharedExchange: true, duration: 1100 },
+  { phase: 'shared', activeTeam: 'structures', showConflict: true, split: false, showComms: false, showSharedExchange: true, duration: 1200 },
+  { phase: 'shared', activeTeam: 'utilities', showConflict: true, split: false, showComms: false, showSharedExchange: true, duration: 1200 },
+  { phase: 'shared', activeTeam: 'utilities', showConflict: true, split: false, showComms: false, showSharedExchange: true, duration: 900 },
+  { phase: 'split', activeTeam: null, showConflict: false, split: true, showComms: false, showSharedExchange: false, duration: 1600 },
+  { phase: 'split', activeTeam: null, showConflict: false, split: true, showComms: true, showSharedExchange: false, duration: 3200 },
+  { phase: 'idle', activeTeam: null, showConflict: false, split: true, showComms: true, showSharedExchange: false, duration: 3600 },
 ];
+
+const getTeamById = (teamId) => WIREFRAME_TEAMS.find((team) => team.id === teamId);
+
+const SharedMapExchange = ({ animate, showConflict, activeTeam }) => {
+  if (!animate) return null;
+
+  return (
+    <span className="moata-problem-wireframe-demo__shared-visuals" aria-hidden="true">
+      <svg
+        className="moata-problem-wireframe-demo__connections"
+        viewBox="0 0 100 100"
+        preserveAspectRatio="none"
+      >
+        {WIREFRAME_SHARED_CONNECTIONS.map(([fromId, toId], connectionIndex) => {
+          const from = getTeamById(fromId);
+          const to = getTeamById(toId);
+          if (!from || !to) return null;
+
+          return (
+            <line
+              key={`${fromId}-${toId}`}
+              x1={from.x}
+              y1={from.y}
+              x2={to.x}
+              y2={to.y}
+              className={[
+                'moata-problem-wireframe-demo__connection',
+                'is-confused',
+                showConflict ? 'is-tangled' : '',
+              ].filter(Boolean).join(' ')}
+              pathLength="1"
+              style={{ '--confused-delay': `${connectionIndex * 180}ms` }}
+            />
+          );
+        })}
+      </svg>
+
+      {WIREFRAME_TEAMS.map((team, teamIndex) => {
+        const message = WIREFRAME_SHARED_MESSAGES[team.id];
+        const isSending = !activeTeam || activeTeam === team.id;
+
+        return (
+          <span key={team.id}>
+            <span
+              className={[
+                'moata-problem-wireframe-demo__shared-point',
+                isSending ? 'is-sending' : '',
+              ].filter(Boolean).join(' ')}
+              style={{
+                left: `${team.x}%`,
+                top: `${team.y}%`,
+                '--point-delay': `${teamIndex * 80}ms`,
+              }}
+            >
+              <span className="moata-problem-wireframe-demo__point-dot" />
+            </span>
+            <span
+              className="moata-problem-wireframe-demo__shared-msg"
+              style={{
+                left: `${team.x}%`,
+                top: `${team.y}%`,
+                '--msg-delay': `${teamIndex * 140}ms`,
+              }}
+            >
+              <span className="moata-problem-wireframe-demo__thread-avatar">{message.initials}</span>
+              <span className="moata-problem-wireframe-demo__thread-bubble">{message.text}</span>
+            </span>
+          </span>
+        );
+      })}
+    </span>
+  );
+};
 
 const getPointById = (space, pointId) => space.points.find((point) => point.id === pointId);
 
@@ -120,6 +198,8 @@ const MoataProblemWireframeDemo = ({ className = '', style }) => {
   const step = STEPS[stepIndex];
   const isSplit = step.split;
   const showComms = step.showComms;
+  const showSharedExchange = step.showSharedExchange;
+  const showConflict = step.showConflict;
 
   useEffect(() => {
     const node = containerRef.current;
@@ -153,7 +233,14 @@ const MoataProblemWireframeDemo = ({ className = '', style }) => {
 
         <div className="moata-process-demo__body moata-problem-wireframe-demo__body">
           <p className="moata-problem-wireframe-demo__subtitle">
-            {!isSplit && 'One shared map, three workstreams'}
+            {!isSplit && !showSharedExchange && 'One shared map, different workstreams'}
+            {!isSplit && showSharedExchange && !showConflict && 'Three teams sending messages on one map'}
+            {!isSplit && showSharedExchange && showConflict && (
+              <>
+                Messages crossing —{' '}
+                <span className="moata-problem-wireframe-demo__highlight">wires tangled on one map</span>
+              </>
+            )}
             {isSplit && !showComms && (
               <>
                 One programme map →{' '}
@@ -182,9 +269,15 @@ const MoataProblemWireframeDemo = ({ className = '', style }) => {
 
                 {step.showConflict && (
                   <span className="moata-problem-wireframe-demo__conflict" aria-hidden="true">
-                    View conflict
+                    Communication conflict
                   </span>
                 )}
+
+                <SharedMapExchange
+                  animate={showSharedExchange}
+                  showConflict={step.showConflict}
+                  activeTeam={step.activeTeam}
+                />
 
                 {WIREFRAME_TEAMS.map((team) => (
                   <span

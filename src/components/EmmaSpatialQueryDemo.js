@@ -37,8 +37,7 @@ const STEPS = [
   { phase: 'typing', input: 'Yes', toolOpen: false, card: false, apisExpanded: false, mapMode: 'default', target: 'emma-send', duration: 1000 },
   { phase: 'thinking', input: '', toolOpen: false, card: false, apisExpanded: false, mapMode: 'default', target: null, duration: 1200 },
   { phase: 'confirm', input: '', toolOpen: true, card: true, apisExpanded: false, mapMode: 'spatial', target: 'spatial-panel', duration: 2800 },
-  { phase: 'confirm', input: '', toolOpen: true, card: true, apisExpanded: true, mapMode: 'spatial', target: 'action-toggle', duration: 2400 },
-  { phase: 'idle', input: '', toolOpen: true, card: true, apisExpanded: true, mapMode: 'spatial', target: null, duration: 1200 },
+  { phase: 'idle', input: '', toolOpen: true, card: true, apisExpanded: false, mapMode: 'spatial', target: null, duration: 1200 },
 ];
 
 const SpatialQueryPanel = ({ open, innerRef }) => (

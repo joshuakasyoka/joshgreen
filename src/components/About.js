@@ -111,7 +111,7 @@ const About = ({ isDarkMode, toggleDarkMode }) => {
               }}
             />
           </button>
-          <Link to="/" className="text-base font-normal text-gray-800 filter blur-[1px] hover:filter-none transition-all">
+          <Link to="/" className="text-base font-normal text-gray-800 filter-none hover:blur-[1px] transition-all">
           Back
         </Link>
         </div>

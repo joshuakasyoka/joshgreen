@@ -297,7 +297,7 @@ export const EmmaChatShell = ({
       </div>
       <div className="emma-gis-demo__emma-thread">{children}</div>
       <div ref={inputWrapRef} className="emma-gis-demo__emma-input-wrap">
-        <div className={`emma-gis-demo__emma-input ${inputActive || inputValue ? 'is-active' : ''}`.trim()}>
+        <div className={`emma-gis-demo__emma-input ${(inputActive && inputValue.length > 12) ? 'is-active' : ''}`.trim()}>
           {inputValue ? (
             <span className="emma-gis-demo__emma-typed">{inputValue}</span>
           ) : (

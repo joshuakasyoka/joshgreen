@@ -68,7 +68,10 @@ const EmmaToggleLayersDemo = ({ className = '', style }) => {
           />
           <EmmaThinking visible={showThinking} />
           <EmmaAiBubble visible={showConfirm}>{AI_CONFIRM}</EmmaAiBubble>
-          <span ref={setTargetRef('layer-card')}>
+          <span
+            ref={setTargetRef('layer-card')}
+            className={`emma-gis-demo__msg ${showConfirm ? 'is-visible' : ''}`.trim()}
+          >
             <EmmaLayerCard
               visible={showConfirm}
               title="Transport Network added to layer tree"

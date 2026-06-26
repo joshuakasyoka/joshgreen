@@ -25,6 +25,7 @@ import Moata3dVersionTimelineDemo from './Moata3dVersionTimelineDemo';
 import Moata3dVersionPropertiesDemo from './Moata3dVersionPropertiesDemo';
 import Moata3dAssetRingDemo from './Moata3dAssetRingDemo';
 import Moata3dAssetSelectDemo from './Moata3dAssetSelectDemo';
+import Moata3dMapSyncDemo from './Moata3dMapSyncDemo';
 import MoataAppOverviewDemo from './MoataAppOverviewDemo';
 import UalArchiveFilterDemo from './UalArchiveFilterDemo';
 import UalArchiveForceGraphDemo from './UalArchiveForceGraphDemo';
@@ -41,7 +42,6 @@ import DigitalWaterArchiveDemo from './DigitalWaterArchiveDemo';
 import DigitalWaterSimulationDemo from './DigitalWaterSimulationDemo';
 import DigitalWaterTypesDemo from './DigitalWaterTypesDemo';
 import EmmaToggleLayersDemo from './EmmaToggleLayersDemo';
-import EmmaBundleDemo from './EmmaBundleDemo';
 import EmmaSpatialQueryDemo from './EmmaSpatialQueryDemo';
 import EmmaActionCardDemo from './EmmaActionCardDemo';
 import EmmaPermissionsDemo from './EmmaPermissionsDemo';
@@ -271,52 +271,62 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
     'Product Design': [
       { 
         id: 5, 
-        name: 'Geospatial', 
+        name: 'Moata Geospatial', 
         date: 'May 2024', 
-        description: 'Encouraging safer collaboration on shared Moata maps — from isolated project spaces to map-native comments across 2D and 3D.',
+        description: 'Lead product design on Moata Geospatial — Mott MacDonald\'s GIS for infrastructure programmes. A comments feature case study from shared-map conflict to safer collaboration across 2D and 3D.',
         overview: [
-          'On Moata Geospatial, infrastructure teams shared ',
-          { text: 'one live map' },
-          ' — any pan, layer toggle, or sketch changed the view for everyone. With PM and engineering I worked through isolated project spaces first, then map-native comments and panels until teams could collaborate safely across 2D and 3D.',
+          'Moata Geospatial is ',
+          { text: "Mott MacDonald's GIS platform" },
+          ' for civil engineering — the tool infrastructure teams use on major programmes like HS2. As lead product designer, I work across the full product, from early concept through to shipped features. This case study follows one thread: a ',
+          { text: 'map-native comments system' },
+          ' designed and delivered to improve how project teams communicate and manage work across 2D and 3D environments.',
         ],
-        fullDescription: 'Encouraging safer collaboration on shared Moata maps — from isolated project spaces to map-native comments across 2D and 3D.',
+        fullDescription: 'Moata Geospatial is Mott MacDonald\'s GIS platform for civil engineering, used on major infrastructure programmes like HS2. As lead product designer, I work across feature development on the product. This case study follows map-native comments — designed and shipped to improve project management and communication across 2D and 3D.',
         website: 'https://www.mottmac.com/en/digital-solutions/',
-        startingPoint: 'Every team stepped on each other\'s map state — domain interviews showed isolated workspaces had to ship before thread metadata, panel grids, or 3D commenting could matter.',
+        startingPoint: 'Every team stepped on each other\'s map state — user interviews showed isolated workspaces had to ship before thread metadata, panel grids, or 3D commenting could matter.',
         outcome: 'Project spaces, map-anchored comments with audit trails, a processing panel, and unified 2D/3D commenting — each layer solving the next collaboration failure we found in QA.',
         techStack: 'Product design, interaction design, prototyping, motion design.',
         images: [
           {
             demo: 'moata-blank-screen',
-            caption: 'Geospatial — shared workspace',
+            caption: 'Moata Geospatial — shared workspace',
             sectionHeading: 'Challenge',
             body: [
-              'Large programmes ran on ',
-              { text: 'one shared map' },
-              '. Any change — view, extent, layers — altered the workspace for every user. Map comments ',
-              { text: 'vanished when another team panned away' },
-              ', before isolated state or thread metadata could help.',
+              "Teams weren't commenting in the GIS platform — they ",
+              { text: 'defaulted to email, external tools, and PowerPoint' },
+              '. ',
+              { text: 'Spatial context and project communication became decoupled' },
+              '. We needed to understand what would give users the confidence to ',
+              { text: 'comment natively on the map' },
+              ', and bring more project teams into the platform.',
             ],
           },
           {
             demo: 'moata-research-quote',
-            caption: 'Domain interviews — shared map pain',
-            sectionHeading: 'Domain Interviews',
+            caption: 'User interviews — shared map pain',
+            sectionHeading: 'User Interviews',
             body: [
-              'Domain interviews across HS2 workstreams kept surfacing the same pattern — we ',
-              { text: 'pulled out the key lines' },
-              ' and the same lines came up in every session: one live map meant ecology, structures, and utilities were stepping on each other daily.',
+              'We spoke with GIS admins, specialists, and technicians alongside domain experts from ecology, archaeology, and engineering — across projects ranging from under 200 to over 500 people. The focus was simple: understand ',
+              { text: 'how teams actually communicate' },
+              ' on live infrastructure programmes.',
             ],
           },
           {
             demo: 'moata-problem-wireframe',
-            caption: 'Problem wireframe — one map to project spaces',
-            sectionHeading: 'Shared map conflict',
+            caption: 'Problem framing — shared map structure',
+            sectionHeading: 'Problem Framing',
             body: [
-              'A simplified wireframe made the failure mode legible to PM and engineering: three workstreams ',
-              { text: 'fighting over one view' },
-              '. Project spaces became the first ship — isolated map state spun up from the programme layers, ',
-              { text: 'letting each silo communicate on its own map' },
-              ' even as cross-team visibility stayed limited.',
+              'Interviews surfaced a cluster of barriers: fear that ',
+              { text: 'comments would get lost' },
+              ', a weak audit trail, no way to filter or triage existing annotations. But the deeper issue was structural. Projects were set up so that every team — ecology, structures, utilities, archaeology — ',
+              { text: 'shared the same map space' },
+              '. At that scale, comments accumulated fast and ',
+              { text: 'signal got buried in noise' },
+              '.',
+              { break: true },
+              "What teams needed wasn't just better comments. They needed confidence that their ",
+              { text: 'communication could happen at a team level' },
+              ' — without disrupting, or being disrupted by, the rest of the project.',
             ],
           },
           {
@@ -325,18 +335,24 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
             sectionHeading: 'Project spaces',
             body: [
               'We introduced ',
-              { text: 'project spaces' },
-              ' — isolated workspaces spun up from the main project layers. PM and engineering aligned here first: an ecology team within HS2 could own its layers and map state without breaking the shared programme view everything else depended on.',
+              { text: 'Project Spaces' },
+              ' — letting teams pull a selection of layers from the main map into a ',
+              { text: 'private or shared environment' },
+              ' scoped to their workstream. Teams could communicate about specific features without cluttering the shared map, and experiment with the platform without fear of disrupting the main project setup. This became the foundation for the ',
+              { text: 'comments infrastructure' },
+              ' that followed.',
             ],
           },
           {
             demo: 'moata-map-comment',
             caption: 'Place a comment from the draw toolbar',
-            sectionHeading: 'Comments on the map',
+            sectionHeading: 'Comments on the Map',
             body: [
-              'Comments needed to live where engineers already work — we brought them into the ',
-              { text: 'draw toolbar' },
-              '. Drop a pin on a feature, layer, or coordinate and discussion stays anchored to what you are looking at, without a separate annotation tool.',
+              'A persistent toolbar anchored to the map gave users a clear way to comment on a feature, coordinate, or layer — responding directly to the finding that ',
+              { text: "most users didn't know commenting was even possible" },
+              '. It brought ',
+              { text: 'communication to the heart of the platform' },
+              '.',
             ],
           },
           {
@@ -352,11 +368,15 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
           {
             demo: 'moata-comments',
             caption: 'Map comment — status and metadata',
-            sectionHeading: 'Comment metadata',
+            sectionHeading: 'Comment Metadata',
             body: [
-              'Comments on their own weren\'t enough — they had to be ',
+              "Comments alone weren't enough — they had to be ",
               { text: 'trackable' },
-              '. Co-defined with programme leads: status, task links, coordinates, type, and activity history — without that metadata, threads would be impossible to follow across a live infrastructure programme.',
+              '. Working with project leads, we co-defined a ',
+              { text: 'metadata model' },
+              ': status, task links, coordinates, type, and activity history. Without it, threads would be ',
+              { text: 'impossible to follow across a live programme' },
+              '.',
             ],
           },
           {
@@ -366,49 +386,59 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
             body: [
               'Users also wanted a ',
               { text: 'more permanent home for comments' },
-              '. The right-hand panel gathers every thread into a searchable list — open a card to read the full conversation, properties, and audit trail, while keeping the map in view.',
+              '. A right-hand panel brought all threads into a ',
+              { text: 'single searchable list' },
+              ' — open a card to read the full conversation, properties, and audit trail, without leaving the map. Comments were no longer buried as small icons on the canvas; they had a ',
+              { text: 'persistent, navigable home' },
+              ' alongside the spatial context they referred to.',
             ],
           },
           {
             demo: 'moata-comments-grid',
             caption: 'Filter comments and widen the panel for a grid view',
-            sectionHeading: 'Comments grid',
+            sectionHeading: 'Filter & Scan',
             body: [
-              'Processing many threads meant ',
-              { text: 'filtering the feed' },
-              ' and giving the panel more room. Users drag the left edge to stretch the comments panel — cards reflow into a ',
+              'Rather than adding filters in a separate screen or modal, users drag the left edge of the comments panel to ',
+              { text: 'expand it' },
+              ' — cards reflow into a ',
               { text: 'two-column grid' },
-              ' so they can scan open items without opening each thread.',
+              ', letting teams scan open items at a glance without opening each thread.',
             ],
           },
           {
             demo: 'moata-model-viewer',
             caption: 'Comment on 3D assets in the model viewer',
-            sectionHeading: '2D and 3D unified',
+            sectionHeading: '2D and 3D Unified',
             body: [
-              '2D comments were useless if 3D review still meant Rhino — the hard part was ',
-              { text: 'one commenting model' },
-              ' across GIS and ACC models. Users anchor feedback to model elements in the viewer, scrub versions, and inspect properties without exporting out.',
+              'Comments needed to work across both 2D GIS views and 3D data — teams were exporting comments from external tools like ',
+              { text: 'Rhino and Grasshopper' },
+              ' just to share spatial feedback. Unifying the commenting experience across both environments was central to bringing more of the project team into the platform and ',
+              { text: 'reducing reliance on workarounds' },
+              '.',
             ],
           },
           {
             demo: 'moata-tabs',
             caption: 'Tab system — switch between panels',
-            sectionHeading: 'Panel tabs',
+            sectionHeading: 'Panel Tabs',
             body: [
-              'Comments and tools had lived in ',
-              { text: 'stacked panels' },
-              ', which made context-switching slow. A tabbed side panel lets users jump between layers, tools, and comments in place — add a tab, switch mode, close when done — without resetting the map behind it.',
+              'A small but meaningful detail — a ',
+              { text: 'tabbed panel' },
+              ' let users move fluidly between comments and existing GIS tools and layer views without losing their place. A minor UX change that significantly ',
+              { text: 'reduced friction' },
+              ' in day-to-day workflows.',
             ],
           },
           {
             demo: 'moata-map-pins',
             caption: 'Comment threads across the programme map',
-            sectionHeading: 'Map at scale',
+            sectionHeading: 'Map at Scale',
             body: [
-              'At programme scale the map fills with ',
-              { text: 'anchored threads' },
-              ' — ecology, structures, utilities, each pin tied to coordinates and audit history. Reviewers needed that density on the main map without opening a separate annotations layer.',
+              'While ',
+              { text: 'Project Spaces' },
+              ' gave teams room to communicate in smaller groups, project managers still needed oversight of everything happening across the programme. The comments infrastructure was designed to support both — granular team-level communication and a ',
+              { text: 'unified view' },
+              ' when full project visibility was needed.',
             ],
           },
         ],
@@ -416,96 +446,92 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
           after: [
             {
               id: 'reflections',
-              heading: 'Reflections',
+              heading: 'Reflection',
               body: [
-                'One shared map was the root problem — project spaces unlocked everything else. I stayed through build and QA until tab switching and grid resize held under ',
-                { text: 'real programme threads' },
-                ', not scripted walkthroughs.',
+                'This project required understanding a ',
+                { text: 'behavioural problem' },
+                ' before designing a technical one — why teams weren\'t using the platform, not just what to build. Working closely with project leads and domain specialists from research through to delivery, the result was a comments infrastructure that brought ',
+                { text: 'multidisciplinary communication' },
+                ' back to the map itself.',
               ],
             },
           ],
         },
       },
-      { 
-        id: 10, 
-        name: 'EMMA', 
+      {
+        id: 10,
+        name: 'EMMA',
         date: '2025', 
         description: 'An internal AI assistant that brings natural-language control to Moata Geospatial — layers, bundles, and spatial tools from a governed side-panel chat.',
         fullDescription: 'EMMA is an internal AI assistant designed with Mott MacDonald to improve how knowledge is discovered, trusted, and shared across a global workforce of over 20,000 employees. A key entry point was embedding EMMA inside Moata Geospatial so engineers could describe GIS tasks in plain language — toggling layers, loading working bundles, running spatial queries — without leaving the map.',
-        website: '',
+        website: 'https://www.mottmac.com/en/insights/advancing-ai-in-engineering-what-the-industry-needs-to-know/',
         overview: [
-          'GIS on Moata assumed specialist knowledge — deep layer trees, SQL-backed spatial queries, buried analysis tools. We set out to ',
-          { text: 'democratise GIS through natural language' },
-          ': project admins describe a boundary or zone; GIS specialists still get detailed queries — all from a governed side-panel chat that never silently changes the map.',
+          'EMMA is Mott MacDonald\'s internal AI assistant — built to surface decisions, trusted voices, and institutional knowledge from within the organisation\'s own systems. Practice teams began ',
+          { text: 'curating their own sources' },
+          ' within days, improving accuracy and governance. Within two weeks, ',
+          { text: '25% of the workforce' },
+          ' had adopted EMMA. Today it powers onboarding, expert discovery, and workflow automation across teams, without relying on external AI providers.',
         ],
         startingPoint: 'Workshops with GIS leads and project admins surfaced two audiences on one platform — specialists who want SQL depth, admins who just need the right layers and a site boundary. We mapped those intents on post-its before designing consent flows.',
         outcome: 'Layers, bundles, and spatial queries open from conversation — specialists review pre-filled SQL; project admins get plain-language layer discovery — every action gated by permission cards and auditable API traces.',
         techStack: 'Stack: secure enterprise cloud, retrieval over internal corpora, Moata Geospatial integration. AI note: intent detection for layer, bundle, and spatial-query commands; RAG-first answers with mandatory citations; bounded generation for 20k+ employee governance.',
         images: [
           {
-            demo: 'emma-workspace',
-            caption: 'Ask EMMA from inside the map workspace',
-            sectionHeading: 'Natural language on the map',
-            body: [
-              'EMMA lives in a ',
-              { text: 'dockable side panel' },
-              ' beside the live map — engineers describe the site problem in plain language, and EMMA interprets the GIS intent before proposing any action. Paired with engineering from day one so the panel met real workspace constraints, not a detached chat window.',
-            ],
-          },
-          {
             demo: 'emma-research-quote',
             caption: 'Programme interview — GIS democratisation',
-            sectionHeading: 'Programme interviews',
+            sectionHeading: 'User Interviews',
             body: [
-              'Interviews across infrastructure programmes kept returning to the same split — specialists buried in SQL, admins blocked by layer trees. We ',
-              { text: 'highlighted transcript lines' },
-              ' that shaped the natural-language model: plain requests for boundaries, buffers, and project layers.',
+              'We validated over 100 potential AI use cases before aligning with Mott MacDonald on the highest-impact starting point: ',
+              { text: 'intelligent search' },
+              '. That meant speaking to people across the organisation to understand how knowledge actually moved — and where it got stuck.',
             ],
           },
           {
             demo: 'emma-problem-framing',
             caption: 'Mapping intents workshop — post-it synthesis',
-            sectionHeading: 'Problem framing',
+            sectionHeading: 'Problem Framing',
             body: [
-              'Before wireframes, we ran ',
-              { text: 'mapping-intent workshops' },
-              ' with GIS specialists and project admins — sticky notes clustered into layer discovery, spatial queries, simple map views, and tool bundles. Two audiences, one platform.',
+              'We ran ',
+              { text: 'intent-mapping workshops' },
+              ' with GIS specialists and project admins, using sticky notes to cluster the tasks users wanted to complete through natural language — layer discovery, spatial queries, simple map views, tool bundles. ',
+              { text: 'Distinct workflow patterns' },
+              ' emerged, and we needed to support users across each of them, as well as complete end-to-end workflows in a single interaction.',
             ],
           },
           {
             demo: 'emma-chat-threads',
             caption: 'Threaded chats per GIS task',
-            sectionHeading: 'Context per project',
+            sectionHeading: 'Project Context',
             body: [
               'Each geospatial task gets its own ',
               { text: 'conversation thread' },
-              ' — substation siting, ecology bundles, spatial queries — so context stays attached to the work, not lost in a single endless chat.',
+              ' — substation siting, ecology bundles, spatial queries — so context stays attached to the work rather than lost in a single endless chat.',
             ],
           },
           {
             demo: 'emma-governance-insight',
             caption: 'Trust insight — consent before the map changes',
-            sectionHeading: 'Design insight',
+            sectionHeading: 'Trust & Control',
             body: [
-              'Programme interviews surfaced a hard constraint — teams were ',
-              { text: 'afraid of natural language taking full control' },
-              ' of the shared map. Permissions with an explicit Allow step became the design response: EMMA proposes, the engineer consents, then the API runs.',
+              'Interviews surfaced a hard constraint — teams were ',
+              { text: 'uncomfortable with natural language taking full control' },
+              ' of the map. Project data is sensitive and often complex to configure; users needed transparency around what EMMA was doing and confidence that it wouldn\'t disrupt their setup.',
             ],
           },
           {
             demo: 'emma-permissions',
             caption: 'Consent before EMMA changes the map',
-            sectionHeading: 'Governed changes',
+            sectionHeading: 'Governed Changes',
             body: [
-              'Silent map mutation was a non-starter — proposed actions surface a ',
+              'Silent map mutations were a non-starter. Proposed actions surface a ',
               { text: 'permission request card' },
-              ' and nothing changes until the engineer taps Allow. The challenge was making governance feel like speed, not friction.',
+              ' — nothing changes until the user approves. The design challenge was making that governance feel like speed, not friction.',
             ],
           },
           {
             demo: 'emma-toggle-layers',
             caption: '“Bring the transport layers forward”',
-            sectionHeading: 'Layers from conversation',
+            sectionHeading: 'Add Layers',
             body: [
               'Once approved, a simple ',
               { text: '“yes”' },
@@ -515,7 +541,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
           {
             demo: 'emma-action-card',
             caption: 'Confirmation cards inside the thread',
-            sectionHeading: 'Structured confirmations',
+            sectionHeading: 'Confirmations',
             body: [
               'Every completed action renders as a ',
               { text: 'structured card' },
@@ -523,19 +549,9 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
             ],
           },
           {
-            demo: 'emma-bundle',
-            caption: '“Set up an ecologist working bundle”',
-            sectionHeading: 'Working sets in one ask',
-            body: [
-              'Curated ',
-              { text: 'layer bundles' },
-              ' open pre-selected in Add Layer → Bundles — five ecology constraint layers ready to review and add in a single action, triggered from conversation.',
-            ],
-          },
-          {
             demo: 'emma-spatial-query',
             caption: '“Run a spatial query on the corridor”',
-            sectionHeading: 'Analysis tools pre-filled',
+            sectionHeading: 'Tool Access',
             body: [
               'Spatial analysis follows the same pattern — EMMA opens ',
               { text: 'Spatial Query' },
@@ -544,14 +560,33 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
           },
         ],
         caseStudyBlocks: {
+          before: [
+            {
+              id: 'challenge',
+              heading: 'Challenge',
+              demo: 'emma-workspace',
+              caption: 'Ask EMMA from inside the map workspace',
+              body: [
+                'Mott MacDonald set out to embed AI across its global operations — 20,000+ employees, decades of knowledge, and no clear place to start. Generic tools like ',
+                { text: 'Microsoft Copilot' },
+                ' felt too broad, too disconnected from civil engineering\'s specifics, and too expensive at scale.',
+                { break: true },
+                'What the organisation needed wasn\'t another AI overlay. It needed a ',
+                { text: 'product — and a partner' },
+                ' — that could define the opportunity, ground it in reality, and deliver something valuable fast.',
+              ],
+            },
+          ],
           after: [
             {
               id: 'reflections',
               heading: 'Reflections',
               body: [
-                'Democratising GIS meant designing for two speeds — specialist SQL and admin-friendly map views — without dumbing down the platform. Pairing with engineers from day one kept confirmation cards and API traces shaped to what GIS teams would ',
-                { text: 'actually audit' },
-                ', not what looked clever in a mock.',
+                'Designing EMMA meant holding two speeds at once — specialist workflows and accessible natural language — without compromising the platform\'s depth. The ',
+                { text: 'trust and governance constraints' },
+                ' weren\'t obstacles; they shaped the best design decisions. Pairing with engineers from day one meant confirmation cards and audit traces were built around what teams would ',
+                { text: 'actually use' },
+                ', not what looked good in a prototype.',
               ],
             },
           ],
@@ -559,13 +594,15 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
       },
       {
         id: 16,
-        name: 'Moata 3D Panel',
+        name: 'Moata 3D',
         date: 'May 2024',
         description: 'Bringing ACC model data into the map side panel — version history, comparison, and property inspection without leaving Moata.',
         overview: [
-          'Structural engineers compared BIM revisions by ',
-          { text: 'exporting to Rhino' },
-          ' — breaking the flow of geospatial review. I designed the ACC Model Viewer inside Moata\'s layer inspector and prototyped timeline, multi-select, and property diffs against real payloads until version comparison worked in context.',
+          'Moata Geospatial previously relied on external platforms like ',
+          { text: 'Autodesk Construction Cloud' },
+          ' for 3D modelling — requiring users to context-switch away from the map entirely. We designed a new experience that brought an ACC viewer directly into the GIS environment, so teams could explore 3D models alongside the spatial context they needed, ',
+          { text: 'without leaving the platform' },
+          '.',
         ],
         fullDescription: 'Bringing ACC model data into the map side panel — version history, comparison, and property inspection without leaving Moata.',
         website: 'https://www.mottmac.com/en/digital-solutions/',
@@ -576,11 +613,13 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
           {
             demo: 'moata-3d-asset-select',
             caption: 'Open a 3D asset from the layers panel',
-            sectionHeading: 'Open from layers',
+            sectionHeading: 'Open from Layers',
             body: [
               'ACC model data lives in the ',
-              { text: 'layers tree' },
-              ' alongside other programme data. Engineers expand a structure group, click into a column layer, and open the 3D inspector from the toolbar — without leaving the map or opening a separate viewer.',
+              { text: 'layers panel' },
+              ', accessible directly from the layer tree. From there, users can open the model viewer and 3D inspector without leaving the map. The viewer acts as a ',
+              { text: 'twin of the 3D model' },
+              ' rendered on the map itself — an ACC synchronised replica alongside the GIS context.',
             ],
           },
           {
@@ -596,7 +635,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
           {
             demo: 'moata-3d-version-properties',
             caption: 'Select versions and compare properties',
-            sectionHeading: 'Version control & properties',
+            sectionHeading: 'Version Control',
             body: [
               'Scrubbing alone does not answer “what changed?” — teams need to ',
               { text: 'pick specific revisions' },
@@ -606,7 +645,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
           {
             demo: 'moata-3d-asset-ring',
             caption: 'Drill from layer into a column revision',
-            sectionHeading: 'Cylinder to ring',
+            sectionHeading: 'Isolate Assets',
             body: [
               'Once the 3D viewer is open, engineers can ',
               { text: 'click a column' },
@@ -617,14 +656,31 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
           },
         ],
         caseStudyBlocks: {
+          before: [
+            {
+              id: 'challenge',
+              heading: 'Challenge',
+              demo: 'moata-3d-map-sync',
+              caption: 'ACC model rendered live on the GIS map',
+              body: [
+                'The core design challenge was ',
+                { text: 'synchronisation' },
+                ' — creating an intuitive way to work with 3D model data alongside 2D GIS layers without the two views feeling disconnected. Users needed ',
+                { text: 'spatial context from both' },
+                ', at the same time.',
+              ],
+            },
+          ],
           after: [
             {
               id: 'reflections',
               heading: 'Reflections',
               body: [
-                'In-context version diff was the leverage point — engineers exported to Rhino because comparing property tables on the map did not exist yet. I prototyped the timeline and multi-select against real ACC payloads so revisions could ',
-                { text: 'colour-code in place' },
-                ', without opening a second viewer.',
+                'The key insight was that engineers weren\'t leaving the platform by choice — they were leaving because ',
+                { text: 'in-context version comparison' },
+                ' didn\'t exist yet. By prototyping the timeline and multi-select against real ACC payloads, we could bring revision comparison directly into the map, colour-coded in place, without opening a second viewer. ',
+                { text: 'Staying close to real data early' },
+                ' kept the solution grounded in what engineers actually needed to see.',
               ],
             },
           ],
@@ -633,12 +689,14 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
       {
         id: 15,
         name: 'Doodler',
-        date: 'Jun 2026',
+        date: '2026',
         description: 'A co-created visual tool for therapists and patients to talk through difficult moments in care.',
         overview: [
           'Difficult conversations in care often stall on ',
           { text: 'clinical language' },
-          ' — records sit with the practitioner, not the pair. Doodler is a co-created visual tool where therapists and patients build illustrated tiles together; I held the flow to one path from session capture to shared summary, narrow enough to use after a difficult hour.',
+          ' — records sit with the practitioner, not the people they\'re about. Doodler is a co-created visual tool where therapists and patients build illustrated tiles together during a session. I led the design of the product, holding the flow to a ',
+          { text: 'single path' },
+          ' from session capture to shared summary — narrow enough to use after a difficult hour.',
         ],
         fullDescription: 'A co-created visual tool for therapists and patients to talk through difficult moments in care.',
         website: '',
@@ -651,9 +709,11 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
               id: 'reflections',
               heading: 'Reflections',
               body: [
-                'Therapist interviews shaped the first spec — AI stress-tested edge cases like co-editing during crisis, but the constraint I held was one path from tile to summary. I would push next on ',
-                { text: 'async sharing at home' },
-                '; the prototype proved the in-room flow, not retention between sessions.',
+                'Therapist interviews shaped the initial spec, and AI helped stress-test edge cases like co-editing during a crisis moment. But the constraint I held throughout was a ',
+                { text: 'single path from tile to summary' },
+                ' — simple enough to use when the session itself had been hard. The next push would be ',
+                { text: 'async sharing between sessions' },
+                '; the prototype proved the in-room flow, not what happens to that shared understanding once people go home.',
               ],
             },
           ],
@@ -662,7 +722,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
           {
             demo: 'doodler-table',
             caption: 'Care path table — shared map of sessions and topics',
-            sectionHeading: 'Shared map',
+            sectionHeading: 'Shared Planner',
             body: [
               'Clinical records put the patient on the wrong side of the conversation — the fix was mapping doodles across ',
               { text: 'intake, consultation, and treatment plan' },
@@ -713,14 +773,14 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
       },
       { 
         id: 3, 
-        name: 'Materials Archive', 
-        date: 'Jun 2026', 
+        name: 'Materials Archive',
+        date: '2026',
         website: 'https://gcdp-archive-2026.vercel.app/',
         description: 'Digital archive for the MA Global Collaborative Design Practice — browse artefacts, trace collaborations, and explore student research across UAL and Kyoto Institute of Technology.', 
         overview: [
-          'The MA GCDP Digital Archive holds thesis work from UAL and Kyoto — richly tagged, but a grid alone cannot answer ',
-          { text: '“how does this work relate to that?”' },
-          ' — I worked through filter, graph, collaboration, and glossary views as live prototypes until each solved a discovery question tutors actually asked.',
+          'UAL asked me to design a course archive for the ',
+          { text: 'MA Global Collaborative Design Practice' },
+          ' programme — a platform where students across multiple cohorts could upload project work and explore the relationships between project partners, previous years, and concurrent cohorts.',
         ],
         fullDescription: 'A collaborative digital platform built for the UAL graduate course Global Collaborative Design Practice, designed to display and archive thesis projects from design students across multiple disciplines, facilitating research sharing and discovery.', 
         startingPoint: 'Tutors described relational questions — methods, partners, cohorts — that a single searchable grid could not solve; each browse mode had to earn its place against a real student search task.',
@@ -769,6 +829,17 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
           },
         ],
         caseStudyBlocks: {
+          before: [
+            {
+              id: 'challenge',
+              heading: 'Challenge',
+              body: [
+                'The challenge was making that ',
+                { text: 'relationality visible and navigable' },
+                ', not just stored — surfacing how projects connect across partners, previous years, and concurrent cohorts, rather than leaving the archive as a flat, searchable grid.',
+              ],
+            },
+          ],
           after: [
             {
               id: 'reflections',
@@ -923,11 +994,11 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
         id: 6,
         name: 'ClearBank',
         date: 'May 2024',
-        description: 'Developer portal and API documentation for ClearBank, a fintech providing banking APIs',
+        description: 'Designing a banking report format for ClearBank, a fintech providing banking APIs, to be uploaded onto their digital platform.',
         overview: [
-          'ClearBank\'s developer portal had to let teams ',
-          { text: 'test before they trust' },
-          ' — opaque documentation loses integrators quietly. I worked with API owners to align docs, sandbox flows, and walkthroughs with how integrations actually break in production.',
+          'ClearBank needed a ',
+          { text: 'banking report format' },
+          ' that could be designed once and uploaded onto their digital platform — giving teams a consistent way to present account and transaction data without rebuilding the format for every report.',
         ],
         fullDescription: 'A comprehensive website and developer portal for ClearBank, a fintech company that provides powerful banking APIs, featuring developer-friendly documentation, API testing tools, and seamless integration resources for financial technology developers.',
         website: 'https://clear.bank/explore-our-api',
@@ -938,42 +1009,18 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
           {
             src: '/images/clearbank/5f388e40.mp4',
             caption: 'ClearBank — API explorer',
-            sectionHeading: 'API explorer',
-            body: [
-              'The explorer lets developers ',
-              { text: 'call endpoints in context' },
-              ' — parameters, responses, and error states visible alongside docs, so integration issues surface in the portal, not after deployment.',
-            ],
           },
           {
             src: '/images/clearbank/7f9eb849.mp4',
             caption: 'ClearBank — documentation flow',
-            sectionHeading: 'Documentation',
-            body: [
-              'Docs follow the ',
-              { text: 'integration journey' },
-              ' — authentication, accounts, payments — not an alphabetical endpoint list. Each section pairs reference with a worked example developers can run immediately.',
-            ],
           },
           {
             src: '/images/clearbank/16-Accounts.jpg',
             caption: 'ClearBank — accounts overview',
-            sectionHeading: 'Accounts',
-            body: [
-              'Account management surfaces ',
-              { text: 'sandbox and production states' },
-              ' clearly — developers see what is live, what is test, and where configuration gaps would block a go-live.',
-            ],
           },
           {
             src: '/images/clearbank/53c30df9.mp4',
             caption: 'ClearBank — integration walkthrough',
-            sectionHeading: 'Integration path',
-            body: [
-              'The walkthrough sequences ',
-              { text: 'first call to first transaction' },
-              ' — aligned with API owner input on where teams most often stall during onboarding.',
-            ],
           },
         ],
         caseStudyBlocks: {
@@ -994,11 +1041,13 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
         id: 8,
         name: 'Phillips Auction House',
         date: 'May 2023',
-        description: 'A new digital exhibition and checkout experience for Phillips Auction House',
+        description: 'A new direct-to-consumer digital experience for Phillips Auction House\'s luxury watch business.',
         overview: [
-          'Phillips needed a virtual gallery that could carry high-value art online — checkout ',
-          { text: 'fails quietly' },
-          ' when buyers lose confidence between browse and payment. With PM and engineering I mapped drop-off first, then shaped provenance and trust cues before polish and motion.',
+          'Phillips, one of the world\'s leading auction houses for contemporary art and design, had a clear challenge: its luxury watch sales were still being handled manually, reliant on emails, phone calls, and offline tracking. The lack of visibility frustrated clients and left internal teams burdened with ',
+          { text: 'high-touch admin' },
+          '. To modernise operations and meet the expectations of high-net-worth buyers, Phillips needed a digital transformation, starting with a new, ',
+          { text: 'direct-to-consumer experience' },
+          ' for its watch business.',
         ],
         fullDescription: 'A new digital exhibition and checkout experience for Phillips Auction House, creating a virtual gallery platform that allows global access to Phillips\' curated collections and auction items through an immersive web-based interface.',
         website: 'https://exhibitions.phillips.com/',
@@ -1009,52 +1058,22 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
           {
             src: '/images/phillips/Phillips_new_aquisitions_crf28.mp4',
             caption: 'Phillips — new acquisitions exhibition',
-            sectionHeading: 'Exhibition browse',
-            body: [
-              'New acquisitions open as a ',
-              { text: 'curated scroll' },
-              ' — each lot with provenance context visible before detail, so global visitors browse with the same confidence as in-gallery viewers.',
-            ],
           },
           {
             src: '/images/phillips/Phillips03.webp',
             caption: 'Phillips — lot detail',
-            sectionHeading: 'Lot detail',
-            body: [
-              'Detail pages lead with ',
-              { text: 'provenance and condition' },
-              ' — the information buyers need before committing, not buried below gallery photography.',
-            ],
           },
           {
             src: '/images/phillips/Phillips02.webp',
             caption: 'Phillips — collection view',
-            sectionHeading: 'Collection view',
-            body: [
-              'Collections group works by ',
-              { text: 'curatorial thread' },
-              ' — visitors move between related lots without losing exhibition context or restarting navigation.',
-            ],
           },
           {
             src: '/images/phillips/Phillips_Button_Square-Loop.mp4',
             caption: 'Phillips — checkout interaction',
-            sectionHeading: 'Checkout',
-            body: [
-              'The purchase path was reduced to ',
-              { text: 'essential steps' },
-              ' — each screen validated against where test users hesitated, with performance tuned so motion never delayed confirmation.',
-            ],
           },
           {
             src: '/images/phillips/Phillips04.webp',
             caption: 'Phillips — acquisition confirmation',
-            sectionHeading: 'Confirmation',
-            body: [
-              'Confirmation reinforces ',
-              { text: 'lot identity and next steps' },
-              ' — buyers leave knowing what happens after purchase, closing the trust gap that loses high-value transactions online.',
-            ],
           },
         ],
         caseStudyBlocks: {
@@ -1077,9 +1096,9 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
         date: 'Mar 2026',
         description: 'A brief collection of illustrations across time.',
         overview: [
-          'A sequence of illustrations across time — rough passes beside finals so viewers see how marks were negotiated into finished images. Clashing styles stay on purpose; the question was how to show ',
-          { text: 'argument in the line' },
-          ' without forcing brand unity.',
+          'A few illustrations — ',
+          { text: 'I have hundreds' },
+          '.',
         ],
         fullDescription: 'A brief collection of illustrations across time, bringing together experiments, studies, and finished pieces developed across different projects and moments.',
         mediaMaxWidth: 520,
@@ -1092,52 +1111,22 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
           {
             src: '/images/illustrations/Screenshot 2026-03-26 at 14.11.56.png',
             caption: 'Illustration — early study',
-            sectionHeading: 'Early study',
-            body: [
-              'Loose line work kept ',
-              { text: 'argument visible' },
-              ' — the pass tests composition before colour or texture commit.',
-            ],
           },
           {
             src: '/images/illustrations/Screenshot 2026-03-26 at 14.12.05.png',
             caption: 'Illustration — texture experiment',
-            sectionHeading: 'Texture',
-            body: [
-              'Surface built by hand — ',
-              { text: 'ink and grain' },
-              ' layered until the image holds at arm\'s length without digital smoothing.',
-            ],
           },
           {
             src: '/images/illustrations/Screenshot 2026-03-26 at 14.12.13.png',
             caption: 'Illustration — colour pass',
-            sectionHeading: 'Colour',
-            body: [
-              'Palette restricted to ',
-              { text: 'two or three tones' },
-              ' so the figure reads before decorative detail competes.',
-            ],
           },
           {
             src: '/images/illustrations/Screenshot 2026-03-26 at 14.12.28.png',
             caption: 'Illustration — revised composition',
-            sectionHeading: 'Revision',
-            body: [
-              'Composition shifted after the first pass — ',
-              { text: 'negative space' },
-              ' opened so the eye had somewhere to rest.',
-            ],
           },
           {
             src: '/images/illustrations/image.png',
             caption: 'Illustration — finished piece',
-            sectionHeading: 'Finished',
-            body: [
-              'Final line weight chosen for ',
-              { text: 'print and screen' },
-              ' — the same drawing holds in a risograph run or on a project page.',
-            ],
           },
         ],
         caseStudyBlocks: {
@@ -1158,18 +1147,20 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
     'Participatory Design': [
       { 
         id: 11, 
-        name: 'AI Literacy Framework', 
-        date: 'May 2025', 
-        description: 'A framework booklet for local government to better understand AI literacy',
+        name: 'AI Literacy Framework',
+        date: 'May 2025',
+        description: 'A book for local councils to find creative ways to improve AI literacy within their boroughs.',
         overview: [
-          'Across council workshops, officers used ',
+          'This was a ',
+          { text: 'book' },
+          ', not a policy document — designed to be picked up by council officers and used to find creative ways to build AI literacy within their boroughs. Across workshops, officers used ',
           { text: 'different language' },
-          ' for the same AI literacy gaps. I structured a framework booklet around validated scenarios officers would hand to colleagues — shared vocabulary before policy slides.',
+          ' for the same AI literacy gaps, so I structured the book around validated scenarios officers would actually hand to colleagues.',
         ],
-        fullDescription: 'A comprehensive framework booklet and assessment tool designed specifically for local government officials to better understand, evaluate, and improve AI literacy within their communities, providing practical guidance and educational resources for policy development.', 
+        fullDescription: 'A book designed for local councils to find creative, practical ways to improve AI literacy within their boroughs — giving officers shared language and scenarios before policy slides.',
         website: 'https://aivoicesmap.vercel.app/',
-        startingPoint: 'Workshops surfaced the same gaps described differently each session — the first task was tabulating definitions before designing assessment structure.',
-        outcome: 'A booklet with practical scenarios validated with officers who would distribute it internally — language councils can actually use in policy and training.',
+        startingPoint: 'Workshops surfaced the same gaps described differently each session — the first task was tabulating definitions before designing the book\'s structure.',
+        outcome: 'A book of practical, borough-ready scenarios validated with officers who would distribute it internally — creative starting points councils can actually use in policy and training.',
         techStack: 'React, Node.js, MongoDB, Vercel, D3.js',
         images: [
           {
@@ -1229,51 +1220,34 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
       },
       { 
         id: 12, 
-        name: 'Climate Truth Crisis', 
-        date: 'May 2025', 
-        description: 'An interactive narrative on climate misinformation and digital truth', 
+        name: 'Climate Truth Crisis',
+        date: 'May 2025',
+        description: 'An Erasmus+ funded project exploring the climate truth crisis through visual communication — exhibited at a tram stop in Tallinn.',
         overview: [
-          'Climate Truth Crisis is an interactive narrative on how misinformation spreads through information systems. The hard part was carrying ',
-          { text: 'doubt about climate data' },
-          ' without collapsing into cynicism — structure mapped where readers stop trusting the story, then scroll depth shaped what shipped.',
+          'Climate Truth Crisis was an ',
+          { text: 'Erasmus+ funded project' },
+          ' exploring the climate truth crisis and the role visual communication plays in how people trust or distrust climate information. The work culminated in an ',
+          { text: 'exhibition at a tram stop in Tallinn' },
+          ' — taking the research out of the studio and into a public, everyday space.',
         ],
-        fullDescription: 'An interactive narrative experience and research project that explores the intersection of climate change and information systems, examining how climate misinformation spreads through digital platforms and questioning the nature of truth in the age of environmental crisis.', 
+        fullDescription: 'An Erasmus+ funded research and design project examining the climate truth crisis through visual communication, exploring how misinformation spreads through information systems and culminating in a public exhibition at a tram stop in Tallinn.',
         website: 'https://deathofnero.vercel.app/',
         startingPoint: 'The research question was where trust breaks — outline work mapped reader doubt points before any visual or motion design.',
-        outcome: 'A narrative that withholds easy answers but keeps readers — structure tuned from scroll and re-read measurement, not aesthetic novelty alone.',
+        outcome: 'A public exhibition at a Tallinn tram stop that withholds easy answers but keeps people looking — structure tuned from how passers-by actually engaged with the work.',
         techStack: 'React, Three.js, WebGL, Vercel, GSAP',
         images: [
           {
             src: '/images/participatory/climate-truth-crisis/12.01.png',
             caption: 'Climate Truth Crisis — opening chapter',
-            sectionHeading: 'Opening',
-            body: [
-              'The opening establishes ',
-              { text: 'what counts as evidence' },
-              ' — readers enter knowing the narrative will question sources, not present a single authoritative voice.',
-            ],
           },
           {
             src: '/images/participatory/climate-truth-crisis/12.02.png',
             caption: 'Climate Truth Crisis — data fracture',
-            sectionHeading: 'Data fracture',
-            body: [
-              'Competing claims appear ',
-              { text: 'side by side' },
-              ' — the layout forces comparison rather than sequential persuasion, surfacing where readers pause to reconcile contradiction.',
-            ],
           },
           {
             src: '/images/participatory/climate-truth-crisis/12.03.png',
             caption: 'Climate Truth Crisis — resolution',
-            sectionHeading: 'Resolution',
-            body: [
-              'The close withholds easy answers — ',
-              { text: 'scroll depth here' },
-              ' was the validation metric: did readers stay through uncertainty or bail when the narrative refused closure?',
-            ],
           },
-          // { src: '/images/12.04.png', caption: 'Main interface' }
         ],
         caseStudyBlocks: {
           after: [
@@ -1307,42 +1281,42 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
         images: [
           {
             src: '/images/participatory/street-installations/13.03.png',
-            caption: 'Street installation — plinth one',
-            sectionHeading: 'Plinth one',
+            caption: 'Street installation — the Databooth',
+            sectionHeading: 'The Databooth',
             body: [
-              'First prompt tested ',
-              { text: 'whether strangers would stop' },
-              ' — large type, single question, no app required. Field notes tracked who paused versus walked past.',
+              'A ',
+              { text: 'databooth' },
+              ' captured passers-by\'s facial data and turned it into a thermochromic printed receipt — making an abstract idea like facial recognition into something physical that strangers could hold and watch change in their hands.',
             ],
           },
           {
             src: '/images/participatory/street-installations/13.04.png',
-            caption: 'Street installation — plinth two',
-            sectionHeading: 'Plinth two',
+            caption: 'Street installation — AI responsiveness audio',
+            sectionHeading: 'AI Responsiveness',
             body: [
-              'Second plinth introduced ',
-              { text: 'a trade-off frame' },
-              ' — what would you sacrifice for convenience? Responses from plinth one shaped whether this needed simpler language.',
+              'A second plinth generated ',
+              { text: 'audio tracks' },
+              ' built around AI responsiveness — letting passers-by hear, rather than read, what it feels like to interact with a system that is always listening and reacting.',
             ],
           },
           {
             src: '/images/participatory/street-installations/13.05.png',
-            caption: 'Street installation — plinth three',
-            sectionHeading: 'Plinth three',
+            caption: 'Street installation — a decade of YouTube',
+            sectionHeading: 'A Decade of YouTube',
             body: [
-              'Touch triggers let passers-by ',
-              { text: 'vote with their hands' },
-              ' — analogue-first so strangers trusted the interaction without downloading anything.',
+              'The third plinth surfaced ',
+              { text: 'YouTube videos collected from the last ten years' },
+              ' and asked passers-by to tag them — turning content moderation and algorithmic labelling into something the public could try themselves.',
             ],
           },
           {
             src: '/images/participatory/street-installations/13.06.png',
-            caption: 'Street installation — plinth four',
-            sectionHeading: 'Plinth four',
+            caption: 'Street installation — the deployment game',
+            sectionHeading: 'The Deployment Game',
             body: [
-              'Final plinth synthesised ',
-              { text: 'arguments from the series' },
-              ' — quotes from earlier installs surfaced so the sidewalk conversation built on itself across weeks.',
+              'The final plinth was a ',
+              { text: 'game' },
+              ' that asked passers-by questions around AI deployment trade-offs — closing the series by putting the hardest decisions directly in strangers\' hands.',
             ],
           },
         ],
@@ -1478,6 +1452,9 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
     if (demo === 'moata-3d-asset-ring') {
       return <Moata3dAssetRingDemo className="self-start w-full" />;
     }
+    if (demo === 'moata-3d-map-sync') {
+      return <Moata3dMapSyncDemo className="self-start w-full" />;
+    }
     if (demo === 'ual-archive-filter') {
       return <UalArchiveFilterDemo className="self-start w-full" />;
     }
@@ -1522,9 +1499,6 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
     }
     if (demo === 'emma-toggle-layers') {
       return <EmmaToggleLayersDemo className="self-start w-full" />;
-    }
-    if (demo === 'emma-bundle') {
-      return <EmmaBundleDemo className="self-start w-full" />;
     }
     if (demo === 'emma-spatial-query') {
       return <EmmaSpatialQueryDemo className="self-start w-full" />;
@@ -1616,7 +1590,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
             <path d="M15 3h6v6" />
             <path d="M10 14 21 3" />
           </svg>
-          <span>Project Site</span>
+          <span>Client Site</span>
         </a>
       )}
     </div>
@@ -1653,33 +1627,52 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
   };
   const renderSectionBody = (body, options = {}) => {
     const opts = typeof options === 'string' ? { className: options } : options;
-    const { heading, className = 'text-sm text-gray-600 leading-relaxed' } = opts;
+    const { heading, className = 'text-sm text-gray-600 leading-relaxed', sectionClassName = 'mb-10' } = opts;
     if (!body) return null;
 
-    const content =
-      typeof body === 'string' ? (
-        body
-      ) : (
-        body.map((part, index) =>
-          typeof part === 'string' ? (
-            <React.Fragment key={index}>{part}</React.Fragment>
-          ) : (
-            <code key={index} className={INLINE_TERM_CLASS}>
-              {part.text}
-            </code>
-          )
+    const renderBodyParts = (parts) =>
+      parts.map((part, index) =>
+        typeof part === 'string' ? (
+          <React.Fragment key={index}>{part}</React.Fragment>
+        ) : (
+          <code key={index} className={INLINE_TERM_CLASS}>
+            {part.text}
+          </code>
         )
       );
 
+    const paragraphs = [];
+    let currentParagraph = [];
+
+    if (typeof body === 'string') {
+      paragraphs.push([body]);
+    } else {
+      body.forEach((part) => {
+        if (part?.break) {
+          if (currentParagraph.length) paragraphs.push(currentParagraph);
+          currentParagraph = [];
+          return;
+        }
+        currentParagraph.push(part);
+      });
+      if (currentParagraph.length) paragraphs.push(currentParagraph);
+    }
+
     return (
-      <div className="case-study-section mb-10 max-w-2xl w-full">
+      <div className={`case-study-section max-w-2xl w-full ${sectionClassName}`.trim()}>
         {heading && (
           <div className="mb-4 flex items-center gap-4">
             <h3 className="shrink-0 text-[15px] font-semibold text-gray-900">{heading}</h3>
             <div className="h-px flex-1 bg-gray-200" aria-hidden="true" />
           </div>
         )}
-        <p className={className}>{content}</p>
+        {paragraphs.map((paragraph, index) => (
+          <p key={index} className={`${className}${index > 0 ? ' mt-4' : ''}`.trim()}>
+            {typeof paragraph[0] === 'string' && paragraph.length === 1
+              ? paragraph[0]
+              : renderBodyParts(paragraph)}
+          </p>
+        ))}
       </div>
     );
   };
@@ -1714,21 +1707,22 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
     return sections;
   };
 
-  const renderCaseStudyBlocks = (blocks, { className = '', bodyClassName, project, openModal } = {}) => {
+  const renderCaseStudyBlocks = (blocks, { className = '', bodyClassName, project, openModal, skipLastMargin = true } = {}) => {
     if (!blocks?.length) return null;
     return blocks.map((block) => (
       <div
         key={block.id}
-        className={`flex flex-col mb-16 last:mb-0 items-start ${className}`.trim()}
+        className={`flex flex-col mb-16 ${skipLastMargin ? 'last:mb-0' : ''} items-start ${className}`.trim()}
         data-case-study-section={block.id}
         style={{ scrollMarginTop: '1.5rem' }}
       >
         {renderSectionBody(block.body, {
           heading: block.heading,
           className: bodyClassName,
+          sectionClassName: '',
         })}
         {block.demo && project && (
-          <div className="mt-6 w-full self-start">
+          <div className="mt-10 w-full self-start">
             {renderProjectMedia(
               { demo: block.demo, caption: block.caption },
               project,
@@ -1938,7 +1932,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
   const closeModal = () => setModalImage(null);
 
   return (
-    <div className="h-screen bg-white overflow-hidden flex flex-col">
+    <div className="portfolio-app-root h-screen bg-white overflow-hidden flex flex-col">
       {/* Header */}
       <div className="flex justify-between items-start px-8 py-6" ref={headerRef}>
         <h1 
@@ -1978,8 +1972,8 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
               }}
             />
           </button>
-        <Link 
-          to="/about" 
+        <Link
+          to="/about"
             className={`text-gray-800 font-normal text-base transition-all duration-300 ${
             isAboutHovered ? 'blur-[1px]' : 'filter-none'
           }`}
@@ -2060,6 +2054,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
                             bodyClassName: 'text-sm text-gray-600 leading-relaxed max-w-md',
                             project,
                             openModal,
+                            skipLastMargin: false,
                           })}
                           {project.images.map((imgObj, idx) => {
                             const caption = typeof imgObj === 'string' ? null : imgObj.caption;
@@ -2137,6 +2132,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
                 {renderCaseStudyBlocks(selectedProject.caseStudyBlocks?.before, {
                   project: selectedProject,
                   openModal,
+                  skipLastMargin: false,
                 })}
                 {selectedProject.images.map((imgObj, idx) => {
                   const caption = typeof imgObj === 'string' ? null : imgObj.caption;

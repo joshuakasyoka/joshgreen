@@ -141,8 +141,11 @@
   padding: 8px 14px 116px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
   scroll-behavior: smooth;
+}
+
+.emma-gis-demo__msg.is-visible ~ .emma-gis-demo__msg.is-visible {
+  margin-top: 8px;
 }
 
 .emma-gis-demo__msg {
@@ -158,24 +161,24 @@
 
 .emma-gis-demo__msg.is-visible {
   opacity: 1;
-  max-height: 320px;
+  max-height: 640px;
   transform: translateY(0);
 }
 
 .emma-gis-demo__bubble-user {
   align-self: flex-end;
   max-width: 88%;
-  padding: 10px 12px;
+  padding: 8px 11px;
   background: #f3f4f8;
   border-radius: 12px;
-  font-size: 0.74rem;
-  line-height: 1.5;
+  font-size: 0.68rem;
+  line-height: 1.4;
   color: #111827;
 }
 
 .emma-gis-demo__bubble-ai {
-  font-size: 0.74rem;
-  line-height: 1.55;
+  font-size: 0.68rem;
+  line-height: 1.42;
   color: #111827;
 }
 
@@ -581,7 +584,7 @@
 .emma-gis-demo__layer-card-text strong,
 .emma-gis-demo__action-card-text strong {
   display: block;
-  font-size: 0.76rem;
+  font-size: 0.7rem;
   font-weight: 600;
   color: #111827;
   margin-bottom: 2px;
@@ -593,9 +596,9 @@
 .emma-gis-demo__layer-card-text span,
 .emma-gis-demo__action-card-text span {
   display: block;
-  font-size: 0.68rem;
+  font-size: 0.62rem;
   color: #6b7280;
-  line-height: 1.45;
+  line-height: 1.4;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -646,8 +649,8 @@
 
 .emma-gis-demo__action-card-apis li {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.58rem;
-  line-height: 1.5;
+  font-size: 0.54rem;
+  line-height: 1.35;
   color: #111827;
   word-break: break-word;
 }

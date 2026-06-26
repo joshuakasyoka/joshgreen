@@ -147,34 +147,32 @@ const LondonAiVoicesNetworkDemo = ({ className = '', style }) => {
     };
   };
 
-  const getNodeScreenPosition = (index) => {
-    const graph = graphRef.current;
-    if (!graph || index == null) return null;
-
-    const svg = graph.querySelector('svg');
-    if (!svg) return null;
-
-    const { x, y } = nodePosition(NETWORK_NODES[index], index);
-    const stageRect = graph.getBoundingClientRect();
-    const svgRect = svg.getBoundingClientRect();
-    const scale = Math.min(svgRect.width / 100, svgRect.height / 100);
-    const renderedW = 100 * scale;
-    const renderedH = 100 * scale;
-    const offsetX = (svgRect.width - renderedW) / 2;
-    const offsetY = (svgRect.height - renderedH) / 2;
-
-    return {
-      left: svgRect.left - stageRect.left + offsetX + (x / 100) * renderedW,
-      top: svgRect.top - stageRect.top + offsetY + (y / 100) * renderedH,
-    };
-  };
-
   useEffect(() => {
     if (!showCard || cardAnchorIndex == null) return undefined;
 
     const updateCardPosition = () => {
-      const position = getNodeScreenPosition(cardAnchorIndex);
-      if (position) setCardGeom(position);
+      const graph = graphRef.current;
+      if (!graph) return;
+
+      const svg = graph.querySelector('svg');
+      if (!svg) return;
+
+      const node = NETWORK_NODES[cardAnchorIndex];
+      const sim = simNodesRef.current[cardAnchorIndex];
+      const x = (sim?.x ?? node.x) * 100;
+      const y = (sim?.y ?? node.y) * 100;
+      const stageRect = graph.getBoundingClientRect();
+      const svgRect = svg.getBoundingClientRect();
+      const scale = Math.min(svgRect.width / 100, svgRect.height / 100);
+      const renderedW = 100 * scale;
+      const renderedH = 100 * scale;
+      const offsetX = (svgRect.width - renderedW) / 2;
+      const offsetY = (svgRect.height - renderedH) / 2;
+
+      setCardGeom({
+        left: svgRect.left - stageRect.left + offsetX + (x / 100) * renderedW,
+        top: svgRect.top - stageRect.top + offsetY + (y / 100) * renderedH,
+      });
     };
 
     updateCardPosition();

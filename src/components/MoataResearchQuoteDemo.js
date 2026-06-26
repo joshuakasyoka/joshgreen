@@ -103,7 +103,7 @@ const MoataResearchQuoteDemo = ({ className = '', style }) => {
       <div className="moata-process-demo__card" ref={containerRef}>
         <div className="moata-process-demo__label">
           <span className="moata-process-demo__label-dot" />
-          Domain Interviews
+          User Interviews
         </div>
 
         <div className="moata-process-demo__body moata-research-quote-demo__body">

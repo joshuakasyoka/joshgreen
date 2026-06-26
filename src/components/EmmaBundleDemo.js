@@ -62,7 +62,10 @@ const EmmaBundleDemo = ({ className = '', style }) => {
           <EmmaUserBubble visible={showUser}>Yes, open it</EmmaUserBubble>
           <EmmaThinking visible={showThinking} />
           <EmmaAiBubble visible={showConfirm}>{AI_CONFIRM}</EmmaAiBubble>
-          <span ref={setTargetRef('action-card')}>
+          <span
+            ref={setTargetRef('action-card')}
+            className={`emma-gis-demo__msg ${showConfirm && step.card ? 'is-visible' : ''}`.trim()}
+          >
             <EmmaActionCard
               visible={showConfirm && step.card}
               title="Ecologist Working Bundle ready"

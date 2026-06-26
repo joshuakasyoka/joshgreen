@@ -54,7 +54,7 @@ const MoataInsightGraphDemo = ({ className = '', style }) => {
 
         <div className="moata-process-demo__body moata-insight-graph-demo__body">
           <p className="moata-insight-graph-demo__subtitle">
-            Collaboration blockers ranked across domain interviews
+            Collaboration blockers ranked across user interviews
           </p>
 
           <div className="moata-insight-graph-demo__chart" role="img" aria-label="Bar chart of interview findings">

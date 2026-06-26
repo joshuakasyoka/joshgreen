@@ -80,6 +80,18 @@ export const WIREFRAME_TEAMS = [
   { id: 'utilities', label: 'Utilities', color: '#f59e0b', x: 42, y: 68 },
 ];
 
+export const WIREFRAME_SHARED_MESSAGES = {
+  ecology: { initials: 'SP', text: 'Mark corridor?' },
+  structures: { initials: 'JM', text: 'Pile coords' },
+  utilities: { initials: 'DW', text: 'Route clash' },
+};
+
+export const WIREFRAME_SHARED_CONNECTIONS = [
+  ['ecology', 'structures'],
+  ['structures', 'utilities'],
+  ['ecology', 'utilities'],
+];
+
 export const WIREFRAME_SPACES = [
   {
     id: 'ecology',

@@ -167,6 +167,83 @@
   overflow: hidden;
 }
 
+.moata-problem-wireframe-demo__shared-visuals {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.moata-problem-wireframe-demo__shared-point {
+  position: absolute;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.55);
+  animation: moata-wireframe-shared-point-in 0.4s cubic-bezier(0.34, 1.2, 0.64, 1) forwards;
+  animation-delay: var(--point-delay);
+}
+
+.moata-problem-wireframe-demo__shared-point.is-sending .moata-problem-wireframe-demo__point-dot {
+  background: #6b7280;
+}
+
+@keyframes moata-wireframe-shared-point-in {
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.moata-problem-wireframe-demo__shared-msg {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transform: translate(-50%, calc(-100% - 22px));
+  opacity: 0;
+  animation: moata-wireframe-shared-msg-in 0.45s cubic-bezier(0.34, 1.2, 0.64, 1) forwards;
+  animation-delay: var(--msg-delay);
+  max-width: 118px;
+}
+
+@keyframes moata-wireframe-shared-msg-in {
+  to {
+    opacity: 1;
+    transform: translate(-50%, calc(-100% - 26px));
+  }
+}
+
+.moata-problem-wireframe-demo__connection.is-confused {
+  opacity: 0.55;
+  animation: moata-wireframe-conn-confused 1.35s ease-in-out infinite;
+  animation-delay: var(--confused-delay);
+}
+
+.moata-problem-wireframe-demo__connection.is-confused.is-tangled {
+  stroke: #9ca3af;
+  opacity: 0.75;
+  animation-duration: 0.85s;
+}
+
+@keyframes moata-wireframe-conn-confused {
+  0%, 100% {
+    stroke-dashoffset: 1;
+    opacity: 0.2;
+  }
+  45% {
+    stroke-dashoffset: 0;
+    opacity: 0.9;
+  }
+  70% {
+    stroke-dashoffset: 0.15;
+    opacity: 0.55;
+  }
+}
+
+.moata-problem-wireframe-demo__cursor {
+  z-index: 3;
+}
+
 .moata-problem-wireframe-demo__map-visuals {
   position: absolute;
   top: 6px;
