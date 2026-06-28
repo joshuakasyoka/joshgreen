@@ -267,7 +267,7 @@
   flex: 1;
   min-width: 0;
   background: var(--laiv-accent);
-  transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease, height 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .laiv-demo__bar.is-dimmed {

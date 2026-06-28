@@ -16,7 +16,6 @@ body.theme-dark .intro-overlay {
 }
 
 .intro-overlay--exit {
-  animation: introOverlayOut var(--intro-fade-ms, 700ms) ease-in forwards;
   pointer-events: none;
 }
 
@@ -249,15 +248,6 @@ body.theme-dark .intro-chip:hover {
   }
   to {
     opacity: 1;
-  }
-}
-
-@keyframes introOverlayOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
   }
 }
 

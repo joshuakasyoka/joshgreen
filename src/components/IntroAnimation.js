@@ -56,7 +56,7 @@ const INTRO_TOKENS = INTRO_PARTS.flatMap((part) =>
 
 const WORD_INTERVAL_MS = 85;
 const HOLD_AFTER_COMPLETE_MS = 3200;
-const FADE_OUT_MS = 700;
+const FADE_OUT_MS = 0;
 
 const IntroAnimation = ({ onComplete }) => {
   const words = useMemo(() => INTRO_TOKENS, []);
@@ -146,7 +146,7 @@ const IntroAnimation = ({ onComplete }) => {
       setPhase('holding');
       const timer = setTimeout(() => {
         setPhase('exiting');
-        timersRef.current.push(setTimeout(finish, 200));
+        timersRef.current.push(setTimeout(finish, 0));
       }, 1200);
       timersRef.current.push(timer);
       return clearTimers;

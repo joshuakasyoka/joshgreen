@@ -35,6 +35,7 @@ const LondonAiVoicesTagViewDemo = ({ className = '', style }) => {
   const [cursor, setCursor] = useState({ x: 48, y: 48, visible: false });
   const [running, setRunning] = useState(false);
   const [highlightGeom, setHighlightGeom] = useState({ left: 0, height: 0, top: 0 });
+  const [grown, setGrown] = useState(false);
 
   const step = STEPS[stepIndex];
   const isIdle = step.target === 'idle';
@@ -56,7 +57,12 @@ const LondonAiVoicesTagViewDemo = ({ className = '', style }) => {
     if (!node) return undefined;
 
     const observer = new IntersectionObserver(
-      ([entry]) => setRunning(entry.isIntersecting),
+      ([entry]) => {
+        setRunning(entry.isIntersecting);
+        if (entry.isIntersecting) {
+          requestAnimationFrame(() => setGrown(true));
+        }
+      },
       { threshold: 0.35 }
     );
     observer.observe(node);
@@ -154,7 +160,10 @@ const LondonAiVoicesTagViewDemo = ({ className = '', style }) => {
                 isMatch ? 'is-matched' : '',
                 isDimmed ? 'is-dimmed' : '',
               ].filter(Boolean).join(' ')}
-              style={{ height: `${getTagBarHeightPercent(entry.height, maxBarHeight)}%` }}
+              style={{
+                height: grown ? `${getTagBarHeightPercent(entry.height, maxBarHeight)}%` : '0%',
+                transitionDelay: `${index * 18}ms`,
+              }}
             />
           );
         })}

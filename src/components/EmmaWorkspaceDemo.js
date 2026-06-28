@@ -20,16 +20,16 @@ const AI_RESPONSE =
   'I can calculate HGV access routes on the classified road network and measure standoff distances from operational rail lines — flagging any crossings that would need Network Rail consultation. Do you want me to bring the transport and rail layers forward?';
 
 const buildSteps = () => {
-  const words = USER_MSG.split(' ');
-  const typing = words.map((_, index) => ({
+  const chars = USER_MSG.split('');
+  const typing = chars.map((_, index) => ({
     phase: 'typing',
     panelOpen: true,
-    input: words.slice(0, index + 1).join(' '),
+    input: chars.slice(0, index + 1).join(''),
     userSent: false,
     thinking: false,
     aiReply: false,
-    target: index === words.length - 1 ? 'emma-send' : 'emma-input',
-    duration: index === 0 ? 520 : 95,
+    target: index === chars.length - 1 ? 'emma-send' : 'emma-input',
+    duration: index === 0 ? 220 : 28,
   }));
 
   return [

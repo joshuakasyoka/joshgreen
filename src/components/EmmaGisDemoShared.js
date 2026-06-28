@@ -1,4 +1,24 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
+import {
+  ArrowUp,
+  Check,
+  ChevronDown,
+  ChevronRight,
+  ChevronUp,
+  Circle,
+  CircleDot,
+  Folder,
+  Grid3x3,
+  Image as ImageIcon,
+  Layers,
+  MessageCircle,
+  MessageSquarePlus,
+  MousePointer2,
+  PanelLeft,
+  Pencil,
+  Search,
+  X,
+} from 'lucide-react';
 import EmmaGisMap from './EmmaGisMap';
 import './EmmaGisDemoShared.css';
 
@@ -6,21 +26,40 @@ export const ICON = '#666';
 export const ICON_SIZE = 18;
 export const EMMA_ICON = '#85868F';
 
-export const Sym = ({ name, size = ICON_SIZE, fill = 1, color }) => (
-  <span
-    className="material-symbols-rounded"
-    style={{
-      fontSize: size,
-      lineHeight: 1,
-      display: 'inline-flex',
-      fontVariationSettings: `'wght' 400, 'FILL' ${fill}, 'GRAD' 0, 'opsz' 20`,
-      ...(color ? { color } : {}),
-    }}
-    aria-hidden="true"
-  >
-    {name}
-  </span>
-);
+const ICONS = {
+  arrow_upward: ArrowUp,
+  check: Check,
+  expand_more: ChevronDown,
+  chevron_right: ChevronRight,
+  expand_less: ChevronUp,
+  circle: Circle,
+  fiber_manual_record: CircleDot,
+  folder: Folder,
+  grid_on: Grid3x3,
+  image: ImageIcon,
+  layers: Layers,
+  chat_bubble: MessageCircle,
+  chat_add_on: MessageSquarePlus,
+  arrow_selector_tool: MousePointer2,
+  dock_to_left: PanelLeft,
+  draw: Pencil,
+  search: Search,
+  close: X,
+};
+
+export const Sym = ({ name, size = ICON_SIZE, color }) => {
+  const Icon = ICONS[name];
+  if (!Icon) return null;
+  return (
+    <Icon
+      size={size}
+      color={color || 'currentColor'}
+      fill="none"
+      strokeWidth={2}
+      aria-hidden="true"
+    />
+  );
+};
 
 export const MgoBadge = () => (
   <svg width={ICON_SIZE} height={ICON_SIZE} viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -117,6 +156,9 @@ export const EmmaPermissionCard = ({
       ].filter(Boolean).join(' ')}
     >
       <div className="emma-gis-demo__permission-card-head">
+        <span className="emma-gis-demo__permission-card-icon">
+          <Sym name="layers" size={16} color={EMMA_ICON} />
+        </span>
         <strong className="emma-gis-demo__permission-card-title">{title}</strong>
         {isApproved && <span className="emma-gis-demo__permission-card-status">Allowed</span>}
         {isDenied && <span className="emma-gis-demo__permission-card-status">Denied</span>}

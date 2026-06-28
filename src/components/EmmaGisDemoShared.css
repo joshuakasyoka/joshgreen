@@ -1,21 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
-
-.emma-gis-demo .material-symbols-rounded {
-  font-family: 'Material Symbols Rounded';
-  font-weight: normal;
-  font-style: normal;
-  line-height: 1;
-  letter-spacing: normal;
-  text-transform: none;
-  display: inline-flex;
-  white-space: nowrap;
-  word-wrap: normal;
-  direction: ltr;
-  -webkit-font-smoothing: antialiased;
-  user-select: none;
-}
 
 .emma-gis-demo {
   width: 100%;
@@ -224,15 +208,15 @@
   border-radius: 100px;
   background: #fff;
   box-sizing: border-box;
-  transition: border-radius 0.25s ease, height 0.25s ease, padding 0.25s ease;
+  transition: border-radius 0.25s ease, height 0.25s ease, max-height 0.25s ease, padding 0.25s ease;
   overflow: hidden;
 }
 
 .emma-gis-demo__emma-input.is-active {
   align-items: flex-start;
   border-radius: 24px;
-  height: 72px;
-  max-height: 72px;
+  height: auto;
+  max-height: 150px;
   padding: 11px 44px 14px 14px;
 }
 
@@ -251,10 +235,7 @@
 }
 
 .emma-gis-demo__emma-typed {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  max-height: calc(1.45em * 3);
+  white-space: normal;
 }
 
 .emma-gis-demo__emma-placeholder { color: #5b5d6b; }
@@ -676,6 +657,11 @@
   border-bottom: 1px solid #e5e7eb;
 }
 
+.emma-gis-demo__permission-card-icon {
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
 .emma-gis-demo__permission-card-title {
   flex: 1;
   min-width: 0;
@@ -776,16 +762,6 @@
   width: 100%;
   max-width: 720px;
   font-family: Inter, system-ui, sans-serif;
-}
-
-.emma-isolated-demo .material-symbols-rounded {
-  font-family: 'Material Symbols Rounded';
-  font-weight: normal;
-  font-style: normal;
-  line-height: 1;
-  display: inline-flex;
-  -webkit-font-smoothing: antialiased;
-  user-select: none;
 }
 
 .emma-isolated-demo__stage {
