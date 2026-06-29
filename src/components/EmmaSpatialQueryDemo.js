@@ -16,7 +16,7 @@ import './EmmaGisDemoShared.css';
 const TITLE = 'Spatial query — corridor intersect';
 
 const USER_MSG =
-  'I need to find all major roads within 25 km of the northern corridor substation siting area — can you run a spatial query?';
+  'Find all major roads within 25 km of the northern corridor substation site.';
 
 const AI_PROMPT =
   'I can open the Spatial Query tool so you can pick features on the map, set a buffer distance, and intersect them with a target layer. Would you like me to launch it now?';

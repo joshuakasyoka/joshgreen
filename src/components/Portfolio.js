@@ -2016,9 +2016,9 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
                               <div className="portfolio-sidebar__project-date text-xs text-gray-500">{project.date}</div>
                             )}
                           </div>
-                          <div 
+                          <div
                             className={`h-2 w-2 flex-shrink-0 rounded-full transition-all duration-300 ${
-                              selectedProject?.id === project.id ? 'opacity-100' : 'opacity-0'
+                              selectedProject?.id === project.id ? 'opacity-100 portfolio-active-dot' : 'opacity-0'
                             }`}
                             style={{ backgroundColor: '#81FF03' }}
                           />

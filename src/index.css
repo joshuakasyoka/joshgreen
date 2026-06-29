@@ -216,6 +216,15 @@ body.theme-dark .case-study-section .bg-gray-200 {
   opacity: 0;
 }
 
+@keyframes activeDotDance {
+  0%, 100% { transform: scale(1) translateY(0); }
+  50% { transform: scale(1.25) translateY(-1.5px); }
+}
+
+.portfolio-active-dot {
+  animation: activeDotDance 1.6s ease-in-out infinite;
+}
+
 @keyframes clickTrailFade {
   0% {
     opacity: 0.65;

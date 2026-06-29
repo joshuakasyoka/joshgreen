@@ -117,10 +117,12 @@ const About = ({ isDarkMode, toggleDarkMode }) => {
         </div>
       </div>
       <div className="px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start md:items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
           {/* Left: Text */}
-        <div className="max-w-md space-y-6 text-sm text-gray-800 leading-normal">
-          <div 
+        <div
+          className="max-w-md space-y-6 text-sm text-gray-800 leading-normal overflow-y-auto md:max-h-[calc(100vh-140px)] pb-12"
+        >
+          <div
             className="w-2 h-2 rounded-full" 
             style={{ backgroundColor: 'rgb(129, 255, 3)' }}
           ></div>

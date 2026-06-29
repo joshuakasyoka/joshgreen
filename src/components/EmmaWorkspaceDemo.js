@@ -14,7 +14,7 @@ import './EmmaGisDemoShared.css';
 const TITLE = 'Substation siting — northern corridor';
 
 const USER_MSG =
-  'Assessing a proposed substation site in the northern corridor. Need to understand road access for heavy plant and any rail proximity for the EMF exclusion zone.';
+  'Assessing the northern corridor substation site — need road access and rail proximity for the EMF zone.';
 
 const AI_RESPONSE =
   'I can calculate HGV access routes on the classified road network and measure standoff distances from operational rail lines — flagging any crossings that would need Network Rail consultation. Do you want me to bring the transport and rail layers forward?';
