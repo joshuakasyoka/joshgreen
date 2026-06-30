@@ -1463,7 +1463,6 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
   const mainContentScrollRef = useRef(null);
   const sidebarScrollRef = useRef(null);
   const preloadedImagesRef = useRef(new Set());
-  const [isHeaderHovered, setIsHeaderHovered] = useState(false);
   const [isAboutHovered, setIsAboutHovered] = useState(false);
   const [modalImage, setModalImage] = useState(null);
   const [activeSectionId, setActiveSectionId] = useState('overview');

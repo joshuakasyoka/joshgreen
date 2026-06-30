@@ -41,7 +41,6 @@ const About = ({ isDarkMode, toggleDarkMode }) => {
 
   const stackRef = useRef(null);
   const [visibleCount, setVisibleCount] = useState(0);
-  const [isHeaderHovered, setIsHeaderHovered] = useState(false);
 
   useEffect(() => {
     if (!stackRef.current) return;
