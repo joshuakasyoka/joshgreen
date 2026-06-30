@@ -2052,18 +2052,14 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
       {/* Header */}
       <div className="flex justify-between items-start px-8 py-6" ref={headerRef}>
         <h1 
-          className={`floating-letters-header text-xl font-normal text-gray-800 transition-all duration-300 cursor-pointer custom-clickable ${
-            isHeaderHovered ? 'filter-none' : 'blur-sm'
-          }`}
+          className="floating-letters-header text-xl font-normal text-gray-800 cursor-pointer custom-clickable"
           aria-label="Josh Green"
-          onMouseEnter={() => setIsHeaderHovered(true)}
-          onMouseLeave={() => setIsHeaderHovered(false)}
         >
           <span className="md:hidden">
             <FloatingLetters text="JG" />
           </span>
           <span className="hidden md:inline">
-            <FloatingLetters text="Josh " /><FloatingLetters text="Green" className="floating-letters--green-pulse" />
+            <FloatingLetters text="Josh Green" /><span className="header-smiley" aria-hidden="true"> :)</span>
           </span>
         </h1>
         <div className="flex items-center gap-4">
@@ -2090,8 +2086,8 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
           </button>
         <Link
           to="/about"
-            className={`text-gray-800 font-normal text-base transition-all duration-300 ${
-            isAboutHovered ? 'blur-[1px]' : 'filter-none'
+            className={`font-normal text-base transition-colors duration-300 ${
+            isAboutHovered ? 'text-gray-400' : 'text-gray-800'
           }`}
           onMouseEnter={() => setIsAboutHovered(true)}
           onMouseLeave={() => setIsAboutHovered(false)}
@@ -2118,7 +2114,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
                         <div className="flex items-center justify-between gap-3 pr-3">
                           <div
                             className={`min-w-0 transition-all duration-300 ${
-                              selectedProject?.id === project.id ? 'filter-none' : 'group-hover:blur-sm'
+                              ''
                             }`}
                           >
                             <div

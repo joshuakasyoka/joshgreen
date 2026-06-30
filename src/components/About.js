@@ -85,18 +85,14 @@ const About = ({ isDarkMode, toggleDarkMode }) => {
       <div className="flex justify-between items-start px-8 py-6">
         <Link
           to="/"
-          className={`floating-letters-header text-xl font-normal text-gray-800 transition-all duration-300 custom-clickable no-underline ${
-            isHeaderHovered ? 'filter-none' : 'blur-sm'
-          }`}
+          className="floating-letters-header text-xl font-normal text-gray-800 custom-clickable no-underline"
           aria-label="Josh Green"
-          onMouseEnter={() => setIsHeaderHovered(true)}
-          onMouseLeave={() => setIsHeaderHovered(false)}
         >
           <span className="md:hidden">
             <FloatingLetters text="JG" />
           </span>
           <span className="hidden md:inline">
-            <FloatingLetters text="Josh Green" />
+            <FloatingLetters text="Josh Green" /><span className="header-smiley" aria-hidden="true"> :)</span>
           </span>
         </Link>
 
@@ -123,7 +119,7 @@ const About = ({ isDarkMode, toggleDarkMode }) => {
               }}
             />
           </button>
-          <Link to="/" className="text-base font-normal text-gray-800 filter-none hover:blur-[1px] transition-all">
+          <Link to="/" className="text-base font-normal text-gray-800 hover:text-gray-400 transition-colors duration-300">
           Back
         </Link>
         </div>
@@ -164,7 +160,7 @@ const About = ({ isDarkMode, toggleDarkMode }) => {
           <button
             type="button"
             onClick={copyEmail}
-            className="mt-3 inline-flex items-center gap-1.5 px-2.5 py-1 border border-gray-300 text-gray-600 text-xs rounded-full custom-clickable hover:blur-sm"
+            className="mt-3 inline-flex items-center gap-1.5 px-2.5 py-1 border border-gray-300 text-gray-600 text-xs rounded-full custom-clickable"
           >
             <span aria-hidden="true">{emailCopied ? '♡' : '+'}</span>
             <span>{emailCopied ? 'Email copied to clipboard' : 'Contact me'}</span>
