@@ -86,7 +86,7 @@ const TOOLBAR = [
   { id: 'shape', sym: 'circle' },
   { id: 'draw', sym: 'draw' },
   { id: 'graphics', sym: 'image' },
-  { id: 'comment', sym: 'chat_bubble', fill: 0 },
+  { id: 'comment', sym: 'chat_bubble', fill: 1 },
 ];
 
 const STEPS = [

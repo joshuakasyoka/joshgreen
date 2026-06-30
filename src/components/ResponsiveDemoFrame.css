@@ -1,0 +1,9 @@
+.responsive-demo-frame {
+  width: 100%;
+  overflow: hidden;
+}
+
+.responsive-demo-frame__inner {
+  display: inline-block;
+  transform-origin: top left;
+}

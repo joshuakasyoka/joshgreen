@@ -36,6 +36,24 @@
   transition-delay: calc(var(--i) * 24ms);
 }
 
+@keyframes greenNamePulse {
+  0%   { color: inherit; text-shadow: none; }
+  40%  { color: #81FF03; text-shadow: 0 0 14px rgba(129, 255, 3, 0.55); }
+  100% { color: inherit; text-shadow: none; }
+}
+
+.floating-letters-header:not(:hover):not(:focus-visible) .floating-letters--green-pulse .floating-letters__char {
+  animation: greenNamePulse 1.4s ease-out 1 both;
+  animation-delay: calc(var(--i) * 70ms + 0.8s);
+  transition: none;
+}
+
+.floating-letters-header:hover .floating-letters--green-pulse .floating-letters__char,
+.floating-letters-header:focus-visible .floating-letters--green-pulse .floating-letters__char {
+  animation: floating-letter-wave 0.75s cubic-bezier(0.33, 1, 0.68, 1) both;
+  animation-delay: calc(var(--i) * 32ms);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .floating-letters-header:hover .floating-letters__char,
   .floating-letters-header:focus-visible .floating-letters__char {

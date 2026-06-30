@@ -26,6 +26,12 @@ import Moata3dVersionPropertiesDemo from './Moata3dVersionPropertiesDemo';
 import Moata3dAssetRingDemo from './Moata3dAssetRingDemo';
 import Moata3dAssetSelectDemo from './Moata3dAssetSelectDemo';
 import Moata3dMapSyncDemo from './Moata3dMapSyncDemo';
+import MoataGisToolboxDemo from './MoataGisToolboxDemo';
+import MoataGisMeasureDemo from './MoataGisMeasureDemo';
+import MoataGisEditorDemo from './MoataGisEditorDemo';
+import MoataGisSpatialQueryDemo from './MoataGisSpatialQueryDemo';
+import MoataGisTimeSliderDemo from './MoataGisTimeSliderDemo';
+import ResponsiveDemoFrame from './ResponsiveDemoFrame';
 import MoataAppOverviewDemo from './MoataAppOverviewDemo';
 import UalArchiveFilterDemo from './UalArchiveFilterDemo';
 import UalArchiveForceGraphDemo from './UalArchiveForceGraphDemo';
@@ -68,7 +74,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
       { 
         id: 1, 
         name: 'London AI Voices', 
-        date: 'May 2025', 
+        date: 'May 2026', 
         description: 'Website for collecting citizen voices on the subject of Artificial Intelligence', 
         overview: [
           'London AI Voices collects citizen perspectives on AI — stories, sentiments, and locations across the city. A submission form would bury ',
@@ -128,7 +134,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
       { 
         id: 2, 
         name: 'Tate Modern Exhibit', 
-        date: 'April 2025', 
+        date: 'April 2026', 
         description: 'Tate Modern exhibit exploring the water consumption of generative AI', 
         overview: [
           'Database of Digital Water is a Tate Modern installation about AI\'s ',
@@ -206,7 +212,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
       { 
         id: 4, 
         name: 'Community AI Tools', 
-        date: 'Jan 2025', 
+        date: 'Jan 2026', 
         description: 'Selection of digital tools to enhance community literacy on Algorithm Development', 
         overview: [
           'Community AI Tools walks passers-by through the algorithm lifecycle — problem framing, data labelling, deployment trade-offs. The lifecycle is ',
@@ -272,7 +278,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
       { 
         id: 5, 
         name: 'Moata Geospatial', 
-        date: 'May 2024', 
+        date: '2026', 
         description: 'Lead product design on Moata Geospatial — Mott MacDonald\'s GIS for infrastructure programmes. A comments feature case study from shared-map conflict to safer collaboration across 2D and 3D.',
         overview: [
           'Moata Geospatial is ',
@@ -461,7 +467,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
       {
         id: 10,
         name: 'EMMA',
-        date: '2025', 
+        date: '2026', 
         description: 'An internal AI assistant that brings natural-language control to Moata Geospatial — layers, bundles, and spatial tools from a governed side-panel chat.',
         fullDescription: 'EMMA is an internal AI assistant designed with Mott MacDonald to improve how knowledge is discovered, trusted, and shared across a global workforce of over 20,000 employees. A key entry point was embedding EMMA inside Moata Geospatial so engineers could describe GIS tasks in plain language — toggling layers, loading working bundles, running spatial queries — without leaving the map.',
         website: 'https://www.mottmac.com/en/insights/advancing-ai-in-engineering-what-the-industry-needs-to-know/',
@@ -595,7 +601,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
       {
         id: 16,
         name: 'Moata 3D',
-        date: 'May 2024',
+        date: '2026',
         description: 'Bringing ACC model data into the map side panel — version history, comparison, and property inspection without leaving Moata.',
         overview: [
           'Moata Geospatial previously relied on external platforms like ',
@@ -771,8 +777,95 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
           },
         ],
       },
-      { 
-        id: 3, 
+      {
+        id: 17,
+        name: 'Moata GIS Tools',
+        date: '2026',
+        description: 'A walkthrough of Moata Geospatial\'s professional GIS toolset — measure, edit, query, and time-enabled analysis, all from one toolbar.',
+        overview: [
+          'Moata Geospatial had to hold its own as a ',
+          { text: 'professional GIS tool' },
+          ' — the kind of measuring, editing, querying, and time-based analysis engineers expect from ArcGIS, but native to the Mott MacDonald teams. We ',
+          { text: 'rebuilt all the GIS tools' },
+          ' for Moata Geospatial, talking to domain specialists across disciplines to get them right.',
+        ],
+        fullDescription: 'A walkthrough of Moata Geospatial\'s professional GIS toolset — measure, edit, query, and time-enabled analysis, all surfaced from a single toolbar so engineers never have to leave the shared map for specialist tooling.',
+        website: 'https://www.mottmac.com/en/digital-solutions/',
+        startingPoint: 'Engineers trusted ArcGIS for serious analysis and treated Moata as a viewer — the toolbar had to prove the platform could do the real work too.',
+        outcome: 'A unified toolbar — measure, edit, spatial query, and time slider — so engineers run professional GIS analysis without switching tools.',
+        techStack: 'Product design, interaction design, prototyping, motion design.',
+        images: [
+          {
+            demo: 'moata-gis-toolbox',
+            caption: 'Opening the toolbox menu',
+            sectionHeading: 'One Toolbar',
+            body: [
+              'Every tool lives behind a single ',
+              { text: 'Toolbox' },
+              ' entry point — Measure, Editor, Spatial Query, Time Slider, and more, pinnable to a custom bar so the tools each engineer actually uses stay one click away.',
+            ],
+          },
+          {
+            demo: 'moata-gis-measure',
+            caption: 'Measuring distance and bearing on the map',
+            sectionHeading: 'Measure',
+            body: [
+              'A live ',
+              { text: 'distance and bearing' },
+              ' readout follows the cursor as engineers trace a route on the map — the same calculation they\'d reach for ArcGIS to do, now ',
+              { text: 'one click from the shared map' },
+              '.',
+            ],
+          },
+          {
+            demo: 'moata-gis-editor',
+            caption: 'Drawing and classifying a new feature',
+            sectionHeading: 'Editor',
+            body: [
+              'The Editor lets engineers draw and classify features directly against ',
+              { text: 'live feature templates' },
+              ' — survey areas, diversions, closures — with area calculated as the shape is drawn, not after the fact.',
+            ],
+          },
+          {
+            demo: 'moata-gis-spatial-query',
+            caption: 'Buffering features for a spatial query',
+            sectionHeading: 'Spatial Query',
+            body: [
+              'Engineers buffer a feature set by distance and test it against a target layer — the same ',
+              { text: 'intersects / within' },
+              ' analysis a GIS specialist would script, exposed as a ',
+              { text: 'guided panel' },
+              ' anyone on the project can run.',
+            ],
+          },
+          {
+            demo: 'moata-gis-time-slider',
+            caption: 'Scrubbing GIS data through time',
+            sectionHeading: 'Time Slider',
+            body: [
+              'Time-enabled layers play back through a custom date range, with features fading in and out as the ',
+              { text: 'window scrubs forward' },
+              ' — letting teams see how site conditions or survey data evolved across the programme.',
+            ],
+          },
+        ],
+        caseStudyBlocks: {
+          after: [
+            {
+              id: 'reflections',
+              heading: 'Reflections',
+              body: [
+                'Comments solved how teams talked to each other; this solved whether the platform could replace the specialist tools engineers already trusted. The bar wasn\'t feature parity with ArcGIS — it was ',
+                { text: 'making each tool feel native' },
+                ' to the map teams were already working in, not bolted on.',
+              ],
+            },
+          ],
+        },
+      },
+      {
+        id: 3,
         name: 'Materials Archive',
         date: '2026',
         website: 'https://gcdp-archive-2026.vercel.app/',
@@ -856,7 +949,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
       { 
         id: 7, 
         name: 'AptaBiome', 
-        date: 'May 2023', 
+        date: '2026', 
         description: 'A digital product to support C-section parents created in collaboration with Danone', 
         overview: [
           'AptaBiome is a mobile recovery companion for C-section parents, built with Danone. Parents on exhausted weeks will not tolerate a ',
@@ -917,7 +1010,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
       { 
         id: 9, 
         name: 'Turinglab', 
-        date: 'May 2023', 
+        date: '2026', 
         description: 'Designing educational tools and features for Turinglab, an ed-tech start-up',
         overview: [
           'At Turinglab, classroom tools fail if the ',
@@ -979,7 +1072,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
       // { 
       //   id: 10, 
       //   name: 'Moata Net Zero', 
-      //   date: 'May 2025', 
+      //   date: '2026', 
       //   description: 'Website for collecting citizen voices on the subject of Artificial Intelligence', 
       //   website: 'https://www.mottmac.com/en/digital-solutions/',
       //   images: [
@@ -993,7 +1086,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
       {
         id: 6,
         name: 'ClearBank',
-        date: 'May 2024',
+        date: 'May 2026',
         description: 'Designing a banking report format for ClearBank, a fintech providing banking APIs, to be uploaded onto their digital platform.',
         overview: [
           'ClearBank needed a ',
@@ -1040,7 +1133,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
       {
         id: 8,
         name: 'Phillips Auction House',
-        date: 'May 2023',
+        date: 'May 2026',
         description: 'A new direct-to-consumer digital experience for Phillips Auction House\'s luxury watch business.',
         overview: [
           'Phillips, one of the world\'s leading auction houses for contemporary art and design, had a clear challenge: its luxury watch sales were still being handled manually, reliant on emails, phone calls, and offline tracking. The lack of visibility frustrated clients and left internal teams burdened with ',
@@ -1148,7 +1241,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
       { 
         id: 11, 
         name: 'AI Literacy Framework',
-        date: 'May 2025',
+        date: 'May 2026',
         description: 'A book for local councils to find creative ways to improve AI literacy within their boroughs.',
         overview: [
           'This was a ',
@@ -1221,7 +1314,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
       { 
         id: 12, 
         name: 'Climate Truth Crisis',
-        date: 'May 2025',
+        date: 'May 2026',
         description: 'An Erasmus+ funded project exploring the climate truth crisis through visual communication — exhibited at a tram stop in Tallinn.',
         overview: [
           'Climate Truth Crisis was an ',
@@ -1266,7 +1359,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
       { 
         id: 13, 
         name: 'Street Installations', 
-        date: 'Apr 2025', 
+        date: 'Apr 2026', 
         description: 'Four interactive street installations in South London engaging the public with ethical questions in emerging AI technologies.',
         overview: [
           'Four plinths in South London posed ',
@@ -1339,7 +1432,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
       // { 
       //   id: 11, 
       //   name: 'On Graphic Narrative', 
-      //   date: 'May 2025', 
+      //   date: 'May 2026', 
       //   description: 'Website for collecting citizen voices on the subject of Artificial Intelligence', 
       //   website: 'https://aivoicesmap.vercel.app/',
       //   images: [
@@ -1351,7 +1444,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
       // { 
       //   id: 12, 
       //   name: 'Climate Truth Crisis', 
-      //   date: 'May 2025', 
+      //   date: 'May 2026', 
       //   description: 'Website for collecting citizen voices on the subject of Artificial Intelligence', 
       //   website: 'https://aivoicesmap.vercel.app/',
       //   images: [
@@ -1382,147 +1475,170 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
     const src = typeof imgObj === 'string' ? imgObj : imgObj.src;
     const caption = typeof imgObj === 'string' ? null : imgObj.caption;
     const demo = typeof imgObj === 'object' ? imgObj.demo : null;
+    let demoElement = null;
 
     if (demo === 'doodler-table') {
-      return <DoodlerTableDemo className="self-start w-full" />;
+      demoElement = <DoodlerTableDemo className="self-start w-full" />;
     }
     if (demo === 'doodler-nieuwe-doodle') {
-      return <DoodlerNewDoodleDemo className="self-start w-full" />;
+      demoElement = <DoodlerNewDoodleDemo className="self-start w-full" />;
     }
     if (demo === 'doodler-edit-doodle') {
-      return <DoodlerEditDoodleDemo className="self-start w-full" />;
+      demoElement = <DoodlerEditDoodleDemo className="self-start w-full" />;
     }
     if (demo === 'doodler-journey') {
-      return <DoodlerJourneyDemo className="self-start w-full" />;
+      demoElement = <DoodlerJourneyDemo className="self-start w-full" />;
     }
     if (demo === 'doodler-library') {
-      return <DoodlerLibraryDemo className="self-start w-full" />;
+      demoElement = <DoodlerLibraryDemo className="self-start w-full" />;
     }
     if (demo === 'moata-research-quote') {
-      return <MoataResearchQuoteDemo className="self-start w-full" />;
+      demoElement = <MoataResearchQuoteDemo className="self-start w-full" />;
     }
     if (demo === 'moata-insight-graph') {
-      return <MoataInsightGraphDemo className="self-start w-full" />;
+      demoElement = <MoataInsightGraphDemo className="self-start w-full" />;
     }
     if (demo === 'moata-problem-wireframe') {
-      return <MoataProblemWireframeDemo className="self-start w-full" />;
+      demoElement = <MoataProblemWireframeDemo className="self-start w-full" />;
     }
     if (demo === 'moata-blank-screen') {
-      return <MoataBlankScreenDemo className="self-start w-full" />;
+      demoElement = <MoataBlankScreenDemo className="self-start w-full" />;
     }
     if (demo === 'moata-spaces') {
-      return <MoataSpacesDemo className="self-start w-full" />;
+      demoElement = <MoataSpacesDemo className="self-start w-full" />;
     }
     if (demo === 'moata-app-overview') {
-      return <MoataAppOverviewDemo className="self-start w-full" />;
+      demoElement = <MoataAppOverviewDemo className="self-start w-full" />;
     }
     if (demo === 'moata-map-comment') {
-      return <MoataMapCommentDemo className="self-start w-full" />;
+      demoElement = <MoataMapCommentDemo className="self-start w-full" />;
     }
     if (demo === 'moata-comments') {
-      return <MoataCommentsDemo className="self-start w-full" />;
+      demoElement = <MoataCommentsDemo className="self-start w-full" />;
     }
     if (demo === 'moata-comments-panel') {
-      return <MoataCommentsPanelDemo className="self-start w-full" />;
+      demoElement = <MoataCommentsPanelDemo className="self-start w-full" />;
     }
     if (demo === 'moata-comments-grid') {
-      return <MoataCommentsGridDemo className="self-start w-full" />;
+      demoElement = <MoataCommentsGridDemo className="self-start w-full" />;
     }
     if (demo === 'moata-model-viewer') {
-      return <MoataModelViewerDemo className="self-start w-full" />;
+      demoElement = <MoataModelViewerDemo className="self-start w-full" />;
     }
     if (demo === 'moata-time-slider') {
-      return <MoataTimeSliderDemo className="self-start w-full" />;
+      demoElement = <MoataTimeSliderDemo className="self-start w-full" />;
     }
     if (demo === 'moata-tabs') {
-      return <MoataTabsDemo className="self-start w-full" />;
+      demoElement = <MoataTabsDemo className="self-start w-full" />;
     }
     if (demo === 'moata-map-pins') {
-      return <MoataMapPinsDemo className="self-start w-full" />;
+      demoElement = <MoataMapPinsDemo className="self-start w-full" />;
     }
     if (demo === 'moata-3d-asset-select') {
-      return <Moata3dAssetSelectDemo className="self-start w-full" />;
+      demoElement = <Moata3dAssetSelectDemo className="self-start w-full" />;
     }
     if (demo === 'moata-3d-version-timeline') {
-      return <Moata3dVersionTimelineDemo className="self-start w-full" />;
+      demoElement = <Moata3dVersionTimelineDemo className="self-start w-full" />;
     }
     if (demo === 'moata-3d-version-properties') {
-      return <Moata3dVersionPropertiesDemo className="self-start w-full" />;
+      demoElement = <Moata3dVersionPropertiesDemo className="self-start w-full" />;
     }
     if (demo === 'moata-3d-asset-ring') {
-      return <Moata3dAssetRingDemo className="self-start w-full" />;
+      demoElement = <Moata3dAssetRingDemo className="self-start w-full" />;
     }
     if (demo === 'moata-3d-map-sync') {
-      return <Moata3dMapSyncDemo className="self-start w-full" />;
+      demoElement = <Moata3dMapSyncDemo className="self-start w-full" />;
+    }
+    if (demo === 'moata-gis-toolbox') {
+      demoElement = <MoataGisToolboxDemo className="self-start w-full" />;
+    }
+    if (demo === 'moata-gis-measure') {
+      demoElement = <MoataGisMeasureDemo className="self-start w-full" />;
+    }
+    if (demo === 'moata-gis-editor') {
+      demoElement = <MoataGisEditorDemo className="self-start w-full" />;
+    }
+    if (demo === 'moata-gis-spatial-query') {
+      demoElement = <MoataGisSpatialQueryDemo className="self-start w-full" />;
+    }
+    if (demo === 'moata-gis-time-slider') {
+      demoElement = <MoataGisTimeSliderDemo className="self-start w-full" />;
     }
     if (demo === 'ual-archive-filter') {
-      return <UalArchiveFilterDemo className="self-start w-full" />;
+      demoElement = <UalArchiveFilterDemo className="self-start w-full" />;
     }
     if (demo === 'ual-archive-force-graph') {
-      return <UalArchiveForceGraphDemo className="self-start w-full" />;
+      demoElement = <UalArchiveForceGraphDemo className="self-start w-full" />;
     }
     if (demo === 'ual-archive-collaborations') {
-      return <UalArchiveCollaborationsDemo className="self-start w-full" />;
+      demoElement = <UalArchiveCollaborationsDemo className="self-start w-full" />;
     }
     if (demo === 'ual-archive-glossary') {
-      return <UalArchiveGlossaryDemo className="self-start w-full" />;
+      demoElement = <UalArchiveGlossaryDemo className="self-start w-full" />;
     }
     if (demo === 'laiv-tag-view') {
-      return <LondonAiVoicesTagViewDemo className="self-start w-full" />;
+      demoElement = <LondonAiVoicesTagViewDemo className="self-start w-full" />;
     }
     if (demo === 'laiv-network') {
-      return <LondonAiVoicesNetworkDemo className="self-start w-full" />;
+      demoElement = <LondonAiVoicesNetworkDemo className="self-start w-full" />;
     }
     if (demo === 'laiv-contribution') {
-      return <LondonAiVoicesContributionDemo className="self-start w-full" />;
+      demoElement = <LondonAiVoicesContributionDemo className="self-start w-full" />;
     }
     if (demo === 'community-board') {
-      return <CommunityBoardDemo className="self-start w-full" />;
+      demoElement = <CommunityBoardDemo className="self-start w-full" />;
     }
     if (demo === 'ai-deployment-game') {
-      return <AIDeploymentGameDemo className="self-start w-full" />;
+      demoElement = <AIDeploymentGameDemo className="self-start w-full" />;
     }
     if (demo === 'image-labeling') {
-      return <ImageLabelingDemo className="self-start w-full" />;
+      demoElement = <ImageLabelingDemo className="self-start w-full" />;
     }
     if (demo === 'dwd-generate') {
-      return <DigitalWaterGenerateDemo className="self-start w-full" />;
+      demoElement = <DigitalWaterGenerateDemo className="self-start w-full" />;
     }
     if (demo === 'dwd-archive') {
-      return <DigitalWaterArchiveDemo className="self-start w-full" />;
+      demoElement = <DigitalWaterArchiveDemo className="self-start w-full" />;
     }
     if (demo === 'dwd-simulation') {
-      return <DigitalWaterSimulationDemo className="self-start w-full" />;
+      demoElement = <DigitalWaterSimulationDemo className="self-start w-full" />;
     }
     if (demo === 'dwd-types') {
-      return <DigitalWaterTypesDemo className="self-start w-full" />;
+      demoElement = <DigitalWaterTypesDemo className="self-start w-full" />;
     }
     if (demo === 'emma-toggle-layers') {
-      return <EmmaToggleLayersDemo className="self-start w-full" />;
+      demoElement = <EmmaToggleLayersDemo className="self-start w-full" />;
     }
     if (demo === 'emma-spatial-query') {
-      return <EmmaSpatialQueryDemo className="self-start w-full" />;
+      demoElement = <EmmaSpatialQueryDemo className="self-start w-full" />;
     }
     if (demo === 'emma-action-card') {
-      return <EmmaActionCardDemo className="self-start w-full" />;
+      demoElement = <EmmaActionCardDemo className="self-start w-full" />;
     }
     if (demo === 'emma-permissions') {
-      return <EmmaPermissionsDemo className="self-start w-full" />;
+      demoElement = <EmmaPermissionsDemo className="self-start w-full" />;
     }
     if (demo === 'emma-workspace') {
-      return <EmmaWorkspaceDemo className="self-start w-full" />;
+      demoElement = <EmmaWorkspaceDemo className="self-start w-full" />;
     }
     if (demo === 'emma-chat-threads') {
-      return <EmmaChatThreadsDemo className="self-start w-full" />;
+      demoElement = <EmmaChatThreadsDemo className="self-start w-full" />;
     }
     if (demo === 'emma-research-quote') {
-      return <EmmaResearchQuoteDemo className="self-start w-full" />;
+      demoElement = <EmmaResearchQuoteDemo className="self-start w-full" />;
     }
     if (demo === 'emma-problem-framing') {
-      return <EmmaProblemFramingDemo className="self-start w-full" />;
+      demoElement = <EmmaProblemFramingDemo className="self-start w-full" />;
     }
     if (demo === 'emma-governance-insight') {
-      return <EmmaGovernanceInsightDemo className="self-start w-full" />;
+      demoElement = <EmmaGovernanceInsightDemo className="self-start w-full" />;
+    }
+    const isGisToolsDemo = typeof demo === 'string' && demo.startsWith('moata-gis-');
+    if (demoElement && isGisToolsDemo) {
+      return demoElement;
+    }
+    if (demoElement) {
+      return <ResponsiveDemoFrame>{demoElement}</ResponsiveDemoFrame>;
     }
     if (imgObj.embed) {
       return (
@@ -1947,7 +2063,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
             <FloatingLetters text="JG" />
           </span>
           <span className="hidden md:inline">
-            <FloatingLetters text="Josh Green" />
+            <FloatingLetters text="Josh " /><FloatingLetters text="Green" className="floating-letters--green-pulse" />
           </span>
         </h1>
         <div className="flex items-center gap-4">
@@ -1999,8 +2115,8 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
                         className="portfolio-sidebar__project-row group cursor-pointer custom-clickable transition-all duration-300"
                         onClick={() => handleProjectClick(project)}
                       >
-                        <div className="flex items-center justify-between gap-3">
-                          <div 
+                        <div className="flex items-center justify-between gap-3 pr-3">
+                          <div
                             className={`min-w-0 transition-all duration-300 ${
                               selectedProject?.id === project.id ? 'filter-none' : 'group-hover:blur-sm'
                             }`}
@@ -2017,7 +2133,8 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
                             )}
                           </div>
                           <div
-                            className={`h-2 w-2 flex-shrink-0 rounded-full transition-all duration-300 ${
+                            key={selectedProject?.id === project.id ? `active-${project.id}` : `inactive-${project.id}`}
+                            className={`h-2 w-2 flex-shrink-0 rounded-full transition-opacity duration-300 ${
                               selectedProject?.id === project.id ? 'opacity-100 portfolio-active-dot' : 'opacity-0'
                             }`}
                             style={{ backgroundColor: '#81FF03' }}

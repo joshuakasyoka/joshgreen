@@ -5,8 +5,20 @@ import FloatingLetters from './FloatingLetters';
 import './About.css';
 
 const TEAM_PHOTO_SRC = '/images/intro/team.png';
+const CONTACT_EMAIL = 'joshkwgreen@gmail.com';
 
 const About = ({ isDarkMode, toggleDarkMode }) => {
+  const [emailCopied, setEmailCopied] = useState(false);
+
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(CONTACT_EMAIL);
+      setEmailCopied(true);
+      setTimeout(() => setEmailCopied(false), 1800);
+    } catch {
+      /* clipboard unavailable */
+    }
+  };
   // Screenshot photos (latest first)
   const recentPhotos = [
     '/images/about/Screenshot 2026-03-25 at 23.34.45.png',
@@ -143,38 +155,39 @@ const About = ({ isDarkMode, toggleDarkMode }) => {
               </div>
             </div>
           </div>
-          <h2 className="font-normal">I'm Josh</h2>
           <p>
-            I am an interdisciplinary designer based in London, and I'm exploring the societal challenges posed by generative AI. My work challenges the unfulfilled promises of a technological utopia by investigating how technology has often exacerbated inequality and led to social fragmentation.
+            I'm a Senior Design Consultant leading multiple digital products for Mott MacDonald, a global engineering and management consultancy, through Mettle Design Studio. Alongside this, I'm a part-time doctoral researcher at UAL, investigating the role of generative AI in creative and civic contexts. I care deeply about design excellence and its potential as a force for good, particularly for excluded and marginalised communities.
           </p>
-          <p>
-            I am particularly focused on how the proliferation of AI-generated visual content, often called "AI slop," is undermining our relationship with images and truth.
+          <p className="mt-3">
+            If you want to get a coffee and chat about design send me an email!
           </p>
-          <p>
-            Through my research, I aim to imagine more inclusive technological futures by using participatory design methods and public-facing probes that encourage critical and speculative thinking. My goal is to develop a new social contract with images, fostering critical literacy and epistemic resilience in the face of AI technologies that seek to make us passive recipients of their impacts.
-          </p>
-          <p>
-            My creative lab invites people to actively make, think, and critique, helping them reclaim their human agency. To understand how these methods work in different contexts, I am conducting a comparative study in London and Tokyo, which have different technological and cultural landscapes.
-          </p>
+          <button
+            type="button"
+            onClick={copyEmail}
+            className="mt-3 inline-flex items-center gap-1.5 px-2.5 py-1 border border-gray-300 text-gray-600 text-xs rounded-full custom-clickable hover:blur-sm"
+          >
+            <span aria-hidden="true">{emailCopied ? '♡' : '+'}</span>
+            <span>{emailCopied ? 'Email copied to clipboard' : 'Contact me'}</span>
+          </button>
 
           </div>
           {/* Right: Stacking cards animation */}
           <div ref={stackRef} className="relative mt-8 md:mt-0 mb-32 md:mb-8" style={{ height: '76vh' }}>
             {recentPhotos.map((src, idx) => {
-              const isVisible = idx < visibleCount;
+              const currentIdx = visibleCount > 0 ? visibleCount - 1 : -1;
+              const isCurrent = idx === currentIdx;
+              const hasAppeared = idx < visibleCount;
               const isTeamPhoto = src === TEAM_PHOTO_SRC;
-              // Stack directly on top (no vertical offset)
-              const y = 0;
               const rot = (idx % 2 === 0 ? -1 : 1) * (2 + (idx % 3));
               return (
                 <div
                   key={src}
-                  className="absolute left-1/2 -translate-x-1/2 md:-ml-24 transition-all duration-900 ease-out will-change-transform"
+                  className="absolute left-1/2 -translate-x-1/2 md:-ml-24 transition-all duration-700 ease-out will-change-transform"
                   style={{
-                    top: `${y}px`,
-                    transform: `translateX(-50%) ${isVisible ? 'translateY(0) rotate(0deg)' : `translateY(24px) rotate(${rot}deg)`}`,
-                    opacity: isVisible ? 1 : 0,
-                    zIndex: 10 + idx,
+                    top: 0,
+                    transform: `translateX(-50%) ${hasAppeared ? 'translateY(0) rotate(0deg)' : `translateY(24px) rotate(${rot}deg)`}`,
+                    opacity: isCurrent ? 1 : 0,
+                    zIndex: isCurrent ? 20 : 10,
                     width: 'min(88vw, 600px)'
                   }}
                 >
@@ -187,14 +200,6 @@ const About = ({ isDarkMode, toggleDarkMode }) => {
                       className="block w-full h-full object-contain"
                       loading={idx < 2 ? 'eager' : 'lazy'}
                     />
-                    {isTeamPhoto && isVisible && (
-                      <div className="about-photo-callout" aria-hidden="true">
-                        <svg className="about-photo-callout__arrow" viewBox="0 0 10 10" fill="none" aria-hidden="true">
-                          <path d="M5 8 V3 M5 3 L2.5 5.5 M5 3 L7.5 5.5" />
-                        </svg>
-                        <span className="about-photo-callout__text">Me :)</span>
-                      </div>
-                    )}
                   </div>
                 </div>
               );
