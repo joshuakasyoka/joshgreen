@@ -216,16 +216,15 @@ body.theme-dark .case-study-section .bg-gray-200 {
   opacity: 0;
 }
 
-@keyframes smileyFadeIn {
-  0%   { opacity: 0; }
-  100% { opacity: 1; }
-}
-
 .header-smiley {
   display: inline;
   color: #81FF03;
   opacity: 0;
-  animation: smileyFadeIn 0.4s ease-out 1.2s forwards;
+  transition: opacity 0.25s ease;
+}
+
+.floating-letters-header:hover .header-smiley {
+  opacity: 1;
 }
 
 @keyframes activeDotPulse {
