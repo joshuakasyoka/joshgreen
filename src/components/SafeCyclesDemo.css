@@ -1,0 +1,401 @@
+.safe-cycles-demo {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 24px 0;
+  width: 100%;
+}
+
+.safe-cycles-demo__phone {
+  position: relative;
+  width: 280px;
+  height: 560px;
+  background: #e8e8e8;
+  border-radius: 36px;
+  border: 2px solid #c8c8c8;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.14), inset 0 0 0 1px rgba(255,255,255,0.5);
+  flex-shrink: 0;
+}
+
+.safe-cycles-demo__notch {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 10px;
+  background: #c0c0c0;
+  border-radius: 6px;
+  z-index: 30;
+}
+
+/* ── Screens ── */
+.safe-cycles-demo__screen {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.safe-cycles-demo__screen.is-visible {
+  opacity: 1;
+}
+
+/* ── Map background ── */
+.safe-cycles-demo__map-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: #f0f0f0;
+  background-image: radial-gradient(circle, rgba(0,0,0,0.06) 1px, transparent 1px);
+  background-size: 4px 4px;
+}
+
+/* ── Bottom sheet ── */
+.safe-cycles-demo__sheet {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  background: #ffffff;
+  border-radius: 20px 20px 0 0;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-bottom: 0;
+  padding: 10px 18px 20px;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.06);
+}
+
+.safe-cycles-demo__sheet--peek {
+  padding: 10px 16px 14px;
+}
+
+.safe-cycles-demo__handle {
+  width: 32px;
+  height: 4px;
+  background: #e0e0e0;
+  border-radius: 99px;
+  margin: 0 auto 12px;
+}
+
+/* ── Planner screen ── */
+.safe-cycles-demo__brand {
+  font-family: monospace;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #1a1a1a;
+  margin-bottom: 2px;
+}
+
+.safe-cycles-demo__brand-sub {
+  font-family: monospace;
+  font-size: 8px;
+  color: #888;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.safe-cycles-demo__inputs {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.safe-cycles-demo__input {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 999px;
+  background: #f2f2f2;
+  transition: border-color 0.2s, background 0.2s;
+  font-family: monospace;
+  font-size: 11px;
+  color: #1a1a1a;
+}
+
+.safe-cycles-demo__input.is-focused {
+  border-color: rgba(0,0,0,0.2);
+  background: #ffffff;
+}
+
+.safe-cycles-demo__pin {
+  font-size: 7px;
+  color: #888;
+  flex-shrink: 0;
+}
+
+.safe-cycles-demo__placeholder {
+  color: #aaa;
+}
+
+.safe-cycles-demo__typing {
+  border-right: 1.5px solid #1a1a1a;
+  padding-right: 2px;
+  animation: safecycles-blink 0.7s step-end infinite;
+}
+
+@keyframes safecycles-blink {
+  0%, 100% { border-color: #1a1a1a; }
+  50% { border-color: transparent; }
+}
+
+.safe-cycles-demo__cta {
+  width: 100%;
+  padding: 12px;
+  border-radius: 999px;
+  background: #dddddd;
+  color: #999;
+  font-family: monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-align: center;
+  transition: background 0.3s, color 0.3s;
+}
+
+.safe-cycles-demo__cta.is-ready {
+  background: #1a1a1a;
+  color: #ffffff;
+}
+
+/* ── Route found screen ── */
+.safe-cycles-demo__peek-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.safe-cycles-demo__peek-stats {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  font-family: monospace;
+}
+
+.safe-cycles-demo__big-num {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a1a1a;
+  letter-spacing: 0.04em;
+}
+
+.safe-cycles-demo__unit {
+  font-size: 10px;
+  color: #888;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.safe-cycles-demo__sep {
+  font-size: 16px;
+  color: #ccc;
+  padding: 0 4px;
+}
+
+.safe-cycles-demo__start-btn {
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: #1a1a1a;
+  color: #fff;
+  font-family: monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  border: none;
+  cursor: default;
+}
+
+.safe-cycles-demo__stats-card {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  top: 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  animation: safecycles-fade-in 0.5s ease both;
+}
+
+@keyframes safecycles-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.safe-cycles-demo__stat {
+  background: #f0f0f0;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 10px;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.safe-cycles-demo__stat-label {
+  font-family: monospace;
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #888;
+  text-transform: uppercase;
+}
+
+.safe-cycles-demo__stat-val {
+  font-family: monospace;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a1a;
+  letter-spacing: 0.04em;
+}
+
+/* ── Navigation screen ── */
+.safe-cycles-demo__nav-banner {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  background: #ffffff;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  padding: 24px 14px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+.safe-cycles-demo__nav-badge {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #1a1a1a;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.safe-cycles-demo__nav-text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.safe-cycles-demo__nav-dist {
+  font-family: monospace;
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a1a1a;
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+
+.safe-cycles-demo__nav-inst {
+  font-family: monospace;
+  font-size: 10px;
+  font-weight: 600;
+  color: #1a1a1a;
+  letter-spacing: 0.01em;
+}
+
+.safe-cycles-demo__nav-then {
+  font-family: monospace;
+  font-size: 8px;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 2px;
+}
+
+.safe-cycles-demo__nav-gps {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.safe-cycles-demo__gps-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #1a1a1a;
+  animation: safecycles-gps-pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes safecycles-gps-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+.safe-cycles-demo__gps-label {
+  font-family: monospace;
+  font-size: 6px;
+  font-weight: 700;
+  color: #1a1a1a;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+}
+
+.safe-cycles-demo__nav-sheet {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  background: #ffffff;
+  border-radius: 20px 20px 0 0;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-bottom: 0;
+  padding: 8px 16px 16px;
+  box-shadow: 0 -4px 16px rgba(0,0,0,0.06);
+  z-index: 10;
+}
+
+.safe-cycles-demo__nav-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.safe-cycles-demo__nav-stats {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.safe-cycles-demo__nav-stats strong {
+  font-family: monospace;
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a1a1a;
+  letter-spacing: 0.04em;
+}
+
+.safe-cycles-demo__nav-stats span {
+  font-family: monospace;
+  font-size: 8px;
+  color: #888;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.safe-cycles-demo__end-btn {
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.12);
+  background: #f2f2f2;
+  color: #1a1a1a;
+  font-family: monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: default;
+}

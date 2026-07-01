@@ -31,6 +31,7 @@ import MoataGisMeasureDemo from './MoataGisMeasureDemo';
 import MoataGisEditorDemo from './MoataGisEditorDemo';
 import MoataGisSpatialQueryDemo from './MoataGisSpatialQueryDemo';
 import MoataGisTimeSliderDemo from './MoataGisTimeSliderDemo';
+import SafeCyclesDemo from './SafeCyclesDemo';
 import ResponsiveDemoFrame from './ResponsiveDemoFrame';
 import MoataAppOverviewDemo from './MoataAppOverviewDemo';
 import UalArchiveFilterDemo from './UalArchiveFilterDemo';
@@ -1184,6 +1185,54 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
         },
       },
       {
+        id: 18,
+        name: 'Safe Cycles',
+        date: '2026',
+        description: 'A cycling route planner for London — quiet streets, hazard reporting, and turn-by-turn navigation.',
+        overview: [
+          'Safe Cycles is an open-source ',
+          { text: 'cycling route planner' },
+          ' for London — built to find the calmest streets rather than the fastest ones. Riders can report and vote on unsafe stretches, and the route avoids them. Once moving, the app gives turn-by-turn voice navigation with live GPS, and surfaces nearby parking and cafés along the way.',
+        ],
+        fullDescription: 'An open-source cycling route planner for London that prioritises quiet streets over speed, with community hazard reporting and turn-by-turn voice navigation.',
+        website: '',
+        startingPoint: 'The brief was simple: build a bike routing app that actually reflects how riders navigate London — avoiding fast roads, not optimising for them.',
+        outcome: 'A mobile-first app with quiet-route planning, community hazard reporting, live GPS navigation, and nearby amenity discovery — all in one bottom-sheet interface.',
+        techStack: 'React, TypeScript, Leaflet, OSRM, Overpass API, Web Speech API.',
+        images: [
+          {
+            demo: 'safe-cycles-planner',
+            caption: 'Route planner — enter start and destination',
+            sectionHeading: 'Plan',
+            body: [
+              'The planner keeps the interface to two fields — start and destination — and routes along ',
+              { text: 'low-traffic streets' },
+              ' by default. One tap surfaces the calmest path rather than the quickest.',
+            ],
+          },
+          {
+            demo: 'safe-cycles-route',
+            caption: 'Route stats — distance, time, quiet-street share, climb',
+            sectionHeading: 'Review',
+            body: [
+              'Before setting off, riders see the key numbers: distance, ride time, the percentage of the route on ',
+              { text: 'low-traffic streets' },
+              ', and total climb — so they can judge the trade-off before committing.',
+            ],
+          },
+          {
+            demo: 'safe-cycles-nav',
+            caption: 'Turn-by-turn navigation with live GPS',
+            sectionHeading: 'Ride',
+            body: [
+              'During the ride, a top banner shows the next maneuver and distance. The bottom sheet surfaces remaining time and distance. If the rider goes off-route, the app ',
+              { text: 'recalculates automatically' },
+              ' and speaks the new instruction.',
+            ],
+          },
+        ],
+      },
+      {
         id: 14,
         name: 'Illustrations',
         date: 'Mar 2026',
@@ -1562,6 +1611,9 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
     }
     if (demo === 'moata-gis-time-slider') {
       demoElement = <MoataGisTimeSliderDemo className="self-start w-full" />;
+    }
+    if (demo === 'safe-cycles-planner' || demo === 'safe-cycles-route' || demo === 'safe-cycles-nav') {
+      demoElement = <SafeCyclesDemo className="self-start w-full" />;
     }
     if (demo === 'ual-archive-filter') {
       demoElement = <UalArchiveFilterDemo className="self-start w-full" />;
