@@ -6,20 +6,11 @@ const INTRO_LINES_RAW = [
     parts: [{ text: 'Josh Green' }],
   },
   {
-    parts: [{ text: "I'm a Product Designer working on" }],
-  },
-  {
-    parts: [{ text: 'the future of civil engineering tools' }],
-  },
-  {
     parts: [
-      { text: 'at' },
+      { text: "I'm a Product Designer at" },
       { text: 'Mott MacDonald', href: 'https://www.mottmac.com/' },
-      { text: '— a global' },
+      { text: '—' },
     ],
-  },
-  {
-    parts: [{ text: 'engineering and management consultancy —' }],
   },
   {
     parts: [
@@ -29,31 +20,28 @@ const INTRO_LINES_RAW = [
     ],
   },
   {
-    parts: [{ text: "Alongside this, I'm a part-time" }],
+    parts: [
+      { text: 'Doctoral researcher and associate lecturer at UAL.' },
+    ],
   },
   {
-    parts: [{ text: 'doctoral researcher at UAL, investigating' }],
+    parts: [
+      { text: 'Investigating' },
+      { text: 'generative AI in creative contexts', underline: true },
+      { text: '.' },
+    ],
   },
   {
-    parts: [{ text: 'generative AI in creative and civic contexts.' }],
+    parts: [
+      { text: 'Design as' },
+      { text: 'a force for good', underline: true },
+      { text: '—' },
+    ],
   },
   {
-    parts: [{ text: "I'm also an associate lecturer at UAL," }],
-  },
-  {
-    parts: [{ text: 'where I care deeply about collaboration' }],
-  },
-  {
-    parts: [{ text: "and about using design's potential" }],
-  },
-  {
-    parts: [{ text: 'as a force for good,' }],
-  },
-  {
-    parts: [{ text: 'particularly for communities that are' }],
-  },
-  {
-    parts: [{ text: 'typically excluded or marginalised.' }],
+    parts: [
+      { text: 'for excluded and marginalised communities.' },
+    ],
   },
 ];
 
