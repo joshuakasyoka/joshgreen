@@ -150,11 +150,15 @@ const About = ({ isDarkMode, toggleDarkMode }) => {
               </div>
             </div>
           </div>
+          <div className="mb-4">
+            <div className="text-sm font-normal text-gray-900">Josh Green</div>
+            <div className="text-xs text-gray-400">Updated 1st July 2026</div>
+          </div>
           <p>
-            I'm a Senior Design Consultant leading multiple digital products for Mott MacDonald, a global engineering and management consultancy, through Mettle Design Studio. Alongside this, I'm a part-time doctoral researcher at UAL, investigating the role of generative AI in creative and civic contexts. I care deeply about design excellence and its potential as a force for good, particularly for excluded and marginalised communities.
+            I'm a Product Designer working on the future of civil engineering tools at Mott MacDonald — a global engineering and management consultancy — through Mettle Design Studio. Alongside this, I'm a part-time doctoral researcher at UAL, investigating the role of generative AI in creative and civic contexts. I'm also an associate lecturer at UAL, where I care deeply about collaboration and about using design's potential as a force for good, particularly for communities that are typically excluded or marginalised.
           </p>
           <p className="mt-3">
-            If you want to get a coffee and chat about design send me an email!
+            If you fancy grabbing a coffee to chat about design, drop me an email!
           </p>
           <button
             type="button"

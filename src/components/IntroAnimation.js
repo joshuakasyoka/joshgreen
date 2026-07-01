@@ -3,35 +3,29 @@ import '../IntroAnimation.css';
 
 const INTRO_LINES_RAW = [
   {
-    parts: [{ text: 'Hi, my name is Josh ...' }],
+    parts: [{ text: 'Josh Green' }],
   },
   {
     parts: [
-      { text: 'I am an interdisciplinary designer currently working at' },
+      { text: "I'm a Product Designer working on the future of civil engineering tools at" },
+      { text: 'Mott MacDonald', href: 'https://www.mottmac.com/' },
+      { text: '— a global engineering and management consultancy — through' },
       { text: 'Mettle Design Studio', href: 'https://mettle-studio.com/' },
-      { text: '- a design and engineering consultancy based in London.' },
-    ],
-  },
-  {
-    parts: [
-      { text: "I'm also an" },
-      { text: 'Associate Lecturer', underline: true },
-      { text: 'at' },
-      { text: 'University of the Arts London', href: 'https://www.arts.ac.uk/' },
-      { text: ", where I'm doing my" },
-      { text: 'PhD in the creative applications of AI', underline: true },
       { text: '.' },
     ],
   },
   {
     parts: [
-      { text: 'I care about solving social problems through' },
-      { text: 'rigorous design research', underline: true },
-      { text: ',' },
-      { text: 'creative tools', underline: true },
-      { text: '- and always,' },
-      { text: 'in collaboration with others', underline: true },
-      { text: '.' },
+      { text: "Alongside this, I'm a part-time doctoral researcher at UAL, investigating the role of" },
+      { text: 'generative AI in creative and civic contexts', underline: true },
+      { text: "." },
+    ],
+  },
+  {
+    parts: [
+      { text: "I'm also an associate lecturer at UAL, where I care deeply about collaboration and about using" },
+      { text: "design's potential as a force for good", underline: true },
+      { text: ", particularly for communities that are typically excluded or marginalised." },
     ],
   },
 ];
