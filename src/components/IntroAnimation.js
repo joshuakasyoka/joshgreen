@@ -6,11 +6,20 @@ const INTRO_LINES_RAW = [
     parts: [{ text: 'Josh Green' }],
   },
   {
+    parts: [{ text: "I'm a Product Designer working on" }],
+  },
+  {
+    parts: [{ text: 'the future of civil engineering tools' }],
+  },
+  {
     parts: [
-      { text: "I'm a Product Designer at" },
+      { text: 'at' },
       { text: 'Mott MacDonald', href: 'https://www.mottmac.com/' },
-      { text: '—' },
+      { text: '— a global' },
     ],
+  },
+  {
+    parts: [{ text: 'engineering and management consultancy —' }],
   },
   {
     parts: [
@@ -20,28 +29,31 @@ const INTRO_LINES_RAW = [
     ],
   },
   {
-    parts: [
-      { text: 'Doctoral researcher and associate lecturer at UAL.' },
-    ],
+    parts: [{ text: "Alongside this, I'm a part-time" }],
   },
   {
-    parts: [
-      { text: 'Investigating' },
-      { text: 'generative AI in creative contexts', underline: true },
-      { text: '.' },
-    ],
+    parts: [{ text: 'doctoral researcher at UAL, investigating' }],
   },
   {
-    parts: [
-      { text: 'Design as' },
-      { text: 'a force for good', underline: true },
-      { text: '—' },
-    ],
+    parts: [{ text: 'generative AI in creative and civic contexts.' }],
   },
   {
-    parts: [
-      { text: 'for excluded and marginalised communities.' },
-    ],
+    parts: [{ text: "I'm also an associate lecturer at UAL," }],
+  },
+  {
+    parts: [{ text: 'where I care deeply about collaboration' }],
+  },
+  {
+    parts: [{ text: "and about using design's potential" }],
+  },
+  {
+    parts: [{ text: 'as a force for good,' }],
+  },
+  {
+    parts: [{ text: 'particularly for communities that are' }],
+  },
+  {
+    parts: [{ text: 'typically excluded or marginalised.' }],
   },
 ];
 
@@ -67,10 +79,13 @@ const WORD_INTERVAL_MS = 85;
 const HOLD_AFTER_COMPLETE_MS = 3200;
 const FADE_OUT_MS = 0;
 
+const CONTACT_EMAIL = 'joshkwgreen@gmail.com';
+
 const IntroAnimation = ({ onComplete }) => {
   const words = useMemo(() => INTRO_TOKENS, []);
   const [visibleCount, setVisibleCount] = useState(0);
   const [phase, setPhase] = useState('revealing');
+  const [emailCopied, setEmailCopied] = useState(false);
   const timersRef = useRef([]);
   const prefersReducedMotion = useMemo(
     () => typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches,
@@ -105,6 +120,15 @@ const IntroAnimation = ({ onComplete }) => {
     e.stopPropagation();
     exitIntro();
   }, [exitIntro]);
+
+  const handleContactClick = useCallback(async (e) => {
+    e.stopPropagation();
+    try {
+      await navigator.clipboard.writeText(CONTACT_EMAIL);
+      setEmailCopied(true);
+      setTimeout(() => setEmailCopied(false), 1800);
+    } catch { /* clipboard unavailable */ }
+  }, []);
 
   const renderPart = useCallback((part) => {
     const partStartIndex = words.findIndex((token) => token.partIndex === part.partIndex);
@@ -224,6 +248,14 @@ const IntroAnimation = ({ onComplete }) => {
               .filter(Boolean)
               .join(' ')}
           >
+            <button
+              type="button"
+              className="intro-chip"
+              onClick={handleContactClick}
+            >
+              <span aria-hidden="true">{emailCopied ? '♡' : '+'}</span>
+              {emailCopied ? 'Email copied' : 'Contact me'}
+            </button>
             <button
               type="button"
               className="intro-chip"
