@@ -279,8 +279,18 @@ body.theme-dark .intro-chip:hover {
 
   .intro-photo {
     width: min(90vw, 32rem);
+    max-height: 36vh;
     transform: translateY(12px);
-    margin-bottom: 2rem;
+    margin-bottom: 0;
+    overflow: hidden;
+    border-radius: 0.5rem;
+  }
+
+  .intro-photo__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
   }
 
   .intro-photo--visible {
