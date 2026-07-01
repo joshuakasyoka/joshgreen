@@ -151,7 +151,6 @@ const About = ({ isDarkMode, toggleDarkMode }) => {
             </div>
           </div>
           <div className="mb-4">
-            <div className="text-sm font-normal text-gray-900">Josh Green</div>
             <div className="text-xs text-gray-400">Updated 1st July 2026</div>
           </div>
           <p>

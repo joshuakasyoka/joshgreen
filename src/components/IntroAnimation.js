@@ -7,25 +7,40 @@ const INTRO_LINES_RAW = [
   },
   {
     parts: [
-      { text: "I'm a Product Designer working on the future of civil engineering tools at" },
+      { text: "I'm a Product Designer at" },
       { text: 'Mott MacDonald', href: 'https://www.mottmac.com/' },
-      { text: '— a global engineering and management consultancy — through' },
+      { text: '—' },
+    ],
+  },
+  {
+    parts: [
+      { text: 'through' },
       { text: 'Mettle Design Studio', href: 'https://mettle-studio.com/' },
       { text: '.' },
     ],
   },
   {
     parts: [
-      { text: "Alongside this, I'm a part-time doctoral researcher at UAL, investigating the role of" },
-      { text: 'generative AI in creative and civic contexts', underline: true },
-      { text: "." },
+      { text: 'Doctoral researcher and associate lecturer at UAL.' },
     ],
   },
   {
     parts: [
-      { text: "I'm also an associate lecturer at UAL, where I care deeply about collaboration and about using" },
-      { text: "design's potential as a force for good", underline: true },
-      { text: ", particularly for communities that are typically excluded or marginalised." },
+      { text: 'Investigating' },
+      { text: 'generative AI in creative contexts', underline: true },
+      { text: '.' },
+    ],
+  },
+  {
+    parts: [
+      { text: 'Design as' },
+      { text: 'a force for good', underline: true },
+      { text: '—' },
+    ],
+  },
+  {
+    parts: [
+      { text: 'for excluded and marginalised communities.' },
     ],
   },
 ];
