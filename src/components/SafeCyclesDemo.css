@@ -9,7 +9,7 @@
 .safe-cycles-demo__phone {
   position: relative;
   width: 280px;
-  height: 560px;
+  height: 580px;
   background: #e8e8e8;
   border-radius: 36px;
   border: 2px solid #c8c8c8;
@@ -23,9 +23,9 @@
   top: 10px;
   left: 50%;
   transform: translateX(-50%);
-  width: 70px;
-  height: 10px;
-  background: #c0c0c0;
+  width: 60px;
+  height: 8px;
+  background: #b8b8b8;
   border-radius: 6px;
   z-index: 30;
 }
@@ -35,7 +35,7 @@
   position: absolute;
   inset: 0;
   opacity: 0;
-  transition: opacity 0.5s ease;
+  transition: opacity 0.45s ease;
   pointer-events: none;
 }
 
@@ -43,15 +43,56 @@
   opacity: 1;
 }
 
-/* ── Map background ── */
-.safe-cycles-demo__map-bg {
+/* ── Map ── */
+.safe-cycles-demo__map {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  background: #f0f0f0;
-  background-image: radial-gradient(circle, rgba(0,0,0,0.06) 1px, transparent 1px);
-  background-size: 4px 4px;
+}
+
+/* ── Floating top-left button ── */
+.safe-cycles-demo__report-btn {
+  position: absolute;
+  top: 20px;
+  left: 12px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 11px;
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 999px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  z-index: 15;
+}
+
+.safe-cycles-demo__report-btn--active {
+  background: #1a1a1a;
+  color: #ffffff;
+}
+
+/* ── Floating top-right layers button ── */
+.safe-cycles-demo__layers-btn {
+  position: absolute;
+  top: 14px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  z-index: 15;
 }
 
 /* ── Bottom sheet ── */
@@ -60,14 +101,10 @@
   left: 0; right: 0; bottom: 0;
   background: #ffffff;
   border-radius: 20px 20px 0 0;
-  border: 1px solid rgba(0,0,0,0.08);
-  border-bottom: 0;
-  padding: 10px 18px 20px;
-  box-shadow: 0 -4px 20px rgba(0,0,0,0.06);
-}
-
-.safe-cycles-demo__sheet--peek {
-  padding: 10px 16px 14px;
+  border-top: 1px solid rgba(0,0,0,0.08);
+  padding: 8px 16px 18px;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
+  z-index: 10;
 }
 
 .safe-cycles-demo__handle {
@@ -75,47 +112,60 @@
   height: 4px;
   background: #e0e0e0;
   border-radius: 99px;
-  margin: 0 auto 12px;
+  margin: 0 auto 10px;
 }
 
-/* ── Planner screen ── */
+/* ── Brand ── */
 .safe-cycles-demo__brand {
-  font-family: monospace;
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  font-family: 'Courier New', monospace;
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: 0.06em;
   color: #1a1a1a;
-  margin-bottom: 2px;
+  line-height: 1;
+  margin-bottom: 4px;
+  /* Dot-matrix effect */
+  text-shadow: none;
+  font-variant-ligatures: none;
+}
+
+.safe-cycles-demo__brand-dot {
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  background: #1a1a1a;
+  border-radius: 50%;
+  margin: 0 1px;
+  vertical-align: middle;
 }
 
 .safe-cycles-demo__brand-sub {
-  font-family: monospace;
-  font-size: 8px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 7.5px;
   color: #888;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
+/* ── Inputs ── */
 .safe-cycles-demo__inputs {
   display: grid;
-  gap: 8px;
-  margin-bottom: 12px;
+  gap: 7px;
+  margin-bottom: 10px;
 }
 
 .safe-cycles-demo__input {
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 10px 14px;
+  padding: 10px 12px;
   border: 1px solid rgba(0,0,0,0.1);
   border-radius: 999px;
   background: #f2f2f2;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
   transition: border-color 0.2s, background 0.2s;
-  font-family: monospace;
-  font-size: 11px;
-  color: #1a1a1a;
 }
 
 .safe-cycles-demo__input.is-focused {
@@ -123,39 +173,66 @@
   background: #ffffff;
 }
 
-.safe-cycles-demo__pin {
-  font-size: 7px;
+.safe-cycles-demo__pin-icon {
   color: #888;
   flex-shrink: 0;
 }
 
-.safe-cycles-demo__placeholder {
-  color: #aaa;
+.safe-cycles-demo__input-text {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  font-weight: 500;
+  color: #1a1a1a;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
-.safe-cycles-demo__typing {
-  border-right: 1.5px solid #1a1a1a;
-  padding-right: 2px;
+.safe-cycles-demo__placeholder {
+  color: #aaa;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+.safe-cycles-demo__typing::after {
+  content: '|';
   animation: safecycles-blink 0.7s step-end infinite;
 }
 
 @keyframes safecycles-blink {
-  0%, 100% { border-color: #1a1a1a; }
-  50% { border-color: transparent; }
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
+.safe-cycles-demo__input-action {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #e8e8e8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #555;
+  font-size: 10px;
+}
+
+/* ── CTA ── */
 .safe-cycles-demo__cta {
   width: 100%;
-  padding: 12px;
+  padding: 13px;
   border-radius: 999px;
-  background: #dddddd;
-  color: #999;
-  font-family: monospace;
+  background: #cccccc;
+  color: #888;
+  font-family: 'IBM Plex Mono', monospace;
   font-size: 9px;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-align: center;
-  transition: background 0.3s, color 0.3s;
+  text-transform: uppercase;
+  transition: background 0.35s, color 0.35s;
 }
 
 .safe-cycles-demo__cta.is-ready {
@@ -163,11 +240,10 @@
   color: #ffffff;
 }
 
-/* ── Route found screen ── */
+/* ── Route found peek bar ── */
 .safe-cycles-demo__peek-row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 10px;
 }
 
@@ -176,70 +252,81 @@
   align-items: baseline;
   gap: 4px;
   font-family: monospace;
+  flex: 1;
 }
 
 .safe-cycles-demo__big-num {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 700;
   color: #1a1a1a;
   letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
 }
 
 .safe-cycles-demo__unit {
-  font-size: 10px;
+  font-size: 9px;
   color: #888;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 .safe-cycles-demo__sep {
-  font-size: 16px;
+  font-size: 18px;
   color: #ccc;
-  padding: 0 4px;
+  padding: 0 3px;
 }
 
 .safe-cycles-demo__start-btn {
-  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 11px 16px;
   border-radius: 999px;
   background: #1a1a1a;
   color: #fff;
-  font-family: monospace;
-  font-size: 10px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9.5px;
   font-weight: 700;
   letter-spacing: 0.1em;
+  text-transform: uppercase;
   border: none;
   cursor: default;
+  flex-shrink: 0;
 }
 
-.safe-cycles-demo__stats-card {
+/* ── Stats grid (route found, expanded) ── */
+.safe-cycles-demo__stats-overlay {
   position: absolute;
-  left: 16px;
-  right: 16px;
-  top: 80px;
+  left: 12px;
+  right: 12px;
+  top: 60px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 6px;
-  animation: safecycles-fade-in 0.5s ease both;
+  gap: 5px;
+  animation: safecycles-fade-up 0.5s ease both;
+  z-index: 5;
 }
 
-@keyframes safecycles-fade-in {
-  from { opacity: 0; transform: translateY(8px); }
+@keyframes safecycles-fade-up {
+  from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
 .safe-cycles-demo__stat {
-  background: #f0f0f0;
+  background: rgba(255,255,255,0.9);
   border: 1px solid rgba(0,0,0,0.08);
   border-radius: 10px;
-  padding: 10px 12px;
+  padding: 9px 11px;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 3px;
+  backdrop-filter: blur(4px);
 }
 
 .safe-cycles-demo__stat-label {
-  font-family: monospace;
-  font-size: 7px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 6.5px;
   font-weight: 700;
   letter-spacing: 0.12em;
   color: #888;
@@ -248,10 +335,69 @@
 
 .safe-cycles-demo__stat-val {
   font-family: monospace;
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 700;
   color: #1a1a1a;
   letter-spacing: 0.04em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Hazard report card ── */
+.safe-cycles-demo__report-card {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  top: 58px;
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 14px;
+  padding: 13px 14px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  z-index: 20;
+  animation: safecycles-fade-up 0.3s ease both;
+}
+
+.safe-cycles-demo__report-card p {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9.5px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #1a1a1a;
+  margin: 0 0 10px;
+  letter-spacing: 0.01em;
+}
+
+.safe-cycles-demo__report-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.safe-cycles-demo__save-btn {
+  flex: 1;
+  padding: 10px;
+  border-radius: 999px;
+  background: #1a1a1a;
+  color: #fff;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.safe-cycles-demo__discard-btn {
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.12);
+  background: #f2f2f2;
+  color: #555;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 /* ── Navigation screen ── */
@@ -260,18 +406,18 @@
   top: 0; left: 0; right: 0;
   background: #ffffff;
   border-bottom: 1px solid rgba(0,0,0,0.08);
-  padding: 24px 14px 14px;
+  padding: 22px 12px 12px;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   z-index: 10;
   box-shadow: 0 4px 12px rgba(0,0,0,0.06);
 }
 
 .safe-cycles-demo__nav-badge {
   flex-shrink: 0;
-  width: 44px;
-  height: 44px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
   background: #1a1a1a;
   color: #fff;
@@ -295,36 +441,58 @@
   color: #1a1a1a;
   letter-spacing: 0.04em;
   line-height: 1;
+  font-variant-numeric: tabular-nums;
 }
 
 .safe-cycles-demo__nav-inst {
-  font-family: monospace;
-  font-size: 10px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9.5px;
   font-weight: 600;
   color: #1a1a1a;
-  letter-spacing: 0.01em;
 }
 
 .safe-cycles-demo__nav-then {
-  font-family: monospace;
-  font-size: 8px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 7.5px;
   color: #888;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  margin-top: 2px;
+  margin-top: 1px;
 }
 
-.safe-cycles-demo__nav-gps {
+.safe-cycles-demo__nav-side {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
   flex-shrink: 0;
 }
 
+.safe-cycles-demo__mute-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.1);
+  background: #f2f2f2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #555;
+}
+
+.safe-cycles-demo__gps-pill {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: #f2f2f2;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 999px;
+  padding: 3px 7px 3px 5px;
+}
+
 .safe-cycles-demo__gps-dot {
-  width: 7px;
-  height: 7px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background: #1a1a1a;
   animation: safecycles-gps-pulse 1.6s ease-in-out infinite;
@@ -332,16 +500,17 @@
 
 @keyframes safecycles-gps-pulse {
   0%, 100% { opacity: 1; }
-  50% { opacity: 0.35; }
+  50% { opacity: 0.3; }
 }
 
 .safe-cycles-demo__gps-label {
-  font-family: monospace;
-  font-size: 6px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 5.5px;
   font-weight: 700;
   color: #1a1a1a;
   letter-spacing: 0.1em;
   white-space: nowrap;
+  text-transform: uppercase;
 }
 
 .safe-cycles-demo__nav-sheet {
@@ -349,8 +518,7 @@
   left: 0; right: 0; bottom: 0;
   background: #ffffff;
   border-radius: 20px 20px 0 0;
-  border: 1px solid rgba(0,0,0,0.08);
-  border-bottom: 0;
+  border-top: 1px solid rgba(0,0,0,0.08);
   padding: 8px 16px 16px;
   box-shadow: 0 -4px 16px rgba(0,0,0,0.06);
   z-index: 10;
@@ -375,11 +543,12 @@
   font-weight: 700;
   color: #1a1a1a;
   letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
 }
 
 .safe-cycles-demo__nav-stats span {
-  font-family: monospace;
-  font-size: 8px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 7.5px;
   color: #888;
   font-weight: 600;
   text-transform: uppercase;
@@ -392,10 +561,75 @@
   border: 1px solid rgba(0,0,0,0.12);
   background: #f2f2f2;
   color: #1a1a1a;
-  font-family: monospace;
-  font-size: 9px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 8.5px;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   cursor: default;
+}
+
+/* ── Animated tap indicator ── */
+.safe-cycles-demo__tap {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,27,27,0.7);
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1);
+  pointer-events: none;
+  z-index: 25;
+}
+
+.safe-cycles-demo__tap.is-visible {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.safe-cycles-demo__tap::after {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  border-radius: 50%;
+  background: rgba(255,27,27,0.85);
+}
+
+/* ── Amenity markers ── */
+.safe-cycles-demo__amenity-marker {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  font-weight: 700;
+  font-family: monospace;
+  border: 2px solid;
+  background: #ffffff;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+  z-index: 8;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.safe-cycles-demo__amenity-marker.is-visible {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.safe-cycles-demo__amenity-marker--parking {
+  border-color: #2563eb;
+  color: #2563eb;
+}
+
+.safe-cycles-demo__amenity-marker--pump {
+  border-color: #0ea5e9;
+  color: #0ea5e9;
+  font-size: 13px;
+}
+
+.safe-cycles-demo__amenity-marker--cafe {
+  border-color: #9333ea;
+  color: #9333ea;
 }

@@ -1082,6 +1082,54 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
       //     { src: '/images/01.03.png', caption: 'Main interface' }
       //   ]
       // }
+      {
+        id: 18,
+        name: 'Safe Cycles',
+        date: '2026',
+        description: 'A cycling route planner for London — quiet streets, hazard reporting, and turn-by-turn navigation.',
+        overview: [
+          'Safe Cycles is an open-source ',
+          { text: 'cycling route planner' },
+          ' for London — built to find the calmest streets rather than the fastest ones. Riders can report and vote on unsafe stretches, and the route avoids them. Once moving, the app gives turn-by-turn voice navigation with live GPS, and surfaces nearby parking and cafés along the way.',
+        ],
+        fullDescription: 'An open-source cycling route planner for London that prioritises quiet streets over speed, with community hazard reporting and turn-by-turn voice navigation.',
+        website: '',
+        startingPoint: 'The brief was simple: build a bike routing app that actually reflects how riders navigate London — avoiding fast roads, not optimising for them.',
+        outcome: 'A mobile-first app with quiet-route planning, community hazard reporting, live GPS navigation, and nearby amenity discovery — all in one bottom-sheet interface.',
+        techStack: 'React, TypeScript, Leaflet, OSRM, Overpass API, Web Speech API.',
+        images: [
+          {
+            demo: 'safe-cycles-planner',
+            caption: 'Route planner — hazard zones visible on the map',
+            sectionHeading: 'Plan',
+            body: [
+              'Community-reported hazard zones are visible directly on the map before you even enter a destination — so riders know which ',
+              { text: 'stretches to avoid' },
+              ' before they set off.',
+            ],
+          },
+          {
+            demo: 'safe-cycles-route',
+            caption: 'Mark an unsafe stretch, then see amenities on your route',
+            sectionHeading: 'Report & Discover',
+            body: [
+              'Tap two points to mark an unsafe stretch — it snaps to the road and saves to the community map. The route also surfaces nearby ',
+              { text: 'bike pumps, parking, and cafés' },
+              ' along the way.',
+            ],
+          },
+          {
+            demo: 'safe-cycles-nav',
+            caption: 'Turn-by-turn navigation with live GPS',
+            sectionHeading: 'Ride',
+            body: [
+              'During the ride, a top banner shows the next maneuver and distance. If the rider goes off-route, the app ',
+              { text: 'recalculates automatically' },
+              ' and speaks the new instruction.',
+            ],
+          },
+        ],
+      },
     ],
     'Older Work': [
       {
@@ -1183,54 +1231,6 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
             },
           ],
         },
-      },
-      {
-        id: 18,
-        name: 'Safe Cycles',
-        date: '2026',
-        description: 'A cycling route planner for London — quiet streets, hazard reporting, and turn-by-turn navigation.',
-        overview: [
-          'Safe Cycles is an open-source ',
-          { text: 'cycling route planner' },
-          ' for London — built to find the calmest streets rather than the fastest ones. Riders can report and vote on unsafe stretches, and the route avoids them. Once moving, the app gives turn-by-turn voice navigation with live GPS, and surfaces nearby parking and cafés along the way.',
-        ],
-        fullDescription: 'An open-source cycling route planner for London that prioritises quiet streets over speed, with community hazard reporting and turn-by-turn voice navigation.',
-        website: '',
-        startingPoint: 'The brief was simple: build a bike routing app that actually reflects how riders navigate London — avoiding fast roads, not optimising for them.',
-        outcome: 'A mobile-first app with quiet-route planning, community hazard reporting, live GPS navigation, and nearby amenity discovery — all in one bottom-sheet interface.',
-        techStack: 'React, TypeScript, Leaflet, OSRM, Overpass API, Web Speech API.',
-        images: [
-          {
-            demo: 'safe-cycles-planner',
-            caption: 'Route planner — enter start and destination',
-            sectionHeading: 'Plan',
-            body: [
-              'The planner keeps the interface to two fields — start and destination — and routes along ',
-              { text: 'low-traffic streets' },
-              ' by default. One tap surfaces the calmest path rather than the quickest.',
-            ],
-          },
-          {
-            demo: 'safe-cycles-route',
-            caption: 'Route stats — distance, time, quiet-street share, climb',
-            sectionHeading: 'Review',
-            body: [
-              'Before setting off, riders see the key numbers: distance, ride time, the percentage of the route on ',
-              { text: 'low-traffic streets' },
-              ', and total climb — so they can judge the trade-off before committing.',
-            ],
-          },
-          {
-            demo: 'safe-cycles-nav',
-            caption: 'Turn-by-turn navigation with live GPS',
-            sectionHeading: 'Ride',
-            body: [
-              'During the ride, a top banner shows the next maneuver and distance. The bottom sheet surfaces remaining time and distance. If the rider goes off-route, the app ',
-              { text: 'recalculates automatically' },
-              ' and speaks the new instruction.',
-            ],
-          },
-        ],
       },
       {
         id: 14,
