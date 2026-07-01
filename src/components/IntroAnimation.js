@@ -208,7 +208,7 @@ const IntroAnimation = ({ onComplete }) => {
         <div className="intro-text-column">
           {INTRO_LINES.map((line, lineIndex) => (
             <React.Fragment key={lineIndex}>
-              <p className="intro-line">
+              <p className={`intro-line${lineIndex === 3 ? ' intro-line--hide-mobile' : ''}`}>
                 {line.parts.map((part) => renderPart(part))}
               </p>
               {lineIndex === 0 && (
