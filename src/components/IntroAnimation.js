@@ -207,9 +207,14 @@ const IntroAnimation = ({ onComplete }) => {
       <div className="intro-content">
         <div className="intro-text-column">
           {INTRO_LINES.map((line, lineIndex) => (
-            <p key={lineIndex} className="intro-line">
-              {line.parts.map((part) => renderPart(part))}
-            </p>
+            <React.Fragment key={lineIndex}>
+              <p className="intro-line">
+                {line.parts.map((part) => renderPart(part))}
+              </p>
+              {lineIndex === 0 && (
+                <p className="intro-line intro-line--date">Updated 1st July 2026</p>
+              )}
+            </React.Fragment>
           ))}
 
           <div

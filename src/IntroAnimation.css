@@ -24,7 +24,7 @@ body.theme-dark .intro-overlay {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 3rem;
+  gap: 5rem;
   width: 100%;
   max-width: 80rem;
   overflow: visible;
@@ -52,6 +52,12 @@ body.theme-dark .intro-overlay {
 
 body.theme-dark .intro-line {
   color: #d1d5db;
+}
+
+.intro-line--date {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  margin-top: -0.5rem;
 }
 
 .intro-photo {
@@ -253,7 +259,7 @@ body.theme-dark .intro-chip:hover {
 
 @media (max-width: 767px) {
   .intro-content {
-    flex-direction: column;
+    flex-direction: column-reverse;
     gap: 2rem;
     max-width: 24rem;
   }
