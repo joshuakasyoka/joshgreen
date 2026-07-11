@@ -59,7 +59,6 @@ import EmmaProblemFramingDemo from './EmmaProblemFramingDemo';
 import EmmaGovernanceInsightDemo from './EmmaGovernanceInsightDemo';
 import BugDexScanDemo from './BugDexScanDemo';
 import BugDexCardDemo from './BugDexCardDemo';
-import BugDexMapDemo from './BugDexMapDemo';
 import BugDexCollectionDemo from './BugDexCollectionDemo';
 import BugDexLeaderboardDemo from './BugDexLeaderboardDemo';
 import BugDexProfileDemo from './BugDexProfileDemo';
