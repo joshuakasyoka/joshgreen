@@ -57,6 +57,17 @@ import EmmaChatThreadsDemo from './EmmaChatThreadsDemo';
 import EmmaResearchQuoteDemo from './EmmaResearchQuoteDemo';
 import EmmaProblemFramingDemo from './EmmaProblemFramingDemo';
 import EmmaGovernanceInsightDemo from './EmmaGovernanceInsightDemo';
+import BugDexScanDemo from './BugDexScanDemo';
+import BugDexCardDemo from './BugDexCardDemo';
+import BugDexMapDemo from './BugDexMapDemo';
+import BugDexCollectionDemo from './BugDexCollectionDemo';
+import BugDexLeaderboardDemo from './BugDexLeaderboardDemo';
+import BugDexProfileDemo from './BugDexProfileDemo';
+import BugDexScanProgressPair from './BugDexScanProgressPair';
+import BugDexMapCollectionPair from './BugDexMapCollectionPair';
+import BugDexCardLeaderboardPair from './BugDexCardLeaderboardPair';
+import BugClubStackDiagram from './BugClubStackDiagram';
+import ReflectionQuestions from './ReflectionQuestions';
 import CaseStudyNav from './CaseStudyNav';
 import FloatingLetters from './FloatingLetters';
 
@@ -71,6 +82,149 @@ const renderInlineTerm = (text) => (
 
 const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
   const [projects] = useState({
+    'AI Exploration': [
+      {
+        id: 18,
+        isNew: true,
+        name: 'Bug Club',
+        date: 'Jul 2026',
+        description: 'A Pokémon-style iOS app that turns real insects into collectible trading cards — photograph a bug, let AI identify it, and add it to the Bug Club.',
+        overview: [
+          'Bug Club is a personal iOS experiment: photograph a real insect and it becomes a ',
+          { text: 'collectible trading card' },
+          ' — species identified by AI vision, stats and attacks invented from the animal\'s real behaviour, artwork stylised from your own photo. The design question was whether a game frame could make people ',
+          { text: 'look closer at the bugs around them' },
+          ' — and the card had to feel earned, not generated.',
+        ],
+        fullDescription: 'A Pokémon-inspired iOS app that identifies real insects from photos using Claude\'s vision API, invents creature names, stats, and attacks grounded in the animal\'s real behaviour, and renders each catch as an illustrated trading card in a shared social collection.',
+        website: '',
+        startingPoint: 'Insect ID apps stop at a species name — the bet was that a trading-card frame with rarity, types, and a leaderboard could turn identification into collection, and a walk in the park into a hunt.',
+        outcome: 'A working app on my iPhone: scan a bug, get a card grounded in real biology, keep it in a typed collection with catch locations, and compete with friends on the club leaderboard.',
+        techStack: 'Stack: SwiftUI, Supabase (auth, feed, leaderboard), Core Image, on-device persistence. AI note: Claude Opus vision with a structured-output schema returns real species plus invented card stats — Claude Fable for fast iteration in Cursor — attacks stay grounded in actual insect behaviour, so the game layer teaches rather than invents.',
+        images: [
+          {
+            sectionHeading: 'Problem Space',
+            body: [
+              'On walks across the South Downs I\'ve been finding bugs everywhere — butterflies on seed heads, beetles in the grass — and wanting to ',
+              { text: 'identify them' },
+              '. That impulse is where Bug Club started.',
+            ],
+            srcs: [
+              '/images/bug-club/problem-space-butterfly.png',
+              '/images/bug-club/problem-space-field.png',
+            ],
+            caption: 'South Downs — the bugs worth catching',
+          },
+          {
+            sectionHeading: 'Creating an iOS app',
+            body: [
+              'AI Exploration meant going end-to-end as a product designer — not just sketch the flows, but ',
+              { text: 'ship a working app' },
+              ' using the latest AI tools. I built Bug Club in ',
+              { text: 'Cursor' },
+              ' and ',
+              { text: 'SwiftUI' },
+              ', wiring together the services the idea needed. ',
+              { text: 'Claude Opus' },
+              ' handles identification — vision plus a structured-output schema that returns the real species, invented card stats, and attacks tied to how the animal actually behaves. ',
+              { text: 'Claude Fable' },
+              ' was the fast loop for flows and prompt tuning in Cursor. For card art I tried both an on-device ',
+              { text: 'Core Image and Apple Vision' },
+              ' pipeline to lift the bug off the background and posterise it, and ',
+              { text: 'Gemini' },
+              ' image generation — ',
+              { text: 'Nano Banana' },
+              ', as the codebase calls it — to turn the crop into flat field-guide illustrations from the photo reference.',
+              { break: true },
+              { text: 'Supabase' },
+              ' backs the club layer: auth, profiles, friends, feed, leaderboard, and Edge Functions that proxy the AI keys server-side so signed-in collectors can scan without bringing their own. Catch locations come from Core Location.',
+              { break: true },
+              'I signed builds in ',
+              { text: 'Xcode' },
+              ', shipped through ',
+              { text: 'TestFlight' },
+              ' to friends, and hosted the ',
+              { text: 'privacy policy URL' },
+              ' on ',
+              { text: 'Vercel' },
+              ' for App Store compliance — design, code, AI, and distribution in one loop, tested on real bugs from the Downs.',
+            ],
+            demo: 'bugclub-stack',
+            caption: 'Bug Club — tech stack',
+          },
+          {
+            demo: 'bugdex-scan-progress',
+            caption: 'Scan flow and progression — snap, identify, level up',
+            sectionHeading: 'Scan a bug',
+            body: [
+              'The whole pitch is one loop: ',
+              { text: 'find a bug, snap it, add it to the Bug Club' },
+              '. The capture flow stays deliberately small — take a photo or choose from library, nothing else, because bugs don\'t wait for camera settings. Claude Opus identifies the real species behind a scan animation, and the reveal lands as a ',
+              { text: 'card, not a search result' },
+              '.',
+              { break: true },
+              'Points break down by ',
+              { text: 'catches, species, types, places, and badges' },
+              ' — so there\'s always more than one way to progress. Level names like Pollinator and Swarm Leader keep the tone playful; the progress bar sitting 20 points from the next rank is the hook that gets the app opened tomorrow.',
+            ],
+          },
+          {
+            demo: 'bugdex-map-collection',
+            caption: 'Catch locations and collection — pins across the South Downs, new catch lands in the club',
+            sectionHeading: 'Caught here',
+            body: [
+              'Every card records ',
+              { text: 'where the bug was caught' },
+              ' — map pins turn the collection into a diary of places as much as species. A ladybird from Ditchling Beacon is a different memory than the same species from a car park.',
+              { break: true },
+              'Catches are organised the way a card binder would be — grouped by ',
+              { text: 'type' },
+              ', with a category tracker across the top. When a new catch lands, its type lights up and the counter ticks over — the empty categories are the ',
+              { text: 'reason to go outside again' },
+              '.',
+            ],
+          },
+          {
+            demo: 'bugdex-card-leaderboard',
+            caption: 'Card carousel and leaderboard — photo to card, rare find changes the ranking',
+            sectionHeading: 'From photo to card',
+            body: [
+              'One photo becomes a full card: the model identifies the ',
+              { text: 'real species' },
+              ' — here a male stag beetle — then invents a creature name, type, HP, and attacks with a structured-output schema. The constraint that made it work: every attack is ',
+              { text: 'grounded in the animal\'s actual behaviour' },
+              '. Antler Lock and Sap Feast are what stag beetles really do — males wrestle rivals from branches and adults live on tree sap — down to the Latin name in the footer. Rare cards get the holographic shimmer.',
+              { break: true },
+              'Supabase turns a solo collection into a club — collectors are ranked by points, with ',
+              { text: 'bug counts and rare finds' },
+              ' as the tiebreak stats that matter. Small stakes, but enough that a rare catch on a lunchtime walk feels worth logging.',
+            ],
+          },
+        ],
+        caseStudyBlocks: {
+          after: [
+            {
+              id: 'reflections',
+              heading: 'Reflections',
+              body: [
+                'The design risk was the AI inventing nonsense — a card generator that ignores the real animal is a toy, not a reason to look closer. Constraining generation with a ',
+                { text: 'structured schema grounded in real behaviour' },
+                ' kept every card honest: the game layer sits on top of actual biology, never instead of it. Building for my own pocket meant every decision was tested on real walks — the next push is richer social play, trading cards between collectors rather than just ranking them.',
+                { break: true },
+                'Five questions I\'m still sitting with from this project:',
+              ],
+              questions: [
+                'What is the role of software like Figma in an age of AI-enhanced product design?',
+                'What happens to the boundary between development and design when a designer can ship from Cursor as easily as from a prototype?',
+                'How do we protect time for user research and deeper inquiry now that the build bottleneck has moved?',
+                'How can we ship products of real quality in spaces that deserve to be explored — not just the ones with obvious commercial pull?',
+                'How do we do any of this while weighing the environmental cost and ethical dimensions of AI?',
+              ],
+            },
+          ],
+        },
+      },
+    ],
     'Creative Projects': [
       { 
         id: 1, 
@@ -272,8 +426,6 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
           ],
         },
       },
-
-  
     ],
     'Product Design': [
       { 
@@ -1457,7 +1609,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
     ]
   });
 
-  const [selectedProject, setSelectedProject] = useState(projects['Product Design'][0]);
+  const [selectedProject, setSelectedProject] = useState(projects['AI Exploration'][0]);
   // On mobile, all project lists are expanded by default
   const mainContentRef = useRef(null);
   const headerRef = useRef(null);
@@ -1473,6 +1625,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
   const isVideoMedia = (src) => /\.(mp4|mov)$/i.test(src || '');
   const renderProjectMedia = (imgObj, project, idx, { maxWidth = '92%', maxHeight = '65vh', openModal }) => {
     const src = typeof imgObj === 'string' ? imgObj : imgObj.src;
+    const srcs = typeof imgObj === 'object' ? imgObj.srcs : null;
     const caption = typeof imgObj === 'string' ? null : imgObj.caption;
     const demo = typeof imgObj === 'object' ? imgObj.demo : null;
     let demoElement = null;
@@ -1636,12 +1789,61 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
     if (demo === 'emma-governance-insight') {
       demoElement = <EmmaGovernanceInsightDemo className="self-start w-full" />;
     }
+    if (demo === 'bugclub-stack') {
+      demoElement = <BugClubStackDiagram className="self-start w-full" />;
+    }
+    if (demo === 'bugdex-scan') {
+      demoElement = <BugDexScanDemo className="self-start w-full" />;
+    }
+    if (demo === 'bugdex-scan-progress') {
+      demoElement = <BugDexScanProgressPair className="self-start w-full" />;
+    }
+    if (demo === 'bugdex-card') {
+      demoElement = <BugDexCardDemo className="self-start w-full" />;
+    }
+    if (demo === 'bugdex-card-leaderboard') {
+      demoElement = <BugDexCardLeaderboardPair className="self-start w-full" />;
+    }
+    if (demo === 'bugdex-map-collection') {
+      demoElement = <BugDexMapCollectionPair className="self-start w-full" />;
+    }
+    if (demo === 'bugdex-collection') {
+      demoElement = <BugDexCollectionDemo className="self-start w-full" />;
+    }
+    if (demo === 'bugdex-leaderboard') {
+      demoElement = <BugDexLeaderboardDemo className="self-start w-full" />;
+    }
+    if (demo === 'bugdex-profile') {
+      demoElement = <BugDexProfileDemo className="self-start w-full" />;
+    }
     const isGisToolsDemo = typeof demo === 'string' && demo.startsWith('moata-gis-');
     if (demoElement && isGisToolsDemo) {
       return demoElement;
     }
     if (demoElement) {
       return <ResponsiveDemoFrame>{demoElement}</ResponsiveDemoFrame>;
+    }
+    if (srcs?.length) {
+      return (
+        <div className="flex flex-wrap gap-8 w-full self-start">
+          {srcs.map((item, imageIdx) => {
+            const itemSrc = typeof item === 'string' ? item : item.src;
+            const itemAlt = project.name + ' image ' + (idx + 1) + '-' + (imageIdx + 1);
+            return (
+              <div key={itemSrc} className="flex-1 min-w-[240px]">
+                <OptimizedImage
+                  loading={idx < 2 ? 'eager' : 'lazy'}
+                  src={itemSrc}
+                  alt={itemAlt}
+                  onClick={() => openModal({ src: itemSrc, alt: itemAlt })}
+                  className="object-contain object-left custom-clickable self-start rounded-lg w-full"
+                  style={{ maxHeight, display: 'block' }}
+                />
+              </div>
+            );
+          })}
+        </div>
+      );
     }
     if (imgObj.embed) {
       return (
@@ -1674,8 +1876,13 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
         src={src}
         alt={project.name + ' image ' + (idx + 1)}
         onClick={() => openModal({ src, alt: project.name + ' image ' + (idx + 1) })}
-        className="object-contain object-left custom-clickable self-start rounded-lg"
-        style={{ maxWidth, width: 'auto', maxHeight, display: 'block' }}
+        className={`object-contain object-left custom-clickable self-start rounded-lg ${typeof imgObj === 'object' ? imgObj.mediaClassName || '' : ''}`.trim()}
+        style={{
+          maxWidth: (typeof imgObj === 'object' && imgObj.mediaMaxWidth) || maxWidth,
+          width: 'auto',
+          maxHeight: (typeof imgObj === 'object' && imgObj.mediaMaxHeight) || maxHeight,
+          display: 'block',
+        }}
       />
     );
   };
@@ -1747,7 +1954,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
   const renderSectionBody = (body, options = {}) => {
     const opts = typeof options === 'string' ? { className: options } : options;
     const { heading, className = 'text-sm text-gray-600 leading-relaxed', sectionClassName = 'mb-10' } = opts;
-    if (!body) return null;
+    if (!body && !heading) return null;
 
     const renderBodyParts = (parts) =>
       parts.map((part, index) =>
@@ -1763,18 +1970,20 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
     const paragraphs = [];
     let currentParagraph = [];
 
-    if (typeof body === 'string') {
-      paragraphs.push([body]);
-    } else {
-      body.forEach((part) => {
-        if (part?.break) {
-          if (currentParagraph.length) paragraphs.push(currentParagraph);
-          currentParagraph = [];
-          return;
-        }
-        currentParagraph.push(part);
-      });
-      if (currentParagraph.length) paragraphs.push(currentParagraph);
+    if (body) {
+      if (typeof body === 'string') {
+        paragraphs.push([body]);
+      } else {
+        body.forEach((part) => {
+          if (part?.break) {
+            if (currentParagraph.length) paragraphs.push(currentParagraph);
+            currentParagraph = [];
+            return;
+          }
+          currentParagraph.push(part);
+        });
+        if (currentParagraph.length) paragraphs.push(currentParagraph);
+      }
     }
 
     return (
@@ -1840,6 +2049,12 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
           className: bodyClassName,
           sectionClassName: '',
         })}
+        {block.questions?.length > 0 && (
+          <ReflectionQuestions
+            questions={block.questions}
+            className={bodyClassName ? 'reflection-questions--case-study' : ''}
+          />
+        )}
         {block.demo && project && (
           <div className="mt-10 w-full self-start">
             {renderProjectMedia(
@@ -1859,7 +2074,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
 
   const orderedCategories = useMemo(() => {
     const entries = Object.entries(projects);
-    const priority = ['Product Design', 'Creative Projects', 'Participatory Design', 'Design Writing', 'Older Work'];
+    const priority = ['AI Exploration', 'Product Design', 'Creative Projects', 'Participatory Design', 'Design Writing', 'Older Work'];
     const sorted = entries.sort((a, b) => {
       const aIndex = priority.indexOf(a[0]);
       const bIndex = priority.indexOf(b[0]);
@@ -2131,13 +2346,24 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
                               <div className="portfolio-sidebar__project-date text-xs text-gray-500">{project.date}</div>
                             )}
                           </div>
-                          <div
-                            key={selectedProject?.id === project.id ? `active-${project.id}` : `inactive-${project.id}`}
-                            className={`h-2 w-2 flex-shrink-0 rounded-full transition-opacity duration-300 ${
-                              selectedProject?.id === project.id ? 'opacity-100 portfolio-active-dot' : 'opacity-0'
-                            }`}
-                            style={{ backgroundColor: '#81FF03' }}
-                          />
+                          {project.isNew ? (
+                            <span
+                              key={selectedProject?.id === project.id ? `active-new-${project.id}` : `inactive-new-${project.id}`}
+                              className={`portfolio-sidebar__new-label flex-shrink-0 transition-opacity duration-300 ${
+                                selectedProject?.id === project.id ? 'opacity-100 portfolio-sidebar__new-label--active' : 'opacity-0'
+                              }`}
+                            >
+                              new
+                            </span>
+                          ) : (
+                            <div
+                              key={selectedProject?.id === project.id ? `active-${project.id}` : `inactive-${project.id}`}
+                              className={`h-2 w-2 flex-shrink-0 rounded-full transition-opacity duration-300 ${
+                                selectedProject?.id === project.id ? 'opacity-100 portfolio-active-dot' : 'opacity-0'
+                              }`}
+                              style={{ backgroundColor: '#81FF03' }}
+                            />
+                          )}
                         </div>
                       </div>
                       

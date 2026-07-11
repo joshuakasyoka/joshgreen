@@ -1,0 +1,236 @@
+.bugclub-stack {
+  width: 100%;
+  max-width: 920px;
+  align-self: flex-start;
+}
+
+.bugclub-stack__canvas {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+  padding: 18px 16px 16px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+}
+
+.bugclub-stack__row {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+}
+
+.bugclub-stack__row--pipeline {
+  gap: 0;
+}
+
+.bugclub-stack__row--pipeline .bugclub-stack__layer {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.bugclub-stack__row--services {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.bugclub-stack__row--services.is-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.bugclub-stack__layer {
+  padding: 12px 14px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.bugclub-stack__layer.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.bugclub-stack__layer-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #26251f;
+  margin-bottom: 8px;
+}
+
+.bugclub-stack__layer-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.bugclub-stack__chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 9.5px;
+  font-weight: 600;
+  color: #4a4a44;
+  line-height: 1.2;
+  opacity: 0;
+  transform: translateY(4px);
+}
+
+.bugclub-stack__layer.is-visible .bugclub-stack__chip.is-visible {
+  animation: bugclub-chip-in 0.65s ease forwards;
+  animation-delay: var(--chip-delay, 0ms);
+}
+
+.bugclub-stack__connector {
+  flex-shrink: 0;
+  background: #d8d7d0;
+}
+
+.bugclub-stack__connector--h {
+  align-self: center;
+  width: 0;
+  height: 1px;
+  margin: 0 4px;
+}
+
+.bugclub-stack__connector--h.is-visible {
+  animation: bugclub-connector-grow-h 0.65s ease forwards;
+}
+
+.bugclub-stack__connector--v {
+  align-self: center;
+  width: 1px;
+  height: 0;
+  margin: 6px 0;
+}
+
+.bugclub-stack__connector--v.is-visible {
+  animation: bugclub-connector-grow-v 0.65s ease forwards;
+}
+
+.bugclub-stack__service {
+  padding: 12px 12px 11px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: #ffffff;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.65s ease, transform 0.65s ease, box-shadow 0.5s ease;
+}
+
+.bugclub-stack__service.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.bugclub-stack__canvas.is-running .bugclub-stack__service.is-visible {
+  animation: bugclub-service-glow 3.6s ease-in-out infinite;
+}
+
+.bugclub-stack__service-title {
+  font-size: 11px;
+  font-weight: 800;
+  color: #26251f;
+  margin-bottom: 2px;
+}
+
+.bugclub-stack__service-sub {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #98978f;
+  margin-bottom: 6px;
+}
+
+.bugclub-stack__service-detail {
+  font-size: 9.5px;
+  line-height: 1.35;
+  color: #4a4a44;
+}
+
+@media (max-width: 720px) {
+  .bugclub-stack__row--pipeline {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .bugclub-stack__connector--h {
+    width: 1px;
+    height: 0;
+    margin: 4px auto;
+    align-self: center;
+  }
+
+  .bugclub-stack__connector--h.is-visible {
+    animation: bugclub-connector-grow-v 0.65s ease forwards;
+  }
+
+  .bugclub-stack__layer {
+    transform: translateY(-6px);
+  }
+
+  .bugclub-stack__layer.is-visible {
+    transform: translateY(0);
+  }
+
+  .bugclub-stack__row--services {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .bugclub-stack__row--services {
+    grid-template-columns: 1fr;
+  }
+}
+
+@keyframes bugclub-chip-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bugclub-connector-grow-h {
+  from {
+    width: 0;
+  }
+  to {
+    width: 28px;
+  }
+}
+
+@keyframes bugclub-connector-grow-v {
+  from {
+    height: 0;
+  }
+  to {
+    height: 22px;
+  }
+}
+
+@keyframes bugclub-service-glow {
+  0%, 100% {
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  }
+  50% {
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  }
+}
