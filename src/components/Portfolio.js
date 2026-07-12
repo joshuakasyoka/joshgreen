@@ -79,7 +79,12 @@ const renderInlineTerm = (text) => (
   <code className={INLINE_TERM_CLASS}>{text}</code>
 );
 
-const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
+export const PORTFOLIO_PROJECT_IDS = {
+  bugClub: 18,
+  moataGeospatial: 5,
+};
+
+const Portfolio = ({ isDarkMode, toggleDarkMode, initialProjectId = null }) => {
   const [projects] = useState({
     'AI Exploration': [
       {
@@ -228,7 +233,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
       { 
         id: 1, 
         name: 'London AI Voices', 
-        date: 'May 2026', 
+        date: 'May 2025', 
         description: 'Website for collecting citizen voices on the subject of Artificial Intelligence', 
         overview: [
           'London AI Voices collects citizen perspectives on AI — stories, sentiments, and locations across the city. A submission form would bury ',
@@ -288,7 +293,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
       { 
         id: 2, 
         name: 'Tate Modern Exhibit', 
-        date: 'April 2026', 
+        date: 'April 2025', 
         description: 'Tate Modern exhibit exploring the water consumption of generative AI', 
         overview: [
           'Database of Digital Water is a Tate Modern installation about AI\'s ',
@@ -366,7 +371,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
       { 
         id: 4, 
         name: 'Community AI Tools', 
-        date: 'Jan 2026', 
+        date: 'Jan 2025', 
         description: 'Selection of digital tools to enhance community literacy on Algorithm Development', 
         overview: [
           'Community AI Tools walks passers-by through the algorithm lifecycle — problem framing, data labelling, deployment trade-offs. The lifecycle is ',
@@ -1238,7 +1243,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
       {
         id: 6,
         name: 'ClearBank',
-        date: 'May 2026',
+        date: '2024',
         description: 'Designing a banking report format for ClearBank, a fintech providing banking APIs, to be uploaded onto their digital platform.',
         overview: [
           'ClearBank needed a ',
@@ -1285,7 +1290,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
       {
         id: 8,
         name: 'Phillips Auction House',
-        date: 'May 2026',
+        date: '2024',
         description: 'A new direct-to-consumer digital experience for Phillips Auction House\'s luxury watch business.',
         overview: [
           'Phillips, one of the world\'s leading auction houses for contemporary art and design, had a clear challenge: its luxury watch sales were still being handled manually, reliant on emails, phone calls, and offline tracking. The lack of visibility frustrated clients and left internal teams burdened with ',
@@ -1393,7 +1398,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
       { 
         id: 11, 
         name: 'AI Literacy Framework',
-        date: 'May 2026',
+        date: 'May 2025',
         description: 'A book for local councils to find creative ways to improve AI literacy within their boroughs.',
         overview: [
           'This was a ',
@@ -1466,7 +1471,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
       { 
         id: 12, 
         name: 'Climate Truth Crisis',
-        date: 'May 2026',
+        date: 'May 2025',
         description: 'An Erasmus+ funded project exploring the climate truth crisis through visual communication — exhibited at a tram stop in Tallinn.',
         overview: [
           'Climate Truth Crisis was an ',
@@ -1511,7 +1516,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
       { 
         id: 13, 
         name: 'Street Installations', 
-        date: 'Apr 2026', 
+        date: 'Apr 2025', 
         description: 'Four interactive street installations in South London engaging the public with ethical questions in emerging AI technologies.',
         overview: [
           'Four plinths in South London posed ',
@@ -1608,7 +1613,11 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
     ]
   });
 
-  const [selectedProject, setSelectedProject] = useState(projects['AI Exploration'][0]);
+  const [selectedProject, setSelectedProject] = useState(
+    () =>
+      projects['AI Exploration'].find((project) => project.id === PORTFOLIO_PROJECT_IDS.bugClub) ||
+      projects['AI Exploration'][0]
+  );
   // On mobile, all project lists are expanded by default
   const mainContentRef = useRef(null);
   const headerRef = useRef(null);
@@ -1618,6 +1627,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
   const [isAboutHovered, setIsAboutHovered] = useState(false);
   const [modalImage, setModalImage] = useState(null);
   const [activeSectionId, setActiveSectionId] = useState('overview');
+  const [showBackToTop, setShowBackToTop] = useState(false);
   // Refs for each project title
   const projectTitleRefs = useRef({});
 
@@ -2097,9 +2107,16 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
     [selectedProject]
   );
 
+  useEffect(() => {
+    if (initialProjectId == null) return;
+    const project = allProjects.find((item) => item.id === initialProjectId);
+    if (project) setSelectedProject(project);
+  }, [initialProjectId, allProjects]);
+
   // Desktop: scroll main pane to top. Mobile: scroll the list so the project title lines up at the top of the scroll area.
   useEffect(() => {
     setActiveSectionId('overview');
+    setShowBackToTop(false);
     if (mainContentScrollRef.current) {
       mainContentScrollRef.current.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -2149,6 +2166,19 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
     sectionEls.forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
+  }, [selectedProject]);
+
+  useEffect(() => {
+    const root = mainContentScrollRef.current;
+    if (!root) return undefined;
+
+    const onScroll = () => {
+      setShowBackToTop(root.scrollTop > 80);
+    };
+
+    onScroll();
+    root.addEventListener('scroll', onScroll, { passive: true });
+    return () => root.removeEventListener('scroll', onScroll);
   }, [selectedProject]);
 
   useEffect(() => {
@@ -2523,7 +2553,8 @@ const Portfolio = ({ isDarkMode, toggleDarkMode }) => {
           sections={caseStudySections}
           activeSectionId={activeSectionId}
           onSelectSection={handleSelectSection}
-          onIndex={handleCaseStudyIndex}
+          onBackToTop={handleCaseStudyIndex}
+          showBackToTop={showBackToTop}
         />
       </div>
       {modalImage && (

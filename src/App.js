@@ -4,6 +4,7 @@ import About from './components/About';
 import Portfolio from './components/Portfolio';
 import ClickTrail from './components/ClickTrail';
 import IntroAnimation from './components/IntroAnimation';
+import { PORTFOLIO_PROJECT_IDS } from './components/Portfolio';
 import './index.css';
 import './CustomCursor.css';
 
@@ -23,6 +24,8 @@ function App() {
     }
   });
 
+  const [introProjectId, setIntroProjectId] = useState(null);
+
   useEffect(() => {
     document.body.classList.toggle('theme-dark', isDarkMode);
     document.body.classList.toggle('theme-light', !isDarkMode);
@@ -31,21 +34,39 @@ function App() {
 
   const toggleDarkMode = () => setIsDarkMode((prev) => !prev);
 
-  const handleIntroComplete = () => {
+  const handleIntroComplete = (selection) => {
     try {
       sessionStorage.setItem('intro-seen', 'true');
     } catch {
       /* ignore */
+    }
+    if (selection?.projectId != null) {
+      setIntroProjectId(selection.projectId);
     }
     setShowIntro(false);
   };
 
   return (
     <Router>
-      {showIntro && <IntroAnimation onComplete={handleIntroComplete} />}
+      {showIntro && (
+        <IntroAnimation
+          onComplete={handleIntroComplete}
+          latestProjectId={PORTFOLIO_PROJECT_IDS.moataGeospatial}
+          allWorkProjectId={PORTFOLIO_PROJECT_IDS.bugClub}
+        />
+      )}
       <ClickTrail enabled={isDarkMode} />
       <Routes>
-        <Route path="/" element={<Portfolio isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />} />
+        <Route
+          path="/"
+          element={
+            <Portfolio
+              isDarkMode={isDarkMode}
+              toggleDarkMode={toggleDarkMode}
+              initialProjectId={introProjectId}
+            />
+          }
+        />
         <Route path="/about" element={<About isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />} />
       </Routes>
     </Router>

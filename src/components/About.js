@@ -6,6 +6,7 @@ import './About.css';
 
 const TEAM_PHOTO_SRC = '/images/intro/team.png';
 const CONTACT_EMAIL = 'joshkwgreen@gmail.com';
+const PHD_PROFILE_URL = 'https://researchers.arts.ac.uk/3474-joshua-green';
 
 const About = ({ isDarkMode, toggleDarkMode }) => {
   const [emailCopied, setEmailCopied] = useState(false);
@@ -59,11 +60,11 @@ const About = ({ isDarkMode, toggleDarkMode }) => {
           });
           i += 1;
           if (i < recentPhotos.length) {
-            timer = setTimeout(step, 700);
+            timer = setTimeout(step, 1150);
           }
         };
         // start after a tiny delay for nicer feel
-        timer = setTimeout(step, 350);
+        timer = setTimeout(step, 500);
       } else {
         // Reset when scrolled away so animation can replay
         setVisibleCount(0);
@@ -137,7 +138,16 @@ const About = ({ isDarkMode, toggleDarkMode }) => {
             <h3 className="text-sm font-normal text-gray-900 mb-3">Education</h3>
             <div className="space-y-3">
               <div>
-                <div>PhD, Critical Design Theory</div>
+                <div>
+                  <a
+                    href={PHD_PROFILE_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-gray-400 transition-colors duration-300"
+                  >
+                    PhD, Critical Design Theory
+                  </a>
+                </div>
                 <div className="text-xs text-gray-500">University of the Arts London (2025—2030)</div>
               </div>
               <div>
@@ -154,7 +164,16 @@ const About = ({ isDarkMode, toggleDarkMode }) => {
             <div className="text-xs text-gray-400">Updated 1st July 2026</div>
           </div>
           <p>
-            I'm a Product Designer working on the future of civil engineering tools at Mott MacDonald — a global engineering and management consultancy — through Mettle Design Studio. Alongside this, I'm a part-time doctoral researcher at UAL, investigating the role of generative AI in creative and civic contexts. I'm also an associate lecturer at UAL, where I care deeply about collaboration and about using design's potential as a force for good, particularly for communities that are typically excluded or marginalised.
+            I'm a Product Designer working on the future of civil engineering tools at Mott MacDonald — a global engineering and management consultancy — through Mettle Design Studio. Alongside this, I'm a{' '}
+            <a
+              href={PHD_PROFILE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-gray-400 transition-colors duration-300"
+            >
+              part-time doctoral researcher at UAL
+            </a>
+            , investigating the role of generative AI in creative and civic contexts. I'm also an associate lecturer at UAL, where I care deeply about collaboration and about using design's potential as a force for good, particularly for communities that are typically excluded or marginalised.
           </p>
           <p className="mt-3">
             If you fancy grabbing a coffee to chat about design, drop me an email!
@@ -180,7 +199,7 @@ const About = ({ isDarkMode, toggleDarkMode }) => {
               return (
                 <div
                   key={src}
-                  className="absolute left-1/2 -translate-x-1/2 md:-ml-24 transition-all duration-700 ease-out will-change-transform"
+                  className="absolute left-1/2 -translate-x-1/2 md:-ml-24 transition-all duration-1000 ease-out will-change-transform"
                   style={{
                     top: 0,
                     transform: `translateX(-50%) ${hasAppeared ? 'translateY(0) rotate(0deg)' : `translateY(24px) rotate(${rot}deg)`}`,

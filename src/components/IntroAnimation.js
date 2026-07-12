@@ -16,7 +16,9 @@ const INTRO_LINES_RAW = [
   },
   {
     parts: [
-      { text: "Alongside this, I'm a part-time doctoral researcher at UAL, investigating the role of" },
+      { text: "Alongside this, I'm a " },
+      { text: 'part-time doctoral researcher at UAL', href: 'https://researchers.arts.ac.uk/3474-joshua-green' },
+      { text: ', investigating the role of' },
       { text: 'generative AI in creative and civic contexts', underline: true },
       { text: '.' },
     ],
@@ -54,12 +56,13 @@ const FADE_OUT_MS = 0;
 
 const CONTACT_EMAIL = 'joshkwgreen@gmail.com';
 
-const IntroAnimation = ({ onComplete }) => {
+const IntroAnimation = ({ onComplete, latestProjectId, allWorkProjectId }) => {
   const words = useMemo(() => INTRO_TOKENS, []);
   const [visibleCount, setVisibleCount] = useState(0);
   const [phase, setPhase] = useState('revealing');
   const [emailCopied, setEmailCopied] = useState(false);
   const timersRef = useRef([]);
+  const pendingSelectionRef = useRef({ projectId: allWorkProjectId });
   const prefersReducedMotion = useMemo(
     () => typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches,
     []
@@ -70,28 +73,27 @@ const IntroAnimation = ({ onComplete }) => {
     timersRef.current = [];
   }, []);
 
-  const finish = useCallback(() => {
+  const finish = useCallback((selection) => {
     clearTimers();
     setPhase('done');
-    onComplete?.();
+    onComplete?.(selection);
   }, [clearTimers, onComplete]);
 
-  const exitIntro = useCallback(() => {
+  const exitIntro = useCallback((selection) => {
     if (phase === 'done') return;
+    if (selection) pendingSelectionRef.current = selection;
     clearTimers();
     setVisibleCount(words.length);
     setPhase('exiting');
-    const timer = setTimeout(finish, prefersReducedMotion ? 0 : FADE_OUT_MS);
-    timersRef.current.push(timer);
-  }, [phase, clearTimers, words.length, finish, prefersReducedMotion]);
+  }, [phase, clearTimers, words.length]);
 
   const skip = useCallback(() => {
-    exitIntro();
-  }, [exitIntro]);
+    exitIntro({ projectId: allWorkProjectId });
+  }, [exitIntro, allWorkProjectId]);
 
-  const handleChipClick = useCallback((e) => {
+  const handleChipClick = useCallback((projectId) => (e) => {
     e.stopPropagation();
-    exitIntro();
+    exitIntro({ projectId });
   }, [exitIntro]);
 
   const handleContactClick = useCallback(async (e) => {
@@ -150,10 +152,7 @@ const IntroAnimation = ({ onComplete }) => {
     if (prefersReducedMotion) {
       setVisibleCount(words.length);
       setPhase('holding');
-      const timer = setTimeout(() => {
-        setPhase('exiting');
-        timersRef.current.push(setTimeout(finish, 0));
-      }, 1200);
+      const timer = setTimeout(() => setPhase('exiting'), 1200);
       timersRef.current.push(timer);
       return clearTimers;
     }
@@ -170,14 +169,17 @@ const IntroAnimation = ({ onComplete }) => {
     const holdTimer = setTimeout(() => setPhase('exiting'), HOLD_AFTER_COMPLETE_MS);
     timersRef.current.push(holdTimer);
     return clearTimers;
-  }, [phase, visibleCount, words.length, prefersReducedMotion, clearTimers, finish]);
+  }, [phase, visibleCount, words.length, prefersReducedMotion, clearTimers]);
 
   useEffect(() => {
     if (phase !== 'exiting') return undefined;
-    const timer = setTimeout(finish, FADE_OUT_MS);
+    const timer = setTimeout(
+      () => finish(pendingSelectionRef.current),
+      prefersReducedMotion ? 0 : FADE_OUT_MS
+    );
     timersRef.current.push(timer);
     return clearTimers;
-  }, [phase, finish, clearTimers]);
+  }, [phase, finish, clearTimers, prefersReducedMotion]);
 
   useEffect(() => {
     const onKeyDown = (e) => {
@@ -237,7 +239,7 @@ const IntroAnimation = ({ onComplete }) => {
             <button
               type="button"
               className="intro-chip"
-              onClick={handleChipClick}
+              onClick={handleChipClick(latestProjectId)}
             >
               latest case study
               <svg className="intro-chip__arrow" viewBox="0 0 10 8" fill="none" aria-hidden="true">
@@ -247,7 +249,7 @@ const IntroAnimation = ({ onComplete }) => {
             <button
               type="button"
               className="intro-chip"
-              onClick={handleChipClick}
+              onClick={handleChipClick(allWorkProjectId)}
             >
               all work
               <svg className="intro-chip__arrow" viewBox="0 0 10 8" fill="none" aria-hidden="true">
