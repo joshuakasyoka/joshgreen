@@ -1,20 +1,75 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
+import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
 import { BugDexPhone, TypeIcon } from './BugDexDemoShared';
 import './BugDexDemoShared.css';
 
-const SOUTH_DOWNS_MAP = '/images/bug-club/south-downs-map.png';
+const MOATA_TILE_URL = 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png';
 
 const PINS = [
-  { x: '26%', y: '38%', type: 'fire', color: '#ee6d2d', label: 'Ditchling Beacon' },
-  { x: '50%', y: '28%', type: 'grass', color: '#4faf52', label: 'Westmeston' },
-  { x: '54%', y: '56%', type: 'ground', color: '#c9982d', label: 'Bow Hill' },
+  { id: 'ditchling', lat: 50.9042, lng: -0.1089, type: 'fire', color: '#ee6d2d', label: 'Ditchling Beacon' },
+  { id: 'westmeston', lat: 50.9195, lng: -0.1612, type: 'grass', color: '#4faf52', label: 'Westmeston' },
+  { id: 'bow-hill', lat: 50.895, lng: -0.182, type: 'ground', color: '#c9982d', label: 'Bow Hill' },
 ];
 
+const PIN_BOUNDS = L.latLngBounds(PINS.map((pin) => [pin.lat, pin.lng]));
+
+const fitMapToPins = (map, fullBleed = false) => {
+  map.fitBounds(PIN_BOUNDS, {
+    paddingTopLeft: L.point(42, fullBleed ? 48 : 56),
+    paddingBottomRight: L.point(42, fullBleed ? 88 : 40),
+    animate: false,
+    maxZoom: 13.35,
+  });
+};
+
 const LOOP_MS = 7200;
+
+const hasValidMapSize = (map) => {
+  const size = map.getSize();
+  return size.x > 0 && size.y > 0;
+};
+
+const safeRemoveMap = (map) => {
+  if (!map) return;
+  try {
+    map.remove();
+  } catch {
+    // Leaflet can throw if the map pane is already gone during strict-mode teardown.
+  }
+};
 
 export default function BugDexMapDemo({ className = '' }) {
   const [cycle, setCycle] = useState(0);
   const [visiblePins, setVisiblePins] = useState([]);
+  const [mapReady, setMapReady] = useState(false);
+  const mapMountRef = useRef(null);
+  const mapRef = useRef(null);
+  const pinElsRef = useRef({});
+
+  const syncPinPositions = useCallback(() => {
+    const map = mapRef.current;
+    if (!map || !hasValidMapSize(map)) return;
+
+    PINS.forEach((pin) => {
+      const el = pinElsRef.current[pin.id];
+      if (!el) return;
+      const point = map.latLngToContainerPoint(L.latLng(pin.lat, pin.lng));
+      if (!Number.isNaN(point.x) && !Number.isNaN(point.y)) {
+        el.style.left = `${point.x}px`;
+        el.style.top = `${point.y}px`;
+      }
+    });
+  }, []);
+
+  const registerPinEl = useCallback((id, el) => {
+    if (el) {
+      pinElsRef.current[id] = el;
+      requestAnimationFrame(() => syncPinPositions());
+    } else {
+      delete pinElsRef.current[id];
+    }
+  }, [syncPinPositions]);
 
   useEffect(() => {
     setVisiblePins([]);
@@ -28,52 +83,117 @@ export default function BugDexMapDemo({ className = '' }) {
     };
   }, [cycle]);
 
-  return (
-    <BugDexPhone className={className} tab="collection">
-      <div className="bugdex-demo__map">
-        <div className="bugdex-demo__coll-top">
-          <div className="bugdex-demo__coll-star">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <path d="M12 21s7-4.35 7-11a7 7 0 1 0-14 0c0 6.65 7 11 7 11z" />
-              <circle cx="12" cy="10" r="2.5" />
-            </svg>
-          </div>
-          <div className="bugdex-demo__coll-caught">11 caught</div>
-        </div>
-        <div className="bugdex-demo__coll-title">Field Map</div>
+  useEffect(() => {
+    const mapMountEl = mapMountRef.current;
+    if (!mapMountEl || mapRef.current) return undefined;
 
-        <div className="bugdex-demo__map-canvas">
-        <img
-          className="bugdex-demo__map-image"
-          src={SOUTH_DOWNS_MAP}
-          alt=""
-          aria-hidden="true"
-          draggable="false"
-        />
-        <div className="bugdex-demo__map-legal" aria-hidden="true">Maps Legal</div>
-        {PINS.map((pin, i) => {
-          const isVisible = visiblePins.includes(i);
-          return (
-            <React.Fragment key={`${cycle}-${i}`}>
-              {isVisible && (
-                <span
-                  className="bugdex-demo__map-ripple"
-                  style={{ left: pin.x, top: pin.y, borderColor: pin.color }}
-                />
-              )}
-              <div
-                className={`bugdex-demo__map-pin ${isVisible ? 'is-visible' : ''}`}
-                style={{ left: pin.x, top: pin.y }}
-              >
-                <div className="bugdex-demo__map-pin-bubble" style={{ borderColor: pin.color }}>
-                  <TypeIcon type={pin.type} size={13} />
+    const map = L.map(mapMountEl, {
+      center: PIN_BOUNDS.getCenter(),
+      zoom: 13,
+      zoomControl: false,
+      attributionControl: false,
+      dragging: false,
+      scrollWheelZoom: false,
+      doubleClickZoom: false,
+      touchZoom: false,
+      boxZoom: false,
+      keyboard: false,
+      tap: false,
+      zoomSnap: 0.25,
+      zoomDelta: 0.25,
+    });
+
+    L.tileLayer(MOATA_TILE_URL, {
+      subdomains: 'abcd',
+      maxZoom: 20,
+    }).addTo(map);
+
+    mapRef.current = map;
+
+    let cancelled = false;
+    let sizeFrame = null;
+
+    const markReady = () => {
+      if (cancelled || !mapRef.current) return;
+      if (!hasValidMapSize(map)) {
+        sizeFrame = requestAnimationFrame(markReady);
+        return;
+      }
+      fitMapToPins(map, true);
+      syncPinPositions();
+      setMapReady(true);
+    };
+
+    const resizeObserver = new ResizeObserver(() => {
+      if (!mapRef.current) return;
+      mapRef.current.invalidateSize({ animate: false });
+      fitMapToPins(mapRef.current, true);
+      syncPinPositions();
+    });
+    resizeObserver.observe(mapMountEl);
+
+    map.on('move', syncPinPositions);
+    map.on('zoom', syncPinPositions);
+    map.on('moveend', syncPinPositions);
+    map.on('zoomend', syncPinPositions);
+    map.whenReady(() => {
+      sizeFrame = requestAnimationFrame(markReady);
+    });
+
+    return () => {
+      cancelled = true;
+      if (sizeFrame) cancelAnimationFrame(sizeFrame);
+      resizeObserver.disconnect();
+      map.off('move', syncPinPositions);
+      map.off('zoom', syncPinPositions);
+      map.off('moveend', syncPinPositions);
+      map.off('zoomend', syncPinPositions);
+      safeRemoveMap(map);
+      mapRef.current = null;
+      setMapReady(false);
+    };
+  }, [syncPinPositions]);
+
+  useLayoutEffect(() => {
+    const map = mapRef.current;
+    if (!map || !mapReady) return;
+    map.invalidateSize({ animate: false });
+    fitMapToPins(map, true);
+    syncPinPositions();
+  }, [mapReady, visiblePins.length, cycle, syncPinPositions]);
+
+  return (
+    <BugDexPhone className={className} tab="collection" mapFull>
+      <div className="bugdex-demo__map bugdex-demo__map--full">
+        <div className="bugdex-demo__map-canvas bugdex-demo__map-canvas--full">
+          <div ref={mapMountRef} className="bugdex-demo__map-leaflet" aria-hidden="true" />
+          <div className="bugdex-demo__map-pins" aria-hidden="true">
+            {mapReady && PINS.map((pin, i) => {
+              const isVisible = visiblePins.includes(i);
+              return (
+                <div
+                  key={`${cycle}-${pin.id}`}
+                  ref={(el) => registerPinEl(pin.id, el)}
+                  className="bugdex-demo__map-pin-group"
+                >
+                  {isVisible && (
+                    <span
+                      className="bugdex-demo__map-ripple"
+                      style={{ borderColor: pin.color }}
+                    />
+                  )}
+                  <div className={`bugdex-demo__map-pin ${isVisible ? 'is-visible' : ''}`}>
+                    <div className="bugdex-demo__map-pin-bubble" style={{ borderColor: pin.color }}>
+                      <TypeIcon type={pin.type} size={13} />
+                    </div>
+                    <div className="bugdex-demo__map-pin-stem" style={{ background: pin.color }} />
+                    <div className="bugdex-demo__map-pin-label">{pin.label}</div>
+                  </div>
                 </div>
-                <div className="bugdex-demo__map-pin-stem" style={{ background: pin.color }} />
-                <div className="bugdex-demo__map-pin-label">{pin.label}</div>
-              </div>
-            </React.Fragment>
-          );
-        })}
+              );
+            })}
+          </div>
+          <div className="bugdex-demo__map-legal bugdex-demo__map-legal--full" aria-hidden="true">Maps Legal</div>
         </div>
       </div>
     </BugDexPhone>

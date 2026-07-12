@@ -252,9 +252,9 @@ export const TabBar = ({ active }) => (
   </div>
 );
 
-export const BugDexPhone = ({ children, tab, light = false, className = '' }) => (
+export const BugDexPhone = ({ children, tab, light = false, mapFull = false, className = '' }) => (
   <div className={`bugdex-demo ${className}`} aria-hidden="true">
-    <div className={`bugdex-demo__phone${tab ? ` bugdex-demo__phone--${tab}` : ''}`}>
+    <div className={`bugdex-demo__phone${tab ? ` bugdex-demo__phone--${tab}` : ''}${mapFull ? ' bugdex-demo__phone--map-full' : ''}`}>
       <StatusBar light={light} />
       {children}
       {tab && <TabBar active={tab} />}
