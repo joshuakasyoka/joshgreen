@@ -2,14 +2,17 @@ import React, { useEffect, useState } from 'react';
 import {
   BugDexPhone,
   StagBeetleArt,
-  BlueBeetleArt,
+  DragonflyArt,
+  WeevilArt,
+  MantisArt,
   TypeIcon,
+  BUGDEX_TYPE_GREEN,
+  BUGDEX_RARITY,
   SparkleIcon,
   RarityGem,
 } from './BugDexDemoShared';
 import './BugDexDemoShared.css';
 
-const BEETLE_CARD_ART = `${process.env.PUBLIC_URL}/images/bug-club/beetle-card.png`;
 const CAROUSEL_MS = 3600;
 
 const CARDS = [
@@ -17,8 +20,7 @@ const CARDS = [
     name: 'Irideon',
     hp: 55,
     type: 'ground',
-    rule: '#c9982d',
-    art: { kind: 'photo', src: BEETLE_CARD_ART },
+    art: { kind: 'weevil', size: 104 },
     info: 'N° 014 · Moss Walker · 28 mm · 1.2 g',
     attacks: [
       { name: 'Mandible Snap', desc: 'Clamps prey with powerful jaws and drags it under leaf litter.', dmg: 30 },
@@ -37,7 +39,6 @@ const CARDS = [
     name: 'Duelhorn',
     hp: 90,
     type: 'ground',
-    rule: '#dfb959',
     art: { kind: 'stag', size: 104 },
     info: 'N° 001 · Oakwood Duelist · 70 mm · 4 g',
     attacks: [
@@ -57,8 +58,7 @@ const CARDS = [
     name: 'Azurehood',
     hp: 60,
     type: 'bug',
-    rule: '#7eb8d4',
-    art: { kind: 'blue', size: 104 },
+    art: { kind: 'dragonfly', size: 104 },
     info: 'N° 003 · Sky Stalker · 22 mm · 0.8 g',
     attacks: [
       { name: 'Wing Flash', desc: 'Bursts skyward on iridescent wings to startle predators.', dmg: 25 },
@@ -73,6 +73,25 @@ const CARDS = [
     holo: false,
     stats: { weight: '0.8 g', type: 'Bug', length: '22 mm' },
   },
+  {
+    name: 'Praystrike',
+    hp: 70,
+    type: 'bug',
+    art: { kind: 'mantis', size: 104 },
+    info: 'N° 007 · Still Hunter · 65 mm · 2.1 g',
+    attacks: [
+      { name: 'Raptorial Strike', desc: 'Snaps folded forelegs shut on prey in a blur of green.', dmg: 40 },
+      { name: 'Head Turn', desc: 'Tracks movement with compound eyes before lunging from cover.', dmg: 25 },
+    ],
+    flavour: 'A patient ambusher that holds perfectly still on a stem until prey wanders within arm\'s reach.',
+    weakness: 'fire',
+    retreat: '●',
+    species: 'European mantis',
+    latin: 'Mantis religiosa',
+    rarity: 'uncommon',
+    holo: false,
+    stats: { weight: '2.1 g', type: 'Bug', length: '65 mm' },
+  },
 ];
 
 const RARITY_LABELS = {
@@ -82,11 +101,10 @@ const RARITY_LABELS = {
 };
 
 function CardArt({ art }) {
-  if (art.kind === 'photo') {
-    return <img src={art.src} alt="" aria-hidden="true" className="bugdex-demo__card-art-img" />;
-  }
+  if (art.kind === 'weevil') return <WeevilArt size={art.size} />;
   if (art.kind === 'stag') return <StagBeetleArt size={art.size} />;
-  if (art.kind === 'blue') return <BlueBeetleArt size={art.size} />;
+  if (art.kind === 'dragonfly') return <DragonflyArt size={art.size} />;
+  if (art.kind === 'mantis') return <MantisArt size={art.size} />;
   return null;
 }
 
@@ -100,16 +118,16 @@ function TradingCard({ card, hotAttack }) {
         <span className="bugdex-demo__card-hp">
           <span>HP</span>{card.hp}
         </span>
-        <TypeIcon type={card.type} size={14} />
+        <TypeIcon type={card.type} size={14} color={BUGDEX_TYPE_GREEN} />
       </div>
-      <div className="bugdex-demo__card-rule" style={{ background: card.rule }} />
+      <div className="bugdex-demo__card-rule" style={{ background: BUGDEX_TYPE_GREEN }} />
       <div className="bugdex-demo__card-art">
         <CardArt art={card.art} />
       </div>
       <div className="bugdex-demo__card-info">{card.info}</div>
       {card.attacks.map((attack, i) => (
         <div key={attack.name} className={`bugdex-demo__attack ${hotAttack === i ? 'is-hot' : ''}`}>
-          <TypeIcon type={card.type} size={10} />
+          <TypeIcon type={card.type} size={10} color={BUGDEX_TYPE_GREEN} />
           <div className="bugdex-demo__attack-body">
             <div className="bugdex-demo__attack-name">{attack.name}</div>
             <div className="bugdex-demo__attack-desc">{attack.desc}</div>
@@ -131,7 +149,7 @@ function TradingCard({ card, hotAttack }) {
           <em>{card.latin}</em>
         </div>
         <div className="bugdex-demo__card-rarity">
-          {card.rarity === 'ultra' ? <SparkleIcon size={9} /> : <RarityGem rarity={card.rarity} size={7} />}
+          {card.rarity === 'ultra' ? <SparkleIcon size={9} color={BUGDEX_RARITY} /> : <RarityGem rarity={card.rarity} size={7} />}
           {RARITY_LABELS[card.rarity]}
         </div>
       </div>

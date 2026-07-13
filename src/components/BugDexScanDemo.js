@@ -2,14 +2,15 @@ import React, { useEffect, useRef, useState } from 'react';
 import {
   BugDexPhone,
   TypeIcon,
+  BUGDEX_TYPE_GREEN,
   RarityGem,
   SparkleIcon,
+  WeevilArt,
 } from './BugDexDemoShared';
 import './BugDexDemoShared.css';
 
 const BEETLE_SCAN_VIDEO = `${process.env.PUBLIC_URL}/images/bug-club/beetle-scan.mp4`;
 const BEETLE_SCAN_POSTER = `${process.env.PUBLIC_URL}/images/bug-club/beetle-scan-poster.png`;
-const BEETLE_CARD_ART = `${process.env.PUBLIC_URL}/images/bug-club/beetle-card.png`;
 
 // Phases: 0=camera, 1=identifying, 2=card reveal
 const PHASE_DURATIONS = [2400, 3000, 3400];
@@ -102,13 +103,13 @@ export default function BugDexScanDemo({ className = '' }) {
               {!named ? (
                 <div className="bugdex-demo__identify-pill" key="working">
                   <span className="bugdex-demo__identify-spark">
-                    <SparkleIcon size={11} color="#58c224" />
+                    <SparkleIcon size={11} color="#48484a" />
                   </span>
                   <span className="bugdex-demo__identify-dots">Identifying with Opus</span>
                 </div>
               ) : (
                 <div className="bugdex-demo__identify-pill" key="named">
-                  <TypeIcon type="ground" size={11} />
+                  <TypeIcon type="ground" size={11} color={BUGDEX_TYPE_GREEN} />
                   Violet ground beetle <span className="is-species">Carabus violaceus</span>
                 </div>
               )}
@@ -134,20 +135,15 @@ export default function BugDexScanDemo({ className = '' }) {
                   <span className="bugdex-demo__card-hp">
                     <span>HP</span>55
                   </span>
-                  <TypeIcon type="ground" size={14} />
+                  <TypeIcon type="ground" size={14} color={BUGDEX_TYPE_GREEN} />
                 </div>
-                <div className="bugdex-demo__card-rule" style={{ background: '#c9982d' }} />
+                <div className="bugdex-demo__card-rule" style={{ background: BUGDEX_TYPE_GREEN }} />
                 <div className="bugdex-demo__card-art">
-                  <img
-                    src={BEETLE_CARD_ART}
-                    alt=""
-                    aria-hidden="true"
-                    className="bugdex-demo__card-art-img"
-                  />
+                  <WeevilArt size={104} />
                 </div>
                 <div className="bugdex-demo__card-info">N° 014 · Moss Walker · 28 mm · 1.2 g</div>
                 <div className="bugdex-demo__attack is-hot">
-                  <TypeIcon type="ground" size={10} />
+                  <TypeIcon type="ground" size={10} color={BUGDEX_TYPE_GREEN} />
                   <div className="bugdex-demo__attack-body">
                     <div className="bugdex-demo__attack-name">Mandible Snap</div>
                     <div className="bugdex-demo__attack-desc">Clamps prey with powerful jaws and drags it under leaf litter.</div>
@@ -155,7 +151,7 @@ export default function BugDexScanDemo({ className = '' }) {
                   <div className="bugdex-demo__attack-dmg">30</div>
                 </div>
                 <div className="bugdex-demo__attack">
-                  <TypeIcon type="ground" size={10} />
+                  <TypeIcon type="ground" size={10} color={BUGDEX_TYPE_GREEN} />
                   <div className="bugdex-demo__attack-body">
                     <div className="bugdex-demo__attack-name">Leaf Scuttle</div>
                     <div className="bugdex-demo__attack-desc">Darts beneath moss at the first vibration of a footfall.</div>

@@ -2,11 +2,12 @@ import React, { useEffect, useRef, useState } from 'react';
 import {
   BugDexPhone,
   TypeIcon,
+  BUGDEX_TYPE_GREEN,
   RarityGem,
-  LadybirdArt,
+  BeeArt,
   StagBeetleArt,
-  BlueBeetleArt,
-  YellowBeetleArt,
+  DragonflyArt,
+  MothArt,
 } from './BugDexDemoShared';
 import './BugDexDemoShared.css';
 
@@ -45,18 +46,18 @@ const POINT_CHIPS = [
 
 const PROFILE_CARDS = [
   { art: <StagBeetleArt size={46} />, num: 'N° 001', rarity: 'ultra', name: 'Duelhorn', hp: 90 },
-  { art: <YellowBeetleArt size={46} />, num: 'N° 002', rarity: 'common', name: 'Sunspindle', hp: 50 },
-  { art: <BlueBeetleArt size={46} />, num: 'N° 003', rarity: 'uncommon', name: 'Azurehood', hp: 60 },
-  { art: <LadybirdArt size={46} />, num: 'N° 010', rarity: 'uncommon', name: 'Emberdome', hp: 45 },
+  { art: <MothArt size={46} />, num: 'N° 002', rarity: 'common', name: 'Sunspindle', hp: 50 },
+  { art: <DragonflyArt size={46} />, num: 'N° 003', rarity: 'uncommon', name: 'Azurehood', hp: 60 },
+  { art: <BeeArt size={46} />, num: 'N° 010', rarity: 'uncommon', name: 'Emberdome', hp: 45 },
 ];
 
 const OVERVIEW = [
-  { num: '10', label: 'Bugs caught', icon: <TypeIcon type="bug" size={13} /> },
+  { num: '10', label: 'Bugs caught', icon: <TypeIcon type="bug" size={13} color={BUGDEX_TYPE_GREEN} /> },
   {
     num: '3',
     label: 'Rare finds',
     icon: (
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#58c224" strokeWidth="2" strokeLinejoin="round" aria-hidden="true">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke={BUGDEX_TYPE_GREEN} strokeWidth="2" strokeLinejoin="round" aria-hidden="true">
         <path d="m12 3 2.6 5.6 6 .7-4.5 4.1 1.2 5.9L12 16.4l-5.3 2.9 1.2-5.9L3.4 9.3l6-.7z" />
       </svg>
     ),
@@ -65,7 +66,7 @@ const OVERVIEW = [
     num: '6',
     label: 'Types collected',
     icon: (
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="#58c224" aria-hidden="true">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill={BUGDEX_TYPE_GREEN} aria-hidden="true">
         <rect x="4" y="4" width="7" height="7" rx="1.6" />
         <rect x="13" y="4" width="7" height="7" rx="1.6" />
         <rect x="4" y="13" width="7" height="7" rx="1.6" />
@@ -77,7 +78,7 @@ const OVERVIEW = [
     num: '10',
     label: 'Places explored',
     icon: (
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#58c224" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke={BUGDEX_TYPE_GREEN} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M9 4 3.5 6v14L9 18l6 2 5.5-2V4L15 6z" />
         <path d="M9 4v14M15 6v14" />
       </svg>
@@ -166,7 +167,7 @@ export default function BugDexProfileDemo({ className = '' }) {
           <div className="bugdex-demo__level-head">
             <span className="bugdex-demo__level-label">LEVEL 5 · POLLINATOR</span>
             <span className="bugdex-demo__level-badge">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#58c224" strokeWidth="2" aria-hidden="true">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#48484a" strokeWidth="2" aria-hidden="true">
                 <circle cx="12" cy="9" r="5.5" />
                 <path d="M9.5 13.5 8 21l4-2.5 4 2.5-1.5-7.5" strokeLinejoin="round" />
               </svg>

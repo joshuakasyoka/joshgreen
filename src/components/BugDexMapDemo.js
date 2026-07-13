@@ -4,12 +4,14 @@ import 'leaflet/dist/leaflet.css';
 import { BugDexPhone, TypeIcon } from './BugDexDemoShared';
 import './BugDexDemoShared.css';
 
-const MOATA_TILE_URL = 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png';
+const EMMA_TILE_URL = 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png';
+
+const PIN_COLORS = ['#BFDDFA', '#D0BFFA', '#F3FABD'];
 
 const PINS = [
-  { id: 'ditchling', lat: 50.9042, lng: -0.1089, type: 'fire', color: '#ee6d2d', label: 'Ditchling Beacon' },
-  { id: 'westmeston', lat: 50.9195, lng: -0.1612, type: 'grass', color: '#4faf52', label: 'Westmeston' },
-  { id: 'bow-hill', lat: 50.895, lng: -0.182, type: 'ground', color: '#c9982d', label: 'Bow Hill' },
+  { id: 'ditchling', lat: 50.9042, lng: -0.1089, type: 'fire', label: 'Ditchling Beacon', color: PIN_COLORS[0] },
+  { id: 'westmeston', lat: 50.9195, lng: -0.1612, type: 'grass', label: 'Westmeston', color: PIN_COLORS[1] },
+  { id: 'bow-hill', lat: 50.895, lng: -0.182, type: 'ground', label: 'Bow Hill', color: PIN_COLORS[2] },
 ];
 
 const PIN_BOUNDS = L.latLngBounds(PINS.map((pin) => [pin.lat, pin.lng]));
@@ -103,7 +105,7 @@ export default function BugDexMapDemo({ className = '' }) {
       zoomDelta: 0.25,
     });
 
-    L.tileLayer(MOATA_TILE_URL, {
+    L.tileLayer(EMMA_TILE_URL, {
       subdomains: 'abcd',
       maxZoom: 20,
     }).addTo(map);
@@ -184,7 +186,7 @@ export default function BugDexMapDemo({ className = '' }) {
                   )}
                   <div className={`bugdex-demo__map-pin ${isVisible ? 'is-visible' : ''}`}>
                     <div className="bugdex-demo__map-pin-bubble" style={{ borderColor: pin.color }}>
-                      <TypeIcon type={pin.type} size={13} />
+                      <TypeIcon type={pin.type} size={13} color={pin.color} />
                     </div>
                     <div className="bugdex-demo__map-pin-stem" style={{ background: pin.color }} />
                     <div className="bugdex-demo__map-pin-label">{pin.label}</div>

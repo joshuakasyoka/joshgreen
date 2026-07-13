@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import {
   BugDexPhone,
-  LadybirdArt,
+  DragonflyArt,
+  MothArt,
   StagBeetleArt,
-  BlueBeetleArt,
-  YellowBeetleArt,
+  BeeArt,
   TypeIcon,
+  BUGDEX_TYPE_GREEN,
   RarityGem,
 } from './BugDexDemoShared';
 import './BugDexDemoShared.css';
@@ -61,7 +62,7 @@ export default function BugDexCollectionDemo({ className = '' }) {
                   key={`${cat}-${cycle}`}
                   className={`bugdex-demo__coll-cat bugdex-demo__coll-cat--${cat} ${lit ? 'is-lit' : ''} ${isNew ? 'is-new' : ''}`}
                 >
-                  <TypeIcon type={cat} size={11} />
+                  <TypeIcon type={cat} size={11} color={lit ? BUGDEX_TYPE_GREEN : '#d1d1d6'} />
                 </div>
               );
             })}
@@ -70,14 +71,14 @@ export default function BugDexCollectionDemo({ className = '' }) {
 
         <div className="bugdex-demo__coll-section">
           <div className="bugdex-demo__coll-section-head">
-            <TypeIcon type="bug" size={12} />
+            <TypeIcon type="bug" size={12} color={BUGDEX_TYPE_GREEN} />
             Bug
             <span className="bugdex-demo__coll-section-count">3</span>
           </div>
           <div className="bugdex-demo__coll-grid">
             <div className="bugdex-demo__coll-cell">
               <div className="bugdex-demo__coll-art">
-                <BlueBeetleArt size={46} />
+                <DragonflyArt size={46} />
               </div>
               <div className="bugdex-demo__coll-cell-num">
                 N° 003
@@ -89,7 +90,7 @@ export default function BugDexCollectionDemo({ className = '' }) {
             </div>
             <div className="bugdex-demo__coll-cell">
               <div className="bugdex-demo__coll-art">
-                <YellowBeetleArt size={46} />
+                <MothArt size={46} />
               </div>
               <div className="bugdex-demo__coll-cell-num">
                 N° 002
@@ -117,14 +118,14 @@ export default function BugDexCollectionDemo({ className = '' }) {
         {caughtNew && (
           <div className="bugdex-demo__coll-section" style={{ animation: 'bugdex-fade-up 0.4s ease both' }}>
             <div className="bugdex-demo__coll-section-head">
-              <TypeIcon type="fire" size={12} />
+              <TypeIcon type="fire" size={12} color={BUGDEX_TYPE_GREEN} />
               Fire
               <span className="bugdex-demo__coll-section-count">1</span>
             </div>
             <div className="bugdex-demo__coll-grid">
               <div className="bugdex-demo__coll-cell is-new">
                 <div className="bugdex-demo__coll-art">
-                  <LadybirdArt size={46} />
+                  <BeeArt size={46} />
                 </div>
                 <div className="bugdex-demo__coll-cell-num">
                   N° 010

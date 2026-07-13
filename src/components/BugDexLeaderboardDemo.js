@@ -6,7 +6,7 @@ const ROW_HEIGHT = 56;
 const ROW_GAP = 10;
 const LOOP_MS = 7400;
 
-const RANK_COLORS = ['#e5aa2e', '#a9a8a1', '#c07a3c'];
+const RANK_COLORS = ['#BFDDFA', '#D0BFFA', '#F3FABD'];
 
 const COLLECTORS = [
   {

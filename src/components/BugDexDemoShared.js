@@ -1,11 +1,13 @@
 import React from 'react';
 import './BugDexDemoShared.css';
-import ladybirdImg from './bugdex-art/ladybird.png';
 import stagBeetleImg from './bugdex-art/stag-beetle.png';
-import blueBeetleImg from './bugdex-art/blue-beetle.png';
-import yellowBeetleImg from './bugdex-art/yellow-beetle.png';
+import mantisImg from './bugdex-art/mantis.png';
+import dragonflyImg from './bugdex-art/dragonfly.png';
+import weevilImg from './bugdex-art/weevil.png';
+import beeImg from './bugdex-art/bee.png';
+import mothImg from './bugdex-art/moth.png';
 
-/* ── Watercolour bug artwork ────────────────────────────── */
+/* ── Bug artwork ────────────────────────────────────────── */
 
 const BugPhoto = ({ src, size }) => (
   <img
@@ -16,14 +18,19 @@ const BugPhoto = ({ src, size }) => (
   />
 );
 
-export const LadybirdArt = ({ size = 64 }) => <BugPhoto src={ladybirdImg} size={size} />;
 export const StagBeetleArt = ({ size = 64 }) => <BugPhoto src={stagBeetleImg} size={size} />;
-export const BlueBeetleArt = ({ size = 64 }) => <BugPhoto src={blueBeetleImg} size={size} />;
-export const YellowBeetleArt = ({ size = 64 }) => <BugPhoto src={yellowBeetleImg} size={size} />;
+export const MantisArt = ({ size = 64 }) => <BugPhoto src={mantisImg} size={size} />;
+export const DragonflyArt = ({ size = 64 }) => <BugPhoto src={dragonflyImg} size={size} />;
+export const WeevilArt = ({ size = 64 }) => <BugPhoto src={weevilImg} size={size} />;
+export const BeeArt = ({ size = 64 }) => <BugPhoto src={beeImg} size={size} />;
+export const MothArt = ({ size = 64 }) => <BugPhoto src={mothImg} size={size} />;
 
 /* ── Type icons ─────────────────────────────────────────── */
 
-export const TypeIcon = ({ type, size = 12 }) => {
+export const BUGDEX_TYPE_GREEN = '#5BCE90';
+export const BUGDEX_RARITY = '#BFDDFA';
+
+export const TypeIcon = ({ type, size = 12, color }) => {
   const common = {
     width: size,
     height: size,
@@ -38,21 +45,21 @@ export const TypeIcon = ({ type, size = 12 }) => {
         <svg {...common}>
           <path
             d="M12 2.5c1.2 3.4-2.4 5-2.4 8 0 1.6 1 2.7 2.4 2.7s2.4-1.1 2.4-2.7c1.7 1.5 3.1 3.3 3.1 5.6 0 3.3-2.4 5.4-5.5 5.4s-5.5-2.1-5.5-5.4c0-4.6 4.3-6.9 5.5-13.6z"
-            fill="#ee6d2d"
+            fill={color || '#ee6d2d'}
           />
         </svg>
       );
     case 'bug':
       return (
         <svg {...common}>
-          <circle cx="12" cy="14" r="7" fill="#67c23a" />
-          <path d="M6.5 9.5a6 6 0 0 1 11 0z" fill="#67c23a" />
+          <circle cx="12" cy="14" r="7" fill={color || '#67c23a'} />
+          <path d="M6.5 9.5a6 6 0 0 1 11 0z" fill={color || '#67c23a'} />
           <line x1="12" y1="8" x2="12" y2="21" stroke="#fff" strokeWidth="1.4" />
           <circle cx="9" cy="13" r="1.1" fill="#fff" />
           <circle cx="15" cy="13" r="1.1" fill="#fff" />
           <circle cx="9.5" cy="17" r="1.1" fill="#fff" />
           <circle cx="14.5" cy="17" r="1.1" fill="#fff" />
-          <path d="M8 6 6 3.5M16 6l2-2.5" stroke="#67c23a" strokeWidth="1.6" strokeLinecap="round" />
+          <path d="M8 6 6 3.5M16 6l2-2.5" stroke={color || '#67c23a'} strokeWidth="1.6" strokeLinecap="round" />
         </svg>
       );
     case 'grass':
@@ -61,10 +68,10 @@ export const TypeIcon = ({ type, size = 12 }) => {
           <path
             d="M19.5 4.5c.5 7.5-3.5 13.5-11 13.5C6.5 11 11 5.5 19.5 4.5z"
             fill="none"
-            stroke="#4faf52"
+            stroke={color || '#4faf52'}
             strokeWidth="1.8"
           />
-          <path d="M8.5 18c3-5 7-8.5 9.5-10" stroke="#4faf52" strokeWidth="1.4" strokeLinecap="round" />
+          <path d="M8.5 18c3-5 7-8.5 9.5-10" stroke={color || '#4faf52'} strokeWidth="1.4" strokeLinecap="round" />
         </svg>
       );
     case 'ground':
@@ -73,7 +80,7 @@ export const TypeIcon = ({ type, size = 12 }) => {
           <path
             d="M3.5 17.5 9 8.5l3.5 5.4 1.8-2.7 6.2 6.3z"
             fill="none"
-            stroke="#c9982d"
+            stroke={color || '#c9982d'}
             strokeWidth="1.8"
             strokeLinejoin="round"
           />
@@ -85,7 +92,7 @@ export const TypeIcon = ({ type, size = 12 }) => {
           <path
             d="M12 3.5c3.2 4.2 5.5 7.2 5.5 10.3a5.5 5.5 0 0 1-11 0c0-3.1 2.3-6.1 5.5-10.3z"
             fill="none"
-            stroke="#4a9fe0"
+            stroke={color || '#4a9fe0'}
             strokeWidth="1.8"
           />
         </svg>
@@ -95,7 +102,7 @@ export const TypeIcon = ({ type, size = 12 }) => {
         <svg {...common}>
           <path
             d="M3.5 9h10a3 3 0 1 0-3-3.5M3.5 14h14a3 3 0 1 1-3 3.5"
-            stroke="#7c92e8"
+            stroke={color || '#7c92e8'}
             strokeWidth="1.8"
             strokeLinecap="round"
             fill="none"
@@ -105,8 +112,8 @@ export const TypeIcon = ({ type, size = 12 }) => {
     case 'sun':
       return (
         <svg {...common}>
-          <circle cx="12" cy="12" r="4" stroke="#d9a824" strokeWidth="1.8" />
-          <g stroke="#d9a824" strokeWidth="1.6" strokeLinecap="round">
+          <circle cx="12" cy="12" r="4" stroke={color || '#d9a824'} strokeWidth="1.8" />
+          <g stroke={color || '#d9a824'} strokeWidth="1.6" strokeLinecap="round">
             <path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M18.4 5.6 17 7M7 17l-1.4 1.4" />
           </g>
         </svg>
@@ -117,7 +124,7 @@ export const TypeIcon = ({ type, size = 12 }) => {
           <path
             d="M13 2.5 5.5 13.5H11L9.5 21.5 17.5 10H12z"
             fill="none"
-            stroke="#c9c9c9"
+            stroke={color || '#c9c9c9'}
             strokeWidth="1.8"
             strokeLinejoin="round"
           />
@@ -126,7 +133,7 @@ export const TypeIcon = ({ type, size = 12 }) => {
     default:
       return (
         <svg {...common}>
-          <rect x="6" y="6" width="12" height="12" rx="3" transform="rotate(45 12 12)" stroke="#c9c9c9" strokeWidth="1.6" />
+          <rect x="6" y="6" width="12" height="12" rx="3" transform="rotate(45 12 12)" stroke={color || '#c9c9c9'} strokeWidth="1.6" />
         </svg>
       );
   }
@@ -138,14 +145,14 @@ export const RarityGem = ({ rarity, size = 9 }) => {
   if (rarity === 'ultra') {
     return (
       <svg width={size + 3} height={size + 3} viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path d="M12 2.5 14 9l6.5 2-6.5 2.5L12 21l-2-7.5L3.5 11 10 9z" fill="#c26be0" />
+        <path d="M12 2.5 14 9l6.5 2-6.5 2.5L12 21l-2-7.5L3.5 11 10 9z" fill={BUGDEX_RARITY} />
       </svg>
     );
   }
   if (rarity === 'uncommon') {
     return (
       <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <rect x="5.5" y="5.5" width="13" height="13" rx="2" transform="rotate(45 12 12)" fill="#2f7df6" />
+        <rect x="5.5" y="5.5" width="13" height="13" rx="2" transform="rotate(45 12 12)" fill={BUGDEX_RARITY} />
       </svg>
     );
   }
