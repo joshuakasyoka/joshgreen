@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 48" role="img" aria-label="UAL">
+  <!-- Simple geometric UAL letters mark (not coat of arms) -->
+  <g fill="#000">
+    <!-- U -->
+    <path d="M8 6h10v24c0 5.5 3.8 9 9.5 9s9.5-3.5 9.5-9V6h10v24c0 11.5-8.2 19-19.5 19S8 41.5 8 30V6z"/>
+    <!-- A -->
+    <path d="M60 6h12l18 42h-11.2l-3.4-8.4H56.6L53.2 48H42L60 6zm1.2 24.6h9.6L66 18.8l-4.8 11.8z"/>
+    <!-- L -->
+    <path d="M94 6h10v32h16v10H94V6z"/>
+  </g>
+</svg>

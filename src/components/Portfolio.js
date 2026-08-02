@@ -68,6 +68,7 @@ import BugDexCardLeaderboardPair from './BugDexCardLeaderboardPair';
 import BugClubStackDiagram from './BugClubStackDiagram';
 import ReflectionQuestions from './ReflectionQuestions';
 import CaseStudyNav from './CaseStudyNav';
+import RotatingClientLogo from './RotatingClientLogo';
 import FloatingLetters from './FloatingLetters';
 
 const toIndexNavLabel = (text) =>
@@ -82,6 +83,25 @@ const renderInlineTerm = (text) => (
 export const PORTFOLIO_PROJECT_IDS = {
   bugClub: 18,
   moataGeospatial: 5,
+};
+
+const ERASMUS_CLIENT_LOGO = {
+  src: '/images/participatory/climate-truth-crisis/eu-flag.svg',
+  label: 'Client: Erasmus +',
+  fit: 'cover',
+};
+
+const TATE_CLIENT_LOGO = {
+  src: '/images/web-development/tate-modern/tate-logo-3.jpeg',
+  label: 'Client: Tate Modern',
+  fit: 'contain',
+  badgeClassName: 'bg-black',
+};
+
+const DUTCH_DESIGN_FOUNDATION_CLIENT_LOGO = {
+  src: '/images/doodler/dutch-design-foundation-logo.svg',
+  label: 'Client: Dutch Design Foundation',
+  fit: 'cover',
 };
 
 const Portfolio = ({ isDarkMode, toggleDarkMode, initialProjectId = null }) => {
@@ -300,7 +320,8 @@ const Portfolio = ({ isDarkMode, toggleDarkMode, initialProjectId = null }) => {
           { text: 'hidden water cost' },
           '. Visitors create liquid artifacts with measured footprints, archive them, and experience each through text, simulation, or audio — the tricky part was making every mode feel equally clear on a loud gallery floor.',
         ],
-        fullDescription: 'An interactive digital exhibit commissioned by Tate Modern that explores and visualizes the significant water consumption and environmental impact of generative AI technologies, revealing the hidden resource costs behind AI training and generation processes.', 
+        fullDescription: 'An interactive digital exhibit commissioned by Tate Modern that explores and visualizes the significant water consumption and environmental impact of generative AI technologies, revealing the hidden resource costs behind AI training and generation processes.',
+        clientLogo: TATE_CLIENT_LOGO,
         website: 'https://digital-water-database-hips.vercel.app/',
         startingPoint: 'Tate Modern needed visitors to feel litres, not just read them — the first design question was how to map water cost to ripples, verse, and audio without one mode dominating the plinth.',
         outcome: 'An installation where generation, archive, and simulation each answer the same question differently — balanced from footfall tests on which artifact types people actually opened.',
@@ -445,7 +466,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode, initialProjectId = null }) => {
           ' designed and delivered to improve how project teams communicate and manage work across 2D and 3D environments.',
         ],
         fullDescription: 'Moata Geospatial is Mott MacDonald\'s GIS platform for civil engineering, used on major infrastructure programmes like HS2. As lead product designer, I work across feature development on the product. This case study follows map-native comments — designed and shipped to improve project management and communication across 2D and 3D.',
-        website: 'https://www.mottmac.com/en/digital-solutions/',
+        website: 'https://add-layers.vercel.app/',
         startingPoint: 'Every team stepped on each other\'s map state — user interviews showed isolated workspaces had to ship before thread metadata, panel grids, or 3D commenting could matter.',
         outcome: 'Project spaces, map-anchored comments with audit trails, a processing panel, and unified 2D/3D commenting — each layer solving the next collaboration failure we found in QA.',
         techStack: 'Product design, interaction design, prototyping, motion design.',
@@ -768,7 +789,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode, initialProjectId = null }) => {
           '.',
         ],
         fullDescription: 'Bringing ACC model data into the map side panel — version history, comparison, and property inspection without leaving Moata.',
-        website: 'https://www.mottmac.com/en/digital-solutions/',
+        website: 'https://geospatial-prototype.vercel.app/',
         startingPoint: 'Scrubbing timelines was not enough — teams needed to pick specific revisions side by side and spot property changes without leaving the map.',
         outcome: 'A unified 3D panel where engineers scrub history, compare revisions, and read diffs at a glance — validated on live programme assets.',
         techStack: 'Product design, interaction design, prototyping, motion design.',
@@ -863,6 +884,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode, initialProjectId = null }) => {
         ],
         fullDescription: 'A co-created visual tool for therapists and patients to talk through difficult moments in care.',
         website: '',
+        clientLogo: DUTCH_DESIGN_FOUNDATION_CLIENT_LOGO,
         startingPoint: 'Therapist interviews surfaced co-editing during crisis as the edge case — the product had to solve for dialogue in the room, not a comprehensive clinical record.',
         outcome: 'A guided co-creation flow from first session to printable summary — patient and therapist leave with something they made together, validated in-room.',
         techStack: 'Product design, interaction design, prototyping, motion design.',
@@ -1032,7 +1054,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode, initialProjectId = null }) => {
           { text: 'MA Global Collaborative Design Practice' },
           ' programme — a platform where students across multiple cohorts could upload project work and explore the relationships between project partners, previous years, and concurrent cohorts.',
         ],
-        fullDescription: 'A collaborative digital platform built for the UAL graduate course Global Collaborative Design Practice, designed to display and archive thesis projects from design students across multiple disciplines, facilitating research sharing and discovery.', 
+        fullDescription: 'A collaborative digital platform built for the UAL graduate course Global Collaborative Design Practice, designed to display and archive thesis projects from design students across multiple disciplines, facilitating research sharing and discovery.',
         startingPoint: 'Tutors described relational questions — methods, partners, cohorts — that a single searchable grid could not solve; each browse mode had to earn its place against a real student search task.',
         outcome: 'An archive where artefacts filter by tag, cluster in a graph, trace through partners, and decode through a glossary — each view solving a different discovery failure.',
         techStack: 'React, Node.js, MongoDB, Mapbox, D3, Vercel',
@@ -1482,6 +1504,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode, initialProjectId = null }) => {
         ],
         fullDescription: 'An Erasmus+ funded research and design project examining the climate truth crisis through visual communication, exploring how misinformation spreads through information systems and culminating in a public exhibition at a tram stop in Tallinn.',
         website: 'https://deathof-nero.vercel.app/',
+        clientLogo: ERASMUS_CLIENT_LOGO,
         startingPoint: 'The research question was where trust breaks — outline work mapped reader doubt points before any visual or motion design.',
         outcome: 'A public exhibition at a Tallinn tram stop that withholds easy answers but keeps people looking — structure tuned from how passers-by actually engaged with the work.',
         techStack: 'React, Three.js, WebGL, Vercel, GSAP',
@@ -1489,6 +1512,10 @@ const Portfolio = ({ isDarkMode, toggleDarkMode, initialProjectId = null }) => {
           {
             src: '/images/participatory/climate-truth-crisis/12.01.png',
             caption: 'Climate Truth Crisis — opening chapter',
+          },
+          {
+            src: '/images/participatory/climate-truth-crisis/CTC.jpg',
+            caption: 'Climate Truth Crisis — collaborative workshop',
           },
           {
             src: '/images/participatory/climate-truth-crisis/12.02.png',
@@ -1902,6 +1929,32 @@ const Portfolio = ({ isDarkMode, toggleDarkMode, initialProjectId = null }) => {
     }
     return defaultRoleHighlights;
   };
+  const renderCaseStudyTitleHeader = (
+    project,
+    {
+      titleClassName = 'text-2xl font-normal text-gray-900',
+      dateClassName = 'mt-1 text-sm text-gray-500',
+      logoSize = 40,
+      className = 'mb-4',
+    } = {}
+  ) => (
+    <div className={`flex items-center justify-between gap-4 ${className}`.trim()}>
+      <div className="min-w-0">
+        <h2 className={titleClassName}>{project.name}</h2>
+        {project.date && <p className={dateClassName}>{project.date}</p>}
+      </div>
+      {project.clientLogo && (
+        <RotatingClientLogo
+          src={project.clientLogo.src}
+          clientLabel={project.clientLogo.label}
+          fit={project.clientLogo.fit || 'cover'}
+          badgeClassName={project.clientLogo.badgeClassName}
+          imageScale={project.clientLogo.imageScale}
+          size={logoSize}
+        />
+      )}
+    </div>
+  );
   const renderRoleChips = (project, { className = 'mb-4', keyPrefix = 'chip' } = {}) => (
     <div className={`flex flex-wrap gap-2 ${className}`.trim()}>
       {getRoleHighlights(project).map((item, idx) => (
@@ -1918,14 +1971,14 @@ const Portfolio = ({ isDarkMode, toggleDarkMode, initialProjectId = null }) => {
           href={project.website}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 px-2.5 py-1 border border-gray-300 text-gray-600 text-xs rounded-full custom-clickable hover:blur-sm no-underline"
+          className="inline-flex items-center gap-1.5 px-2.5 py-1 border border-gray-300 text-gray-600 hover:text-gray-500 visited:text-gray-600 active:text-gray-500 focus:text-gray-600 text-xs rounded-full custom-clickable hover:blur-sm no-underline"
         >
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
             <path d="M15 3h6v6" />
             <path d="M10 14 21 3" />
           </svg>
-          <span>Client Site</span>
+          <span>Link</span>
         </a>
       )}
     </div>
@@ -2409,14 +2462,12 @@ const Portfolio = ({ isDarkMode, toggleDarkMode, initialProjectId = null }) => {
                         <div className="block md:hidden mt-3 mb-5">
                           {/* Project Title and Description for Mobile */}
                           <div className="mb-6">
-                            <h2 className="text-xl font-normal text-gray-900 mb-2">
-                              {project.name}
-                            </h2>
-                            {project.date && (
-                              <p className="text-xs text-gray-500 mb-3">
-                                {project.date}
-                              </p>
-                            )}
+                            {renderCaseStudyTitleHeader(project, {
+                              titleClassName: 'text-xl font-normal text-gray-900',
+                              dateClassName: 'mt-1 text-xs text-gray-500',
+                              logoSize: 32,
+                              className: 'mb-3',
+                            })}
                             {renderRoleChips(project, { className: 'mb-3', keyPrefix: 'mobile' })}
                             {renderWovenDescription(project, 'text-sm text-gray-600 leading-relaxed max-w-md')}
                           </div>
@@ -2489,14 +2540,7 @@ const Portfolio = ({ isDarkMode, toggleDarkMode, initialProjectId = null }) => {
                   data-case-study-section="overview"
                   style={{ scrollMarginTop: '1.5rem' }}
                 >
-                  <h2 className="text-2xl font-normal text-gray-900 mb-2">
-                    {selectedProject.name}
-                  </h2>
-                  {selectedProject.date && (
-                    <p className="text-sm text-gray-500 mb-4">
-                      {selectedProject.date}
-                    </p>
-                  )}
+                  {renderCaseStudyTitleHeader(selectedProject)}
                   {renderRoleChips(selectedProject, { keyPrefix: 'desktop' })}
                   {renderWovenDescription(selectedProject, 'text-sm text-gray-600 leading-relaxed max-w-2xl')}
                 </div>
