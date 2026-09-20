@@ -1,13 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { DemoCursor, MgoBadge, Sym } from './EmmaGisDemoShared';
+import { DemoCursor, MgoBadge, Sym, getCursorPoint } from './EmmaGisDemoShared';
 import './EmmaGisDemoShared.css';
 
 const CHATS = [
-  { id: 'corridor', title: 'Substation siting — northern corridor' },
-  { id: 'spatial', title: 'Spatial query — corridor intersect' },
+  { id: 'corridor', title: 'Substation siting - northern corridor' },
+  { id: 'spatial', title: 'Spatial query - corridor intersect' },
   { id: 'bundle', title: 'Ecologist working bundle' },
-  { id: 'flood', title: 'Flood risk — Avonmouth expansion' },
-  { id: 'ecology', title: 'Ecology constraints — eastern route' },
+  { id: 'flood', title: 'Flood risk - Avonmouth expansion' },
+  { id: 'ecology', title: 'Ecology constraints - eastern route' },
 ];
 
 const STEPS = [
@@ -58,13 +58,7 @@ const EmmaChatThreadsDemo = ({ className = '', style }) => {
       const target = targetRefs.current[step.target];
       if (!target) return;
 
-      const containerRect = container.getBoundingClientRect();
-      const targetRect = target.getBoundingClientRect();
-      setCursor({
-        x: targetRect.left - containerRect.left + targetRect.width * 0.5,
-        y: targetRect.top - containerRect.top + targetRect.height * 0.5,
-        visible: true,
-      });
+      setCursor({ ...getCursorPoint(container, target, 0.5), visible: true });
     };
 
     const frame = requestAnimationFrame(updateCursor);
@@ -127,7 +121,7 @@ const EmmaChatThreadsDemo = ({ className = '', style }) => {
           </div>
         </aside>
 
-        <DemoCursor x={cursor.x} y={cursor.y} visible={cursor.visible} />
+        <DemoCursor x={cursor.x} y={cursor.y} visible={cursor.visible} motion="gsap" />
       </div>
     </div>
   );

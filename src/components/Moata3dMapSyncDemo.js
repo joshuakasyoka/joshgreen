@@ -3,6 +3,7 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { ModelViewport } from './moata3dPanelShared';
 import './Moata3dMapSyncDemo.css';
+import { CARTO_VOYAGER_TILES } from '../utils/cartoTiles';
 
 const MAP_VIEW = { center: [51.4816, -0.1448], zoom: 16.2 };
 
@@ -65,7 +66,7 @@ const Moata3dMapSyncDemo = ({ className = '', style }) => {
       tap: false,
     });
 
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+    L.tileLayer(CARTO_VOYAGER_TILES, {
       subdomains: 'abcd',
       maxZoom: 20,
     }).addTo(map);

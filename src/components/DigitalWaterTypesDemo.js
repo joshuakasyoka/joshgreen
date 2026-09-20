@@ -209,7 +209,7 @@ const DigitalWaterTypesDemo = ({ className = '', style }) => {
 
             {typeKey === 'text' ? (
               <p className="dwd-types__note">
-                Generated text is rendered as a liquid artifact — each line carries a measured water footprint.
+                Generated text is rendered as a liquid artifact - each line carries a measured water footprint.
               </p>
             ) : null}
           </aside>

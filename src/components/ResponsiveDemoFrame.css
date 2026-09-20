@@ -1,5 +1,6 @@
 .responsive-demo-frame {
   width: 100%;
+  max-width: 920px;
   overflow: hidden;
 }
 

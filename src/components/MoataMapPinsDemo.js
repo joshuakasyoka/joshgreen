@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useLayoutEffect, useRef, useState } from
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import './MoataMapPinsDemo.css';
+import { CARTO_VOYAGER_TILES } from '../utils/cartoTiles';
 
 const MAP_VIEWS = {
   0: { center: [51.4816, -0.1448], zoom: 14.85 },
@@ -184,7 +185,7 @@ const MoataMapPinsDemo = ({ className = '', style }) => {
       zoomDelta: 0.25,
     });
 
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+    L.tileLayer(CARTO_VOYAGER_TILES, {
       subdomains: 'abcd',
       maxZoom: 20,
     }).addTo(map);

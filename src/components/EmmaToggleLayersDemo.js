@@ -12,10 +12,10 @@ import {
 } from './EmmaGisDemoShared';
 import './EmmaGisDemoShared.css';
 
-const TITLE = 'Substation siting — northern corridor';
+const TITLE = 'Substation siting - northern corridor';
 
 const AI_PROMPT =
-  'I can calculate HGV access routes on the classified road network and measure standoff distances from operational rail lines — flagging any crossings that would need Network Rail consultation. Do you want me to bring the transport and rail layers forward?';
+  'I can calculate HGV access routes on the classified road network and measure standoff distances from operational rail lines - flagging any crossings that would need Network Rail consultation. Do you want me to bring the transport and rail layers forward?';
 
 const PERMISSION_PROMPT =
   'I can add Transport Network to your layer tree. Review the action below and choose Allow to continue.';

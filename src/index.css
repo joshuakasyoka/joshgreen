@@ -92,7 +92,7 @@ body.theme-dark .case-study-section .bg-gray-200 {
   filter: none;
 }
 
-/* Hide scrollbars — clip wrapper pushes scrollbar outside visible area */
+/* Hide scrollbars - clip wrapper pushes scrollbar outside visible area */
 .scroll-clip {
   overflow: hidden;
   min-height: 0;
@@ -241,6 +241,53 @@ body.theme-dark .case-study-section .bg-gray-200 {
 
 .portfolio-active-dot {
   animation: activeDotPulse 1s ease-out 1;
+}
+
+.portfolio-present-dot {
+  position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  margin: -6px;
+  border-radius: 999px;
+}
+
+.portfolio-present-dot__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #81ff03;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.portfolio-present-dot__play {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  opacity: 0;
+  transform: scale(0.4);
+  filter: drop-shadow(0 0 4px rgba(129, 255, 3, 0.55));
+  transition: transform 0.25s cubic-bezier(0.34, 1.8, 0.64, 1), opacity 0.2s ease;
+}
+
+.portfolio-present-dot:hover .portfolio-present-dot__dot,
+.portfolio-present-dot:focus-visible .portfolio-present-dot__dot {
+  opacity: 0;
+  transform: scale(0.4);
+}
+
+.portfolio-present-dot:hover .portfolio-present-dot__play,
+.portfolio-present-dot:focus-visible .portfolio-present-dot__play {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.portfolio-present-dot:focus-visible {
+  outline: 1px solid #81ff03;
+  outline-offset: 2px;
 }
 
 .portfolio-sidebar__new-label {
@@ -425,7 +472,7 @@ body.theme-dark .case-study-section .bg-gray-200 {
   }
 }
 
-/* Portfolio UI demos — decorative, auto-playing, no user interaction needed.
+/* Portfolio UI demos - decorative, auto-playing, no user interaction needed.
    Nested overflow:hidden boxes inside them can otherwise swallow the mouse-wheel
    scroll gesture (Chrome treats the hit overflow:hidden box as the scroll target
    and doesn't chain it up to the page). Removing them from hit-testing fixes that

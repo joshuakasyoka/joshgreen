@@ -1,0 +1,142 @@
+/* Passphrase prompt for a private case study */
+
+.case-lock {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 420px;
+  padding: 26px 28px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  background: #fff;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+.case-lock__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  margin-bottom: 14px;
+  border-radius: 50%;
+  background: #f3f3f1;
+  color: #26251f;
+}
+
+.case-lock__title {
+  margin: 0 0 6px;
+  font-size: 17px;
+  font-weight: 600;
+  color: #26251f;
+}
+
+.case-lock__body {
+  margin: 0 0 18px;
+  color: #6b6a62;
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+
+.case-lock__form {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+
+.case-lock__input {
+  flex: 1;
+  min-width: 0;
+  padding: 9px 13px;
+  border: 1px solid #d8d7d0;
+  border-radius: 9px;
+  font-size: 13.5px;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.case-lock__input:focus { border-color: #26251f; }
+.case-lock__input.is-error { border-color: #d1453b; }
+
+.case-lock__btn {
+  padding: 9px 16px;
+  border-radius: 9px;
+  background: #111;
+  color: #fff;
+  font-size: 13px;
+  font-family: inherit;
+  font-weight: 500;
+  transition: opacity 0.2s ease;
+}
+
+.case-lock__btn:disabled { opacity: 0.35; }
+
+.case-lock__error {
+  margin: 10px 0 0;
+  color: #d1453b;
+  font-size: 12.5px;
+}
+
+.case-lock__cancel {
+  margin-top: 14px;
+  color: #6b6a62;
+  font-size: 12.5px;
+  font-family: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Sidebar lock marker, in place of the active dot */
+.portfolio-lock-dot {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  margin: -6px;
+  color: #9a998f;
+}
+
+/* On a presentation slide the prompt sits on the grey stage */
+.present-stage .case-lock { box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06); }
+
+/* Inline unlock in the sidebar row */
+.case-lock-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 2px 0;
+  color: #9a998f;
+}
+
+.case-lock-row.is-error { color: #d1453b; }
+
+.case-lock-row__input {
+  flex: 1;
+  min-width: 0;
+  padding: 4px 0;
+  border: 0;
+  background: transparent;
+  color: #26251f;
+  font-family: inherit;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  outline: none;
+  box-shadow: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.case-lock-row__input:-webkit-autofill,
+.case-lock-row__input:-webkit-autofill:hover,
+.case-lock-row__input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #26251f;
+  caret-color: #26251f;
+  transition: background-color 99999s ease-out;
+  box-shadow: 0 0 0 1000px #fff inset;
+}
+
+.case-lock-row.is-error .case-lock-row__input { color: #d1453b; }
+.case-lock-row__input::placeholder { color: #a9a89f; letter-spacing: 0; }

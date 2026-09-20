@@ -65,7 +65,7 @@ const MoataGisSpatialQueryDemo = ({ className = '', style }) => {
           </div>
           <div className="moata-gis-tools__field">
             <label>Select a Layer</label>
-            <div className="moata-gis-tools__field-value is-highlight">Traffic Diversions — all features (55)</div>
+            <div className="moata-gis-tools__field-value is-highlight">Traffic Diversions - all features (55)</div>
           </div>
           <div className="moata-gis-tools__field">
             <label>Buffer Distance</label>

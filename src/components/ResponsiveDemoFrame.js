@@ -6,8 +6,8 @@ import './ResponsiveDemoFrame.css';
 // that 100% just shrinks the window down to mobile width while its internal
 // layout stays desktop-shaped, producing a tall, squashed mockup.
 //
-// This wrapper instead measures the demo's true natural (desktop) size —
-// by forcing it to render at a generous width first — then scales the whole
+// This wrapper instead measures the demo's true natural (desktop) size -
+// by forcing it to render at a generous width first - then scales the whole
 // thing down uniformly with a CSS transform, so on mobile it appears as a
 // small, proportionate version of the desktop screen instead of a reflowed
 // one.

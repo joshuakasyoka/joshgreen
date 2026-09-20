@@ -148,7 +148,7 @@ const About = ({ isDarkMode, toggleDarkMode }) => {
                     PhD, Critical Design Theory
                   </a>
                 </div>
-                <div className="text-xs text-gray-500">University of the Arts London (2025—2030)</div>
+                <div className="text-xs text-gray-500">University of the Arts London (2025-2030)</div>
               </div>
               <div>
                 <div>MSc &amp; MA, Collaborative Design</div>
@@ -164,7 +164,7 @@ const About = ({ isDarkMode, toggleDarkMode }) => {
             <div className="text-xs text-gray-400">Updated 1st July 2026</div>
           </div>
           <p>
-            I'm a Product Designer working on the future of civil engineering tools at Mott MacDonald — a global engineering and management consultancy — through Mettle Design Studio. Alongside this, I'm a{' '}
+            I'm a Product Designer working on the future of civil engineering tools at Mott MacDonald - a global engineering and management consultancy - through Mettle Design Studio. Alongside this, I'm a{' '}
             <a
               href={PHD_PROFILE_URL}
               target="_blank"

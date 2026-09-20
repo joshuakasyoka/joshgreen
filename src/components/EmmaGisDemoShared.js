@@ -1,4 +1,5 @@
-import React, { useEffect, useRef, useState, useCallback } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState, useCallback } from 'react';
+import { gsap } from 'gsap';
 import {
   ArrowUp,
   Check,
@@ -193,9 +194,43 @@ export const EmmaPermissionCard = ({
   );
 };
 
-export const EmmaAiBubble = ({ children, visible = true }) => (
-  <div className={`emma-gis-demo__bubble-ai emma-gis-demo__msg ${visible ? 'is-visible' : ''}`.trim()}>{children}</div>
-);
+// Replies stream in word by word (GSAP stagger) each time they appear, the
+// way the assistant writes - rather than landing as a finished paragraph.
+const STREAM_WORD_GAP = 0.045;
+
+const prefersReducedMotion = () =>
+  typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+
+export const EmmaAiBubble = ({ children, visible = true }) => {
+  const ref = useRef(null);
+  const text = typeof children === 'string' ? children : null;
+
+  useLayoutEffect(() => {
+    const node = ref.current;
+    if (!node || !visible || !text || prefersReducedMotion()) return undefined;
+    const words = node.querySelectorAll('.emma-gis-demo__word');
+    const tween = gsap.fromTo(
+      words,
+      { opacity: 0 },
+      { opacity: 1, duration: 0.3, ease: 'power1.out', stagger: STREAM_WORD_GAP }
+    );
+    return () => tween.kill();
+  }, [visible, text]);
+
+  return (
+    <div ref={ref} className={`emma-gis-demo__bubble-ai emma-gis-demo__msg ${visible ? 'is-visible' : ''}`.trim()}>
+      {text
+        ? text.split(/(\s+)/).map((part, idx) =>
+            /^\s+$/.test(part) ? part : (
+              <span key={idx} className="emma-gis-demo__word">
+                {part}
+              </span>
+            )
+          )
+        : children}
+    </div>
+  );
+};
 
 export const EmmaUserBubble = ({ children, visible = true }) => (
   <div className={`emma-gis-demo__bubble-user emma-gis-demo__msg ${visible ? 'is-visible' : ''}`.trim()}>{children}</div>
@@ -208,24 +243,65 @@ export const EmmaThinking = ({ visible }) => (
   </div>
 );
 
-export const DemoCursor = ({ x, y, visible }) => (
-  <svg
-    className={`emma-gis-demo__cursor ${visible ? 'is-visible' : ''}`}
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    style={{ transform: `translate3d(${x}px, ${y}px, 0)` }}
-    aria-hidden="true"
-  >
-    <path
-      d="M5.5 3.5L18 12.5L11.5 14L9.5 20.5L5.5 3.5Z"
-      fill="#111"
-      stroke="#fff"
-      strokeWidth="1.2"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
+// motion="gsap" (the EMMA case-study demos): each move is a GSAP tween timed
+// by distance with an in-out ease, so short hops are quick and long travels
+// glide. Otherwise the cursor rides a fixed CSS transition.
+export const DemoCursor = ({ x, y, visible, motion = 'css' }) => {
+  const ref = useRef(null);
+  const placed = useRef(false);
+  const useGsap = motion === 'gsap';
+
+  useLayoutEffect(() => {
+    const el = ref.current;
+    if (!useGsap || !el) return;
+    // Appearing (or hidden): jump straight to the spot, then glide from there.
+    if (!placed.current || !visible || prefersReducedMotion()) {
+      gsap.set(el, { x, y });
+      placed.current = visible;
+      return;
+    }
+    const dx = x - gsap.getProperty(el, 'x');
+    const dy = y - gsap.getProperty(el, 'y');
+    const duration = gsap.utils.clamp(0.3, 0.85, 0.25 + Math.hypot(dx, dy) / 700);
+    gsap.to(el, { x, y, duration, ease: 'power3.inOut', overwrite: true });
+  }, [x, y, visible, useGsap]);
+
+  useEffect(() => () => ref.current && gsap.killTweensOf(ref.current), []);
+
+  return (
+    <svg
+      ref={ref}
+      className={`emma-gis-demo__cursor ${useGsap ? 'is-gsap' : ''} ${visible ? 'is-visible' : ''}`}
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      style={useGsap ? undefined : { transform: `translate3d(${x}px, ${y}px, 0)` }}
+      aria-hidden="true"
+    >
+      <path
+        d="M5.5 3.5L18 12.5L11.5 14L9.5 20.5L5.5 3.5Z"
+        fill="#111"
+        stroke="#fff"
+        strokeWidth="1.2"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+};
+
+// Cursor position of `target` inside `container`, in the container's own
+// (unscaled) coordinates. Demos are often rendered inside a CSS transform
+// (ResponsiveDemoFrame, presentation slides), where bounding rects are scaled
+// but the cursor is positioned in layout pixels - so divide the scale back out.
+export const getCursorPoint = (container, target, xRatio = 0.5) => {
+  const containerRect = container.getBoundingClientRect();
+  const targetRect = target.getBoundingClientRect();
+  const scale = container.offsetWidth ? containerRect.width / container.offsetWidth : 1;
+  return {
+    x: (targetRect.left - containerRect.left + targetRect.width * xRatio) / scale,
+    y: (targetRect.top - containerRect.top + targetRect.height * 0.5) / scale,
+  };
+};
 
 export const useDemoAnimation = (steps, containerRef) => {
   const targetRefs = useRef({});
@@ -267,13 +343,7 @@ export const useDemoAnimation = (steps, containerRef) => {
         return;
       }
 
-      const containerRect = container.getBoundingClientRect();
-      const targetRect = target.getBoundingClientRect();
-      setCursor({
-        x: targetRect.left - containerRect.left + targetRect.width * 0.55,
-        y: targetRect.top - containerRect.top + targetRect.height * 0.5,
-        visible: true,
-      });
+      setCursor({ ...getCursorPoint(container, target, 0.55), visible: true });
     };
 
     const frame = requestAnimationFrame(updateCursor);
@@ -307,7 +377,7 @@ export const GisDemoWindow = ({ children, containerRef, cursor, className = '', 
         <span className="emma-gis-demo__url">geospatial.mottmac.com/sample</span>
       </div>
       {children}
-      <DemoCursor x={cursor.x} y={cursor.y} visible={cursor.visible} />
+      <DemoCursor x={cursor.x} y={cursor.y} visible={cursor.visible} motion="gsap" />
     </div>
   </div>
 );

@@ -38,7 +38,7 @@ export const DEMO_ARTIFACTS = [
     water: 4.2,
     generator: 'Priya D.',
     created: '21 Apr 2025',
-    preview: 'Grid simulation — dampening 0.42',
+    preview: 'Grid simulation - dampening 0.42',
   },
   {
     id: 9,

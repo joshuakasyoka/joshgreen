@@ -17,7 +17,7 @@ const STEPS = [
 ];
 
 // Vertex + two measured points, as percentages of the map area. Real vector
-// geometry — bearings, the interior angle, and the segment length are all
+// geometry - bearings, the interior angle, and the segment length are all
 // derived from these coordinates rather than hardcoded.
 const V = { x: 40, y: 58 };
 const A = { x: 40, y: 20 };
@@ -85,7 +85,7 @@ const MoataGisMeasureDemo = ({ className = '', style }) => {
     if (interiorAngle < 0) interiorAngle += 360;
     // The bend at V always has one obtuse and one acute reading: the interior
     // angle itself, and its supplement (the angle between segment V-B and
-    // segment V-A extended backwards through V) — the two always sum to 180°.
+    // segment V-A extended backwards through V) - the two always sum to 180°.
     const obtuseAngle = interiorAngle > 90 ? interiorAngle : 180 - interiorAngle;
     const acuteAngle = 180 - obtuseAngle;
     const obtuseArc = describeArc(V, 9, bearing1, bearing2, aspect);

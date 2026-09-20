@@ -87,7 +87,7 @@ const OVERVIEW = [
 ];
 
 // Points climb toward the next rank while the score breakdown
-// chips land one by one — the "one more catch" progression hook.
+// chips land one by one - the "one more catch" progression hook.
 export default function BugDexProfileDemo({ className = '' }) {
   const [cycle, setCycle] = useState(0);
   const [pts, setPts] = useState(1140);

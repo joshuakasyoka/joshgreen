@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+import { CARTO_POSITRON_TILES, CARTO_VOYAGER_TILES } from '../utils/cartoTiles';
 
 const MAP_VIEWS = {
   0: { center: [53.482, -2.242], zoom: 12 },
@@ -31,7 +32,14 @@ const safeRemoveMap = (map) => {
   }
 };
 
-const EmmaGisMap = ({ pan = 0, mode = 'default' }) => {
+// basemap: 'voyager' (default) matches the Moata Geospatial demos; the EMMA
+// Artefacts demos pass 'positron' to keep the lighter standalone-app map.
+const BASEMAP_TILES = {
+  voyager: CARTO_VOYAGER_TILES,
+  positron: CARTO_POSITRON_TILES,
+};
+
+const EmmaGisMap = ({ pan = 0, mode = 'default', basemap = 'voyager' }) => {
   const mountRef = useRef(null);
   const mapRef = useRef(null);
   const transportRef = useRef(null);
@@ -128,7 +136,7 @@ const EmmaGisMap = ({ pan = 0, mode = 'default' }) => {
       zoomDelta: 0.25,
     });
 
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+    L.tileLayer(BASEMAP_TILES[basemap] || CARTO_VOYAGER_TILES, {
       subdomains: 'abcd',
       maxZoom: 20,
     }).addTo(map);
@@ -171,7 +179,7 @@ const EmmaGisMap = ({ pan = 0, mode = 'default' }) => {
       bufferRef.current = null;
       setMapReady(false);
     };
-  }, [applyView, syncOverlays]);
+  }, [applyView, syncOverlays, basemap]);
 
   useEffect(() => {
     const map = mapRef.current;

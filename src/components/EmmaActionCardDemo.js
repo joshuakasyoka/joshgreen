@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import {
+  getCursorPoint,
   DemoCursor,
   EmmaActionCard,
   EmmaLayerCard,
@@ -8,9 +9,9 @@ import './EmmaGisDemoShared.css';
 
 const ACTION_APIS = [
   'GET /api/v1/layers/world-heritage/features',
-  'POST /api/v1/spatial/buffer — distance: 25000m',
-  'POST /api/v1/spatial/intersects — target: /api/v1/layers/major-roads',
-  'PUT /api/v1/tools/spatial-query/session — prefill applied',
+  'POST /api/v1/spatial/buffer - distance: 25000m',
+  'POST /api/v1/spatial/intersects - target: /api/v1/layers/major-roads',
+  'PUT /api/v1/tools/spatial-query/session - prefill applied',
 ];
 
 const STEPS = [
@@ -60,13 +61,7 @@ const EmmaActionCardDemo = ({ className = '', style }) => {
       const target = targetRefs.current[step.target];
       if (!target) return;
 
-      const containerRect = container.getBoundingClientRect();
-      const targetRect = target.getBoundingClientRect();
-      setCursor({
-        x: targetRect.left - containerRect.left + targetRect.width * 0.55,
-        y: targetRect.top - containerRect.top + targetRect.height * 0.5,
-        visible: true,
-      });
+      setCursor({ ...getCursorPoint(container, target, 0.55), visible: true });
     };
 
     const frame = requestAnimationFrame(updateCursor);
@@ -113,7 +108,7 @@ const EmmaActionCardDemo = ({ className = '', style }) => {
           )}
         </div>
 
-        <DemoCursor x={cursor.x} y={cursor.y} visible={cursor.visible} />
+        <DemoCursor x={cursor.x} y={cursor.y} visible={cursor.visible} motion="gsap" />
       </div>
     </div>
   );

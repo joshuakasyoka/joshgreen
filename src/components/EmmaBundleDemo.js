@@ -15,7 +15,7 @@ import './EmmaGisDemoShared.css';
 const TITLE = 'Ecologist working bundle';
 
 const AI_PROMPT =
-  'I can open the Add Layer modal on the Bundles tab with the Ecologist Working Bundle pre-selected — 5 layers covering Ecology, Constraints, Natural England. Review the bundle, then click Add Bundle to add all layers to your tree. Would you like me to open it now?';
+  'I can open the Add Layer modal on the Bundles tab with the Ecologist Working Bundle pre-selected - 5 layers covering Ecology, Constraints, Natural England. Review the bundle, then click Add Bundle to add all layers to your tree. Would you like me to open it now?';
 
 const AI_CONFIRM =
   "I've prepared the Ecologist Working Bundle with 5 layers. Click the card below to open Add Layer → Bundles, review the included layers, choose a tree location, then click Add Bundle to add them to your project.";
@@ -23,8 +23,8 @@ const AI_CONFIRM =
 const BUNDLE_APIS = [
   'GET /api/v1/bundles/ecologist-working',
   'GET /api/v1/bundles/ecologist-working/layers',
-  'POST /api/v1/bundles/resolve — layers: 5',
-  'PUT /api/v1/tools/add-layer/session — bundle: Ecologist Working Bundle',
+  'POST /api/v1/bundles/resolve - layers: 5',
+  'PUT /api/v1/tools/add-layer/session - bundle: Ecologist Working Bundle',
 ];
 
 const STEPS = [

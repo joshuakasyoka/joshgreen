@@ -1,5 +1,5 @@
 export const RESEARCH_QUOTE = {
-  text: 'If ecology pans the map for a woodland survey, structures loses their crossing review — we were stepping on each other every day.',
+  text: 'If ecology pans the map for a woodland survey, structures loses their crossing review - we were stepping on each other every day.',
   role: 'GIS lead',
   programme: 'HS2 ecology workstream',
 };
@@ -16,7 +16,7 @@ export const RESEARCH_TRANSCRIPT = {
     {
       id: 'shared-view',
       speaker: 'GIS lead',
-      text: 'We live in the shared Moata view — ecology, structures, and utilities all work from the same programme layers.',
+      text: 'We live in the shared Moata view - ecology, structures, and utilities all work from the same programme layers.',
       insights: ['shared Moata view'],
     },
     {
@@ -49,13 +49,13 @@ export const RESEARCH_TRANSCRIPT = {
     {
       id: 'spaces',
       speaker: 'GIS lead',
-      text: 'We needed our own space on the programme — same layers, but isolated map state.',
+      text: 'We needed our own space on the programme - same layers, but isolated map state.',
       insights: ['isolated map state'],
     },
     {
       id: 'josh-comments',
       speaker: 'Josh',
-      text: 'And once teams had their own space — comments?',
+      text: 'And once teams had their own space - comments?',
     },
     {
       id: 'comments-close',

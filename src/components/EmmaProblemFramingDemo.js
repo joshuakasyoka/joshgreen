@@ -7,15 +7,15 @@ import './MoataProcessDemoShared.css';
 import './EmmaProblemFramingDemo.css';
 
 const STEPS = [
-  { visibleCount: 0, clustered: false, activeTheme: null, subtitle: 'Workshop — mapping intents from GIS specialists and project admins', duration: 1400 },
-  { visibleCount: 8, clustered: false, activeTheme: null, subtitle: 'Collecting needs on the board…', duration: 2200 },
-  { visibleCount: 8, clustered: false, activeTheme: null, subtitle: 'Sticky notes from across the workshop…', duration: 1600 },
-  { visibleCount: 8, clustered: true, activeTheme: null, subtitle: 'Eight notes — four intent clusters', duration: 2000 },
-  { visibleCount: 8, clustered: true, activeTheme: 'layers', subtitle: 'Layer discovery — finding the right project data', duration: 2200 },
-  { visibleCount: 8, clustered: true, activeTheme: 'spatial', subtitle: 'Spatial queries — SQL without GIS gatekeeping', duration: 2200 },
-  { visibleCount: 8, clustered: true, activeTheme: 'simple', subtitle: 'Simple map views — boundaries and zones for admins', duration: 2200 },
-  { visibleCount: 8, clustered: true, activeTheme: 'discovery', subtitle: 'Tools & bundles — working sets for complex analysis', duration: 2200 },
-  { visibleCount: 8, clustered: true, activeTheme: 'all', subtitle: 'Two audiences, one platform — democratising GIS through natural language', duration: 3200 },
+  { visibleCount: 0, clustered: false, activeTheme: null, subtitle: 'Discovery workshop - Mettle Design Studio and Mott MacDonald', duration: 1400 },
+  { visibleCount: 8, clustered: false, activeTheme: null, subtitle: 'Working the interview findings onto the board…', duration: 2200 },
+  { visibleCount: 8, clustered: false, activeTheme: null, subtitle: 'Sticky notes from across GIS, land and carbon…', duration: 1600 },
+  { visibleCount: 8, clustered: true, activeTheme: null, subtitle: 'Eight notes - three products, one shared question', duration: 2000 },
+  { visibleCount: 8, clustered: true, activeTheme: 'gis', subtitle: 'GIS - keep specialist depth, open plain-language queries', duration: 2200 },
+  { visibleCount: 8, clustered: true, activeTheme: 'land', subtitle: 'Land - status and constraints without a one-off chatbot', duration: 2200 },
+  { visibleCount: 8, clustered: true, activeTheme: 'carbon', subtitle: 'Carbon - everyday language for totals and scenarios', duration: 2200 },
+  { visibleCount: 8, clustered: true, activeTheme: 'shared', subtitle: 'Shared strategy - one entry point, product-specific depth', duration: 2200 },
+  { visibleCount: 8, clustered: true, activeTheme: 'all', subtitle: 'Prioritised together - challenge separate chatbots, keep what each product needs', duration: 3200 },
 ];
 
 const EmmaProblemFramingDemo = ({ className = '', style }) => {
@@ -61,7 +61,7 @@ const EmmaProblemFramingDemo = ({ className = '', style }) => {
       <div className="moata-process-demo__card" ref={containerRef}>
         <div className="moata-process-demo__label">
           <span className="moata-process-demo__label-dot" aria-hidden="true" />
-          Problem framing
+          Design together
         </div>
 
         <div className="moata-process-demo__body emma-problem-framing-demo__body">
@@ -69,7 +69,7 @@ const EmmaProblemFramingDemo = ({ className = '', style }) => {
 
           <div className="emma-problem-framing-demo__stage">
             <div className="emma-problem-framing-demo__board">
-              <span className="emma-problem-framing-demo__board-label">Mapping intents workshop</span>
+              <span className="emma-problem-framing-demo__board-label">Discovery workshop</span>
 
               <div className="emma-problem-framing-demo__notes">
               {EMMA_FRAMING_NOTES.map((note, index) => {

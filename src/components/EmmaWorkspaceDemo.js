@@ -11,13 +11,13 @@ import {
 } from './EmmaGisDemoShared';
 import './EmmaGisDemoShared.css';
 
-const TITLE = 'Substation siting — northern corridor';
+const TITLE = 'Substation siting - northern corridor';
 
 const USER_MSG =
-  'Assessing the northern corridor substation site — need road access and rail proximity for the EMF zone.';
+  'Assessing the northern corridor substation site - need road access and rail proximity for the EMF zone.';
 
 const AI_RESPONSE =
-  'I can calculate HGV access routes on the classified road network and measure standoff distances from operational rail lines — flagging any crossings that would need Network Rail consultation. Do you want me to bring the transport and rail layers forward?';
+  'I can calculate HGV access routes on the classified road network and measure standoff distances from operational rail lines - flagging any crossings that would need Network Rail consultation. Do you want me to bring the transport and rail layers forward?';
 
 const buildSteps = () => {
   const chars = USER_MSG.split('');

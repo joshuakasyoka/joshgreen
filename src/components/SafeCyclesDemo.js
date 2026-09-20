@@ -199,7 +199,7 @@ export default function SafeCyclesDemo({ className = '' }) {
                 </span>
                 <span className="safe-cycles-demo__input-text">
                   {inputPhase === 0
-                    ? <span className="safe-cycles-demo__placeholder">Start — e.g. King's Cross</span>
+                    ? <span className="safe-cycles-demo__placeholder">Start - e.g. King's Cross</span>
                     : inputPhase === 1
                       ? <span className="safe-cycles-demo__typing">King's Cross</span>
                       : "King's Cross"
@@ -215,7 +215,7 @@ export default function SafeCyclesDemo({ className = '' }) {
                 </span>
                 <span className="safe-cycles-demo__input-text">
                   {inputPhase < 2
-                    ? <span className="safe-cycles-demo__placeholder">Destination — e.g. London Bridge</span>
+                    ? <span className="safe-cycles-demo__placeholder">Destination - e.g. London Bridge</span>
                     : inputPhase === 2
                       ? <span className="safe-cycles-demo__typing">London Bridge</span>
                       : "London Bridge"

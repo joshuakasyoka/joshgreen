@@ -46,7 +46,7 @@ const COMMENTS = [
     author: 'Thomas',
     initials: 'TS',
     date: '5 May',
-    text: 'Rail alignment comment — needs programme review',
+    text: 'Rail alignment comment - needs programme review',
     status: 'In Review',
   },
   {

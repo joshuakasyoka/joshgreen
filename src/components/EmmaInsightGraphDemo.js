@@ -57,7 +57,7 @@ const EmmaInsightGraphDemo = ({ className = '', style }) => {
 
         <div className="moata-process-demo__body emma-insight-graph-demo__body">
           <p className="emma-insight-graph-demo__subtitle">
-            Barriers to democratising GIS — ranked by interview frequency
+            Where natural language was needed across the Moata suite - ranked by interview frequency
           </p>
 
           <div className="emma-insight-graph-demo__chart" role="img" aria-label="Bar chart of interview findings">
@@ -103,7 +103,7 @@ const EmmaInsightGraphDemo = ({ className = '', style }) => {
               step.showNote ? 'is-visible' : '',
             ].filter(Boolean).join(' ')}
           >
-            Natural language became the bridge — specialists keep SQL depth, project admins get plain-language layers and map views.
+            Carbon, land and GIS each needed queryable natural language - one shared approach beat three one-off chatbots.
           </p>
         </div>
       </div>

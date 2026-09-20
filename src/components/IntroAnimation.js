@@ -9,7 +9,7 @@ const INTRO_LINES_RAW = [
     parts: [
       { text: "I'm a Product Designer working on the future of civil engineering tools at" },
       { text: 'Mott MacDonald', href: 'https://www.mottmac.com/' },
-      { text: '— a global engineering and management consultancy — through' },
+      { text: '- a global engineering and management consultancy - through' },
       { text: 'Mettle Design Studio', href: 'https://mettle-studio.com/' },
       { text: '.' },
     ],

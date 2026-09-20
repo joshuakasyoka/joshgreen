@@ -1,0 +1,221 @@
+/* EMMA chat exchange - extends the Win Room chat styles. Approval stays
+   neutral: a grey "Approved" badge, no green. Common dialogue pattern:
+   goal → routes → permission → breakdown → next goal. */
+
+.emma-chat-exchange__window {
+  height: 560px;
+}
+
+.emma-chat-exchange__thread {
+  justify-content: flex-start;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+.emma-chat-exchange__thread::-webkit-scrollbar { display: none; }
+
+.emma-chat__permission,
+.emma-chat__confirm,
+.emma-chat__routes,
+.emma-chat__breakdown {
+  width: 100%;
+  max-width: 420px;
+  border: 1px solid var(--wr-border);
+  border-radius: 12px;
+  background: #fff;
+  animation: wr-chat-in 0.45s var(--wr-ease);
+}
+
+.emma-chat__permission {
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+}
+
+.emma-chat__permission-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.emma-chat__approved {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: auto;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #f1f1ee;
+  color: var(--wr-ink);
+  font-size: 10.5px;
+  font-weight: 700;
+  animation: wr-chat-pop 0.4s cubic-bezier(0.34, 1.8, 0.64, 1);
+}
+
+.emma-chat__command {
+  display: block;
+  padding: 9px 12px;
+  border-top: 1px solid #f0f0f0;
+  color: var(--wr-soft);
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 11.5px;
+}
+
+.emma-chat__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 8px 10px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.emma-chat__deny,
+.emma-chat__allow {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  transition: background-color 0.2s ease, color 0.2s ease, opacity 0.25s ease, transform 0.15s ease;
+}
+
+.emma-chat__deny {
+  color: var(--wr-soft);
+}
+
+.emma-chat__allow {
+  background: #1b1c28;
+  color: #fff;
+}
+
+.emma-chat__permission.is-hover .emma-chat__allow {
+  background: #2d2f40;
+  box-shadow: 0 0 0 3px rgba(27, 28, 40, 0.12);
+}
+
+.emma-chat__permission.is-pressed .emma-chat__allow {
+  transform: scale(0.94);
+}
+
+.emma-chat__permission.is-approved .emma-chat__deny {
+  opacity: 0;
+}
+
+.emma-chat__permission.is-approved .emma-chat__actions {
+  display: none;
+}
+
+.emma-chat__confirm {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 12px;
+}
+
+.emma-chat__confirm-icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: #f3f3f1;
+  color: var(--wr-soft);
+}
+
+.emma-chat__confirm strong {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.emma-chat__confirm small {
+  display: block;
+  color: var(--wr-muted);
+  font-size: 11px;
+}
+
+/* Route options to the confirmed goal */
+.emma-chat__routes {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.emma-chat__route {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 12px;
+  animation: emma-chat-row 0.35s var(--wr-ease) both;
+  animation-delay: calc(var(--i) * 0.08s);
+  transition: background-color 0.2s ease;
+}
+.emma-chat__route + .emma-chat__route { border-top: 1px solid #f0f0f0; }
+.emma-chat__route.is-picked { background: #f6f6f3; }
+
+.emma-chat__route-icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 7px;
+  background: #f3f3f1;
+  color: var(--wr-soft);
+}
+
+.emma-chat__route strong {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.emma-chat__route small {
+  display: block;
+  color: var(--wr-muted);
+  font-size: 11px;
+}
+
+/* Breakdown of changes after approval */
+.emma-chat__breakdown {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.emma-chat__breakdown-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 9px 12px;
+  animation: emma-chat-row 0.3s var(--wr-ease) both;
+  animation-delay: calc(var(--i) * 0.07s);
+}
+.emma-chat__breakdown-row + .emma-chat__breakdown-row { border-top: 1px solid #f0f0f0; }
+.emma-chat__breakdown-row code {
+  color: #333;
+  font: 11.5px 'JetBrains Mono', ui-monospace, monospace;
+}
+
+.emma-chat__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #111;
+  color: #fff;
+}
+
+@keyframes emma-chat-row {
+  from { opacity: 0; transform: translateY(-6px); }
+}

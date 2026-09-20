@@ -120,7 +120,7 @@ export const DEMO_GLOSSARY_DEFINITIONS = {
   participatory:
     'A mode of design that actively involves stakeholders, communities, or users in shaping outcomes rather than treating them as passive recipients.',
   audiorecording:
-    'The use of recorded sound — interviews, ambient audio, or spoken testimony — as a research and making method.',
+    'The use of recorded sound - interviews, ambient audio, or spoken testimony - as a research and making method.',
   mapping:
     'Spatial and relational methods for tracing connections between people, places, and practices across a project.',
   'co-design':

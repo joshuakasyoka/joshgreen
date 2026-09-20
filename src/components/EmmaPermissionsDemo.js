@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { DemoCursor, EmmaPermissionCard } from './EmmaGisDemoShared';
+import { DemoCursor, EmmaPermissionCard, getCursorPoint } from './EmmaGisDemoShared';
 import './EmmaGisDemoShared.css';
 
 const PERMISSION = {
@@ -54,13 +54,7 @@ const EmmaPermissionsDemo = ({ className = '', style }) => {
       const target = targetRefs.current[step.target];
       if (!target) return;
 
-      const containerRect = container.getBoundingClientRect();
-      const targetRect = target.getBoundingClientRect();
-      setCursor({
-        x: targetRect.left - containerRect.left + targetRect.width * 0.5,
-        y: targetRect.top - containerRect.top + targetRect.height * 0.5,
-        visible: true,
-      });
+      setCursor({ ...getCursorPoint(container, target, 0.5), visible: true });
     };
 
     const frame = requestAnimationFrame(updateCursor);
@@ -96,7 +90,7 @@ const EmmaPermissionsDemo = ({ className = '', style }) => {
           />
         </div>
 
-        <DemoCursor x={cursor.x} y={cursor.y} visible={cursor.visible} />
+        <DemoCursor x={cursor.x} y={cursor.y} visible={cursor.visible} motion="gsap" />
       </div>
     </div>
   );

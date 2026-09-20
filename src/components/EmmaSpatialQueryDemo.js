@@ -13,7 +13,7 @@ import {
 } from './EmmaGisDemoShared';
 import './EmmaGisDemoShared.css';
 
-const TITLE = 'Spatial query — corridor intersect';
+const TITLE = 'Spatial query - corridor intersect';
 
 const USER_MSG =
   'Find all major roads within 25 km of the northern corridor substation site.';
@@ -26,9 +26,9 @@ const AI_CONFIRM =
 
 const SPATIAL_APIS = [
   'GET /api/v1/layers/world-heritage/features',
-  'POST /api/v1/spatial/buffer — distance: 25000m',
-  'POST /api/v1/spatial/intersects — target: /api/v1/layers/major-roads',
-  'PUT /api/v1/tools/spatial-query/session — prefill applied',
+  'POST /api/v1/spatial/buffer - distance: 25000m',
+  'POST /api/v1/spatial/intersects - target: /api/v1/layers/major-roads',
+  'PUT /api/v1/tools/spatial-query/session - prefill applied',
 ];
 
 const STEPS = [

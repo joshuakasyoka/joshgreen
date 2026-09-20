@@ -756,6 +756,9 @@
 
 .emma-gis-demo__cursor.is-visible { opacity: 1; }
 
+/* GSAP drives the position; CSS only fades it in and out. */
+.emma-gis-demo__cursor.is-gsap { transition: opacity 0.25s ease; }
+
 /* ── Isolated component stage (action card + permissions) ── */
 
 .emma-isolated-demo {

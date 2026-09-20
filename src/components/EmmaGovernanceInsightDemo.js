@@ -4,8 +4,8 @@ import './MoataProcessDemoShared.css';
 import './EmmaGovernanceInsightDemo.css';
 
 const STEPS = [
-  { phase: 'quote', highlight: false, subtitle: 'Programme interviews — trust and control', duration: 1500 },
-  { phase: 'quote', highlight: true, subtitle: 'Programme interviews — trust and control', duration: 2800 },
+  { phase: 'quote', highlight: false, subtitle: 'Programme interviews - trust and control', duration: 1500 },
+  { phase: 'quote', highlight: true, subtitle: 'Programme interviews - trust and control', duration: 2800 },
 ];
 
 const escapeRegExp = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');

@@ -237,7 +237,7 @@ const MoataProblemWireframeDemo = ({ className = '', style }) => {
             {!isSplit && showSharedExchange && !showConflict && 'Three teams sending messages on one map'}
             {!isSplit && showSharedExchange && showConflict && (
               <>
-                Messages crossing —{' '}
+                Messages crossing -{' '}
                 <span className="moata-problem-wireframe-demo__highlight">wires tangled on one map</span>
               </>
             )}

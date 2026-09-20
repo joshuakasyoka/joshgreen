@@ -7,7 +7,7 @@ import {
   useDemoAnimation,
 } from './MoataGisToolsShared';
 
-// Traffic congestion at each point, one colour per time frame (0–3) — this is
+// Traffic congestion at each point, one colour per time frame (0–3) - this is
 // the data that actually changes as the time window scrubs forward, rather
 // than shapes simply fading in.
 const LIGHT = '#22c55e';

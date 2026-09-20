@@ -140,7 +140,7 @@ function TradingCard({ card, hotAttack }) {
         <span>
           Weakness <TypeIcon type={card.weakness} size={7} /> ×2
         </span>
-        <span className="is-dim">Resistance —</span>
+        <span className="is-dim">Resistance -</span>
         <span className="is-dim">Retreat {card.retreat}</span>
       </div>
       <div className="bugdex-demo__card-foot">

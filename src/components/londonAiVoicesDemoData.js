@@ -84,7 +84,7 @@ export const getTagTooltipLabel = (index) => {
   return `${entry.label}: ${entry.count}`;
 };
 
-// Tallest bar fills ~45% of chart height — matches the live tag view
+// Tallest bar fills ~45% of chart height - matches the live tag view
 export const TAG_BAR_MAX_SCALE = 0.45;
 
 export const getTagBarHeightPercent = (height, maxHeight = Math.max(...TAG_BARS)) =>

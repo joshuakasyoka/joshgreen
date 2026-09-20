@@ -165,7 +165,7 @@ export default function BugDexScanDemo({ className = '' }) {
                   <span>
                     Weakness <TypeIcon type="water" size={7} /> ×2
                   </span>
-                  <span className="is-dim">Resistance —</span>
+                  <span className="is-dim">Resistance -</span>
                   <span className="is-dim">Retreat ●</span>
                 </div>
                 <div className="bugdex-demo__card-foot">

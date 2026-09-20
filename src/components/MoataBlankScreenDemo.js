@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import './MoataBlankScreenDemo.css';
+import { CARTO_VOYAGER_TILES } from '../utils/cartoTiles';
 
 const PURPLE = '#7939F7';
 const MUTED = 'rgba(0, 0, 0, 0.54)';
@@ -284,7 +285,7 @@ const MoataBlankScreenDemo = ({ className = '', style }) => {
       zoomDelta: 0.25,
     });
 
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+    L.tileLayer(CARTO_VOYAGER_TILES, {
       subdomains: 'abcd',
       maxZoom: 20,
     }).addTo(map);

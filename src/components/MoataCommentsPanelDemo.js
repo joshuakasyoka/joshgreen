@@ -27,7 +27,7 @@ const COMMENTS = [
         initials: 'TS',
         name: 'Thomas',
         time: '10:45 AM',
-        text: 'Flagging for planning review — can we confirm the buffer zone?',
+        text: 'Flagging for planning review - can we confirm the buffer zone?',
       },
     ],
   },

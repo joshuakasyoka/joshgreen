@@ -30,6 +30,7 @@ import {
   X,
 } from 'lucide-react';
 import './MoataGisToolsShared.css';
+import { CARTO_POSITRON_TILES } from '../utils/cartoTiles';
 
 export const ICONS = {
   measure: Ruler,
@@ -111,7 +112,7 @@ export const GisToolsLeafletMap = () => {
       tap: false,
     });
 
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+    L.tileLayer(CARTO_POSITRON_TILES, {
       subdomains: 'abcd',
       maxZoom: 20,
     }).addTo(map);
@@ -250,7 +251,7 @@ export const GisToolsWindow = ({ containerRef, cursor, className = '', style, ch
     const win = containerRef.current;
     if (!win) return undefined;
     // offsetHeight reflects layout size, unaffected by the CSS `transform:
-    // scale()` applied below — so this stays accurate regardless of scale.
+    // scale()` applied below - so this stays accurate regardless of scale.
     const measureHeight = () => {
       if (win.offsetHeight > 0) setNaturalHeight(win.offsetHeight);
     };

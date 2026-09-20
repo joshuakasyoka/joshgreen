@@ -6,9 +6,9 @@ const MAP_TOOLS = ['arrow_selector_tool', 'fiber_manual_record', 'circle', 'draw
 const MAP_CONTROLS_COLLAPSED = ['chevron_left', 'my_location'];
 
 const EMMA_CHAT = {
-  title: 'Substation siting — northern corridor',
+  title: 'Substation siting - northern corridor',
   user: 'Assessing a proposed substation site in the northern corridor. Need to understand road access for heavy plant and any rail proximity for the EMF exclusion zone.',
-  ai: 'I can calculate HGV access routes on the classified road network and measure standoff distances from operational rail lines — flagging any crossings that would need Network Rail consultation. Do you want me to bring the transport and rail layers forward?',
+  ai: 'I can calculate HGV access routes on the classified road network and measure standoff distances from operational rail lines - flagging any crossings that would need Network Rail consultation. Do you want me to bring the transport and rail layers forward?',
 };
 
 const STEPS = [
@@ -39,7 +39,7 @@ const Sym = ({ name, size = ICON_SIZE, fill = 1, color }) => (
   </span>
 );
 
-/** MGO badge — custom logo; all other icons use Material Symbols */
+/** MGO badge - custom logo; all other icons use Material Symbols */
 const MgoBadge = () => (
   <svg width={ICON_SIZE} height={ICON_SIZE} viewBox="0 0 24 24" fill="none" aria-hidden="true">
     <circle cx="12" cy="12" r="12" fill="#101223" />

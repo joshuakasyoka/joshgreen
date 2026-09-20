@@ -3,8 +3,9 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { BugDexPhone, TypeIcon } from './BugDexDemoShared';
 import './BugDexDemoShared.css';
+import { CARTO_POSITRON_TILES } from '../utils/cartoTiles';
 
-const EMMA_TILE_URL = 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png';
+const EMMA_TILE_URL = CARTO_POSITRON_TILES;
 
 const PIN_COLORS = ['#BFDDFA', '#D0BFFA', '#F3FABD'];
 

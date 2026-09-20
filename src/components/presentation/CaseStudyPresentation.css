@@ -1,0 +1,567 @@
+/* Phonic is a Schick Toikka trial licence - swap for a licensed webfont
+   before sharing publicly. */
+@font-face {
+  font-family: 'Phonic';
+  src: url('../../assets/fonts/PhonicTrial-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Presentation mode - a Figma-present-style player for case studies.
+   The 1920×1080 slide canvas is scaled as a whole, so sizes inside
+   .present__canvas are authored in slide pixels. */
+
+.present {
+  --present-surround: #1e1e1e;
+  --present-chrome: rgba(44, 44, 44, 0.92);
+  --present-chrome-text: #e6e6e6;
+  --present-chrome-muted: #9a9a9a;
+  --present-accent: rgb(129, 255, 3);
+  --present-ink: #111827;
+  --present-ink-soft: #4b5563;
+  --present-ink-muted: #9ca3af;
+  --present-rule: #e5e7eb;
+  --present-paper: #ffffff;
+
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  background: var(--present-surround);
+  color: var(--present-chrome-text);
+  overflow: hidden;
+  cursor: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' viewBox='0 0 24 24'%3e%3cpath d='M12 5V19' stroke='rgb(129, 255, 3)' stroke-width='1' stroke-linecap='round'/%3e%3cpath d='M5 12H19' stroke='rgb(129, 255, 3)' stroke-width='1' stroke-linecap='round'/%3e%3c/svg%3e") 12 12, crosshair;
+}
+
+.present--idle,
+.present--idle * {
+  cursor: none !important;
+}
+
+.present__viewport {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 24px 88px;
+}
+
+.present:fullscreen .present__viewport {
+  padding: 0;
+}
+
+.present__frame {
+  position: relative;
+  flex-shrink: 0;
+  overflow: hidden;
+  background: var(--present-paper);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 16px 48px rgba(0, 0, 0, 0.35);
+}
+
+.present:fullscreen .present__frame {
+  box-shadow: none;
+}
+
+.present__canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1920px;
+  height: 1080px;
+  transform-origin: top left;
+}
+
+.present__slide-enter {
+  width: 100%;
+  height: 100%;
+  animation: present-fade 320ms ease-out both;
+}
+
+@keyframes present-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .present__slide-enter {
+    animation: none;
+  }
+}
+
+/* ---------- Toolbar ---------- */
+
+.present__toolbar {
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  width: min(760px, calc(100% - 32px));
+  transform: translateX(-50%);
+  border-radius: 12px;
+  background: var(--present-chrome);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  transition: opacity 240ms ease, transform 240ms ease;
+}
+
+.present--idle .present__toolbar {
+  opacity: 0;
+  transform: translate(-50%, 8px);
+  pointer-events: none;
+}
+
+.present__progress {
+  overflow: hidden;
+  border-radius: 12px 12px 0 0;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.present__progress-fill {
+  height: 100%;
+  background: var(--present-accent);
+  transform-origin: left center;
+  transition: transform 320ms ease;
+}
+
+.present__toolbar-row {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 8px;
+}
+
+.present__toolbar-group {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+}
+
+.present__toolbar-group--end {
+  justify-content: flex-end;
+}
+
+.present__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 32px;
+  min-width: 32px;
+  padding: 0 8px;
+  border-radius: 8px;
+  color: var(--present-chrome-text);
+  font-size: 13px;
+  text-decoration: none;
+  transition: background-color 150ms ease;
+}
+
+.present__btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.present__btn:focus-visible {
+  outline: 2px solid var(--present-accent);
+  outline-offset: 1px;
+}
+
+.present__btn:disabled {
+  opacity: 0.3;
+}
+
+.present__title {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  height: 32px;
+  padding: 0 8px;
+  border-radius: 8px;
+  color: var(--present-chrome-text);
+  font-size: 13px;
+  transition: background-color 150ms ease;
+}
+
+.present__title:hover,
+.present__title.is-open {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.present__title:focus-visible {
+  outline: 2px solid var(--present-accent);
+  outline-offset: 1px;
+}
+
+.present__title-text {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.present__title-chevron {
+  flex-shrink: 0;
+  color: var(--present-chrome-muted);
+  transition: transform 200ms ease;
+}
+
+.present__title.is-open .present__title-chevron {
+  transform: rotate(180deg);
+}
+
+/* Case-study switcher, opening upward from the toolbar */
+.present__menu {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 0;
+  width: 300px;
+  max-width: 100%;
+  padding: 6px;
+  border-radius: 12px;
+  background: var(--present-chrome);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  animation: present-menu-in 180ms ease-out both;
+}
+
+@keyframes present-menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+.present__menu-label {
+  padding: 6px 10px 4px;
+  color: var(--present-chrome-muted);
+  font-size: 11px;
+  letter-spacing: 0.02em;
+}
+
+.present__menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 8px;
+  color: var(--present-chrome-text);
+  text-align: left;
+  transition: background-color 150ms ease;
+}
+
+.present__menu-item:hover,
+.present__menu-item:focus-visible {
+  outline: none;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.present__menu-item svg {
+  flex-shrink: 0;
+  color: var(--present-accent);
+}
+
+.present__menu-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  font-size: 13px;
+}
+
+.present__menu-text small {
+  color: var(--present-chrome-muted);
+  font-size: 11px;
+}
+
+.present__title-muted,
+.present__counter {
+  color: var(--present-chrome-muted);
+}
+
+.present__counter {
+  min-width: 56px;
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .present__viewport {
+    padding: 16px 16px 80px;
+  }
+  .present__title-text,
+  .present__btn--label span {
+    display: none;
+  }
+}
+
+/* ---------- Slides (slide pixels) ----------
+   Layout follows the mock frames: a grey label top-left, body copy in a
+   narrow left column, media in a grey panel on the right. */
+
+.present-slide {
+  --present-grey: #808080;
+  --present-black: #000000;
+  --present-panel: #f5f5f5;
+
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  background: var(--present-paper);
+  color: var(--present-grey);
+}
+
+/* Slide type is Phonic; demos keep their own product fonts. */
+.present-eyebrow,
+.present-eyebrow *,
+.present-display,
+.present-body,
+.present-body *,
+.present-stat,
+.present-stat * {
+  font-family: 'Phonic', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
+}
+
+.present-eyebrow {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  display: flex;
+  gap: 32px;
+  color: var(--present-grey);
+  font-size: 30px;
+  line-height: 1.2;
+}
+
+.present-body {
+  color: var(--present-grey);
+  font-size: 26px;
+  line-height: 1.5;
+}
+
+.present-body + .present-body {
+  margin-top: 26px;
+}
+
+.present-term {
+  color: var(--present-black);
+}
+
+.present-display {
+  color: var(--present-black);
+  font-size: 104px;
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+/* Cover + end */
+.present-cover__bottom {
+  position: absolute;
+  left: 100px;
+  right: 100px;
+  bottom: 112px;
+}
+
+.present-cover__lede {
+  max-width: 1000px;
+  margin-top: 44px;
+}
+
+.present-end__links {
+  display: flex;
+  gap: 48px;
+  margin-top: 44px;
+}
+
+.present-end__links a {
+  color: var(--present-grey);
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 1px;
+}
+
+.present-end__links a:hover {
+  color: var(--present-black);
+}
+
+/* Story slides (Situation → Reflection): white side column + grey stage */
+.present-slide--story {
+  display: flex;
+}
+
+.present-side {
+  display: flex;
+  flex-direction: column;
+  width: 584px;
+  flex-shrink: 0;
+  padding: 52px 62px 48px 47px;
+}
+
+.present-side .present-eyebrow {
+  position: static;
+  flex-wrap: wrap;
+  row-gap: 4px;
+}
+
+.present-eyebrow span {
+  white-space: nowrap;
+}
+
+.present-side__body {
+  margin-top: 28px;
+}
+
+.present-side .present-body {
+  font-size: 25px;
+  line-height: 1.38;
+}
+
+.present-side .present-body + .present-body {
+  margin-top: 20px;
+}
+
+.present-side__count {
+  margin-top: auto;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #cfcfcf;
+  color: var(--present-grey);
+  font-family: 'Phonic', 'Inter', sans-serif;
+  font-size: 24px;
+  font-variant-numeric: tabular-nums;
+}
+
+.present-stage {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  background: var(--present-panel);
+}
+
+.present-stage__frame {
+  width: 1240px;
+  height: 760px;
+}
+
+.present-stage__statement {
+  width: 100%;
+  max-width: 1180px;
+  padding: 0 100px;
+}
+
+.present-body--statement {
+  color: var(--present-grey);
+  font-size: 40px;
+  line-height: 1.4;
+}
+
+.present-body--statement + .present-body--statement {
+  margin-top: 32px;
+}
+
+.present-demo {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.present-demo__stage {
+  position: relative;
+  overflow: hidden;
+}
+
+.present-demo__inner {
+  transform-origin: top left;
+}
+
+/* Results figures sit in the panel */
+.present-stats {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 72px;
+  border-radius: 24px;
+  background: var(--present-paper);
+}
+
+.present-stat {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  align-items: baseline;
+  gap: 40px;
+  padding: 36px 0;
+}
+
+.present-stat + .present-stat {
+  border-top: 1px solid #dcdcdc;
+}
+
+.present-stat__value {
+  color: var(--present-black);
+  font-size: 88px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.present-stat__label {
+  color: var(--present-grey);
+  font-size: 30px;
+  line-height: 1.4;
+}
+
+/* Card-only demos (permissions, action cards) ship with their own grey stage
+   for the case-study page; on a slide that stage becomes a plain white card. */
+.present-demo .emma-isolated-demo__stage {
+  border-color: transparent;
+  border-radius: 24px;
+  background: var(--present-paper);
+  box-shadow: none;
+}
+
+/* Diagrams are wide and short at their page size; lay them out narrower on
+   a slide so they scale up to fill the stage. */
+.present-demo .emma-diagram {
+  max-width: 660px;
+}
+
+/* Moata card-only demos ship with a grey stage too; on a slide it becomes a
+   plain white card, matching the EMMA demos above. */
+.present-demo [class^='moata-'][class*='-demo__stage'],
+.present-demo .moata-3d-panel__stage {
+  border-color: transparent;
+  border-radius: 24px;
+  background: var(--present-paper);
+  box-shadow: none;
+}
+
+/* Win Room diagrams: a little narrower on slides so they scale up. */
+.present-demo .wr-diagram,
+.present-demo .wr-chat,
+.present-demo .mpr-app {
+  max-width: 820px;
+}
+
+/* Private deck: the passphrase prompt fills the slide */
+.present__locked {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--present-paper);
+}
+
+.present__locked .case-lock {
+  max-width: 560px;
+  transform: scale(1.4);
+}
